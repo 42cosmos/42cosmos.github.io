@@ -7,6 +7,7 @@
   padding: double($base-spacing-unit) 0;
   word-break: break-word;
   border-bottom: 1px solid $color-border;
+  width: 680px;
 
   &--first {
     padding-top: 0;
@@ -24,12 +25,14 @@
     transition: $global-transition;
 
     @include mq($from: tablet) {
-      font-size: double($font-size-small);
+//       font-size: double($font-size-small);
+      font-size: 22px;
     }
   }
 
   &__excerpt {
     margin-bottom: half($font-size-base);
+    font-size: 16px;
   }
 
   &__date {

@@ -25,3 +25,29 @@
     }
   }
 }
+
+
+li ul {
+// 	background : rgb(109,109,109);
+// 	display : none;  /* 평상시에는 서브메뉴가 안보이게 하기 */
+	height : auto;
+	padding : 0 0 0 20px;
+	margin : 0px;
+	border : 0px;
+	position : absolute;
+	list-style : none;
+/*
+	width : 200px;
+	z-index : 200;
+*/
+}
+
+li ul a {
+	color : #7e7e7e;
+}
+
+/*
+li:hover ul {
+	display : block; 
+}
+*/

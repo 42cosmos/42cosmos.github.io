@@ -5,14 +5,48 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 04 Jan 2020 02:01:58 +0900</pubDate>
-    <lastBuildDate>Sat, 04 Jan 2020 02:01:58 +0900</lastBuildDate>
+    <pubDate>Sat, 04 Jan 2020 15:29:14 +0900</pubDate>
+    <lastBuildDate>Sat, 04 Jan 2020 15:29:14 +0900</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
 
     
       <item>
+        <title>making category</title>
+        <description>&lt;p&gt;plz…&lt;/p&gt;
+</description>
+        <pubDate>Sat, 04 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/python/2020/01/04/2am/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/python/2020/01/04/2am/</guid>
+      </item>
+    
+      <item>
+        <title>sub hierarchyasdfsfgafghsafgadsgffadsgdsagfads</title>
+        <description>&lt;p&gt;asdfasdf&lt;/p&gt;
+
+&lt;p&gt;fkfkfkfk&lt;/p&gt;
+</description>
+        <pubDate>Thu, 02 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/ml/2020/01/02/hierarchy/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/ml/2020/01/02/hierarchy/</guid>
+      </item>
+    
+      <item>
+        <title>testing sub category</title>
+        <description>&lt;h1 id=&quot;lullu-lalla&quot;&gt;lullu lalla&lt;/h1&gt;
+
+</description>
+        <pubDate>Wed, 01 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/dev/2020/01/01/new-year/</link>
+        <guid isPermaLink="true">http://localhost:4000/dev/2020/01/01/new-year/</guid>
+      </item>
+    
+      <item>
         <title>Access main program. Access main security. Access main program grid</title>
-        <description>&lt;p&gt;Lorem ipsum dolor sit amet, vix ut case porro facilisis, alia possit neglegentur vis te. Has cu eirmod abhorreant, vel civibus efficiantur cu. Eu summo elitr vix, iusto putant maluisset per ut, ne etiam vivendum adipisci vel. Vis omnis tempor accusam ei, justo perpetua liberavisse cu qui. Saperet aliquando adipiscing ius ne, ne facer euripidis est. Pro mundi nostrum suavitate et.&lt;/p&gt;
+        <description>&lt;p&gt;Lorem ipsum dolor sit amet, vix ut case porro facilisis.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;alia possit neglegentur vis te. Has cu eirmod abhorreant, vel civibus efficiantur cu. Eu summo elitr vix, iusto putant maluisset per ut, ne etiam vivendum adipisci vel. Vis omnis tempor accusam ei, justo perpetua liberavisse cu qui. Saperet aliquando adipiscing ius ne, ne facer euripidis est. Pro mundi nostrum suavitate et.&lt;/p&gt;
 
 &lt;p&gt;Vix dico eius nominati cu, ex zril commodo fuisset mea. Habeo adhuc audiam ius no. In quis virtute officiis has. Vix ad honestatis accommodare, quis virtute et sit, pertinax expetenda eam id. Duo an fuisset delectus dissentias, justo altera ea per.&lt;/p&gt;
 
@@ -42,8 +76,8 @@ lacinia in lorem.&lt;/li&gt;
 &lt;p&gt;Pri probo alterum aliquando an. Duo appetere laboramus intellegat ea, ex suas diam exerci vix. Mel simul debitis id, est nusquam fuisset mentitum in. Te mei iudico iisque.&lt;/p&gt;
 </description>
         <pubDate>Mon, 21 Dec 2015 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2015/12/21/access-main-program-access-main-security-access-main-program-grid/</link>
-        <guid isPermaLink="true">http://localhost:4000/2015/12/21/access-main-program-access-main-security-access-main-program-grid/</guid>
+        <link>http://localhost:4000/study/git/2015/12/21/access-main-program-access-main-security-access-main-program-grid/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/git/2015/12/21/access-main-program-access-main-security-access-main-program-grid/</guid>
       </item>
     
 
@@ -53,18 +87,28 @@ lacinia in lorem.&lt;/li&gt;
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         
           <item>
             <title>About</title>
-            <description>&lt;p&gt;You love Minimalism, and you also love writing, Type is designed for you. Type focus on showing your content in a clean and simple way, focus on images, typography, and white space.&lt;/p&gt;
-
-&lt;p&gt;This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;jekyllrb.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Lorem ipsum dolor sit amet, vix ut case porro facilisis, alia possit neglegentur vis te. Has cu eirmod abhorreant, vel civibus efficiantur cu. Eu summo elitr vix, iusto putant maluisset per ut, ne etiam vivendum adipisci vel. Vis omnis tempor accusam ei, justo perpetua liberavisse cu qui. Saperet aliquando adipiscing ius ne, ne facer euripidis est. Pro mundi nostrum suavitate et.&lt;/p&gt;
+            <description>
 </description>
             <link>http://localhost:4000/about.html</link>
           </item>
         
+      
+    
       
     
       
@@ -179,6 +223,8 @@ Cras sed sodales enim. Duis nec erat magna. Sed scelerisque pretium mi et [unspl
             <link>http://localhost:4000/style-guide.html</link>
           </item>
         
+      
+    
       
     
       
