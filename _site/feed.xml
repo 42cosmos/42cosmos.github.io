@@ -5,79 +5,1104 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 04 Jan 2020 15:29:14 +0900</pubDate>
-    <lastBuildDate>Sat, 04 Jan 2020 15:29:14 +0900</lastBuildDate>
+    <pubDate>Sat, 04 Jan 2020 17:02:41 +0900</pubDate>
+    <lastBuildDate>Sat, 04 Jan 2020 17:02:41 +0900</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
 
     
       <item>
-        <title>making category</title>
-        <description>&lt;p&gt;plz…&lt;/p&gt;
+        <title>Linux Command Line Tools - 검색</title>
+        <description>&lt;h1 id=&quot;linux-command-line-tools---검색_2&quot;&gt;Linux Command Line Tools - 검색_2&lt;/h1&gt;
+
+&lt;h3 id=&quot;find&quot;&gt;find&lt;/h3&gt;
+
+&lt;p&gt;이름이나 속성 등의 조건에 맞는 파일을 찾아 명령 수행&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;find [OPTION] path EXPR&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;자주-사용되는-옵션&quot;&gt;자주 사용되는 옵션&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;조건&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;-name # 이름 검색, 가장 많이 사용&lt;/li&gt;
+  &lt;li&gt;-regex # regex에 매치로 검색&lt;/li&gt;
+  &lt;li&gt;-empty # 빈 디렉토리 혹은 빈 파일 검색&lt;/li&gt;
+  &lt;li&gt;-size # 사이즈 검색 (M, G 표기 가능)
+    &lt;ul&gt;
+      &lt;li&gt;-N # 이하&lt;/li&gt;
+      &lt;li&gt;+N # 이상&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;-perm # 퍼미션 검색
+    &lt;ul&gt;
+      &lt;li&gt;mode # 정확히 일치하는 파일&lt;/li&gt;
+      &lt;li&gt;+mode # 모든 flag가 포함된 파일&lt;/li&gt;
+      &lt;li&gt;/mode # 어떤 flag라도 포함된 파일&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;-type # 파일 타입 검색
+    &lt;ul&gt;
+      &lt;li&gt;d # directory&lt;/li&gt;
+      &lt;li&gt;p # named pipe&lt;/li&gt;
+      &lt;li&gt;f # regular file&lt;/li&gt;
+      &lt;li&gt;l # softdrink&lt;/li&gt;
+      &lt;li&gt;s # socket&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;액션&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;-delete # 파일 삭제&lt;/li&gt;
+  &lt;li&gt;-ls # ls -dils 명령 수행&lt;/li&gt;
+  &lt;li&gt;-print # 파일 이름 출력&lt;/li&gt;
+  &lt;li&gt;-printf # 파일 이름을 포맷에 맞게 출력&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;-exec&lt;/strong&gt; # 주어진 명령 수행&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;-execdir&lt;/strong&gt; # 해당 디렉토리로 이동하여 명령 실행&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;-ok&lt;/strong&gt; # 사용자 확인 후 exec&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;-okdir&lt;/strong&gt; # 사용자 확인 후 실행 execdir&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;eg&quot;&gt;e.g.&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;find . -name “*.py” # 현재 디렉토리에서 py 파일 찾기&lt;/li&gt;
+  &lt;li&gt;find . -regextype egrep -regex ‘.*hash.*.py$’ # $ 파일의 끝을 명시함. hash 앞뒤로 글이 있는 py 파일&lt;/li&gt;
+  &lt;li&gt;find . -empty&lt;/li&gt;
+  &lt;li&gt;find . -type&lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;find . -perm 0644&lt;/td&gt;
+          &lt;td&gt;wc -l&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;find . -perm /u+x  # owner 실행권한이 포함된 파일을 출력 / find: -perm: /u+x: illegal mode string&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;find . -perm /001 -ls # -perm: /001: illegal mode string&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;find . -name -exec {} \;&lt;/li&gt;
+  &lt;li&gt;find . -name -execdir {} \;&lt;/li&gt;
+  &lt;li&gt;find . -name -ok rm -f {} \; # 안전하게 파일 삭제 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;grep&quot;&gt;grep&lt;/h3&gt;
+
+&lt;p&gt;파일 내용 중 원하는 내용 찾기&lt;/p&gt;
+
+&lt;p&gt;grep [&lt;strong&gt;OPTION&lt;/strong&gt;] PATTERN [FILE…]&lt;/p&gt;
+
+&lt;h4 id=&quot;자주-사용되는-옵션-1&quot;&gt;자주 사용되는 옵션&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;-r&lt;/strong&gt; # recursive&lt;/li&gt;
+  &lt;li&gt;-i # ignore case&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;-v&lt;/strong&gt; # invert match # 패턴과 매치가 되지 않는 걸 찾음&lt;/li&gt;
+  &lt;li&gt;-q # quiet mode # 성공.실패만 판단하고 싶을 때&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;eg-1&quot;&gt;e.g.&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;grep PATTERN *.py # py 파일에 PATTERN 이 포함된 걸 찾아라&lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;grep PATTERN *.py&lt;/td&gt;
+          &lt;td&gt;awk -F: ‘{print $1}’&lt;/td&gt;
+          &lt;td&gt;sort -u # 패턴이 들어있는 파일 검색 후 awk 명령어로 파일 이름 분류 후 sort로 unique 한 것만 출력&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;echo $? # 최근에 실행된 명령어, 함수, 스크립트 자식의 종료 상태 / 0 = 성공&lt;/li&gt;
+  &lt;li&gt;grep “\&amp;lt;for\&amp;gt;” *.py # 단어단위 검색&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;apropos&quot;&gt;apropos&lt;/h3&gt;
+
+&lt;p&gt;man page 이름과 설명 검색&lt;/p&gt;
+
+&lt;h4 id=&quot;자주-사용되는-옵션-2&quot;&gt;자주 사용되는 옵션&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;-s, –sections=LIST, –section=LIST # ㅌ탐색할 섹션을 으로 구분하여 입력&lt;/li&gt;
+  &lt;li&gt;1 : 일반적 툴&lt;/li&gt;
+  &lt;li&gt;2 : 시스템 콜&lt;/li&gt;
+  &lt;li&gt;3 : 라이브러리 함수&lt;/li&gt;
+  &lt;li&gt;7 : Overview 등의 개념&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;eg-2&quot;&gt;e.g.&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;apropos print&lt;/li&gt;
+  &lt;li&gt;apropos pthread&lt;/li&gt;
+  &lt;li&gt;apropos pthread -s 7&lt;/li&gt;
+  &lt;li&gt;apropos ‘^sem_’&lt;/li&gt;
+  &lt;li&gt;apropos ‘.*’&lt;/li&gt;
+  &lt;li&gt;apropos ‘.*’ -s 5:6:7&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;locate&quot;&gt;locate&lt;/h3&gt;
+
+&lt;p&gt;파일 위치를 보여줌&lt;/p&gt;
+
+&lt;p&gt;단, updateddb가 저장해놓은 DB파일 내에서 검색하므로 누락 파일 존재 가능&lt;/p&gt;
+
+&lt;p&gt;updateddb : os 레벨에서 정기적으로 업데이트 함&lt;/p&gt;
+
+&lt;p&gt;어떤 파일이든 찾아서 보임&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;locate [OPTION]… PATTERN&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;자주-사용되는-옵션-3&quot;&gt;자주 사용되는 옵션&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;-i, –ignore-case&lt;/li&gt;
+  &lt;li&gt;-l, -limit, -n LIMIT&lt;/li&gt;
+  &lt;li&gt;–regex&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;eg-3&quot;&gt;e.g.&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;locate main.c -n 10 #&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;which&quot;&gt;which&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;실행 파일&lt;/strong&gt;의 위치를 알려줌 &amp;gt; 일반적인 파일은 불가능&lt;/p&gt;
+
+&lt;h4 id=&quot;eg-4&quot;&gt;e.g.&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;which ls&lt;/li&gt;
+  &lt;li&gt;which chmod&lt;/li&gt;
+  &lt;li&gt;which ls strace chmod&lt;/li&gt;
+  &lt;li&gt;which ifconfig&lt;/li&gt;
+&lt;/ul&gt;
+
 </description>
-        <pubDate>Sat, 04 Jan 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/study/python/2020/01/04/2am/</link>
-        <guid isPermaLink="true">http://localhost:4000/study/python/2020/01/04/2am/</guid>
+        <pubDate>Fri, 03 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/linux/2020/01/03/LinuxCommandTools_2/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/linux/2020/01/03/LinuxCommandTools_2/</guid>
       </item>
     
       <item>
-        <title>sub hierarchyasdfsfgafghsafgadsgffadsgdsagfads</title>
-        <description>&lt;p&gt;asdfasdf&lt;/p&gt;
+        <title>[Edwith] 머신러닝을 위한 Python</title>
+        <description>&lt;h2 id=&quot;news-categorisitaion&quot;&gt;News Categorisitaion&lt;/h2&gt;
 
-&lt;p&gt;fkfkfkfk&lt;/p&gt;
+&lt;p&gt;숫자를 벡터로 좌표평면상에 올릴 수 있도록 바꾸어주어야 함.&lt;/p&gt;
+
+&lt;p&gt;파이썬으로 얘기하면 lmn 이 많은 벡터를 만들고 벡터끼리의 거리를 만들면 됨.&lt;/p&gt;
+
+&lt;p&gt;문자 &amp;gt; 숫자 &amp;gt; Vector&lt;/p&gt;
+
+&lt;p&gt;One hot Encoding (Bag of Words) 기본적 문서에 대한 벡터 표현&lt;/p&gt;
+
+&lt;p&gt;하나의 단어를 벡터로 인식하기 위해서는 벡터 스페이스를 만듦&lt;/p&gt;
+
+&lt;p&gt;벡터 스페이스 : 각 글자들이 어떤 인덱스에 포함되는지 정의한 공간
+단어별로 인덱스를 부여해 문장에 단어가 몇 개인지 표현&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;유사성-판별&quot;&gt;유사성 판별&lt;/h3&gt;
+
+&lt;h5 id=&quot;euclidian-distance&quot;&gt;Euclidian distance&lt;/h5&gt;
+
+&lt;p&gt;피타고라스 정리, 두 점 사이의 직선 거리&lt;/p&gt;
+
+&lt;h5 id=&quot;cosine-distance&quot;&gt;cosine distance&lt;/h5&gt;
+
+&lt;p&gt;두 점 사이의 각도, 데이터셋이 클 수록 잘 나오는 경향 존재&lt;/p&gt;
+
+&lt;p&gt;더 많이 사용됨&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;파이썬 폴더끼리 연결 :&lt;/p&gt;
+
+&lt;p&gt;os.path.join &amp;gt; 윈도우즈는 역슬래쉬, 리눅스나 맥은 슬래쉬라서 … 오에스에 맞추어 조인을 해줌&lt;/p&gt;
+
+&lt;p&gt;os.sep &amp;gt; os에 따른 구분 기호 (\, /)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;corpus = 텍스트 워드로 인덱스를 만들어 줌 / 문서의 수 * 단어의 수 = 총 매트릭스의 크기&lt;/p&gt;
+
+&lt;p&gt;하나의 문서에 대한 벡터값 단어 수와 같음.&lt;/p&gt;
+
+&lt;p&gt;47라인 : 텍스트에서 단어를 뽑고, 단어를 전처리와 똑같은 방식으로 get_cleaned_text함수를 적용 : corpus 딕트 안에 키값을 사용해 이 값의 인덱스를 가져오는 것 == 전처리 방식이 동일해야 함. &amp;gt; corpus[get_cleaned_text(word)] turned to number // 결과값 : 3509 - 첫 번째 문서의 첫 번째 단어가 corpus dict 에 있는 3509 인덱스 값의 문자라는 뜻&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;word_number_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;corpus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_cleaned_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;words&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;48라인 : 매트릭스 생성.&lt;/p&gt;
+
+&lt;p&gt;[[0 for _ in range(len(corpus))] for x in range(len(text))]&lt;/p&gt;
+
+&lt;p&gt;0을 text의 길이 (=80)에 corpus의 길이 (4032)만큼 2차원 배열로 생성&lt;/p&gt;
+
+&lt;p&gt;for의 _(언더바) &amp;gt; 사용하지 않겠다는 의미&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;X_vector&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;corpus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;*50 ~ 53 line 이후 미리 만들었던 word number list (&lt;/em&gt;3509,,, 등등)에서 각각의 인덱스에 해당하는 값들을 1씩 올려주면 됨 **&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;    for i, text in enumerate(word_number_list):
+        for word_number in text:
+            X_vector[i][word_number] += 1
+    return X_vector
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;전체 corpus 인덱스 번호 별로 어떤 단어가 몇 개 있는지 리스트 형태로 확인 가능&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;비교방법&quot;&gt;비교방법&lt;/h4&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;math&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_cosine_similarity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;compute cosine similarity of v1 to v2: (v1 dot v2)/{||v1||*||v2||)&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sumxx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sumxy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sumyy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sumxx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sumyy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sumxy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sumxy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sumxx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sumyy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;첫 번째 문서와 두 번째 문서의 유사도를 보여줌&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;비교-결과&quot;&gt;비교 결과&lt;/h4&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_similarity_score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X_vector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;source_vector&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;X_vector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;similarity_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target_vector&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;X_vector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;similarity_list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;get_cosine_similarity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source_vector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target_vector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;similarity_list&lt;/span&gt;
+  
+  
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_top_n_similarity_news&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;similarity_score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;operator&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;similarity_score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sorted_x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sorted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;operator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itemgetter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;reversed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sorted_x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;source : 찾고자 하는 문서&lt;/p&gt;
+
+&lt;p&gt;similarity_score : 80개의 문서들이 비교 대상 문서와 얼마나 비슷한지 값이 저장됨. (0.6441510… )&lt;/p&gt;
+
+&lt;p&gt;similarity_list : 1 개의 문서와 80개의 문서를 비교한 후에 저장되었음&lt;/p&gt;
+
+&lt;p&gt;각 문서 번호들마다 얼마나 근접한지 값을 보여줄 것임.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;strong&gt;get_top_n_similarity_news&lt;/strong&gt;  : 키값으로 정렬해서 밸류값 중 가장 큰 값의 인덱스 값을 같이 반환해주는 함 / 가장 유사한 값 10개&lt;/p&gt;
+
 </description>
         <pubDate>Thu, 02 Jan 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/study/ml/2020/01/02/hierarchy/</link>
-        <guid isPermaLink="true">http://localhost:4000/study/ml/2020/01/02/hierarchy/</guid>
+        <link>http://localhost:4000/study/ml/2020/01/02/edwith_ml_for_python/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/ml/2020/01/02/edwith_ml_for_python/</guid>
       </item>
     
       <item>
-        <title>testing sub category</title>
-        <description>&lt;h1 id=&quot;lullu-lalla&quot;&gt;lullu lalla&lt;/h1&gt;
+        <title>Linux Command Line Tools - 텍스트 처리</title>
+        <description>&lt;h1 id=&quot;linux-command-line-tools&quot;&gt;Linux Command Line Tools&lt;/h1&gt;
 
+&lt;h3 id=&quot;head&quot;&gt;head&lt;/h3&gt;
+
+&lt;p&gt;문서 내용 앞 부분 출력&lt;/p&gt;
+
+&lt;p&gt;파라미터를 주지 않으면 앞 10줄 출력&lt;/p&gt;
+
+&lt;h5 id=&quot;자주-사용되는-옵션&quot;&gt;자주 사용되는 옵션&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;-c, –bytes  # num byte만 출력&lt;/li&gt;
+  &lt;li&gt;-n, –lines  # num line 만 출력&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;eg&quot;&gt;e.g.&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;head ‘file.type’&lt;/li&gt;
+  &lt;li&gt;head -n ‘num’ ‘file.type’&lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;cat ‘file.type’&lt;/td&gt;
+          &lt;td&gt;head -n ‘num’&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;tail&quot;&gt;tail&lt;/h3&gt;
+
+&lt;p&gt;문서 내용 뒷 부분 출력&lt;/p&gt;
+
+&lt;p&gt;파라미터를 주지 않으면 끝 10줄 출력&lt;/p&gt;
+
+&lt;h5 id=&quot;자주-사용되는-옵션-1&quot;&gt;자주 사용되는 옵션&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;-c, –bytes = [+]NUM # print num byte&lt;/li&gt;
+  &lt;li&gt;-n, –lines = [+]NUM # print num line&lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;-f&lt;/strong&gt;, –follow[={name&lt;/td&gt;
+          &lt;td&gt;desc}] # 추가되는 내용 대기하다가, 추가 내용은 append 후 출력&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;-F # truncate &amp;gt; Re-Open &amp;gt; Follow ( using log rotate file )) # 파일이 지워졌다가 생겨도 따라감&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;eg-1&quot;&gt;e.g.&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;+5 = 5번째 줄 부터 끝까지 출력&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;tail -n ‘num’ ‘file.type’ # 뒤에서 ‘num’번째 줄 출력&lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;cat ‘file.type’&lt;/td&gt;
+          &lt;td&gt;tail -n ‘num’ # 상동&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;wc-word-count&quot;&gt;WC (Word Count)&lt;/h3&gt;
+
+&lt;p&gt;line/word/byte count 출력&lt;/p&gt;
+
+&lt;p&gt;라인의 수가 특정 목적을 가진 정보 수가 되는 경우&lt;/p&gt;
+
+&lt;h5 id=&quot;자주-사용되는-옵션-2&quot;&gt;자주 사용되는 옵션&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;-l # 라인수만 출력&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;eg-2&quot;&gt;e.g.&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;wc ‘file.type’ == wc -clmw ‘file.type’  # line	word	byte count	‘file.type’&lt;/li&gt;
+  &lt;li&gt;wc *.py # 폴더 내 py파일 모두 확인&lt;/li&gt;
+  &lt;li&gt;wc -l ‘file.type’ # line 수&lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;wc -l ‘file.type’&lt;/td&gt;
+          &lt;td&gt;awk ‘{print $1}’&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;nl&quot;&gt;nl&lt;/h3&gt;
+
+&lt;p&gt;파일 내용을 라인 넘버와 함께 출력&lt;/p&gt;
+
+&lt;p&gt;코드 첨부 후 설명할 때 유용함 ?&lt;/p&gt;
+
+&lt;h5 id=&quot;자주-사용되는-옵션-3&quot;&gt;자주 사용되는 옵션&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;-ba # 모든 라인 넘버링&lt;/li&gt;
+  &lt;li&gt;-v N # 시작 라인 넘버를 N으로 지정&lt;/li&gt;
+  &lt;li&gt;-s # 라인 넘버 출력 후 출력할 separator 지정&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;eg-3&quot;&gt;e.g.&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;nl ‘file.type’ == cat ‘file.type’&lt;/td&gt;
+          &lt;td&gt;nl&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;nl -ba ‘file.type’&lt;/li&gt;
+  &lt;li&gt;nl -ba -s “:\t” ‘file.type’&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;sort&quot;&gt;sort&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;맥은 모르겠다&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;파일 내용 정렬 후 출력&lt;/p&gt;
+
+&lt;h5 id=&quot;자주-사용되는-옵션-4&quot;&gt;자주 사용되는 옵션&lt;/h5&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;위치 지정
+    &lt;ul&gt;
+      &lt;li&gt;-k, –key=KEYDEF # key에 의한 정렬, 어떤 컬럼을 기준으로 정렬할 건지 /
+        &lt;ul&gt;
+          &lt;li&gt;숫자 한 개만 작성하면 그 부분부터 끝까지&lt;/li&gt;
+          &lt;li&gt;한 개의 열만 하려면 쉼표로 구분해 같은 숫자 넣어주기&lt;/li&gt;
+          &lt;li&gt;n 번째 우선순위 지정 &amp;gt; -k 5,5 -k 2,2&lt;/li&gt;
+          &lt;li&gt;
+            &lt;table&gt;
+              &lt;tbody&gt;
+                &lt;tr&gt;
+                  &lt;td&gt;e.g. ls -al&lt;/td&gt;
+                  &lt;td&gt;sort -k 5 -n&lt;/td&gt;
+                &lt;/tr&gt;
+              &lt;/tbody&gt;
+            &lt;/table&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;-t, –field-separator # 필드 구분자 (기본값 = 공백), 하나의 기준으로 컬럼을 나누어줌&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;정렬 기준 (sort ‘file’ -x)
+    &lt;ul&gt;
+      &lt;li&gt;-f, –ignore-case&lt;/li&gt;
+      &lt;li&gt;-g, –general-numeric-sort&lt;/li&gt;
+      &lt;li&gt;-n, –numeric-sort # 123보다 91이 먼저 나오게 됨&lt;/li&gt;
+      &lt;li&gt;-r, –reverse # 내림차순 정렬&lt;/li&gt;
+      &lt;li&gt;-u, –unique # 중복 삭제&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;옵션
+    &lt;ul&gt;
+      &lt;li&gt;–debug #어디 기준으로 정렬했는지 가시화&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h5 id=&quot;eg-4&quot;&gt;e.g.&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;cat ‘file.type’&lt;/td&gt;
+          &lt;td&gt;sort&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;cat ‘file..type’&lt;/td&gt;
+          &lt;td&gt;sort -t’구분자’ -k ‘정렬키-행’ -n&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;cat ‘file..type’&lt;/td&gt;
+          &lt;td&gt;sort -t’구분자’ -k ‘정렬키-행’ -n -debug&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;uniq&quot;&gt;uniq&lt;/h3&gt;
+
+&lt;p&gt;중복 내용 제거 후 출력&lt;/p&gt;
+
+&lt;p&gt;연달아 중복인 부분만 삭제 » sort 명령어랑 같이 사용&lt;/p&gt;
+
+&lt;h4 id=&quot;자주-사용되는-옵션-5&quot;&gt;자주 사용되는 옵션&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;-d, –repeated # 중복된 내용만 출력&lt;/li&gt;
+  &lt;li&gt;-u, –unique # 중복되지 않은 내용만 출력&lt;/li&gt;
+  &lt;li&gt;-i, –ignore-case # 대소문자 무시&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;eg-5&quot;&gt;e.g.&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;cat ‘file.type’&lt;/td&gt;
+          &lt;td&gt;uniq&lt;/td&gt;
+          &lt;td&gt;nl -ba # 중복된 내용만 코드 번호를 붙여서 출력&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;sort ‘file.type’&lt;/td&gt;
+          &lt;td&gt;uniq&lt;/td&gt;
+          &lt;td&gt;nl -ba&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;grep “search” file&lt;/td&gt;
+          &lt;td&gt;awk -F: ‘‘{print $1}’&lt;/td&gt;
+          &lt;td&gt;uniq&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;cut&quot;&gt;cut&lt;/h3&gt;
+
+&lt;p&gt;컬럼 잘라내기&lt;/p&gt;
+
+&lt;h4 id=&quot;자주-사용되는-옵션-6&quot;&gt;자주 사용되는 옵션&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;-b, –bytes=LIST # byte 선택&lt;/li&gt;
+  &lt;li&gt;-c, –characters=LIST # character 선택&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;-f,&lt;/strong&gt; –fields=LIST # 필드(컬럼) 선택&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;-d&lt;/strong&gt;, –delimiter=DELIM # tab 대신 사용할 구분자 지정
+탭이 아닌 다른 구분자로 지정되어있는 경우 반드시 입력&lt;/li&gt;
+  &lt;li&gt;–complement # 선택 반전&lt;/li&gt;
+  &lt;li&gt;–output-delimiter=STRING # 출력시 사용할 구분자 지정&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;eg-6&quot;&gt;e.g.&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;head ‘file.type’&lt;/td&gt;
+          &lt;td&gt;cut -d: -f 1, 7 –output-delimiter=”&amp;gt;” # 딜리미터 변경&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;ls -al&lt;/td&gt;
+          &lt;td&gt;head&lt;/td&gt;
+          &lt;td&gt;cut -b 1 #각 줄의 첫 글자만 나옴&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;ls -al&lt;/td&gt;
+          &lt;td&gt;head&lt;/td&gt;
+          &lt;td&gt;cut -b 2-4 # rwx.. 등 권한을 볼 수 있음&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;ls -al&lt;/td&gt;
+          &lt;td&gt;head&lt;/td&gt;
+          &lt;td&gt;cut -b -10 # 처음부터 10바이트까지&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;ls -al&lt;/td&gt;
+          &lt;td&gt;head&lt;/td&gt;
+          &lt;td&gt;cut -b 11- # 11부터 끝 바이트까지&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;tr-translate&quot;&gt;tr (translate)&lt;/h3&gt;
+
+&lt;p&gt;내용 변환&lt;/p&gt;
+
+&lt;p&gt;문서 특수 캐릭터 삭제 시에 자주 사용&lt;/p&gt;
+
+&lt;p&gt;tr [OPTION] … SET 1 [SET 2]&lt;/p&gt;
+
+&lt;h4 id=&quot;자주-사용되는-옵션-7&quot;&gt;자주 사용되는 옵션&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;-c, -C, –complement&lt;/li&gt;
+  &lt;li&gt;-d, –delete&lt;/li&gt;
+  &lt;li&gt;SET
+    &lt;ul&gt;
+      &lt;li&gt;CHAR1 - CHAR2 # char1부터 char2까지 (a to z)&lt;/li&gt;
+      &lt;li&gt;[:alnum:] # 문자 + 숫자&lt;/li&gt;
+      &lt;li&gt;[:alpha:] # 문자&lt;/li&gt;
+      &lt;li&gt;[:blank:] # 공백&lt;/li&gt;
+      &lt;li&gt;[:space:] # 공백 + newline&lt;/li&gt;
+      &lt;li&gt;[:digit:] / [:xdigit:] # 10진수 숫자 / 16진수 숫자&lt;/li&gt;
+      &lt;li&gt;[:lower:] / [:upper:]&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;eg-7&quot;&gt;e.g.&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;tr -d SET1 # set1에 맞는 부분 삭제 후 지워지지 않는 것들 출력&lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;cat ‘file.type’&lt;/td&gt;
+          &lt;td&gt;tr ‘:’ ‘%’&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;head ‘file.type’&lt;/td&gt;
+          &lt;td&gt;tr [:lower:] [:upper:] # 출력될 모든 소문자를 대문자로 변경&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;sed&quot;&gt;sed&lt;/h3&gt;
+
+&lt;p&gt;stream editor&lt;/p&gt;
+
+&lt;p&gt;파일 내용을 출력 전에 옵션대로 편집 후 출력&lt;/p&gt;
+
+&lt;h4 id=&quot;자주-사용되는-옵션-8&quot;&gt;자주 사용되는 옵션&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;{RANGE}p # range 내 라인 출력&lt;/li&gt;
+  &lt;li&gt;{RANGE}d # range 내 라인 삭제&lt;/li&gt;
+  &lt;li&gt;/SEARCHPATTERN/p # SEARCHPATTERN과 매치되는 라인 출력&lt;/li&gt;
+  &lt;li&gt;/SEARCHPATTERN/d # SEARCHPATTERN과 매치되는 라인 삭제&lt;/li&gt;
+  &lt;li&gt;s/REGEX/REPLACE # REGEX 매치 부분을 REPLACE로 교체 -substitute&lt;/li&gt;
+  &lt;li&gt;-n # 기본 출력 부분 제외 - 보통 print 시 많이 사용&lt;/li&gt;
+  &lt;li&gt;’/,+num p’  # 상대적으로 몇 번째 줄까지 출력 할 건지&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;eg-8&quot;&gt;e.g.&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;head ‘file.type’&lt;/td&gt;
+          &lt;td&gt;sed ‘2,5p’ # head 부분 출력 + 라인 사이에 sed 옵션이 들어가게 됨&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;head ‘file.type’&lt;/td&gt;
+          &lt;td&gt;sed -n ‘2,5p’ # 기본 출력 부분 제외&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;head ‘file.type’&lt;/td&gt;
+          &lt;td&gt;sed ‘1,5d’&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;cat ‘file.type’&lt;/td&gt;
+          &lt;td&gt;sed -n ‘/kwarg/p’&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;cat ‘file.type’&lt;/td&gt;
+          &lt;td&gt;sed ‘s/:/$/g’ # g 옵션 : 한 라인에 매치되는 모든 부분을 변경&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;cat ‘file.type’&lt;/td&gt;
+          &lt;td&gt;sed -n ‘/kwarg/,10p’ # 검색 문자에서 10번째까지 출력&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;cat ‘file.type’&lt;/td&gt;
+          &lt;td&gt;sed -n ‘/kwarg/,+2p’ # 검색 문자부터 2번째 줄을 더 출력&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;awk&quot;&gt;awk&lt;/h3&gt;
+
+&lt;p&gt;유틸리티라기 보다는 텍스트 처리 script language&lt;/p&gt;
+
+&lt;p&gt;syntax : awk options ‘selection _criteria {action }’ input-file&lt;/p&gt;
+
+&lt;p&gt;파일 내용을 처리하는 거기에 input_file 이 필요하지만, 파이프를 통해 호출하는 경우는 input_file 없음&lt;/p&gt;
+
+&lt;h4 id=&quot;자주-사용되는-옵션-9&quot;&gt;자주 사용되는 옵션&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;-F # Field separator 지정&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;주요-내장-변수&quot;&gt;주요 내장 변수&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$1, $2, $3 # Nth field. wc할 때 awk field separator를 공백으로 해서 $1, $2…&lt;/li&gt;
+  &lt;li&gt;NR # number of records&lt;/li&gt;
+  &lt;li&gt;NF # number of fields&lt;/li&gt;
+  &lt;li&gt;FS # field separator (default ‘white space’)&lt;/li&gt;
+  &lt;li&gt;RS # record separator (default ‘new line’)&lt;/li&gt;
+  &lt;li&gt;OFS # Output Field Separator&lt;/li&gt;
+  &lt;li&gt;ORS # Output Record Separator&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;eg-9&quot;&gt;e.g.&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;wc ‘file.type’&lt;/td&gt;
+          &lt;td&gt;awk ‘{print $1}’ # 첫 번째 부분 출력&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;head ‘file.type’&lt;/td&gt;
+          &lt;td&gt;awk -Fs ‘{print $1}’&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;head ‘file.type’&lt;/td&gt;
+          &lt;td&gt;awk -Fs ‘/kwarg/ {print}’ # 검색 후 라인 전체 출력&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;head ‘file.type’&lt;/td&gt;
+          &lt;td&gt;awk -Fs ‘/kwarg/ {print NR, $1 }’  # 검색 인자가 몇 번째 라인인지 출력&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;head ‘file.type’&lt;/td&gt;
+          &lt;td&gt;awk -Fs ‘{print NR “==&amp;gt;” $1 }’&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;head ‘file.type’&lt;/td&gt;
+          &lt;td&gt;awk -Fs ‘{print NR “==&amp;gt;” $1, NF }’ # 필드가 몇 개인지 알려줌, 언어라서 loop 도 돌 수 있음.&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
+
+&lt;p&gt;우분투 영상에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;ls -al | sort -k 5&lt;/code&gt; 는 숫자로 인식하지 않아서 -n을 붙여줘야 했는데, 맥은 아닌가보다…&lt;/p&gt;
 </description>
-        <pubDate>Wed, 01 Jan 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/dev/2020/01/01/new-year/</link>
-        <guid isPermaLink="true">http://localhost:4000/dev/2020/01/01/new-year/</guid>
+        <pubDate>Mon, 30 Dec 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/linux/2019/12/30/LinuxCommandTools_1/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/linux/2019/12/30/LinuxCommandTools_1/</guid>
       </item>
     
       <item>
-        <title>Access main program. Access main security. Access main program grid</title>
-        <description>&lt;p&gt;Lorem ipsum dolor sit amet, vix ut case porro facilisis.&lt;/p&gt;
+        <title>[Error] os.rename() No such file or directory 오류</title>
+        <description>&lt;p&gt;오류 1.&lt;br /&gt;
+FileNotFoundError: [Errno 2] No such file or directory: ‘원 파일명’ -&amp;gt; ‘변경하려는 파일명’&lt;/p&gt;
+
+&lt;p&gt;파일-동영상 이름을 일괄적으로 바꿔줘야 해서 만들었다.&lt;br /&gt;
+파일명 전부 동일하게 앞부분만 지워주면 됐으므로 47번째 글자 이후부터 출력되게 해서… rename() 으로 바꿔주고자 했는데…&lt;br /&gt;
+자꾸 파일이 없다고 오류가 떴다.&lt;br /&gt;
+아이클라우드 문자인가 하고 동영상을 전부 내려받았는데도 없대…&lt;br /&gt;
+구글신께 여쭈어본 결과… 나를 &lt;a href=&quot;https://stackoverflow.com/questions/44203662/os-rename-fail-with-errno-2-no-such-file-or-directory&quot;&gt;stackoverflow&lt;/a&gt;로 인도해주셨다…&lt;/p&gt;
+
+&lt;p&gt;문제는 listdir는 경로를 제외한 파일명만 반환하기 때문이었다. os.path.join()를 사용해 path를 삽입함으로 문제를 끝냈다.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+
+
+&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/Users/xxx/Desktop/init/video/Machine_Learning&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;files&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;listdir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;47&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;alia possit neglegentur vis te. Has cu eirmod abhorreant, vel civibus efficiantur cu. Eu summo elitr vix, iusto putant maluisset per ut, ne etiam vivendum adipisci vel. Vis omnis tempor accusam ei, justo perpetua liberavisse cu qui. Saperet aliquando adipiscing ius ne, ne facer euripidis est. Pro mundi nostrum suavitate et.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;Vix dico eius nominati cu, ex zril commodo fuisset mea. Habeo adhuc audiam ius no. In quis virtute officiis has. Vix ad honestatis accommodare, quis virtute et sit, pertinax expetenda eam id. Duo an fuisset delectus dissentias, justo altera ea per.&lt;/p&gt;
+&lt;p&gt;오류 2.&lt;br /&gt;
+IsADirectoryError: [Errno 21] Is a directory: ‘/Users/xxx/Desktop/init/video/Operations_Research/.DS_Store’ -&amp;gt; ‘/Users/xxx/Desktop/init/video/Operations_Research/’&lt;/p&gt;
 
-&lt;h5 id=&quot;todo&quot;&gt;Todo&lt;/h5&gt;
+&lt;p&gt;바꾼 건 주소밖에 없다. 그런데도 전혀 다른 문제가 발생했다. 일단 저 DS_Store 파일이 문제인 거 같은데… 난 쟤를 모른다. 그래서 무시하고 진행해보기로 했다.&lt;/p&gt;
 
-&lt;p&gt;Duis id ante elit. Aliquam quis tellus id orci eleifend finibus. Donec consequat justo ligula, eget sodales purus hendrerit at.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Ut at interdum nunc. Maecenas commodo turpis quis elementum gravida.&lt;/li&gt;
-  &lt;li&gt;Nunc ac sapien tellus. Quisque risus enim, tempus eget porttitor in, pellentesque vel urna.
- Donec nibh massa, rutrum a sollicitudin eu,
-lacinia in lorem.&lt;/li&gt;
-&lt;/ol&gt;
 
-&lt;h5 id=&quot;graphic-design&quot;&gt;Graphic design&lt;/h5&gt;
+&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'/Users/xxx/Desktop/init/video/Operations_Research'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;files&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;listdir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Graphic design is the paradise of individuality, eccentricity, heresy, abnormality, hobbies, and humors. - George Santayana&lt;/p&gt;
-&lt;/blockquote&gt;
 
-&lt;p&gt;Vim te case nihil oblique, has partem interpretaris ne, ad admodum accusamus nam. Usu utinam dissentias referrentur ne, vim accusam voluptua pertinacia no. Est no posse utinam inermis, brute errem mentitum et ius, te prompta albucius quo. In pro simul soleat regione.&lt;/p&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://images.unsplash.com/photo-1433785567155-bf5530cab72c?ixlib=rb-0.3.5&amp;amp;q=80&amp;amp;fm=jpg&amp;amp;crop=entropy&amp;amp;w=1080&amp;amp;fit=max&amp;amp;s=1348aea714b9493fa61a09a8c01113e6&quot; alt=&quot;alt&quot; /&gt;&lt;/p&gt;
+    &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;pass&lt;/span&gt;
 
-&lt;p&gt;Ne reque offendit singulis mea, ad eos ferri doming nostrud. Duis suscipit usu ut, fuisset pericula ex est, et porro prompta his. Audire definiebas voluptatibus et duo, aperiam ocurreret ad nec. Vel ad nostrud principes. Ad liber congue iracundia sed, eirmod erroribus eam te, has veniam epicurei ea.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Pri probo alterum aliquando an. Duo appetere laboramus intellegat ea, ex suas diam exerci vix. Mel simul debitis id, est nusquam fuisset mentitum in. Te mei iudico iisque.&lt;/p&gt;
+&lt;p&gt;… 굿쨥 아주 잘 됐다.&lt;/p&gt;
+
+&lt;p&gt;내가 만든 이 코드의 단점은, 바꾸려는 파일명을 28자 이후부터 출력되게 만들었기 때문에 이미 바뀐 파일명들까지 포함된다는 거다.&lt;br /&gt;
+이미 이름이 바뀐 파일들과 바꾸어야 할 파일들이 같이 있을 경우, 전자의 파일도 영향을 받기 때문에 파일명이 아예 없어지는 대참사가… 일어날 수도 있다는 점? 다른 방법도 많다. 근데 난 그냥 이렇게 했다.&lt;/p&gt;
+
+&lt;p&gt;왜냐하면… 그냥 ?&lt;/p&gt;
 </description>
-        <pubDate>Mon, 21 Dec 2015 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/study/git/2015/12/21/access-main-program-access-main-security-access-main-program-grid/</link>
-        <guid isPermaLink="true">http://localhost:4000/study/git/2015/12/21/access-main-program-access-main-security-access-main-program-grid/</guid>
+        <pubDate>Tue, 17 Dec 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/python/2019/12/17/os.rename()-%E1%84%8B%E1%85%A6%E1%84%85%E1%85%A5/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/python/2019/12/17/os.rename()-%E1%84%8B%E1%85%A6%E1%84%85%E1%85%A5/</guid>
+      </item>
+    
+      <item>
+        <title>Atom Editor 설정 (패키지 확장)</title>
+        <description>&lt;p&gt;1년에 한 번씩 컴퓨터를 포맷하다보니 어디엔가 작성해야 할 것 같긴 하고.. 혹여 누군가 제 글을 보고 도움이 되었으면 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;1script--cmd--i-&quot;&gt;1.script ( Cmd + i )&lt;/h4&gt;
+
+&lt;p&gt;아톰 내 프로그램 실행&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;2-hydrogen--cmd--enter-&quot;&gt;2. &lt;a href=&quot;https://atom.io/packages/Hydrogen&quot;&gt;hydrogen&lt;/a&gt; ( Cmd + Enter )&lt;/h4&gt;
+
+&lt;p&gt;jupyter notebook 이랑 연동 / jupyter 커널로 한 줄이나 block 처리 된 코드 실행 …최고실행 전에 터미널 창에서 명령어 입력해주세요. 그 후로 아톰 에디터 내에서 사용이 가능합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python -m pip install ipykernel
+python -m ipykernel install --user
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;3-atom-beautify--ctrl--option--b-&quot;&gt;3. atom-beautify ( Ctrl + Option + B )&lt;/h4&gt;
+
+&lt;p&gt;자동 줄 맞춤&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;4-autocomplete-python--자동-&quot;&gt;4. autocomplete-python ( 자동 )&lt;/h4&gt;
+
+&lt;p&gt;자동완성 기능&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;5-highlight-selected--더블클릭-&quot;&gt;5. highlight-selected ( 더블클릭 )&lt;/h4&gt;
+
+&lt;p&gt;선택 단어와 동일 단어를 하이라이트 해준다 … 최고&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;6-platformio-ide-terminal--ctrl---&quot;&gt;6. platformio-ide-terminal ( Ctrl + ` )&lt;/h4&gt;
+
+&lt;p&gt;터미널 창을 아톰 내에서 열 수 있도록 합니다.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 16 Dec 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/python/2019/12/16/atom-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/python/2019/12/16/atom-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC/</guid>
+      </item>
+    
+      <item>
+        <title>[Error] git push 오류</title>
+        <description>&lt;p&gt;깃 푸쉬를 했는데 오류가 떴다. 이제 오류를 봐도 아무렇지 않다. 멀쩡한 화면보다 오류를 더 자주 만나기 때문에…&lt;/p&gt;
+
+&lt;p&gt;뭐든 구글신께 여쭈어보면 된다. 사실 영어를 볼 때가 가장 가슴 졸인다. 제발 어떤 천사 한국인이 이에 대한 글을 썼기를 바라면서…&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git push origin master&lt;/code&gt; 를 쓰고 오류가 났다. 오류의 내용은 이렇다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;error: failed to push some refs to ~
+
+hint: Updates were rejected because the tip of your current branch is behind
+
+hint: its remote counterpart. Integrate the remote changes (e.g.
+
+hint: 'git pull ...') before pushing again.
+
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git push -f origin master&lt;/code&gt;로 강제 푸쉬를 준 이후로는 다시 원래대로 push 명령어를 주었더니 잘 알아들었다.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 15 Dec 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/git/2019/12/15/git-push-%E1%84%8B%E1%85%A9%E1%84%85%E1%85%B2/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/git/2019/12/15/git-push-%E1%84%8B%E1%85%A9%E1%84%85%E1%85%B2/</guid>
+      </item>
+    
+      <item>
+        <title>The Zen of Python</title>
+        <description>&lt;h2 id=&quot;the-zen-of-python&quot;&gt;The Zen of Python&lt;/h2&gt;
+
+&lt;p&gt;Beautiful is better than ugly.&lt;/p&gt;
+
+&lt;p&gt;Explicit is better than implicit.&lt;/p&gt;
+
+&lt;p&gt;Simple is better than complex.&lt;/p&gt;
+
+&lt;p&gt;Complex is better than complicated.&lt;/p&gt;
+
+&lt;p&gt;Flat is better than nested.&lt;/p&gt;
+
+&lt;p&gt;Sparse is better than dense.&lt;/p&gt;
+
+&lt;p&gt;Readability counts.&lt;/p&gt;
+
+&lt;p&gt;Special cases aren’t special enough to break the rules.&lt;/p&gt;
+
+&lt;p&gt;Although practicality beats purity.&lt;/p&gt;
+
+&lt;p&gt;Errors should never pass silently.&lt;/p&gt;
+
+&lt;p&gt;Unless explicitly silenced.&lt;/p&gt;
+
+&lt;p&gt;In the face of ambiguity, refuse the temptation to guess.&lt;/p&gt;
+
+&lt;p&gt;There should be one– and preferably only one –obvious way to do it.&lt;/p&gt;
+
+&lt;p&gt;Although that way may not be obvious at first unless you’re Dutch.&lt;/p&gt;
+
+&lt;p&gt;Now is better than never.&lt;/p&gt;
+
+&lt;p&gt;Although never is often better than &lt;em&gt;right&lt;/em&gt; now.&lt;/p&gt;
+
+&lt;p&gt;If the implementation is hard to explain, it’s a bad idea.&lt;/p&gt;
+
+&lt;p&gt;If the implementation is easy to explain, it may be a good idea.&lt;/p&gt;
+
+&lt;p&gt;Namespaces are one honking great idea – let’s do more of those!&lt;/p&gt;
+</description>
+        <pubDate>Sat, 14 Dec 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/python/2019/12/14/import-this/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/python/2019/12/14/import-this/</guid>
       </item>
     
 
@@ -99,14 +1124,13 @@ lacinia in lorem.&lt;/li&gt;
       
     
       
-        
-          <item>
-            <title>About</title>
-            <description>
-</description>
-            <link>http://localhost:4000/about.html</link>
-          </item>
-        
+    
+      
+    
+      
+    
+      
+    
       
     
       
@@ -116,113 +1140,7 @@ lacinia in lorem.&lt;/li&gt;
       
     
       
-        
-          <item>
-            <title>Style Guide</title>
-            <description>At [Aspire Themes](http://aspirethemes.com/) I use a lot of tools to help me create WordPress, Ghost and Jekyll themes. Tools will range from development, design, services, hosting and automation.
-
-Graphic design is the paradise of individuality, eccentricity, heresy, abnormality, hobbies, and humors. - George Santayana.
-
----
-
-# Simple default styles for headings
-
-## Simple default styles for headings
-
-### Simple default styles for headings
-
-#### Simple default styles for headings
-
-##### Simple default styles for headings
-
-###### Simple default styles for headings
-
----
-
-* Ut at interdum nunc. Maecenas commodo turpis quis elementum gravida.
-* Nunc ac sapien tellus. Quisque risus enim, tempus eget porttitor.
-* Donec nibh massa, rutrum a sollicitudin eu, lacinia in lorem.
-
----
-
-1. Ut at interdum nunc. Maecenas commodo turpis quis elementum gravida.
-2. Nunc ac sapien tellus. Quisque risus enim, tempus eget porttitor in.
-3. Donec nibh massa, rutrum a sollicitudin eu.
-
----
-
-&gt; Graphic design is the paradise of individuality, eccentricity, heresy, abnormality, hobbies, and humors. - George Santayana
-
----
-
-{% highlight js %}
-'use strict';
-var markdown = require('markdown').markdown;
-function Editor(input, preview) {
-  this.update = function() {
-    preview.innerHTML = markdown.toHTML(input.value);
-  };
-  input.editor = this;
-  this.update();
-}
-{% endhighlight %}
-
-You can add inline code just like this, E.g. `.code { color: #fff; }`
-
-{% highlight css %}
-pre {
-  background-color: #f4f4f4;
-  max-width: 100%;
-  overflow: auto;
-}
-{% endhighlight %}
-
----
-
-Cras sed sodales enim. Duis nec erat magna. Sed scelerisque pretium mi et [unsplash](https://unsplash.com/) ullamcorper mauris aliquam ornare fringilla. In luctus commodo quam eget posuere.
-
----
-
-&lt;iframe src=&quot;https://player.vimeo.com/video/97202679&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
-
----
-
-&lt;iframe src=&quot;https://embed.ted.com/talks/ted_halstead_a_climate_solution_where_all_sides_can_win&quot; width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen&gt;&lt;/iframe&gt;
-
----
-
-&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/29738591&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&quot;&gt;&lt;/iframe&gt;
-
----
-
-&lt;p data-height=&quot;265&quot; data-theme-id=&quot;light&quot; data-slug-hash=&quot;YWvpRo&quot; data-default-tab=&quot;css,result&quot; data-user=&quot;kharrop&quot; data-embed-version=&quot;2&quot; data-pen-title=&quot;Referral Form&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/kharrop/pen/YWvpRo/&quot;&gt;Referral Form&lt;/a&gt; by Kelly Harrop (&lt;a href=&quot;http://codepen.io/kharrop&quot;&gt;@kharrop&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
-&lt;script async src=&quot;https://production-assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
-
----
-
-![about](/images/pages/about.jpeg)
-
----
-
-&lt;input type=&quot;text&quot; placeholder=&quot;I'm an input field!&quot;&gt;
-
----
-
-&lt;button class='c-btn c-btn--small'&gt;Button&lt;/button&gt;
-
-&lt;button class='c-btn'&gt;Button&lt;/button&gt;
-
-&lt;button class='c-btn c-btn--full'&gt;Button&lt;/button&gt;
-
-{% highlight html %}
-&lt;button class='c-btn c-btn--small'&gt;Button&lt;/button&gt;
-&lt;button class='c-btn'&gt;Button&lt;/button&gt;
-&lt;button class='c-btn c-btn--full'&gt;Button&lt;/button&gt;
-{% endhighlight %}
-</description>
-            <link>http://localhost:4000/style-guide.html</link>
-          </item>
-        
+    
       
     
       
