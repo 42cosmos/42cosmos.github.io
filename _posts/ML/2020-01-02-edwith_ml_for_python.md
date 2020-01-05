@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Edwith] 머신러닝을 위한 Python'
+title: '[Edwith] 머신러닝을 위한 Python_chap01'
 tags: [edwith, ML, python]
 categories: 'Study/ML'
 ---
