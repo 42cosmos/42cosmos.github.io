@@ -5,7 +5,7 @@ tags: [auth, security]
 categories: 'Study/Security'
 ---
 
-\1. 송신자 확인 / 검증 목적 > 보낸이를 확인하기 위해서 2. 메세지의 무결성 
+1. 송신자 확인 / 검증 목적 > 보낸이를 확인하기 위해서 2. 메세지의 무결성 
 
 ![img](https://k.kakaocdn.net/dn/bgQtVL/btqARyH4zfw/FHymWAxGfRBcYObc0bhAK1/img.png)
 
@@ -196,7 +196,7 @@ note that the block cipher is used in encryption errors propagate for several bl
   Oi = E(K, i) 
   Ci = Pi ⨁ Oi
   uses: high-speed network encryptions
-   
+  
 
 **Advantages and Limitations of CTR** 
 
