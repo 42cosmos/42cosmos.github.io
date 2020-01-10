@@ -60,22 +60,23 @@ e.g.) data_frame['Supplier Name'].str.contains('Z'))
 
 ## Errors
 
-```ValueError: illegal newline value:
-with open(input_file, 'r', newline=' ') as csv_in_file:
-```
+1. ```
+   with open(input_file, 'r', newline=' ') as csv_in_file:
+   ValueError: illegal newline value:
+   ```
 
-1. ValueError: illegal newline value:
-   `newline=' '` > `newline=''`  으로 변경하니 오류 해결!
+   `newline=' '` -> `newline=''`  으로 변경하니 오류 해결!
 
-2. modulenotfounderror no module named 'pandas'
+2. `modulenotfounderror no module named 'pandas'`
 
-   > 가상환경을 열어서 pandas 설치하고 지웠다가 다시 설치하고 컴퓨터 재부팅하고 막... 오만가지 난리를 펼치다가... 터미널 창에서 `which python3` 입력해서 나오는 주소를 py 파일 라인 1에 붙여넣고 실행하니 오류 해결!
+   가상환경을 열어서 pandas 설치하고 지웠다가 다시 설치하고 컴퓨터 재부팅하고 막... 오만가지 난리를 펼치다가... 터미널 창에서 `which python3` 입력해서 나오는 주소를 py 파일 라인 1에 붙여넣고 실행하니 오류 해결!
 
    `#! /Users/park-eunbin/miniconda3/envs/IP/bin/python3`
 
-   <br/>
+   <br>
 
-3. b'Skipping line 13: expected 5 fields, saw 7\n' > `data_frame = pd.read_csv(input_file, error_bad_lines=False, warn_bad_lines=False)`
+3. b'Skipping line 13: expected 5 fields, saw 7\n' -> 
+   `data_frame = pd.read_csv(input_file, error_bad_lines=False, warn_bad_lines=False)` 로 해결
 4.  pandas `.ix[]` Message
 
 ```
@@ -86,5 +87,4 @@ with open(input_file, 'r', newline=' ') as csv_in_file:
 .iloc for positional indexing
 ```
 
-5. `delimiter =','` 오류 > 해결 못함... 왜? 왜 $1,600.60을 제대로 못걸러내냐ㅜ,ㅠ
-6. `.drop`
+5. `delimiter =','` 오류 > 해결 못함... 왜? 왜 $1,600.60을 제대로 못걸러내냐
