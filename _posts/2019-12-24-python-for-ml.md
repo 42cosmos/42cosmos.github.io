@@ -5,7 +5,7 @@ tags: [python]
 categories: 'Study/Python'
 ---
 
-# 1) Pythonic Code
+### 1) Pythonic Code
 
 - 파이썬 스타일의 코딩 기법
 - 파이썬 특유 문법을 활용해 효율적 코드 표현
@@ -13,23 +13,23 @@ categories: 'Study/Python'
 
 
 
-## Split & Join
+#### Split & Join
 
-### Split 
+#### Split
 
-: String Type 의 값을 나누어 List 형태로 반환 
+: String Type 의 값을 나누어 List 형태로 반환
 `.split() ` 괄호 안 기준으로 문자열을 나눔
 
 
 
-### Join
+#### Join
 
 : String List 를 합쳐 하나의 String으로 반환할 때 사용
-`''.join(var)` 
+`''.join(var)`
 
 <br>
 
-## List Comprehension
+### List Comprehension
 
 - 기존 List를 사용해 간단히 다른 List를 만드는 기법
 - 포함되는, 포괄적인 List 라는 의미로 사용
@@ -38,28 +38,28 @@ categories: 'Study/Python'
 
 
 
-**One Dimentional** 
+**One Dimentional**
 
 `[i+j for i in case_1 for j in case_2]`
 
 
 
-**Two Dimentional** 
+**Two Dimentional**
 
 `[[i+j for i in case_1] for j in case_2]`
 
 <br>
 
-## Enumerate & Zip
+### Enumerate & Zip
 
-### Enumerate
+#### Enumerate
 
 : List element 추출 시 번호를 붙여 반환
 `enumerate(var)`
 
 
 
-### Zip
+#### Zip
 
 : 두 개의 list 값을 병렬 추출
 
@@ -67,16 +67,16 @@ categories: 'Study/Python'
 
 <br>
 
-## Lambda & MapReduce
+### Lambda & MapReduce
 
-### Lambda 
+#### Lambda
 
 : 함수 이름 없이 함수처럼 사용할 수 있는 익명함수, python3 부터 권장하지는 않으나 여전히 많이 쓰임
 `f = lambda x, y: x + y`
 
 
 
-### Map Function
+#### Map Function
 
 : Sequence 자료형 각 element에 동일한 function을 적용
 
@@ -93,7 +93,7 @@ print(list(map(f, ex)))
 
 
 
-###  Reduce Function
+####  Reduce Function
 
 : map과 달리 list에 똑같은 함수를 적용해서 통합
 
@@ -112,13 +112,13 @@ print(list(map(f, ex)))
 
 <br>
 
-## Collections
+### Collections
 
 : List, Tuple, Dict에 대한 Python Built-in 확장 자료 구조(모듈)
 
 
 
-### deque 
+#### deque
 
 - Stack과 Queue를 지원하는 모듈
 - List에 비해 효율적인 자료 저장 방식
@@ -129,7 +129,7 @@ from collections import deque
 deque_list = deque()
 for i in range(5):
     deque_list.append(i)
-#2    
+#2
 deque_list.appendleft(10)
 ```
 
@@ -151,7 +151,7 @@ print(deque(reversed(deque_list)))
 
 <br>
 
-### Ordered Dict
+#### Ordered Dict
 
 - 데이터를 입력한 순서대로 dict를 반환
 - dict type의 값을, value 또는 key 값으로 정렬할 때 사용 가능
@@ -160,7 +160,7 @@ print(deque(reversed(deque_list)))
 
 <br>
 
-### default Dict
+#### default Dict
 
 - dict type의 값에 기본 값을 지정해 신규값 생성 시 사용하는 방법
 
@@ -177,7 +177,7 @@ d = defaultdict(lambda: 0) # default값 == 0
 ```python
 from collections import OrderedDict
 word_count = defaultdict(object) # Default dictionary를 생성
-word_count = defaultdict(lambda: 0) # Default 값을 0으로 설정 
+word_count = defaultdict(lambda: 0) # Default 값을 0으로 설정
 
 for word in text:
   word_count[word] += 1
@@ -187,7 +187,7 @@ for i, v in OrderedDict(sorted(word_count.items(), key=lambda t: t[1],reverse=Tr
 
 
 
-### Counter
+#### Counter
 
 : Sequence Type의 data element 의 갯수를 dict 형태로 반환
 
@@ -197,8 +197,8 @@ for i, v in OrderedDict(sorted(word_count.items(), key=lambda t: t[1],reverse=Tr
 from collections import Counter
 c = Counter()
 c = Counter('gallahad') # 각 알파벳이 몇 번 들어가있는지 확인
-c = Counter({'red' : 4, 'blue':2}) 
-c = Counter(reds=4, blue=2) 
+c = Counter({'red' : 4, 'blue':2})
+c = Counter(reds=4, blue=2)
 ```
 
 
@@ -220,7 +220,7 @@ print(c | d)
 
 <br>
 
-### named tuple
+#### named tuple
 
 - tuple 형태로 data 구조체를 저장하는 방법
 - 저장되는 data variable을 사전에 지정해서 저장

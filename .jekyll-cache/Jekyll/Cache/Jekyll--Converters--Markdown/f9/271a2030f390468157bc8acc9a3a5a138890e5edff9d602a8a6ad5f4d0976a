@@ -1,0 +1,46 @@
+I"�<h2 id="문제">문제</h2>
+
+<hr />
+
+<ol>
+  <li>깃허브에 <strong>편하게</strong> 사진을 올리고 싶은 나.</li>
+  <li>드래그 앤 드롭으로 넣는 거 아니면 아무것도 하고싶지 않은 나.</li>
+</ol>
+
+<p>를 바탕으로… 이미지 오류가 계속 났었다. 분명히 내 컴푸터! 내 폴더! 안에 이미지를 갖다 쳐박아놨는데! 왜 에러라고 뜨는지… 30분은 헤맸다.</p>
+
+<h2 id="해결">해결</h2>
+
+<hr />
+
+<ol>
+  <li>바보같은 나</li>
+</ol>
+
+<p>때문이었다.</p>
+
+<p>저 이미지주소는 내 컴퓨터 내에 이미지가 어디에 있는지를 알려주는 건데, 곰곰히 생각해보니 내 로컬주소가 아니라 맨날 커밋하는 그곳! <strong>깃허브</strong> 내 주소를 적었어야 했다.</p>
+
+<p>드래그 앤 드롭 하면 이미지 주소가 이렇게 나온다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![img_name](/Users/park-eunbin/workspace/parkeb417.github.io/images/img_name.png)
+</code></pre></div></div>
+
+<p>내 컴퓨터 안에서만 작성하고 볼 글이면 놔두어도 상관 없다. 서버에 올릴 글이기 때문에 로컬주소를 백날 작성해봐야 안 듣는다…. ㅜㅡ</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![img_name](/images/img_name.png)
+</code></pre></div></div>
+
+<p>이렇게 고쳐야 한다! 깃헙 레포 내에서 들어가는 방법이라고 생각하면 된다.</p>
+
+<h2 id="고찰">고찰</h2>
+
+<hr />
+
+<ol>
+  <li>생각을 하고 살자</li>
+  <li>곰곰히 생각해보면 된다</li>
+  <li>컴퓨터 입장에서 생각하자</li>
+  <li>컴퓨터는 잘못 없다</li>
+</ol>
+:ET

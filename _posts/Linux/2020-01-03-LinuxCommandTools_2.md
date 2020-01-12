@@ -5,9 +5,6 @@ tags: [CLI]
 categories: 'Study/Linux'
 ---
 
-# Linux Command Line Tools - 검색_2
-
-
 
 ### find
 
@@ -20,7 +17,7 @@ categories: 'Study/Linux'
 **조건**
 
 - -name # 이름 검색, 가장 많이 사용
-- -regex # regex에 매치로 검색 
+- -regex # regex에 매치로 검색
 - -empty # 빈 디렉토리 혹은 빈 파일 검색
 - -size # 사이즈 검색 (M, G 표기 가능)
   - -N # 이하
@@ -47,7 +44,7 @@ categories: 'Study/Linux'
 - **-ok** # 사용자 확인 후 exec
 - **-okdir** # 사용자 확인 후 실행 execdir
 
-#### e.g. 
+#### e.g.
 
 - find . -name "*.py" # 현재 디렉토리에서 py 파일 찾기
 - find . -regextype egrep -regex '.\*hash.*.py$' # $ 파일의 끝을 명시함. hash 앞뒤로 글이 있는 py 파일
@@ -62,7 +59,7 @@ categories: 'Study/Linux'
 + find . -name -execdir {} \;
 + find . -name -ok rm -f {} \; # 안전하게 파일 삭제 가능
 
- 
+
 
 ### grep
 
@@ -72,17 +69,17 @@ grep [**OPTION**] PATTERN [FILE...]
 
 #### 자주 사용되는 옵션
 
-+ **-r** # recursive 
++ **-r** # recursive
 + -i # ignore case
-+ **-v** # invert match # 패턴과 매치가 되지 않는 걸 찾음 
++ **-v** # invert match # 패턴과 매치가 되지 않는 걸 찾음
 + -q # quiet mode # 성공.실패만 판단하고 싶을 때
 
-#### e.g. 
+#### e.g.
 
-+ grep PATTERN *.py # py 파일에 PATTERN 이 포함된 걸 찾아라 
++ grep PATTERN *.py # py 파일에 PATTERN 이 포함된 걸 찾아라
 + grep PATTERN *.py | awk -F: '{print $1}' | sort -u # 패턴이 들어있는 파일 검색 후 awk 명령어로 파일 이름 분류 후 sort로 unique 한 것만 출력
 
-+ echo $? # 최근에 실행된 명령어, 함수, 스크립트 자식의 종료 상태 / 0 = 성공 
++ echo $? # 최근에 실행된 명령어, 함수, 스크립트 자식의 종료 상태 / 0 = 성공
 + grep "\\<for\\>" *.py # 단어단위 검색
 
 
@@ -99,7 +96,7 @@ man page 이름과 설명 검색
 + 3 : 라이브러리 함수
 + 7 : Overview 등의 개념
 
-#### e.g. 
+#### e.g.
 
 + apropos print
 + apropos pthread
@@ -130,9 +127,9 @@ updateddb : os 레벨에서 정기적으로 업데이트 함
 
 
 
-#### e.g. 
+#### e.g.
 
-+ locate main.c -n 10 # 
++ locate main.c -n 10 #
 
 
 
@@ -140,10 +137,9 @@ updateddb : os 레벨에서 정기적으로 업데이트 함
 
 **실행 파일**의 위치를 알려줌 > 일반적인 파일은 불가능
 
-#### e.g. 
+#### e.g.
 
 + which ls
-+ which chmod 
++ which chmod
 + which ls strace chmod
 + which ifconfig
-

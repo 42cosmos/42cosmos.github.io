@@ -1,0 +1,147 @@
+I"�<h3 id="git">Git</h3>
+
+<ul>
+  <li>가장 대중적인 코드 관리 도구</li>
+  <li>목적 : 이력관리 (버전관리)</li>
+  <li>특징 : ‘분산’ 버전관리</li>
+</ul>
+
+<h4 id="git-setting">Git Setting</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config --global user.name "name"
+git config --global user.email "email"
+git init # After make a folder
+</code></pre></div></div>
+
+<h4 id="git-status">Git Status</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+git add 'file.type'
+git commit 'file.type' -m "Your Message"
+# git commit -m "Your Message" when you need all file commits
+
+</code></pre></div></div>
+
+<p>Staged File : Files requiring constant observation Commited File : Save current condition in Git Repo</p>
+
+<ol>
+  <li>git status</li>
+</ol>
+
+<ul>
+  <li>Version Control, Source Code Management</li>
+  <li>When appears ‘Untracked file’. It means Git doesn’t know that file</li>
+</ul>
+
+<ol>
+  <li>git add</li>
+</ol>
+
+<ul>
+  <li>1st alert ‘Changes to be commit’. It means Your file is in Staged Area</li>
+  <li>2nd alert ‘Changes not staged for commit’. It means You’ve got modified file on Tracked file, But not in Staged Area (Not Staged condition)</li>
+</ul>
+
+<ol>
+  <li>git commit</li>
+</ol>
+
+<ul>
+  <li>Source Control is Available since data was committed in Git Repository</li>
+  <li>Enter when you want to SAVE</li>
+</ul>
+
+<h4 id="git-ignore">Git ignore</h4>
+
+<p><code class="highlighter-rouge">git mv file.rft file.gitignore</code></p>
+
+<p>When you’ve got files you want to ignore, make a txt file and change file extention .rtf(.txt etc) to .gittgnore.</p>
+
+<h4 id="git-log---기록">Git log - 기록</h4>
+
+<p>press ‘q’ when escape</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>commit a4d380ce1cf6e8866f0f1d07cfaa804083476e0c
+Author: Name &lt;your@email.com&gt;
+Date:   Wed Dec 11 100:00:00 2019 +0000
+
+</code></pre></div></div>
+
+<p>commit : Hash Code of your file Author : Author name &lt;Author’s email&gt; Date : Committed date</p>
+
+<p><strong>git log’s 4 command line</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log --status
+git log --pretty=oneline
+git log --pretty=format : "%h - %an, %ar : %s"
+git log --pretty=format : "%h - %an, %ar : %s" --graph
+
+</code></pre></div></div>
+
+<h4 id="git-checkout">Git checkout</h4>
+
+<p><em>Not a recommanded way</em> <code class="highlighter-rouge">git checkout 'hash[:6]'</code> <strong>Keep returning purpose in mind</strong></p>
+
+<h4 id="branch">Branch</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+git branch # Expected Result with green font colour : * master
+git branch 'name'
+git checkout 'name' # Expecte
+
+</code></pre></div></div>
+
+<p>when you checking out to master, files you made with another branch name will disappear</p>
+
+<h4 id="merge">Merge</h4>
+
+<p><code class="highlighter-rouge">git merge name # branch name</code> in the master branch</p>
+
+<h4 id="gitk---history-with-graph">gitk - History with graph</h4>
+
+<p><code class="highlighter-rouge">gitk</code></p>
+
+<h4 id="push">Push</h4>
+
+<p><code class="highlighter-rouge">git push -u origin master</code> Branch called master push to Remote server called origin</p>
+
+<h4 id="remote">Remote</h4>
+
+<p>Create New Repository on terminal line <code class="highlighter-rouge">git remote add origin https://www.github.com/~/~</code> <code class="highlighter-rouge">remote</code> Total command line of remote repository <code class="highlighter-rouge">add</code> Plus <code class="highlighter-rouge">origin</code> the name, the first <code class="highlighter-rouge">https://~</code> same as HTML</p>
+
+<h4 id="remote-command-line">Remote Command Line</h4>
+
+<p><code class="highlighter-rouge">git remote</code> #Expected Result : origin <code class="highlighter-rouge">git remote -v</code> <code class="highlighter-rouge">git remote add origin</code> <code class="highlighter-rouge">git remote add name</code> <code class="highlighter-rouge">git remote rm name</code> # Delete</p>
+
+<h4 id="commit-in-git-remote-server">Commit in Git Remote server</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add name
+git commit name -m "Message"
+git push origin master
+
+</code></pre></div></div>
+
+<h4 id="remote-server-to-local">Remote server to Local</h4>
+
+<ol>
+  <li>Clone - Get everything</li>
+  <li>Pull - Merge same branch</li>
+  <li>Fetch - Only get changed things</li>
+</ol>
+
+<h4 id="1-fork--pull-request">(1) Fork &amp; Pull Request</h4>
+
+<p>Fork🍴 - 타인의 Repo를 나의 github repo로 옮김 Pull Request - Fork로 가져온 타인의 코드 수정 후 반영을 요청함</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull address master # Easiest way
+git fetch origin master # bring Latest version &amp; can get another branch
+git merget origin master
+
+</code></pre></div></div>
+
+<h4 id="2-permission">(2) Permission</h4>
+
+<p>permission Setting : 작업 권한을 공동 작업자에게 위임 github 내 setting 에서 추가</p>
+
+<p><a href="https://www.youtube.com/playlist?list=PLBHVuYlKEkULuUe_Ca3wiaFon6dPWIWAZ">유튜브 Git - Teamlab 강의</a></p>
+:ET

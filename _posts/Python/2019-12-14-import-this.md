@@ -4,9 +4,6 @@ title: The Zen of Python
 tags: [Zen_of_Python]
 categories: 'Study/Python'
 ---
-
-## The Zen of Python
-
 Beautiful is better than ugly.
 
 Explicit is better than implicit.

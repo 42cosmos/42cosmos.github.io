@@ -5,16 +5,16 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 13 Jan 2020 00:38:50 +0900</pubDate>
-    <lastBuildDate>Mon, 13 Jan 2020 00:38:50 +0900</lastBuildDate>
+    <pubDate>Mon, 13 Jan 2020 02:32:22 +0900</pubDate>
+    <lastBuildDate>Mon, 13 Jan 2020 02:32:22 +0900</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
 
     
       <item>
-        <title>jekyll 이미지 오류</title>
-        <description>&lt;p&gt;&lt;img src=&quot;/Users/park-eunbin/workspace/parkeb417.github.io/images/이미지오류.png&quot; alt=&quot;이미지오류&quot; /&gt;&lt;/p&gt;
+        <title>jekyll 이미지 오류 - not found</title>
+        <description>&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
 
-&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+&lt;hr /&gt;
 
 &lt;ol&gt;
   &lt;li&gt;깃허브에 &lt;strong&gt;편하게&lt;/strong&gt; 사진을 올리고 싶은 나.&lt;/li&gt;
@@ -23,7 +23,9 @@
 
 &lt;p&gt;를 바탕으로… 이미지 오류가 계속 났었다. 분명히 내 컴푸터! 내 폴더! 안에 이미지를 갖다 쳐박아놨는데! 왜 에러라고 뜨는지… 30분은 헤맸다.&lt;/p&gt;
 
-&lt;h2 id=&quot;해결&quot;&gt;해결&lt;/h2&gt;
+&lt;h3 id=&quot;해결&quot;&gt;해결&lt;/h3&gt;
+
+&lt;hr /&gt;
 
 &lt;ol&gt;
   &lt;li&gt;바보같은 나&lt;/li&gt;
@@ -45,7 +47,9 @@
 
 &lt;p&gt;이렇게 고쳐야 한다! 깃헙 레포 내에서 들어가는 방법이라고 생각하면 된다.&lt;/p&gt;
 
-&lt;h2 id=&quot;고찰&quot;&gt;고찰&lt;/h2&gt;
+&lt;h3 id=&quot;고찰&quot;&gt;고찰&lt;/h3&gt;
+
+&lt;hr /&gt;
 
 &lt;ol&gt;
   &lt;li&gt;생각을 하고 살자&lt;/li&gt;
@@ -61,10 +65,8 @@
     
       <item>
         <title>[Edwith] 머신러닝을 위한 Python_chap03 - Numpy</title>
-        <description>&lt;h1 id=&quot;numpy&quot;&gt;Numpy&lt;/h1&gt;
-
+        <description>&lt;h3 id=&quot;numpy&quot;&gt;Numpy&lt;/h3&gt;
 &lt;hr /&gt;
-
 &lt;p&gt;파이썬 과학 처리 패키지 - Numerical Python&lt;/p&gt;
 
 &lt;ul&gt;
@@ -75,7 +77,7 @@
 
 &lt;h3 id=&quot;array-creation&quot;&gt;Array creation&lt;/h3&gt;
 
-&lt;h3 id=&quot;ndarray&quot;&gt;ndarray&lt;/h3&gt;
+&lt;h4 id=&quot;ndarray&quot;&gt;ndarray&lt;/h4&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;numpy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;float64&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 64는 크기
@@ -90,7 +92,7 @@
 &lt;p&gt;넘파이 : 차례데로 데이터를 쌓음 &amp;gt; 빠른 데이터 처리가 가능&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt; 
+&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;# Expected Result - Vector
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 4 column
 &lt;/span&gt;
@@ -180,9 +182,7 @@
     
       <item>
         <title>[Edwith] 머신러닝을 위한 Python_chap02</title>
-        <description>&lt;h2 id=&quot;ml-overview&quot;&gt;ML overview&lt;/h2&gt;
-
-&lt;p&gt;&lt;em&gt;Scala&lt;/em&gt;는 이탤릭체, &lt;strong&gt;vector&lt;/strong&gt;는 소문자 볼드, &lt;strong&gt;MATRIX&lt;/strong&gt;는 대문자 볼드&lt;/p&gt;
+        <description>&lt;p&gt;&lt;em&gt;Scala&lt;/em&gt;는 이탤릭체, &lt;strong&gt;vector&lt;/strong&gt;는 소문자 볼드, &lt;strong&gt;MATRIX&lt;/strong&gt;는 대문자 볼드&lt;/p&gt;
 
 &lt;p&gt;기존 데이터를 알고리즘을 사용해 모델을 만들고, 새 데이터에 모델을 적용해 예측하는 것 : 핵심은 알고리즘과 모델&lt;/p&gt;
 
@@ -211,7 +211,6 @@
 &lt;p&gt;선형대수의 표기법을 사용 &amp;gt;&lt;/p&gt;
 
 &lt;p&gt;list=w^t x=list &amp;gt;로 표현해 y의 예측치를 찾아낼 수 있을 것임&lt;/p&gt;
-
 </description>
         <pubDate>Sat, 11 Jan 2020 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/study/ml/2020/01/11/edwith-ML-overview/</link>
@@ -221,9 +220,7 @@
       <item>
         <title>Foundation for analytics with python - 1</title>
         <description>&lt;h1 id=&quot;pandas&quot;&gt;pandas&lt;/h1&gt;
-
 &lt;hr /&gt;
-
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;astype(type)&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;loc[[행], [열]]&lt;/code&gt; - 라벨 값을 기반으로 행 데이터 읽기
@@ -298,7 +295,7 @@ ValueError: illegal newline value:
 
     &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;b’Skipping line 13: expected 5 fields, saw 7\n’ -&amp;gt; 
+  &lt;li&gt;b’Skipping line 13: expected 5 fields, saw 7\n’ -&amp;gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;data_frame = pd.read_csv(input_file, error_bad_lines=False, warn_bad_lines=False)&lt;/code&gt; 로 해결&lt;/li&gt;
   &lt;li&gt;pandas &lt;code class=&quot;highlighter-rouge&quot;&gt;.ix[]&lt;/code&gt; Message&lt;/li&gt;
 &lt;/ol&gt;
@@ -350,9 +347,7 @@ ValueError: illegal newline value:
     
       <item>
         <title>Linux Command Line Tools - 검색</title>
-        <description>&lt;h1 id=&quot;linux-command-line-tools---검색_2&quot;&gt;Linux Command Line Tools - 검색_2&lt;/h1&gt;
-
-&lt;h3 id=&quot;find&quot;&gt;find&lt;/h3&gt;
+        <description>&lt;h3 id=&quot;find&quot;&gt;find&lt;/h3&gt;
 
 &lt;p&gt;이름이나 속성 등의 조건에 맞는 파일을 찾아 명령 수행&lt;/p&gt;
 
@@ -528,7 +523,6 @@ ValueError: illegal newline value:
   &lt;li&gt;which ls strace chmod&lt;/li&gt;
   &lt;li&gt;which ifconfig&lt;/li&gt;
 &lt;/ul&gt;
-
 </description>
         <pubDate>Fri, 03 Jan 2020 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/study/linux/2020/01/03/LinuxCommandTools_2/</link>
@@ -1111,7 +1105,7 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
     
       <item>
         <title>[Edwith] 머신러닝을 위한 Python_chap01</title>
-        <description>&lt;h2 id=&quot;news-categorisitaion&quot;&gt;News Categorisitaion&lt;/h2&gt;
+        <description>&lt;h3 id=&quot;news-categorisitaion&quot;&gt;News Categorisitaion&lt;/h3&gt;
 
 &lt;p&gt;숫자를 벡터로 좌표평면상에 올릴 수 있도록 바꾸어주어야 함.&lt;/p&gt;
 
@@ -1213,8 +1207,8 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
         &lt;span class=&quot;n&quot;&gt;similarity_list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
             &lt;span class=&quot;n&quot;&gt;get_cosine_similarity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source_vector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target_vector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;similarity_list&lt;/span&gt;
-  
-  
+
+
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_top_n_similarity_news&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;similarity_score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;operator&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;similarity_score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
@@ -1232,7 +1226,6 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
 &lt;p&gt;각 문서 번호들마다 얼마나 근접한지 값을 보여줄 것임.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;strong&gt;get_top_n_similarity_news&lt;/strong&gt;  : 키값으로 정렬해서 밸류값 중 가장 큰 값의 인덱스 값을 같이 반환해주는 함 / 가장 유사한 값 10개&lt;/p&gt;
-
 </description>
         <pubDate>Thu, 02 Jan 2020 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/study/ml/2020/01/02/edwith-python-for-ML/</link>
@@ -1240,29 +1233,8 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
       </item>
     
       <item>
-        <title>Personal Website</title>
-        <description>&lt;p&gt;예전에 학기 프로젝트로 했던 개인 웹 사이트 만들기 발표자료 중 일부분입니다. 이 때 참 재미있게 만들었던 게 기억납니다.  지금 보면 허접하기 짝이 없지만… 그래도 사랑하는 저의 작품이죠&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/ztyUc/btqARhZ1Nic/bzsK1QRQIvun9qY2ZlvtsK/img.png&quot; alt=&quot;img&quot; /&gt;index 화면&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/Pdcvc/btqARikmcMz/NEZkRkJRiC2Vvcc2FwzSLK/img.png&quot; alt=&quot;img&quot; /&gt;Main pages&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/ciTIsx/btqAQlovdCt/ckIuGTGQOem1K69jmEcKK1/img.png&quot; alt=&quot;img&quot; /&gt;explanation of 1st main pages’ detail&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/d7lrZ6/btqARjDxruK/plPPW3qSWntKpstNKfhg90/img.png&quot; alt=&quot;img&quot; /&gt;Explanation of 2nd main pages’ detail&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/cxF4LI/btqAOIYQLy4/orKjdcPHxGipCaqKAlhi3K/img.png&quot; alt=&quot;img&quot; /&gt;Explanation of 3rd main pages’ detail&lt;/p&gt;
-</description>
-        <pubDate>Wed, 01 Jan 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/study/web/2020/01/01/personal-web-making/</link>
-        <guid isPermaLink="true">http://localhost:4000/study/web/2020/01/01/personal-web-making/</guid>
-      </item>
-    
-      <item>
         <title>Linux Command Line Tools - 텍스트 처리</title>
-        <description>&lt;h1 id=&quot;linux-command-line-tools&quot;&gt;Linux Command Line Tools&lt;/h1&gt;
-
-&lt;h3 id=&quot;head&quot;&gt;head&lt;/h3&gt;
+        <description>&lt;h3 id=&quot;head&quot;&gt;head&lt;/h3&gt;
 
 &lt;p&gt;문서 내용 앞 부분 출력&lt;/p&gt;
 
@@ -1841,7 +1813,7 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
+&lt;h4 id=&quot;사담&quot;&gt;사담&lt;/h4&gt;
 
 &lt;p&gt;우분투 영상에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;ls -al | sort -k 5&lt;/code&gt; 는 숫자로 인식하지 않아서 -n을 붙여줘야 했는데, 맥은 아닌가보다…&lt;/p&gt;
 </description>
@@ -1852,7 +1824,7 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
     
       <item>
         <title>[edwith] python for ML ch1</title>
-        <description>&lt;h1 id=&quot;1-pythonic-code&quot;&gt;1) Pythonic Code&lt;/h1&gt;
+        <description>&lt;h3 id=&quot;1-pythonic-code&quot;&gt;1) Pythonic Code&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;파이썬 스타일의 코딩 기법&lt;/li&gt;
@@ -1860,21 +1832,21 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
   &lt;li&gt;고급 코드를 작성할 수록 더 많이 요구됨&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;split--join&quot;&gt;Split &amp;amp; Join&lt;/h2&gt;
+&lt;h4 id=&quot;split--join&quot;&gt;Split &amp;amp; Join&lt;/h4&gt;
 
-&lt;h3 id=&quot;split&quot;&gt;Split&lt;/h3&gt;
+&lt;h4 id=&quot;split&quot;&gt;Split&lt;/h4&gt;
 
-&lt;p&gt;: String Type 의 값을 나누어 List 형태로 반환 
+&lt;p&gt;: String Type 의 값을 나누어 List 형태로 반환
 &lt;code class=&quot;highlighter-rouge&quot;&gt;.split() &lt;/code&gt; 괄호 안 기준으로 문자열을 나눔&lt;/p&gt;
 
-&lt;h3 id=&quot;join&quot;&gt;Join&lt;/h3&gt;
+&lt;h4 id=&quot;join&quot;&gt;Join&lt;/h4&gt;
 
 &lt;p&gt;: String List 를 합쳐 하나의 String으로 반환할 때 사용
 &lt;code class=&quot;highlighter-rouge&quot;&gt;''.join(var)&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;list-comprehension&quot;&gt;List Comprehension&lt;/h2&gt;
+&lt;h3 id=&quot;list-comprehension&quot;&gt;List Comprehension&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;기존 List를 사용해 간단히 다른 List를 만드는 기법&lt;/li&gt;
@@ -1893,14 +1865,14 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;enumerate--zip&quot;&gt;Enumerate &amp;amp; Zip&lt;/h2&gt;
+&lt;h3 id=&quot;enumerate--zip&quot;&gt;Enumerate &amp;amp; Zip&lt;/h3&gt;
 
-&lt;h3 id=&quot;enumerate&quot;&gt;Enumerate&lt;/h3&gt;
+&lt;h4 id=&quot;enumerate&quot;&gt;Enumerate&lt;/h4&gt;
 
 &lt;p&gt;: List element 추출 시 번호를 붙여 반환
 &lt;code class=&quot;highlighter-rouge&quot;&gt;enumerate(var)&lt;/code&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;zip&quot;&gt;Zip&lt;/h3&gt;
+&lt;h4 id=&quot;zip&quot;&gt;Zip&lt;/h4&gt;
 
 &lt;p&gt;: 두 개의 list 값을 병렬 추출&lt;/p&gt;
 
@@ -1908,14 +1880,14 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;lambda--mapreduce&quot;&gt;Lambda &amp;amp; MapReduce&lt;/h2&gt;
+&lt;h3 id=&quot;lambda--mapreduce&quot;&gt;Lambda &amp;amp; MapReduce&lt;/h3&gt;
 
-&lt;h3 id=&quot;lambda&quot;&gt;Lambda&lt;/h3&gt;
+&lt;h4 id=&quot;lambda&quot;&gt;Lambda&lt;/h4&gt;
 
 &lt;p&gt;: 함수 이름 없이 함수처럼 사용할 수 있는 익명함수, python3 부터 권장하지는 않으나 여전히 많이 쓰임
 &lt;code class=&quot;highlighter-rouge&quot;&gt;f = lambda x, y: x + y&lt;/code&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;map-function&quot;&gt;Map Function&lt;/h3&gt;
+&lt;h4 id=&quot;map-function&quot;&gt;Map Function&lt;/h4&gt;
 
 &lt;p&gt;: Sequence 자료형 각 element에 동일한 function을 적용&lt;/p&gt;
 
@@ -1931,7 +1903,7 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;reduce-function&quot;&gt;Reduce Function&lt;/h3&gt;
+&lt;h4 id=&quot;reduce-function&quot;&gt;Reduce Function&lt;/h4&gt;
 
 &lt;p&gt;: map과 달리 list에 똑같은 함수를 적용해서 통합&lt;/p&gt;
 
@@ -1952,11 +1924,11 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;collections&quot;&gt;Collections&lt;/h2&gt;
+&lt;h3 id=&quot;collections&quot;&gt;Collections&lt;/h3&gt;
 
 &lt;p&gt;: List, Tuple, Dict에 대한 Python Built-in 확장 자료 구조(모듈)&lt;/p&gt;
 
-&lt;h3 id=&quot;deque&quot;&gt;deque&lt;/h3&gt;
+&lt;h4 id=&quot;deque&quot;&gt;deque&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Stack과 Queue를 지원하는 모듈&lt;/li&gt;
@@ -1968,7 +1940,7 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deque_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deque&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;deque_list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#2    
+&lt;span class=&quot;c1&quot;&gt;#2
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deque_list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;appendleft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -1989,7 +1961,7 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;ordered-dict&quot;&gt;Ordered Dict&lt;/h3&gt;
+&lt;h4 id=&quot;ordered-dict&quot;&gt;Ordered Dict&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;데이터를 입력한 순서대로 dict를 반환&lt;/li&gt;
@@ -2000,7 +1972,7 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;default-dict&quot;&gt;default Dict&lt;/h3&gt;
+&lt;h4 id=&quot;default-dict&quot;&gt;default Dict&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;dict type의 값에 기본 값을 지정해 신규값 생성 시 사용하는 방법&lt;/li&gt;
@@ -2022,7 +1994,7 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;collections&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OrderedDict&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;word_count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultdict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Default dictionary를 생성
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word_count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultdict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Default 값을 0으로 설정 
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word_count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultdict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Default 값을 0으로 설정
 &lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;word_count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
@@ -2030,7 +2002,7 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
     &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;counter&quot;&gt;Counter&lt;/h3&gt;
+&lt;h4 id=&quot;counter&quot;&gt;Counter&lt;/h4&gt;
 
 &lt;p&gt;: Sequence Type의 data element 의 갯수를 dict 형태로 반환&lt;/p&gt;
 
@@ -2041,8 +2013,8 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;collections&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'gallahad'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 각 알파벳이 몇 번 들어가있는지 확인
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'red'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'blue'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; 
-&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'red'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'blue'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -2063,7 +2035,7 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;named-tuple&quot;&gt;named tuple&lt;/h3&gt;
+&lt;h4 id=&quot;named-tuple&quot;&gt;named tuple&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;tuple 형태로 data 구조체를 저장하는 방법&lt;/li&gt;
@@ -2077,7 +2049,7 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
     
       <item>
         <title>[Git] Git Study</title>
-        <description>&lt;h2 id=&quot;git&quot;&gt;Git&lt;/h2&gt;
+        <description>&lt;h3 id=&quot;git&quot;&gt;Git&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;가장 대중적인 코드 관리 도구&lt;/li&gt;
@@ -2085,14 +2057,14 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
   &lt;li&gt;특징 : ‘분산’ 버전관리&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;git-setting&quot;&gt;Git Setting&lt;/h3&gt;
+&lt;h4 id=&quot;git-setting&quot;&gt;Git Setting&lt;/h4&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global user.name &quot;name&quot;
 git config --global user.email &quot;email&quot;
 git init # After make a folder
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;git-status&quot;&gt;Git Status&lt;/h3&gt;
+&lt;h4 id=&quot;git-status&quot;&gt;Git Status&lt;/h4&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git status
 git add 'file.type'
@@ -2130,13 +2102,13 @@ git commit 'file.type' -m &quot;Your Message&quot;
   &lt;li&gt;Enter when you want to SAVE&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;git-ignore&quot;&gt;Git ignore&lt;/h3&gt;
+&lt;h4 id=&quot;git-ignore&quot;&gt;Git ignore&lt;/h4&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git mv file.rft file.gitignore&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;When you’ve got files you want to ignore, make a txt file and change file extention .rtf(.txt etc) to .gittgnore.&lt;/p&gt;
 
-&lt;h3 id=&quot;git-log---기록&quot;&gt;Git log - 기록&lt;/h3&gt;
+&lt;h4 id=&quot;git-log---기록&quot;&gt;Git log - 기록&lt;/h4&gt;
 
 &lt;p&gt;press ‘q’ when escape&lt;/p&gt;
 
@@ -2157,11 +2129,11 @@ git log --pretty=format : &quot;%h - %an, %ar : %s&quot; --graph
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;git-checkout&quot;&gt;Git checkout&lt;/h3&gt;
+&lt;h4 id=&quot;git-checkout&quot;&gt;Git checkout&lt;/h4&gt;
 
 &lt;p&gt;&lt;em&gt;Not a recommanded way&lt;/em&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout 'hash[:6]'&lt;/code&gt; &lt;strong&gt;Keep returning purpose in mind&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;branch&quot;&gt;Branch&lt;/h3&gt;
+&lt;h4 id=&quot;branch&quot;&gt;Branch&lt;/h4&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 git branch # Expected Result with green font colour : * master
@@ -2172,27 +2144,27 @@ git checkout 'name' # Expecte
 
 &lt;p&gt;when you checking out to master, files you made with another branch name will disappear&lt;/p&gt;
 
-&lt;h3 id=&quot;merge&quot;&gt;Merge&lt;/h3&gt;
+&lt;h4 id=&quot;merge&quot;&gt;Merge&lt;/h4&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git merge name # branch name&lt;/code&gt; in the master branch&lt;/p&gt;
 
-&lt;h3 id=&quot;gitk---history-with-graph&quot;&gt;gitk - History with graph&lt;/h3&gt;
+&lt;h4 id=&quot;gitk---history-with-graph&quot;&gt;gitk - History with graph&lt;/h4&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gitk&lt;/code&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;push&quot;&gt;Push&lt;/h3&gt;
+&lt;h4 id=&quot;push&quot;&gt;Push&lt;/h4&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git push -u origin master&lt;/code&gt; Branch called master push to Remote server called origin&lt;/p&gt;
 
-&lt;h3 id=&quot;remote&quot;&gt;Remote&lt;/h3&gt;
+&lt;h4 id=&quot;remote&quot;&gt;Remote&lt;/h4&gt;
 
 &lt;p&gt;Create New Repository on terminal line &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote add origin https://www.github.com/~/~&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;remote&lt;/code&gt; Total command line of remote repository &lt;code class=&quot;highlighter-rouge&quot;&gt;add&lt;/code&gt; Plus &lt;code class=&quot;highlighter-rouge&quot;&gt;origin&lt;/code&gt; the name, the first &lt;code class=&quot;highlighter-rouge&quot;&gt;https://~&lt;/code&gt; same as HTML&lt;/p&gt;
 
-&lt;h3 id=&quot;remote-command-line&quot;&gt;Remote Command Line&lt;/h3&gt;
+&lt;h4 id=&quot;remote-command-line&quot;&gt;Remote Command Line&lt;/h4&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git remote&lt;/code&gt; #Expected Result : origin &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote -v&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote add origin&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote add name&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote rm name&lt;/code&gt; # Delete&lt;/p&gt;
 
-&lt;h3 id=&quot;commit-in-git-remote-server&quot;&gt;Commit in Git Remote server&lt;/h3&gt;
+&lt;h4 id=&quot;commit-in-git-remote-server&quot;&gt;Commit in Git Remote server&lt;/h4&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add name
 git commit name -m &quot;Message&quot;
@@ -2200,7 +2172,7 @@ git push origin master
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;remote-server-to-local&quot;&gt;Remote server to Local&lt;/h3&gt;
+&lt;h4 id=&quot;remote-server-to-local&quot;&gt;Remote server to Local&lt;/h4&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Clone - Get everything&lt;/li&gt;
@@ -2208,7 +2180,7 @@ git push origin master
   &lt;li&gt;Fetch - Only get changed things&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;1-fork--pull-request&quot;&gt;(1) Fork &amp;amp; Pull Request&lt;/h3&gt;
+&lt;h4 id=&quot;1-fork--pull-request&quot;&gt;(1) Fork &amp;amp; Pull Request&lt;/h4&gt;
 
 &lt;p&gt;Fork🍴 - 타인의 Repo를 나의 github repo로 옮김 Pull Request - Fork로 가져온 타인의 코드 수정 후 반영을 요청함&lt;/p&gt;
 
@@ -2218,7 +2190,7 @@ git merget origin master
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;2-permission&quot;&gt;(2) Permission&lt;/h3&gt;
+&lt;h4 id=&quot;2-permission&quot;&gt;(2) Permission&lt;/h4&gt;
 
 &lt;p&gt;permission Setting : 작업 권한을 공동 작업자에게 위임 github 내 setting 에서 추가&lt;/p&gt;
 
@@ -2372,9 +2344,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
     
       <item>
         <title>The Zen of Python</title>
-        <description>&lt;h2 id=&quot;the-zen-of-python&quot;&gt;The Zen of Python&lt;/h2&gt;
-
-&lt;p&gt;Beautiful is better than ugly.&lt;/p&gt;
+        <description>&lt;p&gt;Beautiful is better than ugly.&lt;/p&gt;
 
 &lt;p&gt;Explicit is better than implicit.&lt;/p&gt;
 
@@ -3246,6 +3216,12 @@ uses: high-speed network encryptions&lt;/li&gt;
     
       
         
+      
+    
+      
+    
+      
+    
       
     
       

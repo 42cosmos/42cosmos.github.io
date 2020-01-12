@@ -5,15 +5,11 @@ tags: [CLI]
 categories: 'Study/Linux'
 ---
 
-# Linux Command Line Tools
+### head
 
+문서 내용 앞 부분 출력
 
-
-### head 
-
-문서 내용 앞 부분 출력 
-
-파라미터를 주지 않으면 앞 10줄 출력 
+파라미터를 주지 않으면 앞 10줄 출력
 
 ##### 자주 사용되는 옵션
 
@@ -32,13 +28,13 @@ categories: 'Study/Linux'
 
 문서 내용 뒷 부분 출력
 
-파라미터를 주지 않으면 끝 10줄 출력 
+파라미터를 주지 않으면 끝 10줄 출력
 
 ##### 자주 사용되는 옵션
 
 - -c, --bytes = [+]NUM # print num byte
-- -n, --lines = [+]NUM # print num line 
-- **-f**, --follow[={name | desc}] # 추가되는 내용 대기하다가, 추가 내용은 append 후 출력 
+- -n, --lines = [+]NUM # print num line
+- **-f**, --follow[={name | desc}] # 추가되는 내용 대기하다가, 추가 내용은 append 후 출력
 - -F # truncate > Re-Open > Follow ( using log rotate file )) # 파일이 지워졌다가 생겨도 따라감
 
 ##### e.g.
@@ -64,7 +60,7 @@ line/word/byte count 출력
 
 - wc 'file.type' == wc -clmw 'file.type'  # line	word	byte count	'file.type'
 - wc *.py # 폴더 내 py파일 모두 확인
-- wc -l 'file.type' # line 수 
+- wc -l 'file.type' # line 수
 - wc -l 'file.type' | awk '{print $1}'
 
 
@@ -101,11 +97,11 @@ line/word/byte count 출력
    + -k, --key=KEYDEF # key에 의한 정렬, 어떤 컬럼을 기준으로 정렬할 건지 /
      - 숫자 한 개만 작성하면 그 부분부터 끝까지
      - 한 개의 열만 하려면 쉼표로 구분해 같은 숫자 넣어주기
-     - n 번째 우선순위 지정 > -k 5,5 -k 2,2 
+     - n 번째 우선순위 지정 > -k 5,5 -k 2,2
      - e.g. ls -al | sort -k 5 -n
-   + -t, --field-separator # 필드 구분자 (기본값 = 공백), 하나의 기준으로 컬럼을 나누어줌 
+   + -t, --field-separator # 필드 구분자 (기본값 = 공백), 하나의 기준으로 컬럼을 나누어줌
 2. 정렬 기준 (sort 'file' -x)
-   + -f, --ignore-case 
+   + -f, --ignore-case
    + -g, --general-numeric-sort
    + -n, --numeric-sort # 123보다 91이 먼저 나오게 됨
    + -r, --reverse # 내림차순 정렬
@@ -116,7 +112,7 @@ line/word/byte count 출력
 ##### e.g.
 
 - cat 'file.type' | sort
-- cat 'file..type' | sort -t'구분자' -k '정렬키-행' -n 
+- cat 'file..type' | sort -t'구분자' -k '정렬키-행' -n
 - cat 'file..type' | sort -t'구분자' -k '정렬키-행' -n -debug
 
 
@@ -137,7 +133,7 @@ line/word/byte count 출력
 
 + cat 'file.type' | uniq | nl -ba # 중복된 내용만 코드 번호를 붙여서 출력
 
-+ sort 'file.type' | uniq | nl -ba 
++ sort 'file.type' | uniq | nl -ba
 + grep "search" file | awk -F: ''{print $1}' | uniq
 
 
@@ -160,7 +156,7 @@ line/word/byte count 출력
 
 + head 'file.type' | cut -d: -f 1, 7 --output-delimiter=">" # 딜리미터 변경
 
-+ ls -al | head | cut -b 1 #각 줄의 첫 글자만 나옴 
++ ls -al | head | cut -b 1 #각 줄의 첫 글자만 나옴
 + ls -al | head | cut -b 2-4 # rwx.. 등 권한을 볼 수 있음
 + ls -al | head | cut -b -10 # 처음부터 10바이트까지
 + ls -al | head | cut -b 11- # 11부터 끝 바이트까지
@@ -186,7 +182,7 @@ tr [OPTION] ... SET 1 [SET 2]
   + [:blank:] # 공백
   + [:space:] # 공백 + newline
   + [:digit:] / [:xdigit:] # 10진수 숫자 / 16진수 숫자
-  + [:lower:] / [:upper:] 
+  + [:lower:] / [:upper:]
 
 #### e.g.
 
@@ -236,11 +232,11 @@ syntax : awk options 'selection _criteria {action }' input-file
 
 #### 자주 사용되는 옵션
 
-+ -F # Field separator 지정 
++ -F # Field separator 지정
 
 #### 주요 내장 변수
 
-+ $1, $2, $3 # Nth field. wc할 때 awk field separator를 공백으로 해서 $1, $2... 
++ $1, $2, $3 # Nth field. wc할 때 awk field separator를 공백으로 해서 $1, $2...
 + NR # number of records
 + NF # number of fields
 + FS # field separator (default 'white space')
@@ -256,11 +252,11 @@ syntax : awk options 'selection _criteria {action }' input-file
 + head 'file.type' | awk -Fs '{print $1}'
 + head 'file.type' | awk -Fs '/kwarg/ {print}' # 검색 후 라인 전체 출력
 + head 'file.type' | awk -Fs '/kwarg/ {print NR, $1 }'  # 검색 인자가 몇 번째 라인인지 출력
-+ head 'file.type' | awk -Fs '{print NR "==>" $1 }' 
++ head 'file.type' | awk -Fs '{print NR "==>" $1 }'
 + head 'file.type' | awk -Fs '{print NR "==>" $1, NF }' # 필드가 몇 개인지 알려줌, 언어라서 loop 도 돌 수 있음.
 
 
 
-### 사담
+#### 사담
 
 우분투 영상에서 `ls -al | sort -k 5` 는 숫자로 인식하지 않아서 -n을 붙여줘야 했는데, 맥은 아닌가보다...

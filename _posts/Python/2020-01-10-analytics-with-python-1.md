@@ -6,9 +6,7 @@ categories: 'Study/Python'
 ---
 
 # pandas
-
 ---
-
 `astype(type)`
 
 `loc[[행], [열]]` - 라벨 값을 기반으로 행 데이터 읽기
@@ -23,7 +21,7 @@ e.g. ) data_frame.loc[data_frame['Invoice Number'].str.startswith('920-'), :]
 ---
 
 `.columns` - 열 출력
-e.g.) data_frame.columns = data_frame.iloc[0] 
+e.g.) data_frame.columns = data_frame.iloc[0]
 
 `.index` - 행 출력
 
@@ -40,7 +38,7 @@ e.g.) data_frame['Supplier Name'].str.contains('Z'))
 
 ---
 
-`.reindex()` 
+`.reindex()`
 
 `drop()` - 제거
 
@@ -79,7 +77,7 @@ e.g.) data_frame['Supplier Name'].str.contains('Z'))
 
    <br>
 
-3. b'Skipping line 13: expected 5 fields, saw 7\n' -> 
+3. b'Skipping line 13: expected 5 fields, saw 7\n' ->
    `data_frame = pd.read_csv(input_file, error_bad_lines=False, warn_bad_lines=False)` 로 해결
 4.  pandas `.ix[]` Message
 

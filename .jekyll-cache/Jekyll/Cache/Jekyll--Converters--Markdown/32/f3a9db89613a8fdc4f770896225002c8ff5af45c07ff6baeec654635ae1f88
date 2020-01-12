@@ -1,0 +1,177 @@
+I"�<h3 id="find">find</h3>
+
+<p>이름이나 속성 등의 조건에 맞는 파일을 찾아 명령 수행</p>
+
+<p><strong>find [OPTION] path EXPR</strong></p>
+
+<h4 id="자주-사용되는-옵션">자주 사용되는 옵션</h4>
+
+<p><strong>조건</strong></p>
+
+<ul>
+  <li>-name # 이름 검색, 가장 많이 사용</li>
+  <li>-regex # regex에 매치로 검색</li>
+  <li>-empty # 빈 디렉토리 혹은 빈 파일 검색</li>
+  <li>-size # 사이즈 검색 (M, G 표기 가능)
+    <ul>
+      <li>-N # 이하</li>
+      <li>+N # 이상</li>
+    </ul>
+  </li>
+  <li>-perm # 퍼미션 검색
+    <ul>
+      <li>mode # 정확히 일치하는 파일</li>
+      <li>+mode # 모든 flag가 포함된 파일</li>
+      <li>/mode # 어떤 flag라도 포함된 파일</li>
+    </ul>
+  </li>
+  <li>-type # 파일 타입 검색
+    <ul>
+      <li>d # directory</li>
+      <li>p # named pipe</li>
+      <li>f # regular file</li>
+      <li>l # softdrink</li>
+      <li>s # socket</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>액션</strong></p>
+
+<ul>
+  <li>-delete # 파일 삭제</li>
+  <li>-ls # ls -dils 명령 수행</li>
+  <li>-print # 파일 이름 출력</li>
+  <li>-printf # 파일 이름을 포맷에 맞게 출력</li>
+  <li><strong>-exec</strong> # 주어진 명령 수행</li>
+  <li><strong>-execdir</strong> # 해당 디렉토리로 이동하여 명령 실행</li>
+  <li><strong>-ok</strong> # 사용자 확인 후 exec</li>
+  <li><strong>-okdir</strong> # 사용자 확인 후 실행 execdir</li>
+</ul>
+
+<h4 id="eg">e.g.</h4>
+
+<ul>
+  <li>find . -name “*.py” # 현재 디렉토리에서 py 파일 찾기</li>
+  <li>find . -regextype egrep -regex ‘.*hash.*.py$’ # $ 파일의 끝을 명시함. hash 앞뒤로 글이 있는 py 파일</li>
+  <li>find . -empty</li>
+  <li>find . -type</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>find . -perm 0644</td>
+          <td>wc -l</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>find . -perm /u+x  # owner 실행권한이 포함된 파일을 출력 / find: -perm: /u+x: illegal mode string</p>
+  </li>
+  <li>
+    <p>find . -perm /001 -ls # -perm: /001: illegal mode string</p>
+  </li>
+  <li>find . -name -exec {} \;</li>
+  <li>find . -name -execdir {} \;</li>
+  <li>find . -name -ok rm -f {} \; # 안전하게 파일 삭제 가능</li>
+</ul>
+
+<h3 id="grep">grep</h3>
+
+<p>파일 내용 중 원하는 내용 찾기</p>
+
+<p>grep [<strong>OPTION</strong>] PATTERN [FILE…]</p>
+
+<h4 id="자주-사용되는-옵션-1">자주 사용되는 옵션</h4>
+
+<ul>
+  <li><strong>-r</strong> # recursive</li>
+  <li>-i # ignore case</li>
+  <li><strong>-v</strong> # invert match # 패턴과 매치가 되지 않는 걸 찾음</li>
+  <li>-q # quiet mode # 성공.실패만 판단하고 싶을 때</li>
+</ul>
+
+<h4 id="eg-1">e.g.</h4>
+
+<ul>
+  <li>grep PATTERN *.py # py 파일에 PATTERN 이 포함된 걸 찾아라</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>grep PATTERN *.py</td>
+          <td>awk -F: ‘{print $1}’</td>
+          <td>sort -u # 패턴이 들어있는 파일 검색 후 awk 명령어로 파일 이름 분류 후 sort로 unique 한 것만 출력</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>echo $? # 최근에 실행된 명령어, 함수, 스크립트 자식의 종료 상태 / 0 = 성공</li>
+  <li>grep “\&lt;for\&gt;” *.py # 단어단위 검색</li>
+</ul>
+
+<h3 id="apropos">apropos</h3>
+
+<p>man page 이름과 설명 검색</p>
+
+<h4 id="자주-사용되는-옵션-2">자주 사용되는 옵션</h4>
+
+<ul>
+  <li>-s, –sections=LIST, –section=LIST # ㅌ탐색할 섹션을 으로 구분하여 입력</li>
+  <li>1 : 일반적 툴</li>
+  <li>2 : 시스템 콜</li>
+  <li>3 : 라이브러리 함수</li>
+  <li>7 : Overview 등의 개념</li>
+</ul>
+
+<h4 id="eg-2">e.g.</h4>
+
+<ul>
+  <li>apropos print</li>
+  <li>apropos pthread</li>
+  <li>apropos pthread -s 7</li>
+  <li>apropos ‘^sem_’</li>
+  <li>apropos ‘.*’</li>
+  <li>apropos ‘.*’ -s 5:6:7</li>
+</ul>
+
+<h3 id="locate">locate</h3>
+
+<p>파일 위치를 보여줌</p>
+
+<p>단, updateddb가 저장해놓은 DB파일 내에서 검색하므로 누락 파일 존재 가능</p>
+
+<p>updateddb : os 레벨에서 정기적으로 업데이트 함</p>
+
+<p>어떤 파일이든 찾아서 보임</p>
+
+<p><strong>locate [OPTION]… PATTERN</strong></p>
+
+<h4 id="자주-사용되는-옵션-3">자주 사용되는 옵션</h4>
+
+<ul>
+  <li>-i, –ignore-case</li>
+  <li>-l, -limit, -n LIMIT</li>
+  <li>–regex</li>
+</ul>
+
+<h4 id="eg-3">e.g.</h4>
+
+<ul>
+  <li>locate main.c -n 10 #</li>
+</ul>
+
+<h3 id="which">which</h3>
+
+<p><strong>실행 파일</strong>의 위치를 알려줌 &gt; 일반적인 파일은 불가능</p>
+
+<h4 id="eg-4">e.g.</h4>
+
+<ul>
+  <li>which ls</li>
+  <li>which chmod</li>
+  <li>which ls strace chmod</li>
+  <li>which ifconfig</li>
+</ul>
+:ET
