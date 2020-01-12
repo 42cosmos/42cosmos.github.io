@@ -6,9 +6,9 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-  <title>빈둥빈둥 개발 공부 블로그</title>
+  <title>jekyll 이미지 오류</title>
   <meta name='description' content="">
-  <link rel='canonical' href="http://localhost:4000/page2/">
+  <link rel='canonical' href="http://localhost:4000/2020/01/13/jekyll-%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5-%E1%84%8B%E1%85%A9%E1%84%85%E1%85%B2/">
   <link rel='alternate' type='application/rss+xml' title='빈둥빈둥 개발 공부 블로그' href="http://localhost:4000/feed.xml">
 
   <style>
@@ -256,199 +256,102 @@
 
 </header>
 
-    <div class='o-wrapper'>
+    
+
+
+  <meta itemprop='og:image' content='http://localhost:4000/images/이미지오류.png'>
+
+
+<div class='o-wrapper'>
   <div class='o-grid'>
-    
-      <div class='o-grid__col'>
+    <div class='o-grid__col'>
+      <article class='c-post' itemscope itemtype='http://schema.org/BlogPosting'>
 
-  <a href='/study/ml/2020/01/02/edwith-python-for-ML/' class='c-post-card  c-post-card--first  '>
-    <h3 class='c-post-card__title'>[Edwith] 머신러닝을 위한 Python_chap01</h3>
+        <h1 class='c-post__title u-text-center'>jekyll 이미지 오류</h1>
 
-    
+        <time class='c-post__date' datetime='2020-01-13T00:00:00+09:00' itemprop='datePublished'>13 Jan 2020</time><br>
 
-    <p class='c-post-card__excerpt u-font-medium'>
-      News Categorisitaion 숫자를 벡터로 좌표평면상에 올릴 수 있도록 바꾸어주어야 함. 파이썬으로 얘기하면...
-    </p>
+        <div class='c-content' itemprop='articleBody'>
+          
+  <img src='/images/이미지오류.png' class='c-post__image' alt='jekyll 이미지 오류'>
 
-    <span class='c-post-card__date'>02 Jan 2020</span>
-  </a>
 
-</div>
+          <p><img src="/Users/park-eunbin/workspace/parkeb417.github.io/images/이미지오류.png" alt="이미지오류" /></p>
 
-    
-      <div class='o-grid__col'>
+<h2 id="문제">문제</h2>
 
-  <a href='/study/web/2020/01/01/personal-web-making/' class='c-post-card  '>
-    <h3 class='c-post-card__title'>Personal Website</h3>
+<ol>
+  <li>깃허브에 <strong>편하게</strong> 사진을 올리고 싶은 나.</li>
+  <li>드래그 앤 드롭으로 넣는 거 아니면 아무것도 하고싶지 않은 나.</li>
+</ol>
 
-    
+<p>를 바탕으로… 이미지 오류가 계속 났었다. 분명히 내 컴푸터! 내 폴더! 안에 이미지를 갖다 쳐박아놨는데! 왜 에러라고 뜨는지… 30분은 헤맸다.</p>
 
-    <p class='c-post-card__excerpt u-font-medium'>
-      예전에 학기 프로젝트로 했던 개인 웹 사이트 만들기 발표자료 중 일부분입니다. 이...
-    </p>
+<h2 id="해결">해결</h2>
 
-    <span class='c-post-card__date'>01 Jan 2020</span>
-  </a>
+<ol>
+  <li>바보같은 나</li>
+</ol>
 
-</div>
+<p>때문이었다.</p>
 
-    
-      <div class='o-grid__col'>
+<p>저 이미지주소는 내 컴퓨터 내에 이미지가 어디에 있는지를 알려주는 건데, 곰곰히 생각해보니 내 로컬주소가 아니라 맨날 커밋하는 그곳! <strong>깃허브</strong> 내 주소를 적었어야 했다.</p>
 
-  <a href='/study/linux/2019/12/30/LinuxCommandTools_1/' class='c-post-card  '>
-    <h3 class='c-post-card__title'>Linux Command Line Tools - 텍스트 처리</h3>
+<p>드래그 앤 드롭 하면 이미지 주소가 이렇게 나온다.</p>
 
-    
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![img_name](/Users/park-eunbin/workspace/parkeb417.github.io/images/img_name.png)
+</code></pre></div></div>
 
-    <p class='c-post-card__excerpt u-font-medium'>
-      Linux Command Line Tools head 문서 내용 앞 부분 출력 파라미터를 주지...
-    </p>
+<p>내 컴퓨터 안에서만 작성하고 볼 글이면 놔두어도 상관 없다. 서버에 올릴 글이기 때문에 로컬주소를 백날 작성해봐야 안 듣는다…. ㅜㅡ</p>
 
-    <span class='c-post-card__date'>30 Dec 2019</span>
-  </a>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![img_name](/images/img_name.png)
+</code></pre></div></div>
 
-</div>
+<p>이렇게 고쳐야 한다! 깃헙 레포 내에서 들어가는 방법이라고 생각하면 된다.</p>
 
-    
-      <div class='o-grid__col'>
+<h2 id="고찰">고찰</h2>
 
-  <a href='/study/python/2019/12/24/python-for-ml/' class='c-post-card  '>
-    <h3 class='c-post-card__title'>[edwith] python for ML ch1</h3>
+<ol>
+  <li>생각을 하고 살자</li>
+  <li>곰곰히 생각해보면 된다</li>
+  <li>컴퓨터 입장에서 생각하자</li>
+  <li>컴퓨터는 잘못 없다</li>
+</ol>
 
-    
+        </div>
 
-    <p class='c-post-card__excerpt u-font-medium'>
-      1) Pythonic Code 파이썬 스타일의 코딩 기법 파이썬 특유 문법을 활용해 효율적...
-    </p>
+        <div class='c-tags'>
+          
+            <a href='/tag/github'>github</a>
+          
+            <a href='/tag/blog'>blog</a>
+          
+        </div>
 
-    <span class='c-post-card__date'>24 Dec 2019</span>
-  </a>
+        <hr>
 
-</div>
+        <section class='disqus'>
+  <div id='disqus_thread'></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://localhost:4000/2020/01/13/jekyll-%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5-%E1%84%8B%E1%85%A9%E1%84%85%E1%85%B2/';
+    };
 
-    
-      <div class='o-grid__col'>
+    (function() {
+      var d = document, s = d.createElement('script');
 
-  <a href='/study/git/2019/12/18/Git-Study/' class='c-post-card  '>
-    <h3 class='c-post-card__title'>[Git] Git Study</h3>
+      // Change `aspirethemes-demos` with your Disqus shortcode
+      s.src = '//aspirethemes-demos.disqus.com/embed.js';
 
-    
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href='https://disqus.com/?ref_noscript' rel='nofollow'>comments powered by Disqus.</a></noscript>
+</section>
 
-    <p class='c-post-card__excerpt u-font-medium'>
-      Git 가장 대중적인 코드 관리 도구 목적 : 이력관리 (버전관리) 특징 :...
-    </p>
-
-    <span class='c-post-card__date'>18 Dec 2019</span>
-  </a>
-
-</div>
-
-    
-      <div class='o-grid__col'>
-
-  <a href='/study/python/2019/12/17/os.rename()-%E1%84%8B%E1%85%A6%E1%84%85%E1%85%A5/' class='c-post-card  '>
-    <h3 class='c-post-card__title'>[Error] os.rename() No such file or directory 오류</h3>
-
-    
-
-    <p class='c-post-card__excerpt u-font-medium'>
-      오류 1. FileNotFoundError: [Errno 2] No such file or directory: ‘원 파일명’...
-    </p>
-
-    <span class='c-post-card__date'>17 Dec 2019</span>
-  </a>
-
-</div>
-
-    
-      <div class='o-grid__col'>
-
-  <a href='/study/python/2019/12/16/atom-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC/' class='c-post-card  '>
-    <h3 class='c-post-card__title'>Atom Editor 설정 (패키지 확장)</h3>
-
-    
-
-    <p class='c-post-card__excerpt u-font-medium'>
-      1년에 한 번씩 컴퓨터를 포맷하다보니 어디엔가 작성해야 할 것 같긴 하고.. 혹여...
-    </p>
-
-    <span class='c-post-card__date'>16 Dec 2019</span>
-  </a>
-
-</div>
-
-    
-      <div class='o-grid__col'>
-
-  <a href='/study/git/2019/12/15/git-push-%E1%84%8B%E1%85%A9%E1%84%85%E1%85%B2/' class='c-post-card  '>
-    <h3 class='c-post-card__title'>[Error] git push 오류</h3>
-
-    
-
-    <p class='c-post-card__excerpt u-font-medium'>
-      깃 푸쉬를 했는데 오류가 떴다. 이제 오류를 봐도 아무렇지 않다. 멀쩡한 화면보다...
-    </p>
-
-    <span class='c-post-card__date'>15 Dec 2019</span>
-  </a>
-
-</div>
-
-    
-      <div class='o-grid__col'>
-
-  <a href='/study/python/2019/12/14/import-this/' class='c-post-card  '>
-    <h3 class='c-post-card__title'>The Zen of Python</h3>
-
-    
-
-    <p class='c-post-card__excerpt u-font-medium'>
-      The Zen of Python Beautiful is better than ugly. Explicit is better...
-    </p>
-
-    <span class='c-post-card__date'>14 Dec 2019</span>
-  </a>
-
-</div>
-
-    
-      <div class='o-grid__col'>
-
-  <a href='/study/security/2019/10/01/Malware/' class='c-post-card   c-post-card--last '>
-    <h3 class='c-post-card__title'>Malware</h3>
-
-    
-
-    <p class='c-post-card__excerpt u-font-medium'>
-      Malware 유형 악성 소프트웨어 – 호스트 프로그램을 필요로 하는 것 • 바이러스...
-    </p>
-
-    <span class='c-post-card__date'>01 Oct 2019</span>
-  </a>
-
-</div>
-
-    
-  </div>
-
-  <div class='o-grid'>
-    
-  <div class='o-grid__col o-grid__col--2-4-s'>
-    <a class='c-pagination' href='/'>
-      <div class='c-pagination__icon c-pagination__icon--prev' data-icon='ei-chevron-left'></div>
-      <span class='c-pagination__text c-pagination__text--prev'>Previous</span>
-    </a>
-  </div>
-
-
-
-  <div class='o-grid__col o-grid__col--end o-grid__col--2-4-s u-text-right'>
-    <a class='c-pagination' href='/page3'>
-      <span class='c-pagination__text c-pagination__text--next'>Next</span>
-      <div class='c-pagination__icon c-pagination__icon--next' data-icon='ei-chevron-right'></div>
-    </a>
-  </div>
-
+      </article>
+    </div>
   </div>
 </div>
 

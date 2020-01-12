@@ -5,10 +5,59 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 13 Jan 2020 00:28:42 +0900</pubDate>
-    <lastBuildDate>Mon, 13 Jan 2020 00:28:42 +0900</lastBuildDate>
+    <pubDate>Mon, 13 Jan 2020 00:38:50 +0900</pubDate>
+    <lastBuildDate>Mon, 13 Jan 2020 00:38:50 +0900</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
 
+    
+      <item>
+        <title>jekyll 이미지 오류</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/Users/park-eunbin/workspace/parkeb417.github.io/images/이미지오류.png&quot; alt=&quot;이미지오류&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;깃허브에 &lt;strong&gt;편하게&lt;/strong&gt; 사진을 올리고 싶은 나.&lt;/li&gt;
+  &lt;li&gt;드래그 앤 드롭으로 넣는 거 아니면 아무것도 하고싶지 않은 나.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;를 바탕으로… 이미지 오류가 계속 났었다. 분명히 내 컴푸터! 내 폴더! 안에 이미지를 갖다 쳐박아놨는데! 왜 에러라고 뜨는지… 30분은 헤맸다.&lt;/p&gt;
+
+&lt;h2 id=&quot;해결&quot;&gt;해결&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;바보같은 나&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;때문이었다.&lt;/p&gt;
+
+&lt;p&gt;저 이미지주소는 내 컴퓨터 내에 이미지가 어디에 있는지를 알려주는 건데, 곰곰히 생각해보니 내 로컬주소가 아니라 맨날 커밋하는 그곳! &lt;strong&gt;깃허브&lt;/strong&gt; 내 주소를 적었어야 했다.&lt;/p&gt;
+
+&lt;p&gt;드래그 앤 드롭 하면 이미지 주소가 이렇게 나온다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;![img_name](/Users/park-eunbin/workspace/parkeb417.github.io/images/img_name.png)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;내 컴퓨터 안에서만 작성하고 볼 글이면 놔두어도 상관 없다. 서버에 올릴 글이기 때문에 로컬주소를 백날 작성해봐야 안 듣는다…. ㅜㅡ&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;![img_name](/images/img_name.png)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이렇게 고쳐야 한다! 깃헙 레포 내에서 들어가는 방법이라고 생각하면 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;고찰&quot;&gt;고찰&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;생각을 하고 살자&lt;/li&gt;
+  &lt;li&gt;곰곰히 생각해보면 된다&lt;/li&gt;
+  &lt;li&gt;컴퓨터 입장에서 생각하자&lt;/li&gt;
+  &lt;li&gt;컴퓨터는 잘못 없다&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Mon, 13 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2020/01/13/jekyll-%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5-%E1%84%8B%E1%85%A9%E1%84%85%E1%85%B2/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/13/jekyll-%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5-%E1%84%8B%E1%85%A9%E1%84%85%E1%85%B2/</guid>
+      </item>
     
       <item>
         <title>[Edwith] 머신러닝을 위한 Python_chap03 - Numpy</title>
