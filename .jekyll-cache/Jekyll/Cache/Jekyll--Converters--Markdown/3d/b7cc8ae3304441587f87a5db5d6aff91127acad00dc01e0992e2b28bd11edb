@@ -1,0 +1,320 @@
+I"F8<p><strong>Malware</strong></p>
+
+<p><strong>유형</strong></p>
+
+<p>악성 소프트웨어</p>
+
+<p>– 호스트 프로그램을 필요로 하는 것</p>
+
+<p>• 바이러스 • 논리폭탄 • 백도어</p>
+
+<p>– 호스트를 필요로 하지 않는 것</p>
+
+<p>•웜 • 좀비</p>
+
+<p><strong>스스로</strong> <strong>복제할</strong> <strong>수</strong> <strong>있는</strong> <strong>악성소프트웨어</strong></p>
+
+<p>– 트리거에 의해 활성화되는 프로그램 • 논리폭탄</p>
+
+<p>• 백도어 • 좀비 프로그램  • 스스로 복제 불가한 악성소프트웨어</p>
+
+<p>– 독립적인 프로그램으로서 실행</p>
+
+<p>– 자신의 복제를 만들어 전파</p>
+
+<p>• 바이러스 • 웜</p>
+
+<p><strong>백도어</strong></p>
+
+<p>• 백도어(back door)</p>
+
+<p>–  트랩도어(trap door)라고도 함</p>
+
+<p>–  프로그램으로 들어가는 비밀 입구</p>
+
+<p>–  이 코드는 어떤 특별한 일련의 입력을 인식하거나, 
+특정 사용 자 ID나 발생할 가능성이 매우 희박한 일련의 사건에 의해 구동되면 시작한다</p>
+
+<p>• 유지후크(maintenance hook)</p>
+
+<p>–  통상적 보안접속 절차 없이 접근허락 받음</p>
+
+<p>–  프로그래머는 프로그램 디버그나 검사를 위해 백도어를 상당 기간 합법적으로 사용</p>
+
+<p><strong>논리폭탄</strong></p>
+
+<p>- 논리폭탄(logicbomb)</p>
+
+<p>합법적 프로그램 안에 내장된 코드로서 특정 조건이 맞게 되면 ‘터지게(작동을 개시하게)’ 만 들어진 논리</p>
+
+<p>- 논리폭탄의 뇌관
+1 어떤 특정 파일이 없어지는 순간 2 특정 요일 3 특정 날짜 4 응용 프로그램을 구동하는 특정 사용자</p>
+
+<p>일단 논리폭탄의 작용
+– 데이터나 전체 파일 수정 – 파일 삭제</p>
+
+<p>- 팀로이드(TimLloyd)사건</p>
+
+<p><strong>트로이</strong> <strong>목마</strong></p>
+
+<ul>
+  <li>트로이 목마(trojan horse)란 감춰진 코드를 갖 고 있는 프로그램이나 명령 프로시저로 작동이 되 면 원하지 않거나 해가 되는 기능을 수행</li>
+</ul>
+
+<p><strong>트로이</strong> <strong>목마의</strong> <strong>3</strong><strong>가지</strong> <strong>모델</strong></p>
+
+<p>\1. 원 프로그램의 기능을 계속해서 수행 : 
+  – 추가적으로 별개의 악성 활동을 수행
+\2. 원 프로그램의 기능을 계속해서 수행</p>
+
+<p>– 기능을 수정해서 악성 활동을 하게 한다
+    • 패스워드 수집 로그인 프로그램 트로이 목마 버전</p>
+
+<p>​    • 프로세스 염탐 프로그램 트로이 목마 버전</p>
+
+<p>\3. 원 프로그램의 기능을 완전히 대체하는 악성 기능 수행</p>
+
+<p><strong>다중</strong><strong>-</strong><strong>위협</strong> <strong>악성</strong> <strong>소프트웨어</strong></p>
+
+<p>• 다분할(multipartite) 바이러스</p>
+
+<p>– 여러 방법으로 감염</p>
+
+<p>– 다중 유형 파일이 감염되므로 바이러스 박멸을 위해 감염된 모든 사이트 치료 필요</p>
+
+<p>• 혼합 공격(blended attack)
+  – 다중 방법으로 감염시키거나 전송해서 감염속도와 공격의 강도를 극대화</p>
+
+<p>–  다중 유형 맬웨어를 포함한 패키지</p>
+
+<dl>
+  <dt>–  혼합 공격의 예 &gt; 님다(Nimda) 공격 – 웜, 바이러스, 모바일 코드의 특성을 모두 가짐</dt>
+  <dd>전자메일, 윈도우 공유, 웹 서버, 웹 클라이언트로 배포</dd>
+</dl>
+
+<p><strong>좀비</strong></p>
+
+<ul>
+  <li>인터넷에 연결된 다른 컴퓨터를 몰래 장악하고 그 컴퓨터를 기반으로 공격을 수행 하는 프로그램</li>
+  <li>타깃 웹 사이트를 대상으로 한 서비스거부 공격 에 이용</li>
+</ul>
+
+<p><strong>바이러스</strong> <strong>속성</strong> - 악성코드는 발전하면서 하나의 이름으로 규정되기 어려운 형태가 많아짐</p>
+
+<ul>
+  <li>다른 프로그램을 변형시켜 ‘감염(infect)’시키는 프로그램</li>
+  <li>변형된 형태의 바이러스 : 원래 프로그램에 루틴을 주입해서 바이러스 프로그램 복제 제작</li>
+</ul>
+
+<p>활동 절차 &gt;</p>
+
+<p>바이러스 : 자기 자신에서 주변 프로그램들을 보고 자신을 복제해 집어 넣고 실행될 수 있도록 하는 형태</p>
+
+<p>일반 바이러스는 자기가 보통 바이러스라고 얘기할 때는.. 컴퓨터 바깥으로 못나감.. 
+ssd, hdd 안에서 내부적으로만 활동하면서 퍼지는 것<strong>컴퓨터</strong> <strong>바이러스</strong> <strong>3</strong><strong>개</strong> <strong>부분</strong></p>
+
+<p>• 감염 메커니즘(Infection mechanism):</p>
+
+<p>– 바이러스가 퍼지는 수단 : 원래 프로그램에 자기를 집어넣는 형태 
+    &gt; 일반적으로 바이러스에 걸린 파일은 일반 파일보다 크기가 큼
+  – 자신을 복제
+  – 감염 벡터(infection vector)라고도 함</p>
+
+<ul>
+  <li>트리거(Trigger):
+  – 페이로드 활성화나 전달 시기를 정하는 사건이나 조건 / 활성화 조건</li>
+  <li>페이로드(Payload): 
+–  바이러스가 자기 자신을 퍼뜨리는 일 외에 하는 일 / 바이러스를 실행시키는 그 파트
+–  페이로드는 피해를 줄 수 있고 심각한 피해를 끼치지 않을 수 도 있지만 분명히 그 활동을 알 수 있다.</li>
+</ul>
+
+<p><strong>바이러스</strong> <strong>유형</strong> - 들어가서 활동</p>
+
+<ul>
+  <li>목표별 바이러스 유형</li>
+</ul>
+
+<ol>
+  <li>
+    <p>부트 섹터 감염자 : 마스터 부트 레코드 감염 후 시스템 부팅 시 퍼짐</p>
+  </li>
+  <li>
+    <p>파일 감염자 : 운영체계나 쉘이 실행 가능하다고 여기는 파일 감염</p>
+  </li>
+  <li>
+    <p>매크로 바이러스 : 응용 프로그램으로 나타낼 수 있는 매크로 코드를 가진 파일 감염</p>
+  </li>
+  <li>
+    <ol>
+      <li>플랫폼과 무관하게 작동</li>
+      <li>문서만 감염시키고 코드 실행부분은 미감염</li>
+      <li>쉽게 퍼짐</li>
+      <li>시스템 프로그램보다는 사용자 문서를 감염</li>
+    </ol>
+  </li>
+</ol>
+
+<p><strong>**</strong> <strong>은닉</strong> <strong>전략에</strong> <strong>따른</strong> <strong>바이러스</strong> <strong>유형</strong> : 흐름</p>
+
+<ol>
+  <li>암호화 된 바이러스 : 변형엔진(mutation engine) - 사용될 때마다 변한다</li>
+  <li>스텔스 바이러스 : 압축을 이용해서 감염되지 않은 프로그램의 길이와 감염된 프로그램의 길이 동일</li>
+  <li>폴리모픽 바이러스 : 복제 과정에서 기능적으로는 동일하지만 비트패턴에서는 명확하게 다른 변형 
+** 옮겨다닐 때마다 바이러스의 모양 변화 : 안티 바이러스로 인해 발생</li>
+  <li>메타모픽 바이러스</li>
+</ol>
+
+<p><strong>안티</strong> <strong>바이러스</strong> <strong>방법</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>1 : 탐지</td>
+      <td>2 : 식별</td>
+      <td>3 : 제거</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>바이러스</strong> <strong>인식</strong> <strong>변화</strong></p>
+
+<p>前 : 나쁜 바이러스를 빨리 찾아서 없애자 … &gt; 바이러스의 변화로 (수의 증가, 모양 변경 ) 거의 불가능해짐</p>
+
+<p>現 : 운영체제 시스템을 단단히 만들자 … &gt; 백신을 통해서 해결 거의 불가능</p>
+
+<p><strong>안티바이러스</strong> <strong>소프트웨어</strong> <strong>4</strong><strong>세대</strong></p>
+
+<p>제1세대: 단순 스캐너 ( simple scanners )</p>
+
+<p>제2세대: 발견 스캐너 ( heuristic scanners )</p>
+
+<p>&gt; 백신 ( 안티 바이러스 ) 얘네는 바이러스가 생긴 패턴, 시그니처, 서명의 특징을 데이터베이스</p>
+
+<p>파일이 하나 들어오면 데이터베이스와 비교</p>
+
+<p>&gt; 패턴을 읽고 매칭 : 바이러스 백신 프로그램이 오래 걸리는 이유</p>
+
+<p>제3세대: 활동 트랩 ( activity traps )</p>
+
+<p>&gt; 컴퓨터 프록램을 만들어놓고 바이러스에 취약한 척 해서 바이러스 유인 후 패턴과 시그니처 학습</p>
+
+<p>제4세대: 풍부한 기능을 갖춘 방어 ( full-featured protection )</p>
+
+<p><strong>고도</strong> <strong>안티바이러스</strong> <strong>기술</strong></p>
+
+<ol>
+  <li>유전적 복호화(GD: genetic decryption) : 폴리모픽 바이러스가 포함된 파일이 실행될 때 GD 스캐너 통과</li>
+  <li>디지털 면역 시스템(digital immune system) : 
+&gt; 알약 v3,,등 바이러스가 아닌데 바이러스인줄 알고 삭제하는 경우도 존재</li>
+</ol>
+
+<p><strong>행동차단</strong> <strong>소프트웨어</strong> : 샌드박스</p>
+
+<p><img src="https://k.kakaocdn.net/dn/uqYzX/btqAQOZbhWp/xmuV5ySNtkSG5IXyKpC5l1/img.png" alt="img" /></p>
+
+<p><strong>웜</strong> - 바이러스의 업그레이드 버전</p>
+
+<ul>
+  <li>웜은 자신을 복제하여 네트워크 연결을 통해서 컴퓨터에서 컴퓨터로 그 복제본 전송 &gt; 자동 해킹</li>
+  <li>취약한 프로그램을 통해 다른 컴퓨터에 도착하게 되면 웜은 복제를 시작하고 다시 확산시키기 시작</li>
+  <li>전자메일 바이러스는 시스템에서 시스템으로 자신을 확산시키기 때문에 웜(worm)의 성격을 어느 정도 보유</li>
+</ul>
+
+<p><strong>웜</strong> <strong>확산</strong> <strong>모델</strong></p>
+
+<p><img src="https://k.kakaocdn.net/dn/bPQUDa/btqASyAP0Gz/fWHKezGFKeWkWuCDvRbf81/img.png" alt="img" /></p>
+
+<p>호스트수가 지수적으로 증가 - 감염 속도가 줄어든다 &gt; 확산 증가는 거의 선형적 • 감염 비율 높음</p>
+
+<p>– 공격 속도는 종료단계</p>
+
+<ul>
+  <li>감염학 전염병 모델과 웜 확산 모델이 일치</li>
+  <li>웜이 대상으로 삼고 있는 컴퓨터에 취약점이 있느냐가 중요</li>
+</ul>
+
+<p><strong>네트워크</strong><strong>-</strong><strong>기반</strong> <strong>웜</strong> <strong>방어</strong></p>
+
+<ul>
+  <li>두가지유형
+– 진입 모니터(Ingress monitors): 
+– 진출 모니터(Egress monitors):</li>
+</ul>
+
+<p>** 제로-데이 익스플로잇(zero-day exploit)</p>
+
+<p>웜이랑은 상관 없고 익스플로잇은 공격코드임</p>
+
+<p>제로데이라고 하는 건 취약점이 알려지고 하루가 지나면, 데이 원 / 원데이 / 데이 투 데이쓰리…</p>
+
+<p>제로데이는 해킹 가능한게 알려지지 않은 것</p>
+
+<p>제로데이 취약점 : 취약점이 아무에게도 알려지지 않고 해커만 알고 있는 취약점을 이렇게 부름</p>
+
+<p>&gt; 파급효과에 따라 시장에 팔림. 해커가 보통 프로그램에서 취약점을 찾음 &gt; 찾아서 취약점을 갖고</p>
+
+<p>\1. 해킹해서 이익을 취함</p>
+
+<p>\2. 보안회사에 팔아 넘김</p>
+
+<p>2-1 양성적 보안회사에서 사는 것 ( 구글:돈주고 삼 )</p>
+
+<p>2-2 제로데이 암시장에 팖 ( 2-1보다는 많이 받음 )</p>
+
+<p><strong>분산서비스거부</strong> <strong>공격</strong></p>
+
+<p>서비스 거부 공격 DoS attack ( Denial of Service ) &gt; 분산 서비스 거부 공격 ( Distributed DoS )</p>
+
+<p>&gt; 초과 트래픽의 경로를 차단해 쉽게 막을 수 있음 DoS &gt; 좀비 컴퓨터 이용</p>
+
+<p>&gt; 기존 인프라 ( 컴퓨터 )로 공격을 하게 함 &gt; 경로 차단 불가능 + 좀비의 수뇌부 추적 어려움</p>
+
+<p><strong>분산</strong> <strong>SYN</strong> <strong>홍수</strong> <strong>(</strong> <strong>플러드</strong> <strong>)</strong> <strong>공격</strong> <strong>-</strong> <strong>직접</strong> <strong>공격</strong></p>
+
+<p><img src="https://k.kakaocdn.net/dn/Q1jNH/btqASzfsAMb/xCKsbLcoUw5K5Z4igfj5T1/img.png" alt="img" />스스로 열심히 만들어 전송</p>
+
+<p><strong>데이터</strong> <strong>전송</strong> <strong>자원</strong> <strong>소모</strong> <strong>공격</strong> <strong>-</strong> <strong>간접</strong> <strong>공격</strong></p>
+
+<p><img src="https://k.kakaocdn.net/dn/Ynfvp/btqARjxDldJ/csVR3tx8z8hz62THVIeLq1/img.png" alt="img" /> 반사호스트를 이용해 트래픽을 크게 만들어 목표 라우터에 전송 &gt; 공격자 찾기가 거의 불가능</p>
+
+<p><strong>DDoS</strong> <strong>공격의</strong> <strong>다른</strong> <strong>분류방법</strong></p>
+
+<p>\1. 직접 DDoS 공격(direct DDoS attack)</p>
+
+<p><img src="https://k.kakaocdn.net/dn/NDZPS/btqARynPgqK/j9By7DK3uX3pbop8LhMKqk/img.png" alt="img" /></p>
+
+<ul>
+  <li>공격자는 인터넷상에 분산되어 있는 수많은 사이트에 좀비 소프트웨어 설치</li>
+  <li>2단계 좀비 시스템
+– DDoS 공격은 마스터 좀비와 종속 좀비로 구성</li>
+  <li>두좀비는 악성코드에 감염</li>
+  <li>공격자가 마스터 좀비를 조정하여 동작시키면 이어서 종속 좀비가 동작</li>
+  <li>2단계 좀비를 사용하면 공격의 발신지를 추적하기가 더 어렵고 공격자 활동 공간이 넓어짐</li>
+</ul>
+
+<p><img src="https://k.kakaocdn.net/dn/cHL8FQ/btqARjqWqRW/wGLnSuM1Zp9jlZhbXlVUM1/img.png" alt="img" /></p>
+
+<p>\2. 반사 DDoS 공격(reflector DDoS attack)</p>
+
+<ul>
+  <li>하나의 호스트 계층을 추가한다</li>
+  <li>종속좀비는 IP패킷의 헤더에 목표 시스템의 IP주소를 
+발신지 IP 주소로 하는 패킷을 만들어 응답 요청</li>
+  <li>이패킷은 감염 되지 않은 호스트인 반사 호스트 전송</li>
+  <li>반사 호스트는 발신지 IP 주소를 확인하고 목표시스템으로 응답 패킷 전송</li>
+  <li>반사기 DDoS 공격
+– 직접 DDoS공격에 비하여 더 많은 호스트를 감염 – 더 많은 트래픽을 유발시킬 수 있으므로 더 위협적 
+– 공격이 넓게 분산되어 있는 감염되지 않은 호스로부터 들어오기 때문에 공격을 추적하고 패킷을 필터링 해서 제거하는 것이 더 어렵다</li>
+</ul>
+
+<p><strong>DDoS</strong> <strong>대응책</strong></p>
+
+<p>• 공격 예방 및 선취(공격 이전):
+• 공격 탐지 및 필터링(공격 중):
+• 공격 근원지 역추적 및 확인 (공격 중 및 공격 후):</p>
+
+<p>• CloudFlare 방식</p>
+
+<p>• 분산화 공격에 대응하는 서버 분산화
+&gt; 사이트 접속 시 접속 국가에 인접한 서버와 매칭</p>
+:ET

@@ -5,10 +5,299 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 04 Jan 2020 17:07:24 +0900</pubDate>
-    <lastBuildDate>Sat, 04 Jan 2020 17:07:24 +0900</lastBuildDate>
+    <pubDate>Mon, 13 Jan 2020 00:25:41 +0900</pubDate>
+    <lastBuildDate>Mon, 13 Jan 2020 00:25:41 +0900</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
 
+    
+      <item>
+        <title>[Edwith] 머신러닝을 위한 Python_chap03 - Numpy</title>
+        <description>&lt;h1 id=&quot;numpy&quot;&gt;Numpy&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;파이썬 과학 처리 패키지 - Numerical Python&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;반복문 없이 데이터 배열 처리 지원&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;C, C++, 포트란&lt;/li&gt;
+  &lt;li&gt;Dymanic typing 불허&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;array-creation&quot;&gt;Array creation&lt;/h3&gt;
+
+&lt;h3 id=&quot;ndarray&quot;&gt;ndarray&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;numpy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;float64&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 64는 크기
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;파이썬 : 메모리 주소의 위치를 잡음. 리스트 안에 값이 아닌 메모리 주소 &amp;gt; 복사 == 메모리주소 복사&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;from copy import deepcopy&lt;/code&gt; 로 해결&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;넘파이 : 차례데로 데이터를 쌓음 &amp;gt; 빠른 데이터 처리가 가능&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt; 
+&lt;span class=&quot;c1&quot;&gt;# Expected Result - Vector
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 4 column
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;t2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]],&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;t2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Expected Result - Matrix
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 1 by 4 1 row 4 columns
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;shape : numpy array의 object의 dimension 구성을 반환함 &amp;gt; 튜플타입 반환
+메트릭스 크기를 따라감&lt;/li&gt;
+  &lt;li&gt;ndim - # of dimension&lt;/li&gt;
+  &lt;li&gt;size - data의 개수 : &lt;em&gt;scala 값이기 때문에 int로 반환&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;dtype : numpy array의 데이터 type을 반환함
+대부분 float32, 64 로 선언 - 메모리에 크기가 결정되기 때문에 신경써야 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;handling-shape&quot;&gt;Handling Shape&lt;/h3&gt;
+
+&lt;p&gt;: Array Shape 의 크리 변경&lt;/p&gt;
+
+&lt;h4 id=&quot;reshape&quot;&gt;Reshape&lt;/h4&gt;
+
+&lt;p&gt;Matrix를 Vector로 펴야할 때&lt;/p&gt;
+
+&lt;p&gt;* 데이터 사이즈 개수만 맞추면 됨&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# -1 : size를 기반으로 row 개수 선정 | row 의 개수는 정확하게 모르지만 컬럼을 2개로 할 때
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# array([1,2,3,4,1,2,5,8])
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# array([[1],[2], ..., [8]])
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;데이터 호출 시 y값을 가져올 때, 이 값이 보통 Vector형태로 뽑히는데, Sklearn에서는 Matrix 형태로 들어가야 하기 때문에&lt;/p&gt;
+
+&lt;h4 id=&quot;flatten&quot;&gt;flatten&lt;/h4&gt;
+
+&lt;p&gt;: 다차원 array를 1차원으로 변환&lt;/p&gt;
+
+&lt;p&gt;딥러닝 초기모델 배울 때 nlist데이터셋을 쓰는데 ( 문자를 벡터형태를 사용 ), 28 by 28을 펴야할 때…&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;indexing--slicing&quot;&gt;Indexing &amp;amp; slicing&lt;/h3&gt;
+
+&lt;h4 id=&quot;indexing&quot;&gt;indexing&lt;/h4&gt;
+
+&lt;p&gt;a[0,0] == a[0][0]&lt;/p&gt;
+
+&lt;h4 id=&quot;slicing&quot;&gt;slicing&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;x:y:z&lt;/td&gt;
+      &lt;td&gt;x : 시작, y : 끝 지점 바로 앞, z : step&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;데이터 일부분만 가져올 때 사용&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;List와 달리 &lt;strong&gt;행과 열&lt;/strong&gt; 부분을 나눠서 slicing이 가능함 / [행, 열]&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Matrix의 부분 집합을 추출할 때 유용함&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;creation-function&quot;&gt;Creation Function&lt;/h4&gt;
+
+&lt;p&gt;24:46&lt;/p&gt;
+</description>
+        <pubDate>Sun, 12 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/ml/2020/01/12/edwith/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/ml/2020/01/12/edwith/</guid>
+      </item>
+    
+      <item>
+        <title>[Edwith] 머신러닝을 위한 Python_chap02</title>
+        <description>&lt;h2 id=&quot;ml-overview&quot;&gt;ML overview&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Scala&lt;/em&gt;는 이탤릭체, &lt;strong&gt;vector&lt;/strong&gt;는 소문자 볼드, &lt;strong&gt;MATRIX&lt;/strong&gt;는 대문자 볼드&lt;/p&gt;
+
+&lt;p&gt;기존 데이터를 알고리즘을 사용해 모델을 만들고, 새 데이터에 모델을 적용해 예측하는 것 : 핵심은 알고리즘과 모델&lt;/p&gt;
+
+&lt;p&gt;y = ax + b 꼴의 선 ? x = ‘보고싶어요’ y = 총 관객 수 &amp;gt; a, b를 알아내는 것&lt;/p&gt;
+
+&lt;h3 id=&quot;key-concepts&quot;&gt;Key concepts&lt;/h3&gt;
+
+&lt;p&gt;모델 : 예측을 위한 수학 공식, 함수, condition rule처럼 조건일 수도 있음&lt;/p&gt;
+
+&lt;p&gt;알고리즘 : 모델을 만들기 위한 과정&lt;/p&gt;
+
+&lt;p&gt;Y에 영향을 주는 X의 값은 하나인가?&lt;/p&gt;
+
+&lt;h3 id=&quot;feature---독립변수&quot;&gt;Feature - 독립변수&lt;/h3&gt;
+
+&lt;p&gt;데이터 특징을 나타내는 변수 : input 변수&lt;/p&gt;
+
+&lt;p&gt;데이터 테이블 상에서 컬럼을 의미&lt;/p&gt;
+
+&lt;p&gt;엑스와 와이를 갖고 있는 상황에서 베타를 알게하는 것&lt;/p&gt;
+
+&lt;h3 id=&quot;feature-vector&quot;&gt;Feature Vector&lt;/h3&gt;
+
+&lt;p&gt;전체 데이터 셋에서 0번째를 표현한 수식&lt;/p&gt;
+
+&lt;p&gt;선형대수의 표기법을 사용 &amp;gt;&lt;/p&gt;
+
+&lt;p&gt;list=w^t x=list &amp;gt;로 표현해 y의 예측치를 찾아낼 수 있을 것임&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 11 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/ml/2020/01/11/edwith-ML-overview/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/ml/2020/01/11/edwith-ML-overview/</guid>
+      </item>
+    
+      <item>
+        <title>Foundation for analytics with python - 1</title>
+        <description>&lt;h1 id=&quot;pandas&quot;&gt;pandas&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;astype(type)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;loc[[행], [열]]&lt;/code&gt; - 라벨 값을 기반으로 행 데이터 읽기
+e.g. ) data_frame.loc[data_frame[‘Invoice Number’].str.startswith(‘920-‘), :]&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iloc[[행], [열]]&lt;/code&gt; - 인덱스 값을 기반으로 단일 행을 선택해 열 헤더 행으로 사용할 수 있게 함&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.ix[]&lt;/code&gt; &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;loc&lt;/code&gt; 과 같으나 경고 메세지 반환&lt;/p&gt;
+
+&lt;p&gt;’:’ &amp;gt; 모든 행&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.columns&lt;/code&gt; - 열 출력
+e.g.) data_frame.columns = data_frame.iloc[0]&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.index&lt;/code&gt; - 행 출력&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.contains()&lt;/code&gt; - 특정 문자열 포함 요소 탐색
+e.g.) data_frame[‘Supplier Name’].str.contains(‘Z’))&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.isin()&lt;/code&gt; - 특정 값의 포함 여부를 확인 후 boolean 타입으로 반환&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.startswith('')&lt;/code&gt; - 특정 문자열로 시작되는 요소 탐색&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.endswith('')&lt;/code&gt; -  특정 문자열로 끝나는 요소 탐색&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.reindex()&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;drop()&lt;/code&gt; - 제거&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;read_csv(header = None, names = list_V)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;concat(axis=0)&lt;/code&gt;- 0 = 수평 / 1 = 수직으로 합침&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;merge()&lt;/code&gt; &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;pandas.merge(DataFrame1, DataFrame2, on='key', how='inner')&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;Numpy &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;numpy.concatenate([array1, array2], axis=1)&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;numpy.hstack((array1, array2))&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;numpy.c[array1, array2]&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;errors&quot;&gt;Errors&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;with open(input_file, 'r', newline=' ') as csv_in_file:
+ValueError: illegal newline value:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;newline=' '&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;newline=''&lt;/code&gt;  으로 변경하니 오류 해결!&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;modulenotfounderror no module named 'pandas'&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;가상환경을 열어서 pandas 설치하고 지웠다가 다시 설치하고 컴퓨터 재부팅하고 막… 오만가지 난리를 펼치다가… 터미널 창에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;which python3&lt;/code&gt; 입력해서 나오는 주소를 py 파일 라인 1에 붙여넣고 실행하니 오류 해결!&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#! /Users/park-eunbin/miniconda3/envs/IP/bin/python3&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;b’Skipping line 13: expected 5 fields, saw 7\n’ -&amp;gt; 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;data_frame = pd.read_csv(input_file, error_bad_lines=False, warn_bad_lines=False)&lt;/code&gt; 로 해결&lt;/li&gt;
+  &lt;li&gt;pandas &lt;code class=&quot;highlighter-rouge&quot;&gt;.ix[]&lt;/code&gt; Message&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.ix is deprecated. Please use
+
+.loc for label based indexing or
+
+.iloc for positional indexing
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;delimiter =','&lt;/code&gt; 오류 &amp;gt; 해결 못함… 왜? 왜 $1,600.60을 제대로 못걸러내냐&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Fri, 10 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/python/2020/01/10/analytics-with-python-1/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/python/2020/01/10/analytics-with-python-1/</guid>
+      </item>
+    
+      <item>
+        <title>[Git] Git Study용 공부 주소</title>
+        <description>&lt;p&gt;https://backlog.com/git-tutorial/kr/stepup/stepup2_6.html&lt;/p&gt;
+</description>
+        <pubDate>Sun, 05 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/git/2020/01/05/git-%E1%84%8E%E1%85%A1%E1%86%B7%E1%84%80%E1%85%A9-%E1%84%8C%E1%85%AE%E1%84%89%E1%85%A9/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/git/2020/01/05/git-%E1%84%8E%E1%85%A1%E1%86%B7%E1%84%80%E1%85%A9-%E1%84%8C%E1%85%AE%E1%84%89%E1%85%A9/</guid>
+      </item>
+    
+      <item>
+        <title>Liquid Exception 에러</title>
+        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Liquid Exception: Liquid error (~): Internal Error: Invalid UTF-8 included in /_layoust/default.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;난 진짜 잘못한게 없다고 생각했는데…. 자꾸 에러가 떴고… 내부적 문제라고 얘기하는데 … 내부적문제 == 내 잘못 ^^의 공식… 나는 잘못한게 없는데 컴퓨터가 이상해! 하면서 껐다가 켜보기도 하고… 구글을 진짜 엄청 뒤졌는데 진짜 내잘못이었다 ^^&lt;/p&gt;
+
+&lt;p&gt;컴푸터야 미안해~하핳&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Users/park-eunbin/workspace/parkeb417.github.io/images/liquiderror2.png&quot; alt=&quot;liquiderror2&quot; style=&quot;zoom:80%;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;css파일 주석처리를 제대로 안 해줘서 생긴 거지같은 일이었다….&lt;/p&gt;
+
+&lt;p&gt;오늘의 교훈 : 컴퓨터는 잘못 없다.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 05 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2020/01/05/github-%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3-%E1%84%8B%E1%85%A9%E1%84%85%E1%85%B2/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/05/github-%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3-%E1%84%8B%E1%85%A9%E1%84%85%E1%85%B2/</guid>
+      </item>
     
       <item>
         <title>Linux Command Line Tools - 검색</title>
@@ -198,7 +487,581 @@
       </item>
     
       <item>
-        <title>[Edwith] 머신러닝을 위한 Python</title>
+        <title>Claasical Cryptography</title>
+        <description>&lt;p&gt;&lt;strong&gt;Caesar Cryptography&lt;/strong&gt; : 순서를 조절&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; Replace a letter into the next of the next - We can express the Caesar encryption algorithm into an equation&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Easy to break 2. Only 25 keys 3. Vulnerable to brute force attack encryption 
+E(k(밀어낼 자릿수-형문), p-키) … x,y,z 는 보통 나눈 후 나머지를 차용 e.g. 3을 더한다음에 26으로 나눈 나머지… 
+복호화 D(키, 사이퍼텍스트) 
+쓸 수 있는 키의 경우의 수가 25개 &amp;gt; 쉽게 깨짐&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Single letter substitution&lt;/strong&gt; ( 전형적인 암호문 )&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Replace a letter to another&lt;/li&gt;
+  &lt;li&gt;26! keys are possible .. &amp;gt; Calculate the frequency of a letter&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;각 글자가 나온 빈도수를 계산 &amp;gt; E, T가 가장 많이 사용됨 &amp;gt; P, Z가 높은 확률로 e, t&lt;/p&gt;
+
+&lt;p&gt;많이 나오는 패턴을 분석해 단어를 조합 (the … ) 키가 무조건 많다고 해서 안전한 것은 아님.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Playfair&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;- Multiple-letter encryption ( Create 5x5 matrix based on a given keyword )&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/cG0LJu/btqAOb1ygQz/lPAGV2RxtMFdpfIJiPx0Z1/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Vernam&lt;/strong&gt; ( 지금도 쓰이는 방식 )&lt;/p&gt;
+
+&lt;p&gt;- Use key streams&lt;/p&gt;
+
+&lt;p&gt;xor - 0111  &amp;gt; A O+ B O+ B = A … xor이 두 번 되면 제자리로 돌아옴&lt;/p&gt;
+
+&lt;p&gt;​    1010&lt;/p&gt;
+
+&lt;p&gt;————&lt;/p&gt;
+
+&lt;p&gt;​     1101&lt;/p&gt;
+
+&lt;p&gt;아이번째 키 O+ 아이번째 플레인 텍스트 = 암호화&lt;/p&gt;
+
+&lt;p&gt;E (k, p) = ki O+ pi각각에 대해 xor&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/dIo22d/btqAQ4mJoDr/3EWPPewkSivpcG8PJcJUvk/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;One time pad&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Use a key stream that is perfectly random without any repetition&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;One Time Pad provides prefect security&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Impractical&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;The size of a key stream should be the same as that of its message&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;원타임패드~ &amp;gt; 버남 + 부가 조건 &amp;gt; 키 스트림 = 플레인 텍스트&lt;/p&gt;
+
+&lt;p&gt;원타임 패드의 조건 = 일회용… + 완벽한 랜덤 … 퍼펙트 시큐리티라는게 도달하기 힘든 뉴스 &amp;gt; 활용성 저하&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rail fence&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Transposition&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rotor Machine&lt;/strong&gt; : 현대 컴퓨터로 넘어가기 전에 쓰인 가장 대표적이고 독특한 암호&lt;/p&gt;
+
+&lt;p&gt;- The Enigma machine : Consists of multiple (3) cylinders &amp;gt; 26^3 = 17,576 substitutions&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Symmetric Cryptography&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;plaintext - original message&lt;/p&gt;
+
+&lt;p&gt;ciphertext - coded message 
+cipher - algorithm for transforming plaintext to ciphertext 알고리즘 자체
+key - info used in cipher known only to sender/receiver 암복호화 할 때
+encipher (encrypt) - converting plaintext to ciphertext 플 &amp;gt; 암
+decipher (decrypt) - recovering ciphertext from plaintext 
+cryptography - study of encryption principles/methods 암호학
+cryptanalysis (codebreaking) - study of principles/ methods of deciphering ciphertext without knowing key&lt;/p&gt;
+
+&lt;p&gt;cryptology - field of both cryptography and cryptanalysis&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Symmetric Cipher Model&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;대칭 : 가운데를 기준으로 잘라 봤을 때 키가 똑같음.&lt;/p&gt;
+
+&lt;p&gt;대칭 : 키 두개가 대칭이다 &amp;gt; 암호화 할 때랑, 복화하할 때랑&lt;/p&gt;
+
+&lt;p&gt;K의 키가 같으면 대칭키라고 함. 원래 당연시 여겨졌는데, 이게 꼭 두개가 같을 필요가 없다는 말이 생기고는 다양한 기술이 나옴&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/GHl5G/btqARh66P5y/7DLWjkwN7aYjxIqznO0a21/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Requirements&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;two requirements for secure use of symmetric encryption:&lt;/li&gt;
+  &lt;li&gt;a strong encryption algorithm&lt;/li&gt;
+  &lt;li&gt;a secret key known only to sender / receiver mathematically have:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Y = E(K, X)&lt;/p&gt;
+
+&lt;p&gt;X = D(K, Y)
+- assume encryption algorithm is known implies a secure channel to distribute key&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Cryptography&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Number of keys 1. Single Key 2. Two Key ( Private and Public )&lt;/p&gt;
+
+&lt;p&gt;싱글키 : 우리가 알고있는 대칭키암호, 암호화 복호화가 같아서 하나만 쓰이는 것.&lt;/p&gt;
+
+&lt;p&gt;더블키 : 퍼블릭 크립토지만, 암복호화 키가 다름. 이걸로만 암호화하면 이걸로만 복호화할 수 있고…&lt;/p&gt;
+
+&lt;p&gt;요즘 디지털서명, 공인인증서에 사용됨&lt;/p&gt;
+
+&lt;p&gt;Plain text processing 1. Block 2. Stream&lt;/p&gt;
+
+&lt;p&gt;블럭 : 하나의 묶음 일종의 양동이. 대부분이 블럭 암호화. 용도 : 고정된 데이터 ( 하드디스크, 영화파일, 이메일 _) - 실시간성에서는 안 좋음. 딜레이 발생&lt;/p&gt;
+
+&lt;p&gt;스트림 : 흘러가는 것. 단순하지만 블럭 암호가 발전되어 있고 대중화되어 있음. ( 넷플릭스, 실시간 주고받는 경우 실시간으로 데이터가 생길 때마다 암호화 해야 함. )&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Cryptanalysis&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;- objective to recover key not just message&lt;/p&gt;
+
+&lt;p&gt;- general approaches: 1. cryptanalytic attack 2. brute-force attack&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How secure?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Perfectly secure - Unconditionally secure&lt;/p&gt;
+
+&lt;p&gt;Computationally secure - 비용자체가 (시간 돈 등) 정보 자체의 가치보다 암호문깨는 비용이 더 듦&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The cost of breaking the cipher exceeds the value of information&lt;/li&gt;
+  &lt;li&gt;The time required to break the cipher exceeds the lifetime of information&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Brute Force Search ( Or brute force attack )&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;always possible to simply try every key&lt;/li&gt;
+  &lt;li&gt;most basic attack, proportional to key size ( 상대적인 경우 )&lt;/li&gt;
+  &lt;li&gt;assume either know / recognise plaintext&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/ErMRa/btqARx2VV2y/HviVvEEm8PYS7qqmpelnI1/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Feistel Cipher Structure&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; based on concept of invertible product cipher&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;partitions input block into two halves&lt;/li&gt;
+  &lt;li&gt;process through multiple rounds which perform a substitution on left data half
+based on round function of right half &amp;amp; 
+subkey then have permutation swapping halves&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;block size: 128 bits&lt;/p&gt;
+
+&lt;p&gt;key size: 128 bits&lt;/p&gt;
+
+&lt;p&gt;number of rounds: 16 subkey generation algorithm&lt;/p&gt;
+
+&lt;p&gt;Round function fast software en/decryption&lt;/p&gt;
+
+&lt;p&gt;장점 : 암호문 생성 이후 복호화 할 때 거꾸로 하면 됨.&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 구조는 똑같이 사용하면서 키만 거꾸로 넣으면 됨.&lt;/p&gt;
+
+&lt;p&gt;F(k, R)만 복잡하게 만들면 됨. 서브키를 16개 만듦 
+F박스 함수를 지저분하게 만들면 됨&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Symmetric Block Cipher Algorithms&lt;/strong&gt; - 이름 / 특성 / 나오게 된 이유&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;DES (Data Encryption Standard) - 미국 니스트 (표준평가원 등) 
+adopted in 1977 by NBS (now NIST) as FIPS PUB 46
+encrypts 64-bit data using 56-bit key
+대부분의 암호들이 블럭을 64로 하면 키도 64로 하는데 des 는 56을 사용함
+has widespread use / considerable controversy over its security 
+1) Feistel cipher structure 
+2) 56-bit key
+3) Block cipher
+4) 16 rounds 
+5) S-Box for non-linearity 
+&amp;gt; 완전하게 만드는 방법 &amp;gt; 키 사이즈 늘리기 … 트리플 des 나옴&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/GmdoM/btqASzlGczv/iADvaYRuT7esLrLsFFO5n1/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;3DES (Triple DES) 
+&amp;gt; 트리플은 중간에 암호화 복호화를 한 번 거침
+공학적 해결 방법 : 암호화를 세 번 하는데 중간에 복호화를 함. 일반적으로 암호기법을 칩에다 만들어 침으로 가는 경우가 많음. 그래서 회로로 넣어놓음. 가끔가다가 des를 쓰고싶을 때 키 값을 같은 걸로 줌 &amp;gt; 트리플 디를 쓴 것 처럼 세 번 커짐. 회로를 두 개를 만드느니.. 하나만 만들어서 비용절감을 이룸&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;AES (Advanced Encryption Standard) - 가장 많이 쓰임 
+has 128/192/256 bit keys, 128 bit data 
+&amp;gt; an iterative rather than feistel cipher : processes data as block of 4 columns of 4 bytes 
+operates on entire data block in every round 
+키 사이즈가 여러가지 &amp;gt; 라운드를 16번 돌면 128, 16+8이면 192… 사용자가 원하는 만큼 … 
+모든 데이터가 256비트가 필요한 건 아니기 때문에. 무조건 안전하게 만드는 게 아니라 계산적 안정을 줌&lt;/p&gt;
+
+    &lt;p&gt;Designed to be …
+-1 resistant against known attack
+-2 speed and code compactness on many CPUs
+-3 design simplicity
+initial XOR key material &amp;amp; incomplete last round with fast XOR &amp;amp; table lookup implementation&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;구조는 똑같고 돌 때마다 새로운 키가 있어서 변화를 많이 시킴. 페이스탈처럼 단순하지는 않지만 여러번 돌리는 구조는 같음. 라운드를 많이 돌리고 그 때마다 새로운 키를 넣고… 많이 시도하면서 계속 어그러트려서 암호를 만듦. 많이 어그러트리려면 키 사이즈가 늘어나야하고…브루텔 기법을 더이상 사용할 수 없음.&lt;/p&gt;
+
+&lt;p&gt;암호화를 해야한다고 하면 거의 256으로 함. CPU에 보통 이제 박혀있음 너무 많이 쓰기 때문에&lt;/p&gt;
+</description>
+        <pubDate>Thu, 02 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/security/2020/01/02/classical-cryptography/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/security/2020/01/02/classical-cryptography/</guid>
+      </item>
+    
+      <item>
+        <title>Modern Cryptography</title>
+        <description>&lt;p&gt;현대 암호 : 컴퓨터가 암호화하고, 데이터가 2진수이며 이것이 암호화 된다&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Public-key Cryptography&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;probably most significant advance in the 3000 year history of cryptography&lt;/li&gt;
+  &lt;li&gt;uses two keys – a public &amp;amp; a private key&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;asymmetric&lt;/strong&gt; since parties are not equal&lt;/li&gt;
+  &lt;li&gt;uses clever application of number theoretic concepts to function&lt;/li&gt;
+  &lt;li&gt;complements rather than replaces private key crypto&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2개의 키, 암호화 할 때 대칭암호 씨멘틱 암호였는데, 이것은 암호키가 2개. 동시에 생겨남.&lt;/p&gt;
+
+&lt;p&gt;완벽하게 페어, 맞물림. 다른 페어가 존재할 수 없음&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 한꺼번에 만들어지기 때문에. 두 개의 키가 특이하게 하나로 암호화, 복호화가 가능. ?&lt;/p&gt;
+
+&lt;p&gt;가장 중요한 특성!! 동시생성, 하나로 암호화 하면 하나로만 복호화가 가능함&lt;/p&gt;
+
+&lt;p&gt;이게 가능해진 후로 할 수 있는 일이 많아짐 : 두 개가 생겨서 나누면? 두 개를 다 갖고 있을 필요가 없음.&lt;/p&gt;
+
+&lt;p&gt;특징 중 하나가 a를 갖고 a’를 유추할 수 없음 짐작 불가능. 키를 내놓으면 모든사람에게 보여주고 알려주기 때문에 공개키라고 부름. 그래서 퍼블릭! 나머지 하나는 공개하지 않고 소장 &amp;gt; 개인, 비밀키&lt;/p&gt;
+
+&lt;p&gt;비밀키는 보통 개인키라고 부름. 공개와 개인키가 있는데, 공개키는 모두가 알고 개인키는 나만 앎. 공개키로 암호화를 해서 암호화 한다. 이 암호화 된 건. a’만 풀 수 있음. 퍼블릭키로 암호화 해서 보내기만 하면 a’만 볼 수 있기 때문에 더욱 쉬어짐&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;key distribution&lt;/strong&gt; – how to have secure communications in general without having to trust a KDC with your key&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;digital signatures&lt;/strong&gt; – how to verify a message comes intact from the claimed sender :&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 프라이빗 키의 암호화&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;플레인 텍스트 암호화 (상대방 키를 알고 있다는 의미에서 ) 밥이 앨리스한테 보내는데, 앨리스의 퍼블릭 키로 보냄 &amp;gt; 표기할 때는 y = E(k, x) » X = D(k, y)&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;k가 같으니까 대칭키&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;앨리스한테 보낼 때 Y = 아무나 알고 있음 E(PUa, x) » X = D(PRa, Y) - 앨리스만 알고 있음&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;a public-key,&lt;/strong&gt; which may be known by anybody, and can be used to encrypt messages, and verify signatures&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;a related private-key,&lt;/strong&gt; known only to the recipient, used to decrypt messages, and sign ( create ) signatures&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; those who encrypt messages or verify signatures cannot decrypt messages or create signatures&lt;/p&gt;
+
+&lt;p&gt;모든 사람은 내가 공개한 공개키를 보고 나에게 보내면 됨.!! 인터넷은 암호화통신을 해야하는데, 몇 억명 유저 키를 관리할 수는 없음. 이런 문제를 해결함. 거꾸로 공개키로 암호화하면 내가 안전히 받을 수 있음. 개인키로 암호화하면 퍼블릭 키로 풀 수 있음 &amp;gt; 개인키를 암호화하면 공개키가 있는 아무나가 풀 수 있음. 모두 풀어볼 수 있음.&lt;/p&gt;
+
+&lt;p&gt;대신 이 것은 개인키로는 나만 암호화 할 수 있기에 받은 사람 입장에서는 공개키로 풀 수 있기 때문에 … ? 이 메세지는 확실한 개인키 (수신인)를 나타내는 효과가 있다 » 디지털 서명!?!? 신뢰?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/bcmhGR/btqAOdd01dA/kfhZ6ArDwfjK7lVSZ76Kt1/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;신경써야 하는 것 &amp;gt; 공개키가 있는데,,, 내 건지 어떻게 아는지? 공개키를 무언가 뒤집어 씌울 수도 있는데?&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 누군가 이게 나의 공개키인지 확인을 해주어야 하는데,, 공개키마다 믿을 수 있는 사람을 확인해주자 해서&lt;/p&gt;
+
+&lt;p&gt;제3자.. 확인을 해줌. 공인인증서….&lt;/p&gt;
+
+&lt;p&gt;내 퍼블릭 키가 인증을 공공적으로 확인을 받음 국민은행이 이것을 보증합니다 해서 누구한테 들이밀어도 공개키를 뒤져봐도 신뢰 가능&lt;/p&gt;
+
+&lt;p&gt;퍼블릭키 문제점 : 느림,, 보통 대칭키보다 1000배 느리고 연산량과 전기가 많이 듦. 좋긴 한데 많이 쓰면 안 좋음&lt;/p&gt;
+
+&lt;p&gt;데이터 자체 암호화가 아니라,, AES, DES (빠르고 효율적이고 안전, 키를 따로따로가 문제) 키를 랜덤으로 만든다음 키만 퍼블릭키로 암호화 해서 보내면 상대방은 안전하게 받을 수 있음. 만들어서 주었기 때문에 둘만 알 고 있음 &amp;gt; AES, DES 로 풀면 됨 !! 연산이 많아도 상관은 없음 : 데이터 양이 많으면 무조건 대칭키!!&lt;/p&gt;
+
+&lt;p&gt;키 분배 과정은 처음에 AES, DES로 암호화 해야하기 대문에 필요함&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;RSA&lt;/strong&gt; - 수학적 특성 사용&lt;/p&gt;
+
+&lt;p&gt;- to encrypt a message M the sender: obtains public key of recipient PU={e,n}&lt;/p&gt;
+
+&lt;p&gt;computes: C = Me mod n, where 0≤M&amp;lt;n&lt;/p&gt;
+
+&lt;p&gt;- to decrypt the ciphertext C the owner: uses their private key PR={d,n}&lt;/p&gt;
+
+&lt;p&gt;computes: M = Cd mod n&lt;/p&gt;
+
+&lt;p&gt;note that the message M must be smaller than the modulus n (block if needed)&lt;/p&gt;
+
+&lt;p&gt;publish their public encryption key: PU={e,n} 
+keep secret private decryption key: PR={d,n}&lt;/p&gt;
+
+&lt;p&gt;안정성이 보장되는 이유 : 소인수분해가 거의 불가능하기 때문에 유추 불가능&lt;/p&gt;
+
+&lt;p&gt;암호화 : 메세지이긴 하지만 2진수인 알파벳 한 개 (ex, M) 에 e승을 하고 mod n 를 곱함 = C » 암호문&lt;/p&gt;
+
+&lt;p&gt;복호화 &amp;gt; C^d * mod n== (M^e) d = M^ed mod n&lt;/p&gt;
+
+&lt;p&gt;프라이빗 키로 먼저 암호화 했을 때 (M^d)e == M^de mod n == M^@(n)+1 mod n = M&lt;/p&gt;
+
+&lt;p&gt;* &lt;strong&gt;RSA Example&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Select primes: p=17 &amp;amp; q=11&lt;/p&gt;
+
+&lt;p&gt;Calculate n = pq =17 x 11=187&lt;/p&gt;
+
+&lt;p&gt;Calculate ø(n)=(p–1)(q-1)=16x10=160&lt;/p&gt;
+
+&lt;p&gt;Select e: gcd(e,160)=1; choose e=7&lt;/p&gt;
+
+&lt;p&gt;Determine d: de=1 mod 160 and d &amp;lt; 160 Value is d=23 since 23x7=161= 10x160+1&lt;/p&gt;
+
+&lt;p&gt;Publish public key PU={7,187}
+Keep secret private key PR={23,187} a&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; asample RSA encryption/decryption is:&lt;/p&gt;
+
+&lt;p&gt;given message M = 88 (nb. 88&amp;lt;187)&lt;/p&gt;
+
+&lt;p&gt;encryption: C = 887 mod 187 = 11&lt;/p&gt;
+
+&lt;p&gt;decryption: M = 1123 mod 187 = 88&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Diffie-Hellman Key Exchange&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/N44He/btqARW2t4YF/KkfEZgRF8wU1eWuO2wGfmk/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;First public-key type scheme proposed / practical method for public exchange of a secret key&lt;/dt&gt;
+  &lt;dd&gt;
+    &lt;p&gt;used in a number of commercial products&lt;/p&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;a public-key distribution scheme
+  cannot be used to exchange an arbitrary message&lt;/p&gt;
+
+&lt;p&gt;rather it can establish a common key&lt;/p&gt;
+
+&lt;p&gt;known only to the two participants&lt;/p&gt;
+
+&lt;p&gt;value of key depends on the participants (and their private and public key information)&lt;/p&gt;
+
+&lt;p&gt;- based on exponentiation in a finite (Galois) field (modulo a prime or a polynomial) - easy&lt;/p&gt;
+
+&lt;p&gt;- security relies on the difficulty of computing discrete logarithms (similar to factoring) – hard all users agree on global parameters:&lt;/p&gt;
+
+&lt;p&gt;large prime integer or polynomial q&lt;/p&gt;
+
+&lt;p&gt;a being a primitive root mod q •&lt;/p&gt;
+
+&lt;p&gt;each user (eg. A) generates their key&lt;/p&gt;
+
+&lt;p&gt;chooses a secret key (number): X &amp;lt; q&lt;/p&gt;
+
+&lt;p&gt;compute their public key: YA = a^xa mod q&lt;/p&gt;
+
+&lt;p&gt;each user makes public that key Ya&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Alice&lt;/th&gt;
+      &lt;th&gt;Bob&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;G&lt;/td&gt;
+      &lt;td&gt;G&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Xa&lt;/td&gt;
+      &lt;td&gt;Xb&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;g^Xa mod n&lt;/td&gt;
+      &lt;td&gt;g^Xb mod n&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;(g^Xb)^Xa&lt;/td&gt;
+      &lt;td&gt;(g^Xa)^Xb&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;shared session key for users A &amp;amp; B is KAB:&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; if Alice and Bob subsequently communicate, they will have the same key as before, unless they choose new public - key&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Man-in-the-Middle Attack&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;공격에 취약함 : 중간자 공격&lt;/p&gt;
+
+&lt;p&gt;앨리스랑 밥 사이에 서있음. 중간에서 통신을 끊음 &amp;gt; 중간자만의 Xc를 만들어서 앨리스의 g^Xa를 끊고, 나의 g^Xc를 보냄, 반대도 마찬가지&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;결과는 (g^Xc)^Xa&lt;/td&gt;
+      &lt;td&gt;(g^Xc)^Xb가 되기 때문에 중간에 낀 사람은 양쪽 모두와 통신을 할 수 있지만 서로는 전혀 모름.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;일반적으로는 몇 가지 기능을 넣어서 서로를 확인할 수 있게 함&lt;/p&gt;
+
+&lt;p&gt;퍼블릭 키 : 키 익스체인지 - 동등한 정보를 나눠가질 때 &amp;gt; 맨인더미들 어택이랑 연결됨&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Digital Signature&lt;/strong&gt; E(PrivateR, H)&lt;/p&gt;
+
+&lt;p&gt;have looked at message authentication &amp;gt; but does not address issues of lack of trust&lt;/p&gt;
+
+&lt;p&gt;digital signatures provide the ability to:&lt;/p&gt;
+
+&lt;p&gt;- verify author, date &amp;amp; time of signature&lt;/p&gt;
+
+&lt;p&gt;- authenticate message contents&lt;/p&gt;
+
+&lt;p&gt;- be verified by third parties to resolve disputes&lt;/p&gt;
+
+&lt;p&gt;hence include authentication function with additional capabilities&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/bkxvY1/btqARwQudYv/xaCjv6BKviL3aZ7WtCQqKk/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/cd2p5b/btqAOIY9MI7/RMsxM1WmpgMSQIPExU9SqK/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 02 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/security/2020/01/02/Modern-cryptography/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/security/2020/01/02/Modern-cryptography/</guid>
+      </item>
+    
+      <item>
+        <title>Security Requirements, Attacks and Model for network security</title>
+        <description>&lt;p&gt;&lt;strong&gt;Security Requirements Triad&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;CONFIDENTIALLITY&lt;/strong&gt; : Preserving authorized restrictions on information access and disclosure, including means for protecting personal privacy and proprietary information. 
+&amp;gt; 기밀성 - 무언가를 보이고 싶지 않을 때 (가장 대표적인 형태)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;INTEGRITY&lt;/strong&gt; : Guarding against information modifications or destruction, including ensuring information non-repudiation and authenticity&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 무결성 - 정보가 허가없이 변경이 되지 않았다는 것.&lt;/p&gt;
+
+&lt;p&gt;e.g ) 10만원을 송금할 때 누군가 100만원으로 고칠 수 없음 &amp;gt; 무결성이 깨짐&lt;/p&gt;
+
+&lt;p&gt;**
+AVALIABILITY** :Ensuring timely and reliable access to and use of information 
+&amp;gt; 가용성 - 사용자가 사용하려할 때 사용할 수 있는가?&lt;/p&gt;
+
+&lt;p&gt;e.g ) 수강신청, 등의 서버 다운 &amp;gt; 해당 서비스를 받지 못하는 상황&lt;/p&gt;
+
+&lt;p&gt;== 아무리 보안이 지켜지더라도 사용하지 못하면 의미 없음&lt;/p&gt;
+
+&lt;p&gt;3가지가 모두 지켜져야 하는 건 아니고 용도에 따라 달라짐. 공고를 냈을 때는 무결성 가용성만,,,&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Security attacks, mechanisms &amp;amp; services&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;\1. Security Attack
+  - Any action that compromises the security of information&lt;/p&gt;
+
+&lt;p&gt;\2. Security Mechanism&lt;/p&gt;
+
+&lt;p&gt;- A process / device that is designed to detect, prevent or Security Service recover from a security attack.&lt;/p&gt;
+
+&lt;p&gt;\3. Security Service&lt;/p&gt;
+
+&lt;p&gt;- A service intended to counter security attacks, typically by implementing one or more mechanisms.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/W18D1/btqASz63mOh/cOePQK3YbGtHHDFpKUypxK/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Passive attacks&lt;/strong&gt; 
+\1. 릴리즈 - 내가 공격을 수행하지만 참여하지 않음.&lt;/p&gt;
+
+&lt;p&gt;공격이 수행되고 있지만 특별히 가담하고 있는 것은 아님.&lt;/p&gt;
+
+&lt;p&gt;내가 중간에서 끼어들지 않는 것.&lt;/p&gt;
+
+&lt;p&gt;대표적인 것 : 도청… 바비 앨리스 통신 중 중간에서 내용을 읽음 - 도청은 중간에 가로막거나 끊지 않음&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 패시브 어택 가장 대표적 형태&lt;/p&gt;
+
+&lt;p&gt;\2. 교통량, 통화량 분석 - 트래픽 애널리시스 :&lt;/p&gt;
+
+&lt;p&gt;교통량이 얼마나 되느냐를 분석. 통신 중 내용을 읽을 수 있으면&lt;/p&gt;
+
+&lt;p&gt;도청, but 통신이 진행중이라는 것, 양을 분석하는 것. !!&lt;/p&gt;
+
+&lt;p&gt;트래픽은 일반적으로 암호화가 되어 있어서 내용은 모르지만&lt;/p&gt;
+
+&lt;p&gt;지나가는 데이터의 용량을 보고 언어정도는 분석&lt;/p&gt;
+
+&lt;p&gt;ex ) 예전에 911 이후에 아프가니스탄 침공할 때… 침공할까 날짜기 궁금했는데 미국방부 앞에 앉아서 지나가는 피자 트럭의 갯수를 셈.저녁에 피자 트럭이.. 갑자기 피자 트럭이 60~70대로 늘어난다면 ? 그만큼 많은 사람들의 야근 &amp;gt; 무언가 할 일이 있다는 의미….. »&amp;gt; 트래픽 아날 .. 간접적으로라도 분석이 가능&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Active attacks&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/dhiVPD/btqAQ3gVp1P/A5eAsCBji7Po4nP7WbvrNk/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;\1. 매스커레이드 :: 타인인 척 하는 것&lt;/p&gt;
+
+&lt;p&gt;\2. 리플레이 어택 :: 리플레이 ! 재시작 &amp;gt; 한 번 메세지가 가면, 중간자가 갖고 있다가 다시&lt;/p&gt;
+
+&lt;p&gt;발신자에게 보냄; 
+전통적으로 문제가 되고 잘 통하는 공격. 
+// 밥이 앨리스한테 만 원을 보낸다, 
+메세지를 중간에 갖고있다가 그 메세지를 10분 후에 또 보내고 또 보내고…그럼 밥이 앨리스한테 계속 보내는 셈이 됨. 
+밥이 앨리스한테 보내는 메세지를 그대로 가져왔기 때문에 서명, 비밀 정보를 그대로 갖고 있음. 완벽히 정리된 정확한 정보임.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/bk4AsR/btqAQOqMjZ5/xIscMgrRYyk0NgsJJTaLsK/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;인증받을 수 있는 정보 함양
+ &amp;gt; 다시 보내니까 받는 입장에서는 구분 불가
+ &amp;gt;&amp;gt; 막을 수 있는 방법. 
+\1. 시간을 적어 놓음 (서버 시간을 조정으로 혼란 가중)
+\2. 보내는 메세지마다 순서를 매긴다.&lt;/p&gt;
+
+&lt;p&gt;\3. 모디피케이션 - 메세지를 받아서 변경하는 것 
+\4. 가용성 - 내가 사용하고 싶을 때 쓰는 것.&lt;/p&gt;
+
+&lt;p&gt;:: 가용성 공격 - 서비스 거부 공격**&lt;/p&gt;
+
+&lt;p&gt;::(Denial Of Service) 도스 공격이라고 부름&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 분산해서 공격하면 디도스
+    (Distributed Dinial Of Service)&lt;/p&gt;
+
+&lt;p&gt;요즘은 양이 많아지는 추세
+막을 수 있는 방법 » 막기가 힘듦. 가게가 문을 열었는데 손님을 받긴 받았는데 저쪽에서 가짜 요청을 막 보냈는데 진짜와 가짜 요청을 구분해 내기가 힘듦.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Model for network security&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/bLCjx9/btqAQ3BfVLW/uBmWLk7eqlt60z06ugwn91/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;인포메이션 채널 (인터넷) , 어포넌트 (변조, 날조 등 채널)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;메세지에 무언가 변화를 주어 메세지를 암호화 해서 보낸다. 씨크릿 인포메이션 : 암호화시 쓰는 키 - 무언가 변조를 하는데 서로 알고 있는 걸로 변화를 줌 &amp;gt; 안전한 메세지로 변경. »&lt;/p&gt;
+
+&lt;p&gt;특이한 것 : 써드 파티 제3자 - 신뢰할 수 있는 제3자의 도움을 받을 수 있음. 제3자를 통해 수발신자가 통신할 수 있음. 씨크릿 인포메이션에 무얼 집어넣느냐에 따라 달라짐.. 트리플 DES… 신뢰할 수 있는 제3자가 비밀&lt;/p&gt;
+</description>
+        <pubDate>Thu, 02 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/security/2020/01/02/Model-for-network-security/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/security/2020/01/02/Model-for-network-security/</guid>
+      </item>
+    
+      <item>
+        <title>[Edwith] 머신러닝을 위한 Python_chap01</title>
         <description>&lt;h2 id=&quot;news-categorisitaion&quot;&gt;News Categorisitaion&lt;/h2&gt;
 
 &lt;p&gt;숫자를 벡터로 좌표평면상에 올릴 수 있도록 바꾸어주어야 함.&lt;/p&gt;
@@ -323,8 +1186,27 @@
 
 </description>
         <pubDate>Thu, 02 Jan 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/study/ml/2020/01/02/edwith_ml_for_python/</link>
-        <guid isPermaLink="true">http://localhost:4000/study/ml/2020/01/02/edwith_ml_for_python/</guid>
+        <link>http://localhost:4000/study/ml/2020/01/02/edwith-python-for-ML/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/ml/2020/01/02/edwith-python-for-ML/</guid>
+      </item>
+    
+      <item>
+        <title>Personal Website</title>
+        <description>&lt;p&gt;예전에 학기 프로젝트로 했던 개인 웹 사이트 만들기 발표자료 중 일부분입니다. 이 때 참 재미있게 만들었던 게 기억납니다.  지금 보면 허접하기 짝이 없지만… 그래도 사랑하는 저의 작품이죠&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/ztyUc/btqARhZ1Nic/bzsK1QRQIvun9qY2ZlvtsK/img.png&quot; alt=&quot;img&quot; /&gt;index 화면&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/Pdcvc/btqARikmcMz/NEZkRkJRiC2Vvcc2FwzSLK/img.png&quot; alt=&quot;img&quot; /&gt;Main pages&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/ciTIsx/btqAQlovdCt/ckIuGTGQOem1K69jmEcKK1/img.png&quot; alt=&quot;img&quot; /&gt;explanation of 1st main pages’ detail&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/d7lrZ6/btqARjDxruK/plPPW3qSWntKpstNKfhg90/img.png&quot; alt=&quot;img&quot; /&gt;Explanation of 2nd main pages’ detail&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/cxF4LI/btqAOIYQLy4/orKjdcPHxGipCaqKAlhi3K/img.png&quot; alt=&quot;img&quot; /&gt;Explanation of 3rd main pages’ detail&lt;/p&gt;
+</description>
+        <pubDate>Wed, 01 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/web/2020/01/01/personal-web-making/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web/2020/01/01/personal-web-making/</guid>
       </item>
     
       <item>
@@ -920,6 +1802,385 @@
       </item>
     
       <item>
+        <title>[edwith] python for ML ch1</title>
+        <description>&lt;h1 id=&quot;1-pythonic-code&quot;&gt;1) Pythonic Code&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;파이썬 스타일의 코딩 기법&lt;/li&gt;
+  &lt;li&gt;파이썬 특유 문법을 활용해 효율적 코드 표현&lt;/li&gt;
+  &lt;li&gt;고급 코드를 작성할 수록 더 많이 요구됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;split--join&quot;&gt;Split &amp;amp; Join&lt;/h2&gt;
+
+&lt;h3 id=&quot;split&quot;&gt;Split&lt;/h3&gt;
+
+&lt;p&gt;: String Type 의 값을 나누어 List 형태로 반환 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;.split() &lt;/code&gt; 괄호 안 기준으로 문자열을 나눔&lt;/p&gt;
+
+&lt;h3 id=&quot;join&quot;&gt;Join&lt;/h3&gt;
+
+&lt;p&gt;: String List 를 합쳐 하나의 String으로 반환할 때 사용
+&lt;code class=&quot;highlighter-rouge&quot;&gt;''.join(var)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;list-comprehension&quot;&gt;List Comprehension&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;기존 List를 사용해 간단히 다른 List를 만드는 기법&lt;/li&gt;
+  &lt;li&gt;포함되는, 포괄적인 List 라는 의미로 사용&lt;/li&gt;
+  &lt;li&gt;파이썬에서 가장 많이 사용되는 기법 중 하나&lt;/li&gt;
+  &lt;li&gt;for + append 보다 빠른 속도&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;One Dimentional&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[i+j for i in case_1 for j in case_2]&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Two Dimentional&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[[i+j for i in case_1] for j in case_2]&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;enumerate--zip&quot;&gt;Enumerate &amp;amp; Zip&lt;/h2&gt;
+
+&lt;h3 id=&quot;enumerate&quot;&gt;Enumerate&lt;/h3&gt;
+
+&lt;p&gt;: List element 추출 시 번호를 붙여 반환
+&lt;code class=&quot;highlighter-rouge&quot;&gt;enumerate(var)&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;zip&quot;&gt;Zip&lt;/h3&gt;
+
+&lt;p&gt;: 두 개의 list 값을 병렬 추출&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;for i, (a, b) in enumerate(zip(list_a, list_b))&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;lambda--mapreduce&quot;&gt;Lambda &amp;amp; MapReduce&lt;/h2&gt;
+
+&lt;h3 id=&quot;lambda&quot;&gt;Lambda&lt;/h3&gt;
+
+&lt;p&gt;: 함수 이름 없이 함수처럼 사용할 수 있는 익명함수, python3 부터 권장하지는 않으나 여전히 많이 쓰임
+&lt;code class=&quot;highlighter-rouge&quot;&gt;f = lambda x, y: x + y&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;map-function&quot;&gt;Map Function&lt;/h3&gt;
+
+&lt;p&gt;: Sequence 자료형 각 element에 동일한 function을 적용&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;if filter 사용 가능&lt;/li&gt;
+  &lt;li&gt;두 개 이상의 list 에도 적용 가능&lt;/li&gt;
+  &lt;li&gt;python3 부터 iteration 생성 시 list를 붙여주어야 list 사용 가능&lt;/li&gt;
+  &lt;li&gt;실행시점의 값을 생성, 메모리 효율적&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;reduce-function&quot;&gt;Reduce Function&lt;/h3&gt;
+
+&lt;p&gt;: map과 달리 list에 똑같은 함수를 적용해서 통합&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;from functools import reduce&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;asterisk-&quot;&gt;Asterisk *&lt;/h2&gt;
+
+&lt;p&gt;: 단순 곱셈, 제곱 연산, 가변 인자 활용 등 다양하게 사용됨&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;unpacking a container&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;tuple, dict 등 자료형 내부 값을 unpacking&lt;/li&gt;
+  &lt;li&gt;합수 입력값, zip 등을 유용하게 사용 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;collections&quot;&gt;Collections&lt;/h2&gt;
+
+&lt;p&gt;: List, Tuple, Dict에 대한 Python Built-in 확장 자료 구조(모듈)&lt;/p&gt;
+
+&lt;h3 id=&quot;deque&quot;&gt;deque&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Stack과 Queue를 지원하는 모듈&lt;/li&gt;
+  &lt;li&gt;List에 비해 효율적인 자료 저장 방식&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;collections&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deque&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#1
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deque_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deque&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;deque_list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#2    
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deque_list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;appendleft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;rotate, reverse 등 Linked List의 특정을 지원&lt;/li&gt;
+  &lt;li&gt;기존 list 형태 함수 모두 지원&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;deque_list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rotate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;deque_list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deque&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;reversed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deque_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;기존 list보다 효율적인 자료구조 제공&lt;/li&gt;
+  &lt;li&gt;효율적 메모리 구조로 처리 속도 향상&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;ordered-dict&quot;&gt;Ordered Dict&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;데이터를 입력한 순서대로 dict를 반환&lt;/li&gt;
+  &lt;li&gt;dict type의 값을, value 또는 key 값으로 정렬할 때 사용 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;for k, v in OrderedDict(sorted(d.items(), key=lambda t: t[0])).items():&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;default-dict&quot;&gt;default Dict&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;dict type의 값에 기본 값을 지정해 신규값 생성 시 사용하는 방법&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;collections&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultdict&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultdict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Default Dict 생성
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultdict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# default값 == 0
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;하나의 지문에 각 단어가 몇 개나 있는지 세고 싶을 경우 ?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Text-mining 접근법 - Vector Space Model&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;collections&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OrderedDict&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;word_count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultdict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Default dictionary를 생성
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word_count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultdict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Default 값을 0으로 설정 
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;word_count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OrderedDict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sorted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word_count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;counter&quot;&gt;Counter&lt;/h3&gt;
+
+&lt;p&gt;: Sequence Type의 data element 의 갯수를 dict 형태로 반환&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Dict type, keyword parameter 등도 모두 처리 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;collections&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'gallahad'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 각 알파벳이 몇 번 들어가있는지 확인
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'red'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'blue'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; 
+&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;set 연산 지원&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subtract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# c - d
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;word counter 기능 제공&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;named-tuple&quot;&gt;named tuple&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;tuple 형태로 data 구조체를 저장하는 방법&lt;/li&gt;
+  &lt;li&gt;저장되는 data variable을 사전에 지정해서 저장&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 24 Dec 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/python/2019/12/24/python-for-ml/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/python/2019/12/24/python-for-ml/</guid>
+      </item>
+    
+      <item>
+        <title>[Git] Git Study</title>
+        <description>&lt;h2 id=&quot;git&quot;&gt;Git&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;가장 대중적인 코드 관리 도구&lt;/li&gt;
+  &lt;li&gt;목적 : 이력관리 (버전관리)&lt;/li&gt;
+  &lt;li&gt;특징 : ‘분산’ 버전관리&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;git-setting&quot;&gt;Git Setting&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global user.name &quot;name&quot;
+git config --global user.email &quot;email&quot;
+git init # After make a folder
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;git-status&quot;&gt;Git Status&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git status
+git add 'file.type'
+git commit 'file.type' -m &quot;Your Message&quot;
+# git commit -m &quot;Your Message&quot; when you need all file commits
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Staged File : Files requiring constant observation Commited File : Save current condition in Git Repo&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;git status&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Version Control, Source Code Management&lt;/li&gt;
+  &lt;li&gt;When appears ‘Untracked file’. It means Git doesn’t know that file&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;git add&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1st alert ‘Changes to be commit’. It means Your file is in Staged Area&lt;/li&gt;
+  &lt;li&gt;2nd alert ‘Changes not staged for commit’. It means You’ve got modified file on Tracked file, But not in Staged Area (Not Staged condition)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;git commit&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Source Control is Available since data was committed in Git Repository&lt;/li&gt;
+  &lt;li&gt;Enter when you want to SAVE&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;git-ignore&quot;&gt;Git ignore&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git mv file.rft file.gitignore&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;When you’ve got files you want to ignore, make a txt file and change file extention .rtf(.txt etc) to .gittgnore.&lt;/p&gt;
+
+&lt;h3 id=&quot;git-log---기록&quot;&gt;Git log - 기록&lt;/h3&gt;
+
+&lt;p&gt;press ‘q’ when escape&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;commit a4d380ce1cf6e8866f0f1d07cfaa804083476e0c
+Author: Name &amp;lt;your@email.com&amp;gt;
+Date:   Wed Dec 11 100:00:00 2019 +0000
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;commit : Hash Code of your file Author : Author name &amp;lt;Author’s email&amp;gt; Date : Committed date&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;git log’s 4 command line&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git log --status
+git log --pretty=oneline
+git log --pretty=format : &quot;%h - %an, %ar : %s&quot;
+git log --pretty=format : &quot;%h - %an, %ar : %s&quot; --graph
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;git-checkout&quot;&gt;Git checkout&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Not a recommanded way&lt;/em&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout 'hash[:6]'&lt;/code&gt; &lt;strong&gt;Keep returning purpose in mind&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;branch&quot;&gt;Branch&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+git branch # Expected Result with green font colour : * master
+git branch 'name'
+git checkout 'name' # Expecte
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;when you checking out to master, files you made with another branch name will disappear&lt;/p&gt;
+
+&lt;h3 id=&quot;merge&quot;&gt;Merge&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git merge name # branch name&lt;/code&gt; in the master branch&lt;/p&gt;
+
+&lt;h3 id=&quot;gitk---history-with-graph&quot;&gt;gitk - History with graph&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gitk&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;push&quot;&gt;Push&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git push -u origin master&lt;/code&gt; Branch called master push to Remote server called origin&lt;/p&gt;
+
+&lt;h3 id=&quot;remote&quot;&gt;Remote&lt;/h3&gt;
+
+&lt;p&gt;Create New Repository on terminal line &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote add origin https://www.github.com/~/~&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;remote&lt;/code&gt; Total command line of remote repository &lt;code class=&quot;highlighter-rouge&quot;&gt;add&lt;/code&gt; Plus &lt;code class=&quot;highlighter-rouge&quot;&gt;origin&lt;/code&gt; the name, the first &lt;code class=&quot;highlighter-rouge&quot;&gt;https://~&lt;/code&gt; same as HTML&lt;/p&gt;
+
+&lt;h3 id=&quot;remote-command-line&quot;&gt;Remote Command Line&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git remote&lt;/code&gt; #Expected Result : origin &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote -v&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote add origin&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote add name&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote rm name&lt;/code&gt; # Delete&lt;/p&gt;
+
+&lt;h3 id=&quot;commit-in-git-remote-server&quot;&gt;Commit in Git Remote server&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add name
+git commit name -m &quot;Message&quot;
+git push origin master
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;remote-server-to-local&quot;&gt;Remote server to Local&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Clone - Get everything&lt;/li&gt;
+  &lt;li&gt;Pull - Merge same branch&lt;/li&gt;
+  &lt;li&gt;Fetch - Only get changed things&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;1-fork--pull-request&quot;&gt;(1) Fork &amp;amp; Pull Request&lt;/h3&gt;
+
+&lt;p&gt;Fork🍴 - 타인의 Repo를 나의 github repo로 옮김 Pull Request - Fork로 가져온 타인의 코드 수정 후 반영을 요청함&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git pull address master # Easiest way
+git fetch origin master # bring Latest version &amp;amp; can get another branch
+git merget origin master
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;2-permission&quot;&gt;(2) Permission&lt;/h3&gt;
+
+&lt;p&gt;permission Setting : 작업 권한을 공동 작업자에게 위임 github 내 setting 에서 추가&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLBHVuYlKEkULuUe_Ca3wiaFon6dPWIWAZ&quot;&gt;유튜브 Git - Teamlab 강의&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 18 Dec 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/git/2019/12/18/Git-Study/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/git/2019/12/18/Git-Study/</guid>
+      </item>
+    
+      <item>
         <title>[Error] os.rename() No such file or directory 오류</title>
         <description>&lt;p&gt;오류 1.&lt;br /&gt;
 FileNotFoundError: [Errno 2] No such file or directory: ‘원 파일명’ -&amp;gt; ‘변경하려는 파일명’&lt;/p&gt;
@@ -997,7 +2258,9 @@ IsADirectoryError: [Errno 21] Is a directory: ‘/Users/xxx/Desktop/init/video/O
 
 &lt;h4 id=&quot;2-hydrogen--cmd--enter-&quot;&gt;2. &lt;a href=&quot;https://atom.io/packages/Hydrogen&quot;&gt;hydrogen&lt;/a&gt; ( Cmd + Enter )&lt;/h4&gt;
 
-&lt;p&gt;jupyter notebook 이랑 연동 / jupyter 커널로 한 줄이나 block 처리 된 코드 실행 …최고실행 전에 터미널 창에서 명령어 입력해주세요. 그 후로 아톰 에디터 내에서 사용이 가능합니다.&lt;/p&gt;
+&lt;p&gt;jupyter notebook 이랑 연동 / jupyter 커널로 한 줄이나 block 처리 된 코드 실행 …최고&lt;/p&gt;
+
+&lt;p&gt;실행 전에 터미널 창에서 명령어 입력. 그 후로 아톰 에디터 내 사용 가능.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python -m pip install ipykernel
 python -m ipykernel install --user
@@ -1105,10 +2368,857 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
         <guid isPermaLink="true">http://localhost:4000/study/python/2019/12/14/import-this/</guid>
       </item>
     
+      <item>
+        <title>Malware</title>
+        <description>&lt;p&gt;&lt;strong&gt;Malware&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;유형&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;악성 소프트웨어&lt;/p&gt;
+
+&lt;p&gt;– 호스트 프로그램을 필요로 하는 것&lt;/p&gt;
+
+&lt;p&gt;• 바이러스 • 논리폭탄 • 백도어&lt;/p&gt;
+
+&lt;p&gt;– 호스트를 필요로 하지 않는 것&lt;/p&gt;
+
+&lt;p&gt;•웜 • 좀비&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;스스로&lt;/strong&gt; &lt;strong&gt;복제할&lt;/strong&gt; &lt;strong&gt;수&lt;/strong&gt; &lt;strong&gt;있는&lt;/strong&gt; &lt;strong&gt;악성소프트웨어&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;– 트리거에 의해 활성화되는 프로그램 • 논리폭탄&lt;/p&gt;
+
+&lt;p&gt;• 백도어 • 좀비 프로그램  • 스스로 복제 불가한 악성소프트웨어&lt;/p&gt;
+
+&lt;p&gt;– 독립적인 프로그램으로서 실행&lt;/p&gt;
+
+&lt;p&gt;– 자신의 복제를 만들어 전파&lt;/p&gt;
+
+&lt;p&gt;• 바이러스 • 웜&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;백도어&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;• 백도어(back door)&lt;/p&gt;
+
+&lt;p&gt;–  트랩도어(trap door)라고도 함&lt;/p&gt;
+
+&lt;p&gt;–  프로그램으로 들어가는 비밀 입구&lt;/p&gt;
+
+&lt;p&gt;–  이 코드는 어떤 특별한 일련의 입력을 인식하거나, 
+특정 사용 자 ID나 발생할 가능성이 매우 희박한 일련의 사건에 의해 구동되면 시작한다&lt;/p&gt;
+
+&lt;p&gt;• 유지후크(maintenance hook)&lt;/p&gt;
+
+&lt;p&gt;–  통상적 보안접속 절차 없이 접근허락 받음&lt;/p&gt;
+
+&lt;p&gt;–  프로그래머는 프로그램 디버그나 검사를 위해 백도어를 상당 기간 합법적으로 사용&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;논리폭탄&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;- 논리폭탄(logicbomb)&lt;/p&gt;
+
+&lt;p&gt;합법적 프로그램 안에 내장된 코드로서 특정 조건이 맞게 되면 ‘터지게(작동을 개시하게)’ 만 들어진 논리&lt;/p&gt;
+
+&lt;p&gt;- 논리폭탄의 뇌관
+1 어떤 특정 파일이 없어지는 순간 2 특정 요일 3 특정 날짜 4 응용 프로그램을 구동하는 특정 사용자&lt;/p&gt;
+
+&lt;p&gt;일단 논리폭탄의 작용
+– 데이터나 전체 파일 수정 – 파일 삭제&lt;/p&gt;
+
+&lt;p&gt;- 팀로이드(TimLloyd)사건&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;트로이&lt;/strong&gt; &lt;strong&gt;목마&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;트로이 목마(trojan horse)란 감춰진 코드를 갖 고 있는 프로그램이나 명령 프로시저로 작동이 되 면 원하지 않거나 해가 되는 기능을 수행&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;트로이&lt;/strong&gt; &lt;strong&gt;목마의&lt;/strong&gt; &lt;strong&gt;3&lt;/strong&gt;&lt;strong&gt;가지&lt;/strong&gt; &lt;strong&gt;모델&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;\1. 원 프로그램의 기능을 계속해서 수행 : 
+  – 추가적으로 별개의 악성 활동을 수행
+\2. 원 프로그램의 기능을 계속해서 수행&lt;/p&gt;
+
+&lt;p&gt;– 기능을 수정해서 악성 활동을 하게 한다
+    • 패스워드 수집 로그인 프로그램 트로이 목마 버전&lt;/p&gt;
+
+&lt;p&gt;​    • 프로세스 염탐 프로그램 트로이 목마 버전&lt;/p&gt;
+
+&lt;p&gt;\3. 원 프로그램의 기능을 완전히 대체하는 악성 기능 수행&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;다중&lt;/strong&gt;&lt;strong&gt;-&lt;/strong&gt;&lt;strong&gt;위협&lt;/strong&gt; &lt;strong&gt;악성&lt;/strong&gt; &lt;strong&gt;소프트웨어&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;• 다분할(multipartite) 바이러스&lt;/p&gt;
+
+&lt;p&gt;– 여러 방법으로 감염&lt;/p&gt;
+
+&lt;p&gt;– 다중 유형 파일이 감염되므로 바이러스 박멸을 위해 감염된 모든 사이트 치료 필요&lt;/p&gt;
+
+&lt;p&gt;• 혼합 공격(blended attack)
+  – 다중 방법으로 감염시키거나 전송해서 감염속도와 공격의 강도를 극대화&lt;/p&gt;
+
+&lt;p&gt;–  다중 유형 맬웨어를 포함한 패키지&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;–  혼합 공격의 예 &amp;gt; 님다(Nimda) 공격 – 웜, 바이러스, 모바일 코드의 특성을 모두 가짐&lt;/dt&gt;
+  &lt;dd&gt;전자메일, 윈도우 공유, 웹 서버, 웹 클라이언트로 배포&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;&lt;strong&gt;좀비&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;인터넷에 연결된 다른 컴퓨터를 몰래 장악하고 그 컴퓨터를 기반으로 공격을 수행 하는 프로그램&lt;/li&gt;
+  &lt;li&gt;타깃 웹 사이트를 대상으로 한 서비스거부 공격 에 이용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;바이러스&lt;/strong&gt; &lt;strong&gt;속성&lt;/strong&gt; - 악성코드는 발전하면서 하나의 이름으로 규정되기 어려운 형태가 많아짐&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;다른 프로그램을 변형시켜 ‘감염(infect)’시키는 프로그램&lt;/li&gt;
+  &lt;li&gt;변형된 형태의 바이러스 : 원래 프로그램에 루틴을 주입해서 바이러스 프로그램 복제 제작&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;활동 절차 &amp;gt;&lt;/p&gt;
+
+&lt;p&gt;바이러스 : 자기 자신에서 주변 프로그램들을 보고 자신을 복제해 집어 넣고 실행될 수 있도록 하는 형태&lt;/p&gt;
+
+&lt;p&gt;일반 바이러스는 자기가 보통 바이러스라고 얘기할 때는.. 컴퓨터 바깥으로 못나감.. 
+ssd, hdd 안에서 내부적으로만 활동하면서 퍼지는 것&lt;strong&gt;컴퓨터&lt;/strong&gt; &lt;strong&gt;바이러스&lt;/strong&gt; &lt;strong&gt;3&lt;/strong&gt;&lt;strong&gt;개&lt;/strong&gt; &lt;strong&gt;부분&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;• 감염 메커니즘(Infection mechanism):&lt;/p&gt;
+
+&lt;p&gt;– 바이러스가 퍼지는 수단 : 원래 프로그램에 자기를 집어넣는 형태 
+    &amp;gt; 일반적으로 바이러스에 걸린 파일은 일반 파일보다 크기가 큼
+  – 자신을 복제
+  – 감염 벡터(infection vector)라고도 함&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;트리거(Trigger):
+  – 페이로드 활성화나 전달 시기를 정하는 사건이나 조건 / 활성화 조건&lt;/li&gt;
+  &lt;li&gt;페이로드(Payload): 
+–  바이러스가 자기 자신을 퍼뜨리는 일 외에 하는 일 / 바이러스를 실행시키는 그 파트
+–  페이로드는 피해를 줄 수 있고 심각한 피해를 끼치지 않을 수 도 있지만 분명히 그 활동을 알 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;바이러스&lt;/strong&gt; &lt;strong&gt;유형&lt;/strong&gt; - 들어가서 활동&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;목표별 바이러스 유형&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;부트 섹터 감염자 : 마스터 부트 레코드 감염 후 시스템 부팅 시 퍼짐&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;파일 감염자 : 운영체계나 쉘이 실행 가능하다고 여기는 파일 감염&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;매크로 바이러스 : 응용 프로그램으로 나타낼 수 있는 매크로 코드를 가진 파일 감염&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;플랫폼과 무관하게 작동&lt;/li&gt;
+      &lt;li&gt;문서만 감염시키고 코드 실행부분은 미감염&lt;/li&gt;
+      &lt;li&gt;쉽게 퍼짐&lt;/li&gt;
+      &lt;li&gt;시스템 프로그램보다는 사용자 문서를 감염&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;**&lt;/strong&gt; &lt;strong&gt;은닉&lt;/strong&gt; &lt;strong&gt;전략에&lt;/strong&gt; &lt;strong&gt;따른&lt;/strong&gt; &lt;strong&gt;바이러스&lt;/strong&gt; &lt;strong&gt;유형&lt;/strong&gt; : 흐름&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;암호화 된 바이러스 : 변형엔진(mutation engine) - 사용될 때마다 변한다&lt;/li&gt;
+  &lt;li&gt;스텔스 바이러스 : 압축을 이용해서 감염되지 않은 프로그램의 길이와 감염된 프로그램의 길이 동일&lt;/li&gt;
+  &lt;li&gt;폴리모픽 바이러스 : 복제 과정에서 기능적으로는 동일하지만 비트패턴에서는 명확하게 다른 변형 
+** 옮겨다닐 때마다 바이러스의 모양 변화 : 안티 바이러스로 인해 발생&lt;/li&gt;
+  &lt;li&gt;메타모픽 바이러스&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;안티&lt;/strong&gt; &lt;strong&gt;바이러스&lt;/strong&gt; &lt;strong&gt;방법&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1 : 탐지&lt;/td&gt;
+      &lt;td&gt;2 : 식별&lt;/td&gt;
+      &lt;td&gt;3 : 제거&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;바이러스&lt;/strong&gt; &lt;strong&gt;인식&lt;/strong&gt; &lt;strong&gt;변화&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;前 : 나쁜 바이러스를 빨리 찾아서 없애자 … &amp;gt; 바이러스의 변화로 (수의 증가, 모양 변경 ) 거의 불가능해짐&lt;/p&gt;
+
+&lt;p&gt;現 : 운영체제 시스템을 단단히 만들자 … &amp;gt; 백신을 통해서 해결 거의 불가능&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;안티바이러스&lt;/strong&gt; &lt;strong&gt;소프트웨어&lt;/strong&gt; &lt;strong&gt;4&lt;/strong&gt;&lt;strong&gt;세대&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;제1세대: 단순 스캐너 ( simple scanners )&lt;/p&gt;
+
+&lt;p&gt;제2세대: 발견 스캐너 ( heuristic scanners )&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 백신 ( 안티 바이러스 ) 얘네는 바이러스가 생긴 패턴, 시그니처, 서명의 특징을 데이터베이스&lt;/p&gt;
+
+&lt;p&gt;파일이 하나 들어오면 데이터베이스와 비교&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 패턴을 읽고 매칭 : 바이러스 백신 프로그램이 오래 걸리는 이유&lt;/p&gt;
+
+&lt;p&gt;제3세대: 활동 트랩 ( activity traps )&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 컴퓨터 프록램을 만들어놓고 바이러스에 취약한 척 해서 바이러스 유인 후 패턴과 시그니처 학습&lt;/p&gt;
+
+&lt;p&gt;제4세대: 풍부한 기능을 갖춘 방어 ( full-featured protection )&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;고도&lt;/strong&gt; &lt;strong&gt;안티바이러스&lt;/strong&gt; &lt;strong&gt;기술&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;유전적 복호화(GD: genetic decryption) : 폴리모픽 바이러스가 포함된 파일이 실행될 때 GD 스캐너 통과&lt;/li&gt;
+  &lt;li&gt;디지털 면역 시스템(digital immune system) : 
+&amp;gt; 알약 v3,,등 바이러스가 아닌데 바이러스인줄 알고 삭제하는 경우도 존재&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;행동차단&lt;/strong&gt; &lt;strong&gt;소프트웨어&lt;/strong&gt; : 샌드박스&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/uqYzX/btqAQOZbhWp/xmuV5ySNtkSG5IXyKpC5l1/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;웜&lt;/strong&gt; - 바이러스의 업그레이드 버전&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;웜은 자신을 복제하여 네트워크 연결을 통해서 컴퓨터에서 컴퓨터로 그 복제본 전송 &amp;gt; 자동 해킹&lt;/li&gt;
+  &lt;li&gt;취약한 프로그램을 통해 다른 컴퓨터에 도착하게 되면 웜은 복제를 시작하고 다시 확산시키기 시작&lt;/li&gt;
+  &lt;li&gt;전자메일 바이러스는 시스템에서 시스템으로 자신을 확산시키기 때문에 웜(worm)의 성격을 어느 정도 보유&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;웜&lt;/strong&gt; &lt;strong&gt;확산&lt;/strong&gt; &lt;strong&gt;모델&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/bPQUDa/btqASyAP0Gz/fWHKezGFKeWkWuCDvRbf81/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;호스트수가 지수적으로 증가 - 감염 속도가 줄어든다 &amp;gt; 확산 증가는 거의 선형적 • 감염 비율 높음&lt;/p&gt;
+
+&lt;p&gt;– 공격 속도는 종료단계&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;감염학 전염병 모델과 웜 확산 모델이 일치&lt;/li&gt;
+  &lt;li&gt;웜이 대상으로 삼고 있는 컴퓨터에 취약점이 있느냐가 중요&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;네트워크&lt;/strong&gt;&lt;strong&gt;-&lt;/strong&gt;&lt;strong&gt;기반&lt;/strong&gt; &lt;strong&gt;웜&lt;/strong&gt; &lt;strong&gt;방어&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;두가지유형
+– 진입 모니터(Ingress monitors): 
+– 진출 모니터(Egress monitors):&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;** 제로-데이 익스플로잇(zero-day exploit)&lt;/p&gt;
+
+&lt;p&gt;웜이랑은 상관 없고 익스플로잇은 공격코드임&lt;/p&gt;
+
+&lt;p&gt;제로데이라고 하는 건 취약점이 알려지고 하루가 지나면, 데이 원 / 원데이 / 데이 투 데이쓰리…&lt;/p&gt;
+
+&lt;p&gt;제로데이는 해킹 가능한게 알려지지 않은 것&lt;/p&gt;
+
+&lt;p&gt;제로데이 취약점 : 취약점이 아무에게도 알려지지 않고 해커만 알고 있는 취약점을 이렇게 부름&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 파급효과에 따라 시장에 팔림. 해커가 보통 프로그램에서 취약점을 찾음 &amp;gt; 찾아서 취약점을 갖고&lt;/p&gt;
+
+&lt;p&gt;\1. 해킹해서 이익을 취함&lt;/p&gt;
+
+&lt;p&gt;\2. 보안회사에 팔아 넘김&lt;/p&gt;
+
+&lt;p&gt;2-1 양성적 보안회사에서 사는 것 ( 구글:돈주고 삼 )&lt;/p&gt;
+
+&lt;p&gt;2-2 제로데이 암시장에 팖 ( 2-1보다는 많이 받음 )&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;분산서비스거부&lt;/strong&gt; &lt;strong&gt;공격&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;서비스 거부 공격 DoS attack ( Denial of Service ) &amp;gt; 분산 서비스 거부 공격 ( Distributed DoS )&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 초과 트래픽의 경로를 차단해 쉽게 막을 수 있음 DoS &amp;gt; 좀비 컴퓨터 이용&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 기존 인프라 ( 컴퓨터 )로 공격을 하게 함 &amp;gt; 경로 차단 불가능 + 좀비의 수뇌부 추적 어려움&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;분산&lt;/strong&gt; &lt;strong&gt;SYN&lt;/strong&gt; &lt;strong&gt;홍수&lt;/strong&gt; &lt;strong&gt;(&lt;/strong&gt; &lt;strong&gt;플러드&lt;/strong&gt; &lt;strong&gt;)&lt;/strong&gt; &lt;strong&gt;공격&lt;/strong&gt; &lt;strong&gt;-&lt;/strong&gt; &lt;strong&gt;직접&lt;/strong&gt; &lt;strong&gt;공격&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/Q1jNH/btqASzfsAMb/xCKsbLcoUw5K5Z4igfj5T1/img.png&quot; alt=&quot;img&quot; /&gt;스스로 열심히 만들어 전송&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;데이터&lt;/strong&gt; &lt;strong&gt;전송&lt;/strong&gt; &lt;strong&gt;자원&lt;/strong&gt; &lt;strong&gt;소모&lt;/strong&gt; &lt;strong&gt;공격&lt;/strong&gt; &lt;strong&gt;-&lt;/strong&gt; &lt;strong&gt;간접&lt;/strong&gt; &lt;strong&gt;공격&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/Ynfvp/btqARjxDldJ/csVR3tx8z8hz62THVIeLq1/img.png&quot; alt=&quot;img&quot; /&gt; 반사호스트를 이용해 트래픽을 크게 만들어 목표 라우터에 전송 &amp;gt; 공격자 찾기가 거의 불가능&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;DDoS&lt;/strong&gt; &lt;strong&gt;공격의&lt;/strong&gt; &lt;strong&gt;다른&lt;/strong&gt; &lt;strong&gt;분류방법&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;\1. 직접 DDoS 공격(direct DDoS attack)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/NDZPS/btqARynPgqK/j9By7DK3uX3pbop8LhMKqk/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;공격자는 인터넷상에 분산되어 있는 수많은 사이트에 좀비 소프트웨어 설치&lt;/li&gt;
+  &lt;li&gt;2단계 좀비 시스템
+– DDoS 공격은 마스터 좀비와 종속 좀비로 구성&lt;/li&gt;
+  &lt;li&gt;두좀비는 악성코드에 감염&lt;/li&gt;
+  &lt;li&gt;공격자가 마스터 좀비를 조정하여 동작시키면 이어서 종속 좀비가 동작&lt;/li&gt;
+  &lt;li&gt;2단계 좀비를 사용하면 공격의 발신지를 추적하기가 더 어렵고 공격자 활동 공간이 넓어짐&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/cHL8FQ/btqARjqWqRW/wGLnSuM1Zp9jlZhbXlVUM1/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;\2. 반사 DDoS 공격(reflector DDoS attack)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;하나의 호스트 계층을 추가한다&lt;/li&gt;
+  &lt;li&gt;종속좀비는 IP패킷의 헤더에 목표 시스템의 IP주소를 
+발신지 IP 주소로 하는 패킷을 만들어 응답 요청&lt;/li&gt;
+  &lt;li&gt;이패킷은 감염 되지 않은 호스트인 반사 호스트 전송&lt;/li&gt;
+  &lt;li&gt;반사 호스트는 발신지 IP 주소를 확인하고 목표시스템으로 응답 패킷 전송&lt;/li&gt;
+  &lt;li&gt;반사기 DDoS 공격
+– 직접 DDoS공격에 비하여 더 많은 호스트를 감염 – 더 많은 트래픽을 유발시킬 수 있으므로 더 위협적 
+– 공격이 넓게 분산되어 있는 감염되지 않은 호스로부터 들어오기 때문에 공격을 추적하고 패킷을 필터링 해서 제거하는 것이 더 어렵다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;DDoS&lt;/strong&gt; &lt;strong&gt;대응책&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;• 공격 예방 및 선취(공격 이전):
+• 공격 탐지 및 필터링(공격 중):
+• 공격 근원지 역추적 및 확인 (공격 중 및 공격 후):&lt;/p&gt;
+
+&lt;p&gt;• CloudFlare 방식&lt;/p&gt;
+
+&lt;p&gt;• 분산화 공격에 대응하는 서버 분산화
+&amp;gt; 사이트 접속 시 접속 국가에 인접한 서버와 매칭&lt;/p&gt;
+</description>
+        <pubDate>Tue, 01 Oct 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/security/2019/10/01/Malware/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/security/2019/10/01/Malware/</guid>
+      </item>
+    
+      <item>
+        <title>PKI, Auth</title>
+        <description>&lt;h1 id=&quot;pki&quot;&gt;PKI&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;Key distribution via key distribution center&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/CNaas/btqAQ3aHRWo/JlnxuFSrdc7UZfgwEavxo0/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;호스트 입장에서는 키를 한 개만 갖고있으면 됨 &amp;gt;&lt;/p&gt;
+
+&lt;p&gt;네트워크 시큐리티 모델과 매우매우 흡사함 신뢰 가능한 써드파티 시스템과 키분배센터와 비슷&lt;/p&gt;
+
+&lt;p&gt;요즘은 퍼블릭키로 함 / 중간 키분배센터가 사라져도 됨 » 가장 큰 문제 : 신뢰가능한 퍼블릭키 분배 문제&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Key Management and Distribution&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Public directory&lt;/strong&gt; : should be maintained in a trusted party&lt;/p&gt;
+
+&lt;p&gt;종이 혹은 디렉토리 온라인 서비스를 만들어서 공개&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Public key certificate&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/UsR6u/btqAPexjrrq/1QjZCsltTKqrypo1WcAYO0/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Public key certificate
+  Exchange public keys without trusted third parties : : 퍼블릭키를 써드파티를 거치지 않고 신뢰&lt;/p&gt;
+
+&lt;p&gt;Certificate
+  A public key&lt;/p&gt;
+
+&lt;p&gt;An ID
+  A signature by a trusted entities&lt;/p&gt;
+
+&lt;p&gt;​     Government, financial organization •&lt;/p&gt;
+
+&lt;p&gt;Ex) X.509&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;X.509 Certificates :&lt;/strong&gt; 국가 간 인증서 표준&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/cROy9W/btqAThS94eH/D3JHwaQkxuwhsk4XPWFD41/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;issued by a Certification Authority (CA), containing:&lt;/p&gt;
+
+&lt;p&gt;version V (1, 2, or 3) 
+  serial number SN (unique within CA) identifying certificate&lt;/p&gt;
+
+&lt;p&gt;signature algorithm identifier AI&lt;/p&gt;
+
+&lt;p&gt;issuer X.500 name CA)&lt;/p&gt;
+
+&lt;p&gt;period of validity TA (from - to dates)&lt;/p&gt;
+
+&lt;p&gt;Subject X.500 name A ( name of owner )&lt;/p&gt;
+
+&lt;p&gt;Subject public-key info Ap ( algorithm, parameters, key )&lt;/p&gt;
+
+&lt;p&gt;issuer unique identifier (v2+)&lt;/p&gt;
+
+&lt;p&gt;subject unique identifier (v2+)&lt;/p&gt;
+
+&lt;p&gt;extension fields (v3)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;signature (of hash of all fields in certificate)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;notation CA«A» denotes certificate for A signed by CA&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/bXnV8y/btqAQlQuE0d/UH45LW0KuvgwGs9x4DZyaK/img.png&quot; alt=&quot;img&quot; /&gt;믿을 수 있는 퍼블릭키를 알려주는 게 목적&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Obtaining a Certificate&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;any user with access to CA can get any certificate from it&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;only the CA can modify a certificate&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;because cannot be forged, certificates can be placed in a public directory&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;if both users share a common CA then they are assumed to know its public key&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;otherwise CA’s must form a hierarchy&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;use certificates linking members of hierarchy to validate other CA’s&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;each CA has certificates for clients (forward) and parent (backward)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;enable verification of any certificate from one CA by users of all other CAs in hierarchy&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Certificate Revocation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;certificates have a period of validity may need to revoke before expiry, eg:&lt;/p&gt;
+
+&lt;p&gt;user’s private key is compromised&lt;/p&gt;
+
+&lt;p&gt;user is no longer certified by this CA&lt;/p&gt;
+
+&lt;p&gt;CA’s certificate is compromised&lt;/p&gt;
+
+&lt;p&gt;CA’s maintain list of revoked certificates : the Certificate Revocation List (CRL)&lt;/p&gt;
+
+&lt;p&gt;users should check certificates with CA’s CRL&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;AUTH&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;*Authentication and FIDO*&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Authentication&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;the act of confirming the truth of an attribute of a single piece of data (a datum) claimed true by an entity.&lt;/p&gt;
+
+&lt;p&gt;Approaches&lt;/p&gt;
+
+&lt;p&gt;Something you know : 지식&lt;/p&gt;
+
+&lt;p&gt;Something you have : 소유&lt;/p&gt;
+
+&lt;p&gt;Something you are : 특성&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Authentication Factors&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Approaches
+Something you know: Knowledge factors&lt;/p&gt;
+
+&lt;p&gt;password, PIN (Personal Identification Number)&lt;/p&gt;
+
+&lt;p&gt;Something you have: Ownership factors&lt;/p&gt;
+
+&lt;p&gt;ID card, Security token, Smart phones •&lt;/p&gt;
+
+&lt;p&gt;Something you are: Inherence factors&lt;/p&gt;
+
+&lt;p&gt;fingerprint, DNA, signature, face, …&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Something you know&lt;/strong&gt; : 가장 많이 만나는 형태 . 로그인 절차 또한 인증&lt;/p&gt;
+
+&lt;p&gt;Knowledge based authentication&lt;/p&gt;
+
+&lt;p&gt;Password&lt;/p&gt;
+
+&lt;p&gt;User has a secret password
+  System checks password to authentication user&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Something you have&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Uses a hardware device that a user holds&lt;/p&gt;
+
+&lt;p&gt;OTP dongle : One Time Password 인터넷 보안 카드 &amp;gt; 소유 기반&lt;/p&gt;
+
+&lt;p&gt;열쇠도 소유 기반이라고 볼 수 있음&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Something you are&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Biometric authentication : Finger-print, IRIS, DNA, Face&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;생체&lt;/strong&gt; &lt;strong&gt;인증과&lt;/strong&gt; &lt;strong&gt;핀테크&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;인터넷 결제 및 모바일 결제의 미사용 이유
+정보유출 및 보안의 우려 —&amp;gt; 생체인증의 필요성 대두&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;생체&lt;/strong&gt; &lt;strong&gt;인증&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;개인의 고유한 생체적 (biological) 특성을 이용
+지문, 홍채, 망막, 정맥, 손금, 목소리, 얼굴, 걸음거리, …&lt;/p&gt;
+
+&lt;p&gt;인증으로 방식으로써의 강점
+안전성: 복제, 도용, 위변조가 어렵다. | 편이성: 가장 사용하기 편리한 인증 방법&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;지문인식&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;사용자의 지문을 확인하여 인증
+지문을 채취할 수 있어야 하기 때문에 모바일 디바이스와 같 은 별도의 기기를 필요로 한다.
+현재 지문인식을 적용하고 있는 핀테크 결제 서비스 : Apple pay • 삼성페이&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ECG (&lt;/strong&gt;&lt;strong&gt;심전도&lt;/strong&gt;&lt;strong&gt;)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;심장 박동의 패턴을 이용 : 심전도 측정을 위한 특수 장비가 필요&lt;/p&gt;
+
+&lt;p&gt;나이미 (Nymi) : 심장 박동을 기반으로한 웨어러블 디바이스&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;얼굴인식&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;얼굴인식을 이용한 서비스&lt;/p&gt;
+
+&lt;p&gt;인증 서비스 : 얼굴 정보를 인식하여 사용자를 확인 인증&lt;/p&gt;
+
+&lt;p&gt;얼굴 검출(탐지) 서비스 : (촬영된 영상에서) 얼굴을 찾아낸다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;생체인증의&lt;/strong&gt; &lt;strong&gt;고려사항&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;미리 습득된 정보와 실제 데이터의 구분이 가능해야 한다.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3d프린터를 이용한 지문 불법 복사&lt;/td&gt;
+      &lt;td&gt;얼굴 촬영이미지를 이용한 불법 얼굴 인증&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;“Liveness check”가 필요&lt;/p&gt;
+
+&lt;p&gt;실제 살아있는 사람의 정보인지를 확인 / 예) 지문 채취 기기에서 실제 사람의 손가락인지의 여부를 판별 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Two-factor authentication&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Two factors are required for authentication -&amp;gt; Multifactor authentication
+e.g., password + smart phone, fingerprint + PIN&lt;/p&gt;
+
+&lt;p&gt;각 인증 방법은 조금씩 문제가 있음.&lt;/p&gt;
+
+&lt;p&gt;지식 : 패스워드 노출 가능성 존재&amp;gt; 패스워드 노출이 된지 잘 모르는 경우,&lt;/p&gt;
+
+&lt;p&gt;TATD time of attack - time of detection&lt;/p&gt;
+
+&lt;p&gt;소유 : 노출이 되었을 때 빨리 알 수 있음, 나의 부주의로 인해 정보 노출 가능성 존재&lt;/p&gt;
+
+&lt;p&gt;특성 : 인증 정보 한 번이라도 누출 시 변경이 아예 불가능&lt;/p&gt;
+
+&lt;p&gt;일반적으로 2~3개 섞는 보안 방식을 사용 2FA factor auth~&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;FIDO&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Public-key Cryptography&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;probably most significant advance in the 3000 year history of cryptography&lt;/li&gt;
+  &lt;li&gt;uses &lt;strong&gt;two&lt;/strong&gt; keys – a public &amp;amp; a private key asymmetric since parties are not equal&lt;/li&gt;
+  &lt;li&gt;uses clever application of number theoretic concepts to function&lt;/li&gt;
+  &lt;li&gt;complements rather than replaces private key crypto&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;UAF, U2F&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;UAF ( Universal Authentication ) : Biometric Auth / 서버 입장에서는 뭐로 인식하든 신경쓸 필요 없음 
+퍼블릭키와 프라이빗키로 구성되어 있음. 상대에게 퍼블릭 키를 쓸 거라고 등록해 놓고서 나는 서명만 해서 보내면 됨. 내가 프라이빗키로 서명을 어떻게 할가요… 를 정한 것
+- Generalize biometric Auth
+- Decouples user identification and client&lt;/li&gt;
+  &lt;li&gt;U2F : Two-factor auth
+- Two-factor auth : 인증은 유저 클라이언트에서 끝남
+- PIN or Password 
+- + USB key
+- + Bluetooth&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Trade offs&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Security vs. Usability vs. Cost&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;보안이 좋아지면 쓰기 불편해지고 안전하면서 쓰기 편하면 비용이 비싸고… 세 가지를 모두 만족시키긴 어렵다! 하날 얻기 위해 나머질 희생해야 하는게 보안의 큰 문제&lt;/p&gt;
+</description>
+        <pubDate>Tue, 01 Oct 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/security/2019/10/01/PKI-auth/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/security/2019/10/01/PKI-auth/</guid>
+      </item>
+    
+      <item>
+        <title>Message Authentication and Op Mode</title>
+        <description>&lt;ol&gt;
+  &lt;li&gt;송신자 확인 / 검증 목적 &amp;gt; 보낸이를 확인하기 위해서 2. 메세지의 무결성&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/bgQtVL/btqARyH4zfw/FHymWAxGfRBcYObc0bhAK1/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;MACm=F(Kab, M)&lt;/p&gt;
+
+&lt;p&gt;Message not altered&lt;/p&gt;
+
+&lt;p&gt;The alleged sender confirmed&lt;/p&gt;
+
+&lt;p&gt;The proper sequence of messages assured&lt;/p&gt;
+
+&lt;p&gt;Similar to encryption&lt;/p&gt;
+
+&lt;p&gt;NIST recommends the use of DES&lt;/p&gt;
+
+&lt;p&gt;One difference: authentication algorithm need not be reversible, less vulnerable&lt;/p&gt;
+
+&lt;p&gt;메세지 저네를 암호화하는게 아니라 메세지에 대한 조금한 해쉬함수를 만들어서 전송 확인할 때도 해쉬값만 확인&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hash Function&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;condenses arbitrary message to fixed size &amp;gt; No secret key needed
+usually assume hash function is public, hash used to detect changes to message&lt;/p&gt;
+
+&lt;p&gt;통조림 : 데이터가 들어가면 고정된 크기가 생성 &amp;gt; 무엇을 넣던 간 동일한 산출값&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;해쉬함수란 ?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;퍼블릭키로 복호화 할 때… 퍼블릭키에 대한 신뢰성 문제?&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;one-way property&lt;/strong&gt; : computationally infeasible to find data mapping to specific hash&lt;/p&gt;
+
+&lt;p&gt;데이터 입력-해쉬값 출력 / 원본은 찾기 힘들어야 한다는 이론. 
+항상 정해진 값 산출로 일방향은 쉬운데 역방향은 불가능&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;collision-free property&lt;/strong&gt; : computationally infeasible to find two data to same hash&lt;/p&gt;
+
+&lt;p&gt;충돌 &amp;gt; 정해진 해쉬값 32글자 해쉬값이 나오게 되어 있다. 운 좋게 같은 해쉬값이 나올 수 있다 입력은 무한 출력은 유한함 . 똑같은 해쉬값을 찾고자 입력 데이터를 만들기는 만들기는 굉장히 힘듦&lt;/p&gt;
+
+&lt;p&gt;간단한 특성으로 어디서는 가능함 / 연산이 간단하다고 말하는데, 역으로는 안 됨 &amp;gt; 안전한 특성과 간단한 연산 &amp;gt; 전기를 덜 먹음 &amp;gt; 작은 곳에서도 실행이 가능함 … 가장 간단한 기기에도 들어갈 수 있는 해쉬함수&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Secure Hash Algorithm&lt;/strong&gt; - 대표적인 해쉬 함수&lt;/p&gt;
+
+&lt;p&gt;키사이즈가 없음 키가 들어가지 않아서 얼마자리 크기의 해쉬 함수를 만들어내는가?&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;sha-224 : 해쉬값 크기&lt;/td&gt;
+      &lt;td&gt;숫자가 클 수록 컬리젼이 덜 발생함&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&amp;gt; 역으로 찾을 수 없지는 않지만, 숫자가 커질 수록 경우의 수가 늘어나서 같은 경우를 찾기 힘들어짐&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 유한의 범위가 증가&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Designed for compatibility with increased security provided by the AES cipher&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Keyed Hash Functions as MAC&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;KeyedHash = Hash(Key&lt;/td&gt;
+      &lt;td&gt;Message)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&amp;gt; led to development of HMAC - 전기들어가는 건 웬만하면 다 할 수 있음&lt;/p&gt;
+
+&lt;p&gt;H(M) &amp;gt; h / M, M’ 비교 하지 말고 &amp;gt; 해쉬함수로 돌려서 결과물이 같은지 다른지 확인 H(M) =?= H(M’) &amp;gt;&lt;/p&gt;
+
+&lt;p&gt;h =?= h’ 굳이 100기가 …파일을 확인하지 않아도 32바이트 해쉬값을 찾으면 됨&lt;/p&gt;
+
+&lt;p&gt;메세지말고 다른 걸 붙이고 싶어했음 &amp;gt; 키드해쉬값&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;H(K(키값)&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;M(메세지값 )) 그냥 키에 메세지를 붙이고 키와 메세지 전체를 해쉬로 돌림&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;메세지를 받았을 때, 키를 알아야 하는데 키를 아는 사람만 만들 수 있는 해쉬 키를 모르는 상황에서는 해쉬값을 만들 수 없음 &amp;gt; 메세지 인증 : 메세지 무결성 / 상대 퍼블릭키로 풀린다는 점에서 송신자를 확인할 수 있는 것&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;** HMAC&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;use, without modifications, hash functions&lt;/li&gt;
+  &lt;li&gt;use and handle keys in a simple way.&lt;/li&gt;
+  &lt;li&gt;allow for easy replaceability of embedded hash function&lt;/li&gt;
+  &lt;li&gt;preserve original performance of hash function without significant degradation&lt;/li&gt;
+  &lt;li&gt;have well understood cryptographic analysis of authentication mechanism strength&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/ef9LQI/btqAThezEjO/izn4z08fCHwKpQ31tMckw0/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Modes of Operations&lt;/strong&gt; - 암호학의 연장선 ( 동작 모드 : 대칭키 암호는 동작모드까지 언급 필수)&lt;/p&gt;
+
+&lt;p&gt;block ciphers encrypt fixed size blocks
+  eg. DES encrypts 64-bit blocks with 56-bit key&lt;/p&gt;
+
+&lt;p&gt;need some way to en/decrypt arbitrary amounts of data in practise&lt;/p&gt;
+
+&lt;p&gt;NIST SP 800-38A defines 5 modes&lt;/p&gt;
+
+&lt;p&gt;have block and stream modes
+to cover a wide variety of applications&lt;/p&gt;
+
+&lt;p&gt;can be used with any block cipher&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Electronic Codebook Mode (ECB) 
+message is broken into independent blocks which are encrypted 
+each block is a value which is substituted, like a codebook, hence name 
+each block is encoded independently of the other blocks 
+  Ci = E(K, Pi) 
+uses: secure transmission of single values 
+  message repetitions may show in ciphertext if aligned with message block
+  particularly with data such as graphics 
+  or with messages that change very little, which become a code-book analysis problem weakness is due to the encrypted message blocks being independent
+main use is sending a few blocks of data&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;문제 : 패턴이 보임 기본적으로 실루엣이 보임 잘라서 암호화하기 때문에 des8 aes 16 // 8바이트 8글자 그림은 1~2바이트가 점 1개 데이터가 너무 많아서 데이터의 윤곽이 보이는 문제&lt;/p&gt;
+
+&lt;p&gt;같은 패턴의 반복이 나오면 그게 보임. 일종의 모드라고는 하는데 모드가 아니고 아무것도 없는 상태라고 봄&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cipher Block Chaining Mode (CBC) : 앞 블럭 값을 XOR로 입혀서 재암호화 하는 것* 같은 값을 암호화 해도 앞의 메세지에 따라 달라짐 
+message is broken into blocks
+linked together in encryption operation 
+each previous cipher blocks is chained with current plaintext block, hence name 
+use Initial Vector (IV) to start process 
+  Ci = E(K, Pi ⨁ Ci-1)
+C0 = IV 
+uses: bulk data encryption, authentication&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;피원과 피투가 똑같을 때 실질적으로 암호화 될 때는 피원은 아이브이, 피투는 씨원값의 엑스오알… 암호화가 되니까 계속 같은 값이더라도 앞에서 들어오는 값이 달라지기 때문에 실질적 암호값은 달라짐&lt;/p&gt;
+
+&lt;p&gt;계속 같은 값이라도 계속 뒷 암호화에 영향을 주니까 … 다시 말하자면 피원부터 피5까지 다 똑같다고 하더라도,, 값이 계속 바뀜&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/buOYv5/btqAQNlEytX/m8Y2P8lr7ss75JjmwUZz31/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cipher Feedback Mode (CFB) 
+message is treated as a stream of bits 
+added to the output of the block cipher 
+result is feed back for next stage (hence name)
+standard allows any number of bit (1,8, 64 or 128 etc) to be fed back 
+  denoted CFB-1, CFB-8, CFB-64, CFB-128 etc 
+most efficient to use all bits in block (64 or 128) 
+Ci = Pi ⨁ E(K, Ci-1) 
+C0 = IV 
+uses: stream data encryption, authentication&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;문제 &amp;gt; 중간에 하나씩 만들어서 통신으로 보낼 때,데이터는 전송될 때 손실되는 경우가 심함 비올 때 특히 데이터가 많이 날아감.. 전파가 물에 약함 통과를 못함 신호가 가다가 깨지고 등등 한두 개 보내는 게 아니라 만개 십만 개니까… 중간 다섯 번째가 데이터가 손실 되었을 때 ,,, 그럼 복호화 할 대 계속 앞에 게 있어야 함… 5,6이 없으면 그 뒤로 계속 못풂 … 일단 뒤에 걸 다 기다리고 있다가 깨진 부분이 올 때까지 기다려야 함&lt;/p&gt;
+
+&lt;p&gt;**Advantages and Limitations of CFB 
+**appropriate when data arrives in bits/bytes most common stream mode&lt;/p&gt;
+
+&lt;p&gt;Limitation: need to stall while doing block encryption after every n-bits&lt;/p&gt;
+
+&lt;p&gt;note that the block cipher is used in encryption errors propagate for several blocks after the error&lt;/p&gt;
+
+&lt;p&gt;플레인 택스트를 작게 만들고… 씨비씨처럼 아브이로 시작 암호화된 값을 자르고 그걸 다시 암호&lt;/p&gt;
+
+&lt;p&gt;씨원을 갖고 위로 올려서 집어 넣음 암호화 결과가 작기 때문에 쉬프트 레지스터에 넣음&lt;/p&gt;
+
+&lt;p&gt;데이터가 있으면 쉬프트 시킴 /여기서는 레프트. 한 칸 왼쪽으로 밂.&lt;/p&gt;
+
+&lt;p&gt;원래 있던 값이 들어가는 건 CBC와 비슷&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/KP3f2/btqARxWKB9o/OMof3UACklEio7BinQAHK1/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Counter Mode (CTR) 
+a “new” mode, though proposed early on 
+similar to OFB bur encrypts counter value rather than any feedback value
+must have a different key &amp;amp; counter value for every plaintext block (never reused) 
+Oi = E(K, i) 
+Ci = Pi ⨁ Oi
+uses: high-speed network encryptions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Advantages and Limitations of CTR&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;efficiency
+  can do parallel encryptions in h/w or s/w&lt;/p&gt;
+
+&lt;p&gt;can preprocess in advance of need&lt;/p&gt;
+
+&lt;p&gt;good for bursty high speed links&lt;/p&gt;
+
+&lt;p&gt;random access to encrypted data blocks provable security (good as other modes)&lt;/p&gt;
+
+&lt;p&gt;but must ensure never reuse key/counter values, otherwise could break (cf OFB)&lt;/p&gt;
+
+&lt;p&gt;10초후 어떤 데이터가 발생할지 모름. 근데 씨티알은 먼저 계산할 수 있음 점선 안 박스 &amp;gt; 플레인 텍스트를 암호화하는게 아니니까 / 데이터가 올 때마다 게산할 필요가 없어짐 // 통신 측면에서 유리해짐&lt;/p&gt;
+
+&lt;p&gt;블럭 사이퍼는 데이터가 어느정도 쌓였을 때 … 양동이 단위로 복호화 /. 스트림은 바로바로&lt;/p&gt;
+
+&lt;p&gt;블럭과 스트림의 차이가 애매해지긴 했음 블럭이 작고… 8, 16바이트가 어느정도 된다고 생각했는데 지금은 작고.. 기본적 데이터가 너무너무 커졌음. 예전엔 의미가 있었음.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://k.kakaocdn.net/dn/cPho0z/btqARXVenaN/AaFtrN6A9xtgdLI71pm0Hk/img.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 30 Sep 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/security/2019/09/30/Message-Auth-and-OpMode/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/security/2019/09/30/Message-Auth-and-OpMode/</guid>
+      </item>
+    
 
     
       
         
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       

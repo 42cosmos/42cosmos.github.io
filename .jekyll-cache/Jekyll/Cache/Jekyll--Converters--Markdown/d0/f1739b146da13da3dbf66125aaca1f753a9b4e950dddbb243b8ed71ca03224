@@ -1,0 +1,13 @@
+I"U<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Liquid Exception: Liquid error (~): Internal Error: Invalid UTF-8 included in /_layoust/default.html
+</code></pre></div></div>
+
+<p>난 진짜 잘못한게 없다고 생각했는데…. 자꾸 에러가 떴고… 내부적 문제라고 얘기하는데 … 내부적문제 == 내 잘못 ^^의 공식… 나는 잘못한게 없는데 컴퓨터가 이상해! 하면서 껐다가 켜보기도 하고… 구글을 진짜 엄청 뒤졌는데 진짜 내잘못이었다 ^^</p>
+
+<p>컴푸터야 미안해~하핳</p>
+
+<p><img src="/Users/park-eunbin/workspace/parkeb417.github.io/images/liquiderror2.png" alt="liquiderror2" /></p>
+
+<p>css파일 주석처리를 제대로 안 해줘서 생긴 거지같은 일이었다….</p>
+
+<p>오늘의 교훈 : 컴퓨터는 잘못 없다.</p>
+:ET

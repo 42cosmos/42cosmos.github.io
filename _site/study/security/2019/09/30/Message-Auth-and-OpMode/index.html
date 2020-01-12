@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+  <title>Message Authentication and Op Mode</title>
+  <meta name='description' content="  송신자 확인 / 검증 목적 &gt; 보낸이를 확인하기 위해서 2. 메세지의 무결성">
+  <link rel='canonical' href="http://localhost:4000/study/security/2019/09/30/Message-Auth-and-OpMode/">
+  <link rel='alternate' type='application/rss+xml' title='빈둥빈둥 개발 공부 블로그' href="http://localhost:4000/feed.xml">
+
+  <style>
+    
+
+    html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:0.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace, monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace, monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}[type="search"]::-webkit-search-cancel-button,[type="search"]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}body,h1,h2,h3,h4,h5,h6,blockquote,p,pre,dl,dd,ol,ul,figure,hr,fieldset,legend{margin:0;padding:0}li>ol,li>ul{margin-bottom:0}table{border-collapse:collapse;border-spacing:0}address,h1,h2,h3,h4,h5,h6,blockquote,p,pre,dl,ol,ul,figure,hr,table,fieldset{margin-bottom:32px}dd,ol,ul{list-style-position:inside;margin-left:16px}@-webkit-keyframes spin{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes spin{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.icon{position:relative;display:inline-block;width:25px;height:25px;overflow:hidden;fill:currentColor}.icon__cnt{width:100%;height:100%;background:inherit;fill:inherit;pointer-events:none;transform:translateX(0);-ms-transform:translate(0.5px, -0.3px)}.icon--m{width:50px;height:50px}.icon--l{width:100px;height:100px}.icon--xl{width:150px;height:150px}.icon--xxl{width:200px;height:200px}.icon__spinner{position:absolute;top:0;left:0;width:100%;height:100%}.icon--ei-spinner .icon__spinner,.icon--ei-spinner-2 .icon__spinner{-webkit-animation:spin 1s steps(12) infinite;animation:spin 1s steps(12) infinite}.icon--ei-spinner-3 .icon__spinner{-webkit-animation:spin 1.5s linear infinite;animation:spin 1.5s linear infinite}.icon--ei-sc-facebook{fill:#3b5998}.icon--ei-sc-github{fill:#333}.icon--ei-sc-google-plus{fill:#dd4b39}.icon--ei-sc-instagram{fill:#3f729b}.icon--ei-sc-linkedin{fill:#0976b4}.icon--ei-sc-odnoklassniki{fill:#ed812b}.icon--ei-sc-skype{fill:#00aff0}.icon--ei-sc-soundcloud{fill:#f80}.icon--ei-sc-tumblr{fill:#35465c}.icon--ei-sc-twitter{fill:#55acee}.icon--ei-sc-vimeo{fill:#1ab7ea}.icon--ei-sc-vk{fill:#45668e}.icon--ei-sc-youtube{fill:#e52d27}.icon--ei-sc-pinterest{fill:#bd081c}.icon--ei-sc-telegram{fill:#0088cc}.highlight{margin:0;background:#fff}.highlighter-rouge .highlight{background:#FAFAFA}.highlight .c{color:#998;font-style:italic}.highlight .err{color:#a61717;background-color:#e3d2d2}.highlight .k{font-weight:bold}.highlight .o{font-weight:bold}.highlight .cm{color:#998;font-style:italic}.highlight .cp{color:#999;font-weight:bold}.highlight .c1{color:#998;font-style:italic}.highlight .cs{color:#999;font-weight:bold;font-style:italic}.highlight .gd{color:#000;background-color:#fdd}.highlight .gd .x{color:#000;background-color:#faa}.highlight .ge{font-style:italic}.highlight .gr{color:#a00}.highlight .gh{color:#999}.highlight .gi{color:#000;background-color:#dfd}.highlight .gi .x{color:#000;background-color:#afa}.highlight .go{color:#888}.highlight .gp{color:#555}.highlight .gs{font-weight:bold}.highlight .gu{color:#aaa}.highlight .gt{color:#a00}.highlight .kc{font-weight:bold}.highlight .kd{font-weight:bold}.highlight .kp{font-weight:bold}.highlight .kr{font-weight:bold}.highlight .kt{color:#458;font-weight:bold}.highlight .m{color:#099}.highlight .s{color:#d14}.highlight .na{color:#008080}.highlight .nb{color:#0086B3}.highlight .nc{color:#458;font-weight:bold}.highlight .no{color:#008080}.highlight .ni{color:#800080}.highlight .ne{color:#900;font-weight:bold}.highlight .nf{color:#900;font-weight:bold}.highlight .nn{color:#555}.highlight .nt{color:#000080}.highlight .nv{color:#008080}.highlight .ow{font-weight:bold}.highlight .w{color:#bbb}.highlight .mf{color:#099}.highlight .mh{color:#099}.highlight .mi{color:#099}.highlight .mo{color:#099}.highlight .sb{color:#d14}.highlight .sc{color:#d14}.highlight .sd{color:#d14}.highlight .s2{color:#d14}.highlight .se{color:#d14}.highlight .sh{color:#d14}.highlight .si{color:#d14}.highlight .sx{color:#d14}.highlight .sr{color:#009926}.highlight .s1{color:#d14}.highlight .ss{color:#990073}.highlight .bp{color:#999}.highlight .vc{color:#008080}.highlight .vg{color:#008080}.highlight .vi{color:#008080}.highlight .il{color:#099}body{color:#323232;font-size:19px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";line-height:32px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}*::selection{color:#fff;background:#00A0FF}a{text-decoration:none;color:#323232;transition:.4s}a:hover,a:active,a:focus{text-decoration:underline}img{display:block;max-width:100%;font-style:italic}hr{height:1px;margin:32px 0;border:0;background-color:#E9EFF3}h1,h2,h3,h4,h5,h6{font-weight:inherit;line-height:initial;font-weight:600}h1{font-size:36px}h2{font-size:28px}h3{font-size:24px}h4{font-size:20px}h5{font-size:18px}h6{font-size:16px}blockquote{padding-left:16px;border-left:3px solid #2B5F72}pre,code{font-family:Courier,monospace;background-color:#FAFAFA}pre{overflow:auto;padding:32px;margin-bottom:16px;font-size:16px;line-height:25px;white-space:pre-wrap;word-wrap:break-word}li code,p code{padding:4px 8px}input[type='text'],input[type='tel'],input[type='number'],input[type='email'],select,textarea{width:100%;padding:16px;border:1px solid #E9EFF3;border-radius:0;outline:none;background-color:#fff;font-size:14px;appearance:none;transition:.4s}input[type='text']:hover,input[type='text']:active,input[type='text']:focus,input[type='tel']:hover,input[type='tel']:active,input[type='tel']:focus,input[type='number']:hover,input[type='number']:active,input[type='number']:focus,input[type='email']:hover,input[type='email']:active,input[type='email']:focus,select:hover,select:active,select:focus,textarea:hover,textarea:active,textarea:focus{border:1px solid #323232}.o-grid{margin:0 auto;display:flex;flex-wrap:wrap;max-width:700px}.o-grid:after{content:'';display:table;clear:both}.o-grid .o-grid{margin-right:-16px;margin-left:-16px;padding:0}.o-grid--full{max-width:100vw}.o-grid__col{float:left;padding-right:16px;padding-left:16px}.o-grid__col--1-4-s{width:25%}.o-grid__col--1-3-s{width:33.3333333333%}.o-grid__col--2-4-s{width:50%}.o-grid__col--3-4-s{width:75%}.o-grid__col--4-4-s{width:100%}@media (min-width: 40em){.o-grid__col--1-4-m{width:25%}.o-grid__col--1-3-m{width:33.3333333333%}.o-grid__col--2-4-m{width:50%}.o-grid__col--3-4-m{width:75%}}@media (min-width: 64em){.o-grid__col--1-4-l{width:25%}.o-grid__col--1-3-l{width:33.3333333333%}.o-grid__col--2-4-l{width:50%}.o-grid__col--3-4-l{width:75%}}.o-grid__col--full{width:100%}.o-grid__col--center{margin:0 auto}.o-grid__col--end{margin-left:auto}.o-wrapper{padding:32px 0}.c-off-canvas-container{display:flex;min-height:100vh;flex-direction:column}.c-off-canvas-container .o-wrapper{flex:1 0 auto}.o-categories{padding:18px 0px 50px 0px;text-align:center;font-weight:600;font-size:larger}.o-plain-list{margin:0;padding:0;list-style:none}.c-header__inner{padding:16px 0;border-bottom:1px solid #E9EFF3;width:690px}.c-header__icon{vertical-align:middle}.c-logo__link{font-size:19px;font-weight:900;transition:.4s}.c-logo__link:hover,.c-logo__link:active,.c-logo__link:focus{color:#00A0FF;text-decoration:none}.c-nav__item{font-size:16px}.c-nav__link{display:block;transition:.4s}.c-nav__link--current{color:#00A0FF}.home-template .c-nav__link--current:not(:hover){color:#323232}.c-nav__link:hover,.c-nav__link:active,.c-nav__link:focus{color:#00A0FF;text-decoration:none}li ul{height:auto;padding:0 0 0 20px;margin:0px;border:0px;position:absolute;list-style:none}li ul a{color:#7e7e7e}.c-off-canvas-toggle{float:right;position:relative;top:8px;z-index:10;height:19px;width:25px;cursor:pointer}.c-off-canvas-toggle__icon{position:absolute;left:0;height:1px;width:25px;background:#323232;cursor:pointer}.c-off-canvas-toggle__icon:before,.c-off-canvas-toggle__icon:after{content:'';display:block;height:100%;background-color:inherit;transition:.4s}.c-off-canvas-toggle__icon:before{transform:translateY(16px)}.c-off-canvas-toggle__icon:after{transform:translateY(7px)}.c-off-canvas-toggle--close .c-off-canvas-toggle__icon{height:2px;background-color:transparent}.c-off-canvas-toggle--close .c-off-canvas-toggle__icon:before,.c-off-canvas-toggle--close .c-off-canvas-toggle__icon:after{position:relative;visibility:visible;background:#323232}.c-off-canvas-toggle--close .c-off-canvas-toggle__icon:before{top:11px;transform:rotate(-45deg)}.c-off-canvas-toggle--close .c-off-canvas-toggle__icon:after{top:9px;transform:rotate(45deg)}.c-off-canvas-toggle--close{top:0;float:none;display:block;margin-left:auto}html,body{overflow-x:hidden}.c-off-canvas-content{position:fixed;top:0;right:0;width:300px;height:100%;padding:24px 32px;background-color:#fff;transform:translate3d(300px, 0, 0)}.c-off-canvas-container{transform:translate3d(0, 0, 0);transition:transform .4s cubic-bezier(0.16, 0.68, 0.43, 0.99)}.c-off-canvas-container.is-active{transform:translate3d(-300px, 0, 0)}.c-off-canvas-container.is-active:after{position:fixed;top:0;right:0;bottom:0;left:0;content:'';background-color:rgba(0,0,0,0.2)}.c-tags{margin-top:120px}.c-tags a{display:inline-block;padding:4px 16px;margin:0 8px 4px 0;font-size:12px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";line-height:25px;background-color:#FAFAFA;transition:.4s}.c-tags a:hover,.c-tags a:active,.c-tags a:focus{text-decoration:none;background-color:#FAFAFA}@media (max-width: 39.99em){.c-tags{margin-bottom:22px}}.c-btn{display:inline-block;padding:8px 32px;cursor:pointer;transition:.4s;text-align:center;vertical-align:middle;white-space:nowrap;line-height:inherit;border:0;border-radius:0;color:#fff;background-color:#207cdf;font-size:16px}.c-btn:hover,.c-btn:active,.c-btn:focus{text-decoration:none;background-color:#238cf6}.c-btn--full{width:100%}.c-btn--small{padding:4px 16px}.c-post-card{display:block;padding:32px 0;word-break:break-word;border-bottom:1px solid #E9EFF3;width:680px}.c-post-card--first{padding-top:0}.c-post-card--last{padding-bottom:0;border-bottom:0}.c-post-card__title{margin-bottom:10px;font-size:19px;font-weight:600;transition:.4s}@media (min-width: 40em){.c-post-card__title{font-size:22px}}.c-post-card__excerpt{margin-bottom:10px;font-size:16px}.c-post-card__date{display:block;color:#2B5F72;direction:ltr;font-size:12px;font-weight:600;line-height:22px;text-transform:uppercase}.c-post-card:hover{color:#323232;text-decoration:none}.c-post-card:hover .c-post-card__title{color:#00A0FF}.c-pagination{text-transform:uppercase;transition:.4s}.c-pagination:hover,.c-pagination:active,.c-pagination:focus{color:#00A0FF;text-decoration:none}.c-pagination__text{position:relative;font-size:14px;letter-spacing:2px}.c-pagination__text--prev{left:-16px}.c-pagination__text--next{right:-16px}.c-pagination__icon{vertical-align:text-top}.c-pagination__icon--prev{left:-8px}.c-pagination__icon--next{right:-8px}.c-post{margin:0 auto;width:740px}.c-post__title{font-size:24px;margin-bottom:16px}@media (min-width: 40em){.c-post__title{font-size:28px}}.c-post__date{position:relative;padding-top:16px;display:block;text-align:center;margin-bottom:16px;font-size:14px;font-weight:600;line-height:22px;color:#2B5F72}.c-post__date:after{position:absolute;content:'';top:0;left:50%;height:1px;width:64px;background:#FAFAFA;transform:translateX(-50%)}.c-post__image{margin:0 auto 16px}.c-content{font-size:16px}.c-content a:not(.c-btn){text-decoration:underline;text-decoration-skip:ink}.c-content a:not(.c-btn):hover,.c-content a:not(.c-btn):active,.c-content a:not(.c-btn):focus{color:#00A0FF}.twitter-tweet,.fluid-width-video-wrapper{margin-bottom:16px !important}.c-social-nav__item{display:inline-block}.c-social-nav__icon{fill:#323232;vertical-align:middle;transition:.4s}.c-social-nav__icon:hover,.c-social-nav__icon:active,.c-social-nav__icon:focus{fill:#00A0FF}.c-footer{padding:32px 0;background-color:#FAFAFA}.u-hidden{display:none}.u-hidden-visually{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.u-font-medium{font-size:16px;line-height:25px}.u-font-small{font-size:14px;line-height:22px}.u-font-tiny{font-size:12px;line-height:19px}.u-text-left{text-align:left}.u-text-right{text-align:right}.u-text-center{text-align:center}.u-text-justify{text-align:justify}.u-inline{display:inline}.u-block{display:block}.u-inline-block{display:inline-block}.u-left{float:left}.u-right{float:right}.u-clearfix:after{content:'';display:table;clear:both}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Google Analytics Code -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155310440-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-155310440-1');
+</script>
+
+
+
+  <div class='js-off-canvas-container c-off-canvas-container'>
+    <header class='c-header'>
+  <div class='o-grid'>
+    <div class='o-grid__col o-grid__col--full'>
+      <div class='c-header__inner'>
+
+        <div class='o-grid'>
+          <div class='o-grid__col o-grid__col--3-4-s'>
+            <div class='c-logo u-text-left'>
+              <a class='c-logo__link' href='/'>빈둥빈둥 개발 공부 블로그</a>
+            </div>
+          </div>
+
+          <div class='o-grid__col o-grid__col--1-4-s'>
+            <label class='js-off-canvas-toggle c-off-canvas-toggle' aria-label='Toggle navigation'>
+              <span class='c-off-canvas-toggle__icon'></span>
+            </label>
+          </div>
+
+          <div class='o-grid__col o-grid__col--1-4-s'>
+            <div class='c-off-canvas-content'>
+              <label class='js-off-canvas-toggle c-off-canvas-toggle c-off-canvas-toggle--close'>
+                <span class='c-off-canvas-toggle__icon'></span>
+              </label>
+
+              <ul class='c-nav o-plain-list '>
+                <!--
+
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/Study/Linux'>Study/Linux</a>
+      </li>
+    
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/Study/ML'>Study/Machine Learning</a>
+      </li>
+    
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/Study/Python'>Study/Python</a>
+      </li>
+    
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/Study/Security'>Study/Security</a>
+      </li>
+    
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/Study'>Study</a>
+      </li>
+    
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/Study/Web'>Study/Web</a>
+      </li>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/Study/Git'>Study/Git</a>
+      </li>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+-->
+
+
+<div class='c-nav__item' role='presentation'>
+	<li><a class='c-nav__link' href="/">Home</a></li>
+	<li><a class='c-nav__link' href="/Study">Study</a>
+		<ul>
+			<li>
+				<a class='c-nav__link' href="/Study/Git">Git</a>
+			</li>
+			<li>
+				<a class='c-nav__link' href="/Study/Python">Python</a>
+			</li>
+			<li>
+				<a class='c-nav__link' href="/Study/Linux">Linux Administration</a>
+			</li>
+			<li>
+				<a class='c-nav__link' href="/Study/Web">Web</a>
+			</li>
+			<li>
+				<a class='c-nav__link' href="/Study/ML">Machine Learning</a>
+			</li>
+			<li>
+				<a class='c-nav__link' href="/Study/Security">Security</a>
+			</li>
+		</ul>
+	</li>
+	
+</div>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</header>
+
+    
+
+
+
+<div class='o-wrapper'>
+  <div class='o-grid'>
+    <div class='o-grid__col'>
+      <article class='c-post' itemscope itemtype='http://schema.org/BlogPosting'>
+
+        <h1 class='c-post__title u-text-center'>Message Authentication and Op Mode</h1>
+
+        <time class='c-post__date' datetime='2019-09-30T00:00:00+09:00' itemprop='datePublished'>30 Sep 2019</time><br>
+
+        <div class='c-content' itemprop='articleBody'>
+          
+
+          <ol>
+  <li>송신자 확인 / 검증 목적 &gt; 보낸이를 확인하기 위해서 2. 메세지의 무결성</li>
+</ol>
+
+<p><img src="https://k.kakaocdn.net/dn/bgQtVL/btqARyH4zfw/FHymWAxGfRBcYObc0bhAK1/img.png" alt="img" /></p>
+
+<p>MACm=F(Kab, M)</p>
+
+<p>Message not altered</p>
+
+<p>The alleged sender confirmed</p>
+
+<p>The proper sequence of messages assured</p>
+
+<p>Similar to encryption</p>
+
+<p>NIST recommends the use of DES</p>
+
+<p>One difference: authentication algorithm need not be reversible, less vulnerable</p>
+
+<p>메세지 저네를 암호화하는게 아니라 메세지에 대한 조금한 해쉬함수를 만들어서 전송 확인할 때도 해쉬값만 확인</p>
+
+<p><strong>Hash Function</strong></p>
+
+<p>condenses arbitrary message to fixed size &gt; No secret key needed
+usually assume hash function is public, hash used to detect changes to message</p>
+
+<p>통조림 : 데이터가 들어가면 고정된 크기가 생성 &gt; 무엇을 넣던 간 동일한 산출값</p>
+
+<ol>
+  <li>
+    <p>해쉬함수란 ?</p>
+  </li>
+  <li>
+    <p>퍼블릭키로 복호화 할 때… 퍼블릭키에 대한 신뢰성 문제?</p>
+  </li>
+</ol>
+
+<p><strong>one-way property</strong> : computationally infeasible to find data mapping to specific hash</p>
+
+<p>데이터 입력-해쉬값 출력 / 원본은 찾기 힘들어야 한다는 이론. 
+항상 정해진 값 산출로 일방향은 쉬운데 역방향은 불가능</p>
+
+<p><strong>collision-free property</strong> : computationally infeasible to find two data to same hash</p>
+
+<p>충돌 &gt; 정해진 해쉬값 32글자 해쉬값이 나오게 되어 있다. 운 좋게 같은 해쉬값이 나올 수 있다 입력은 무한 출력은 유한함 . 똑같은 해쉬값을 찾고자 입력 데이터를 만들기는 만들기는 굉장히 힘듦</p>
+
+<p>간단한 특성으로 어디서는 가능함 / 연산이 간단하다고 말하는데, 역으로는 안 됨 &gt; 안전한 특성과 간단한 연산 &gt; 전기를 덜 먹음 &gt; 작은 곳에서도 실행이 가능함 … 가장 간단한 기기에도 들어갈 수 있는 해쉬함수</p>
+
+<p><strong>Secure Hash Algorithm</strong> - 대표적인 해쉬 함수</p>
+
+<p>키사이즈가 없음 키가 들어가지 않아서 얼마자리 크기의 해쉬 함수를 만들어내는가?</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>sha-224 : 해쉬값 크기</td>
+      <td>숫자가 클 수록 컬리젼이 덜 발생함</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>&gt; 역으로 찾을 수 없지는 않지만, 숫자가 커질 수록 경우의 수가 늘어나서 같은 경우를 찾기 힘들어짐</p>
+
+<p>&gt; 유한의 범위가 증가</p>
+
+<ul>
+  <li>Designed for compatibility with increased security provided by the AES cipher</li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Keyed Hash Functions as MAC</strong></td>
+      <td>KeyedHash = Hash(Key</td>
+      <td>Message)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>&gt; led to development of HMAC - 전기들어가는 건 웬만하면 다 할 수 있음</p>
+
+<p>H(M) &gt; h / M, M’ 비교 하지 말고 &gt; 해쉬함수로 돌려서 결과물이 같은지 다른지 확인 H(M) =?= H(M’) &gt;</p>
+
+<p>h =?= h’ 굳이 100기가 …파일을 확인하지 않아도 32바이트 해쉬값을 찾으면 됨</p>
+
+<p>메세지말고 다른 걸 붙이고 싶어했음 &gt; 키드해쉬값</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>H(K(키값)</td>
+      <td> </td>
+      <td>M(메세지값 )) 그냥 키에 메세지를 붙이고 키와 메세지 전체를 해쉬로 돌림</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>메세지를 받았을 때, 키를 알아야 하는데 키를 아는 사람만 만들 수 있는 해쉬 키를 모르는 상황에서는 해쉬값을 만들 수 없음 &gt; 메세지 인증 : 메세지 무결성 / 상대 퍼블릭키로 풀린다는 점에서 송신자를 확인할 수 있는 것</p>
+
+<p><strong>** HMAC</strong></p>
+
+<ul>
+  <li>use, without modifications, hash functions</li>
+  <li>use and handle keys in a simple way.</li>
+  <li>allow for easy replaceability of embedded hash function</li>
+  <li>preserve original performance of hash function without significant degradation</li>
+  <li>have well understood cryptographic analysis of authentication mechanism strength</li>
+</ul>
+
+<p><img src="https://k.kakaocdn.net/dn/ef9LQI/btqAThezEjO/izn4z08fCHwKpQ31tMckw0/img.png" alt="img" /></p>
+
+<p><strong>Modes of Operations</strong> - 암호학의 연장선 ( 동작 모드 : 대칭키 암호는 동작모드까지 언급 필수)</p>
+
+<p>block ciphers encrypt fixed size blocks
+  eg. DES encrypts 64-bit blocks with 56-bit key</p>
+
+<p>need some way to en/decrypt arbitrary amounts of data in practise</p>
+
+<p>NIST SP 800-38A defines 5 modes</p>
+
+<p>have block and stream modes
+to cover a wide variety of applications</p>
+
+<p>can be used with any block cipher</p>
+
+<ul>
+  <li>Electronic Codebook Mode (ECB) 
+message is broken into independent blocks which are encrypted 
+each block is a value which is substituted, like a codebook, hence name 
+each block is encoded independently of the other blocks 
+  Ci = E(K, Pi) 
+uses: secure transmission of single values 
+  message repetitions may show in ciphertext if aligned with message block
+  particularly with data such as graphics 
+  or with messages that change very little, which become a code-book analysis problem weakness is due to the encrypted message blocks being independent
+main use is sending a few blocks of data</li>
+</ul>
+
+<p>문제 : 패턴이 보임 기본적으로 실루엣이 보임 잘라서 암호화하기 때문에 des8 aes 16 // 8바이트 8글자 그림은 1~2바이트가 점 1개 데이터가 너무 많아서 데이터의 윤곽이 보이는 문제</p>
+
+<p>같은 패턴의 반복이 나오면 그게 보임. 일종의 모드라고는 하는데 모드가 아니고 아무것도 없는 상태라고 봄</p>
+
+<ul>
+  <li>Cipher Block Chaining Mode (CBC) : 앞 블럭 값을 XOR로 입혀서 재암호화 하는 것* 같은 값을 암호화 해도 앞의 메세지에 따라 달라짐 
+message is broken into blocks
+linked together in encryption operation 
+each previous cipher blocks is chained with current plaintext block, hence name 
+use Initial Vector (IV) to start process 
+  Ci = E(K, Pi ⨁ Ci-1)
+C0 = IV 
+uses: bulk data encryption, authentication</li>
+</ul>
+
+<p>피원과 피투가 똑같을 때 실질적으로 암호화 될 때는 피원은 아이브이, 피투는 씨원값의 엑스오알… 암호화가 되니까 계속 같은 값이더라도 앞에서 들어오는 값이 달라지기 때문에 실질적 암호값은 달라짐</p>
+
+<p>계속 같은 값이라도 계속 뒷 암호화에 영향을 주니까 … 다시 말하자면 피원부터 피5까지 다 똑같다고 하더라도,, 값이 계속 바뀜</p>
+
+<p><img src="https://k.kakaocdn.net/dn/buOYv5/btqAQNlEytX/m8Y2P8lr7ss75JjmwUZz31/img.png" alt="img" /></p>
+
+<ul>
+  <li>Cipher Feedback Mode (CFB) 
+message is treated as a stream of bits 
+added to the output of the block cipher 
+result is feed back for next stage (hence name)
+standard allows any number of bit (1,8, 64 or 128 etc) to be fed back 
+  denoted CFB-1, CFB-8, CFB-64, CFB-128 etc 
+most efficient to use all bits in block (64 or 128) 
+Ci = Pi ⨁ E(K, Ci-1) 
+C0 = IV 
+uses: stream data encryption, authentication</li>
+</ul>
+
+<p>문제 &gt; 중간에 하나씩 만들어서 통신으로 보낼 때,데이터는 전송될 때 손실되는 경우가 심함 비올 때 특히 데이터가 많이 날아감.. 전파가 물에 약함 통과를 못함 신호가 가다가 깨지고 등등 한두 개 보내는 게 아니라 만개 십만 개니까… 중간 다섯 번째가 데이터가 손실 되었을 때 ,,, 그럼 복호화 할 대 계속 앞에 게 있어야 함… 5,6이 없으면 그 뒤로 계속 못풂 … 일단 뒤에 걸 다 기다리고 있다가 깨진 부분이 올 때까지 기다려야 함</p>
+
+<p>**Advantages and Limitations of CFB 
+**appropriate when data arrives in bits/bytes most common stream mode</p>
+
+<p>Limitation: need to stall while doing block encryption after every n-bits</p>
+
+<p>note that the block cipher is used in encryption errors propagate for several blocks after the error</p>
+
+<p>플레인 택스트를 작게 만들고… 씨비씨처럼 아브이로 시작 암호화된 값을 자르고 그걸 다시 암호</p>
+
+<p>씨원을 갖고 위로 올려서 집어 넣음 암호화 결과가 작기 때문에 쉬프트 레지스터에 넣음</p>
+
+<p>데이터가 있으면 쉬프트 시킴 /여기서는 레프트. 한 칸 왼쪽으로 밂.</p>
+
+<p>원래 있던 값이 들어가는 건 CBC와 비슷</p>
+
+<p><img src="https://k.kakaocdn.net/dn/KP3f2/btqARxWKB9o/OMof3UACklEio7BinQAHK1/img.png" alt="img" /></p>
+
+<ul>
+  <li>Counter Mode (CTR) 
+a “new” mode, though proposed early on 
+similar to OFB bur encrypts counter value rather than any feedback value
+must have a different key &amp; counter value for every plaintext block (never reused) 
+Oi = E(K, i) 
+Ci = Pi ⨁ Oi
+uses: high-speed network encryptions</li>
+</ul>
+
+<p><strong>Advantages and Limitations of CTR</strong></p>
+
+<p>efficiency
+  can do parallel encryptions in h/w or s/w</p>
+
+<p>can preprocess in advance of need</p>
+
+<p>good for bursty high speed links</p>
+
+<p>random access to encrypted data blocks provable security (good as other modes)</p>
+
+<p>but must ensure never reuse key/counter values, otherwise could break (cf OFB)</p>
+
+<p>10초후 어떤 데이터가 발생할지 모름. 근데 씨티알은 먼저 계산할 수 있음 점선 안 박스 &gt; 플레인 텍스트를 암호화하는게 아니니까 / 데이터가 올 때마다 게산할 필요가 없어짐 // 통신 측면에서 유리해짐</p>
+
+<p>블럭 사이퍼는 데이터가 어느정도 쌓였을 때 … 양동이 단위로 복호화 /. 스트림은 바로바로</p>
+
+<p>블럭과 스트림의 차이가 애매해지긴 했음 블럭이 작고… 8, 16바이트가 어느정도 된다고 생각했는데 지금은 작고.. 기본적 데이터가 너무너무 커졌음. 예전엔 의미가 있었음.</p>
+
+<p><img src="https://k.kakaocdn.net/dn/cPho0z/btqARXVenaN/AaFtrN6A9xtgdLI71pm0Hk/img.png" alt="img" /></p>
+
+        </div>
+
+        <div class='c-tags'>
+          
+            <a href='/tag/auth'>auth</a>
+          
+            <a href='/tag/security'>security</a>
+          
+        </div>
+
+        <hr>
+
+        <section class='disqus'>
+  <div id='disqus_thread'></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://localhost:4000/study/security/2019/09/30/Message-Auth-and-OpMode/';
+    };
+
+    (function() {
+      var d = document, s = d.createElement('script');
+
+      // Change `aspirethemes-demos` with your Disqus shortcode
+      s.src = '//aspirethemes-demos.disqus.com/embed.js';
+
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href='https://disqus.com/?ref_noscript' rel='nofollow'>comments powered by Disqus.</a></noscript>
+</section>
+
+      </article>
+    </div>
+  </div>
+</div>
+
+    <footer class='c-footer'>
+  <div class='o-grid'>
+    <div class='o-grid__col o-grid__col--full'>
+
+      <ul class='o-plain-list c-social-nav u-text-center'>
+        <li class='c-social-nav__item'>
+          <a href='' target='_blank'>
+            <span class='c-social-nav__icon' data-icon='ei-sc-twitter' data-size='s'></span>
+          </a>
+        </li>
+        <li class='c-social-nav__item'>
+          <a href='' target='_blank'>
+            <span class='c-social-nav__icon' data-icon='ei-sc-facebook' data-size='s'></span>
+          </a>
+        </li>
+        <li class='c-social-nav__item'>
+          <a href='' target='_blank'>
+            <span class='c-social-nav__icon' data-icon='ei-sc-instagram' data-size='s'></span>
+          </a>
+        </li>
+        <li class='c-social-nav__item'>
+          <a href='' target='_blank'>
+            <span class='c-social-nav__icon' data-icon='ei-sc-github' data-size='s'></span>
+          </a>
+        </li>
+        <li class='c-social-nav__item'>
+          <a href='mailto:parkeb417@icloud.com' target='_blank'>
+            <span class='c-social-nav__icon' data-icon='ei-envelope' data-size='s'></span>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</footer>
+  </div>
+
+  <script src="/js/jquery-3.1.1.min.js"> </script>
+  <script src="/js/evil-icons.min.js">   </script>
+  <script src="/js/jquery.fitvids.js">   </script>
+  <script src="/js/app.js">              </script>
+</body>
+
+</html>

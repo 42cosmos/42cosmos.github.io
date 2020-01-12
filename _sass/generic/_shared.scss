@@ -7,7 +7,9 @@
  * Always declare margins in the same direction:
  * csswizardry.com/2012/06/single-direction-margin-declarations
  */
-address, blockquote, pre,
+address,
+h1, h2, h3, h4, h5, h6,
+blockquote, p, pre,
 dl, ol, ul,
 figure,
 hr,
@@ -22,8 +24,4 @@ fieldset {
 dd, ol, ul {
   list-style-position: inside;
   margin-left: $base-spacing-unit;
-}
-
-h1, h2, h3, h4, h5, h6, p {
-  margin-bottom: 15px;
 }

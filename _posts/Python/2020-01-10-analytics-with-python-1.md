@@ -7,6 +7,8 @@ categories: 'Study/Python'
 
 # pandas
 
+---
+
 `astype(type)`
 
 `loc[[행], [열]]` - 라벨 값을 기반으로 행 데이터 읽기
@@ -59,6 +61,8 @@ e.g.) data_frame['Supplier Name'].str.contains('Z'))
 <br/>
 
 ## Errors
+
+---
 
 1. ```
    with open(input_file, 'r', newline=' ') as csv_in_file:
