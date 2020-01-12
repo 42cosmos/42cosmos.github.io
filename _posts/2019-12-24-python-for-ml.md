@@ -97,6 +97,8 @@ print(list(map(f, ex)))
 
 : map과 달리 list에 똑같은 함수를 적용해서 통합
 
+`from functools import reduce`
+
 <br>
 
 ## Asterisk *
