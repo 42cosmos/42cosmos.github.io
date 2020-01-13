@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Foundation for analytics with python - 1'
-tags: [python]
+tags: [python, pandas]
 categories: 'Study/Python'
 ---
 
