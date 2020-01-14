@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '리눅스 권한 permission'
+title: '권한 permission'
 tags: [inflearn, Linux]
 categories: 'Study/Linux'
 ---
@@ -24,6 +24,8 @@ categories: 'Study/Linux'
 5. 12 22 16:31/ 
 
 6. test.txt
+
+<br/>
 
 1. **access mode**
    Type ( 파일 -, 디렉토리 d, 링크 ) / Owners Permission (rw > Read, Write, X-excute)/ Groups Permission/ Other /       

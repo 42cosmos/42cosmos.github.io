@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '리눅스 IO Redirection - Shell & Script'
+title: 'IO Redirection - Shell & Script'
 tags: [inflearn, Linux]
 categories: 'Study/Linux'
 ---
@@ -32,8 +32,6 @@ file 내 포함되어 있는 걸 입력값을 줄 수 있음
 #### append
 
 
-
----
 
 ### Shell & Script
 

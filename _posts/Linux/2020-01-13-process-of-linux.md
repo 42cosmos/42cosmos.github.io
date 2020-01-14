@@ -1,11 +1,9 @@
 ---
 layout: post
-title: '리눅스 프로세스와 실행'
+title: '프로세스 & 실행'
 tags: [inflearn, Linux]
 categories: 'Study/Linux'
 ---
-
-
 
 #### Daemon
 

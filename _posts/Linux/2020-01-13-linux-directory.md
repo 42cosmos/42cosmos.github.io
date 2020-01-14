@@ -1,11 +1,11 @@
 ---
 layout: post
-title: '리눅스 디렉토리 구조와 파일 찾는 법'
+title: '디렉토리 구조와 파일 찾는 법'
 tags: [inflearn, Linux]
 categories: 'Study/Linux'
 ---
 
-### Directory tree
+### Directory 구조
 
 디렉토리 : 정리정돈의 수단, 데이터와 실행 프로그램 성격에 따라 정해진 규칙이 있음.
 
