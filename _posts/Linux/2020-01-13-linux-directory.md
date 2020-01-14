@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '리눅스 '
+title: '리눅스 디렉토리 구조와 파일 찾는 법'
 tags: [inflearn, Linux]
 categories: 'Study/Linux'
 ---
