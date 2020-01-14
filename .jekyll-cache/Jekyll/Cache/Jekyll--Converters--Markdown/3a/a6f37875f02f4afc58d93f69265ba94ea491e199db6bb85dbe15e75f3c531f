@@ -1,0 +1,38 @@
+I"{<h3 id="다중사용자">다중사용자</h3>
+
+<p>복잡도가 증가<br />
+유닉스 계열 &gt; 다중사용자 시스템</p>
+
+<h4 id="id-who">id, who</h4>
+
+<p><code class="highlighter-rouge">id</code> &gt; uid=501(name) &gt; 본인</p>
+
+<p><code class="highlighter-rouge">who</code> &gt; 시스템에 누가 접속했는지 보여줌</p>
+
+<h4 id="관리자와-일반-사용자">관리자와 일반 사용자</h4>
+
+<p>유닉스 계열 2가지 사용자</p>
+
+<ol>
+  <li>
+    <p>super (root) user</p>
+  </li>
+  <li>
+    <p>(normal) user</p>
+  </li>
+</ol>
+
+<p><code class="highlighter-rouge">sudo ~ </code> 일시적 슈퍼유저의 권한으로 동작  &gt; 모든 유저가 sudo를 사용할 수는 없음</p>
+
+<p><strong>구분법</strong></p>
+
+<p>name@~$</p>
+
+<p>name &gt; 1. root - 관리자 2. name - 일반 유저<br />
+symbol &gt; 1. # - 관리자 2. $ - 일반 유저</p>
+
+<h4 id="사용자-추가">사용자 추가</h4>
+
+<p><code class="highlighter-rouge">sudo useradd -m name</code> &gt; <code class="highlighter-rouge">sudo passwd name</code> &gt; enter pwd &gt; <code class="highlighter-rouge">sudo usermod -a -G sudo name</code></p>
+
+:ET

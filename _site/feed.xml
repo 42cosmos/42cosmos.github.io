@@ -5,10 +5,321 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 13 Jan 2020 17:50:06 +0900</pubDate>
-    <lastBuildDate>Mon, 13 Jan 2020 17:50:06 +0900</lastBuildDate>
+    <pubDate>Tue, 14 Jan 2020 15:55:00 +0900</pubDate>
+    <lastBuildDate>Tue, 14 Jan 2020 15:55:00 +0900</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
 
+    
+      <item>
+        <title>AWS tutorial</title>
+        <description>&lt;p&gt;###&lt;/p&gt;
+</description>
+        <pubDate>Tue, 14 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/aws/2020/01/14/AWS-tutorials/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/aws/2020/01/14/AWS-tutorials/</guid>
+      </item>
+    
+      <item>
+        <title>리눅스 사용자</title>
+        <description>&lt;h3 id=&quot;다중사용자&quot;&gt;다중사용자&lt;/h3&gt;
+
+&lt;p&gt;복잡도가 증가&lt;br /&gt;
+유닉스 계열 &amp;gt; 다중사용자 시스템&lt;/p&gt;
+
+&lt;h4 id=&quot;id-who&quot;&gt;id, who&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;id&lt;/code&gt; &amp;gt; uid=501(name) &amp;gt; 본인&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;who&lt;/code&gt; &amp;gt; 시스템에 누가 접속했는지 보여줌&lt;/p&gt;
+
+&lt;h4 id=&quot;관리자와-일반-사용자&quot;&gt;관리자와 일반 사용자&lt;/h4&gt;
+
+&lt;p&gt;유닉스 계열 2가지 사용자&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;super (root) user&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;(normal) user&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo ~ &lt;/code&gt; 일시적 슈퍼유저의 권한으로 동작  &amp;gt; 모든 유저가 sudo를 사용할 수는 없음&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;구분법&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;name@~$&lt;/p&gt;
+
+&lt;p&gt;name &amp;gt; 1. root - 관리자 2. name - 일반 유저&lt;br /&gt;
+symbol &amp;gt; 1. # - 관리자 2. $ - 일반 유저&lt;/p&gt;
+
+&lt;h4 id=&quot;사용자-추가&quot;&gt;사용자 추가&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo useradd -m name&lt;/code&gt; &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo passwd name&lt;/code&gt; &amp;gt; enter pwd &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo usermod -a -G sudo name&lt;/code&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 13 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/linux/2020/01/13/%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%8C%E1%85%A1/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/linux/2020/01/13/%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%8C%E1%85%A1/</guid>
+      </item>
+    
+      <item>
+        <title>리눅스 프로세스와 실행</title>
+        <description>&lt;h4 id=&quot;daemon&quot;&gt;Daemon&lt;/h4&gt;
+
+&lt;p&gt;특성&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;항상 실행되고 있음&lt;/li&gt;
+  &lt;li&gt;server 같은 프로그램&lt;/li&gt;
+  &lt;li&gt;언제 클라이언트가 접속할지 모름 &amp;gt; web server &amp;gt; daemon, service라 지칭&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;service와-자동실행&quot;&gt;Service와 자동실행&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo service program start/stop&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;데몬으로 사용되는, 서비스를 통해 켜고 끄는 프로그램은 start과 stop 2 개의 명령어를 필수적으로 갖고 있음 - /etc/rc3.d&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;S02apache2&lt;/code&gt; 링크 ( 윈도우의 바로가기 )&lt;/p&gt;
+
+&lt;p&gt;S : 부팅 시 자동 실행&lt;/p&gt;
+
+&lt;p&gt;K : kill - 프로그램 실행 X&lt;/p&gt;
+
+&lt;p&gt;숫자 : 우선순위&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;cron&quot;&gt;Cron&lt;/h3&gt;
+
+&lt;p&gt;정기적으로 명령을 실행시켜주는 소프트웨어&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;crontab -e&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;# m h dom mon dow    command&lt;/p&gt;
+
+&lt;p&gt;# minutes, hours, day of month, month, day of week, 명령어&lt;/p&gt;
+
+&lt;p&gt;e.g. */1 * * * * date » date.log 2(Standard Error) &amp;gt; &amp;amp;1(Standard Output)&lt;/p&gt;
+
+&lt;h4 id=&quot;shell-startup-script&quot;&gt;Shell startup script&lt;/h4&gt;
+
+&lt;p&gt;쉘 시작 시 특정 명령어를 자동으로 실행하는 방법&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vi .~/zshrc &lt;/code&gt; 에 삽입&lt;/p&gt;
+
+&lt;p&gt;단축어 만들기 : &lt;code class=&quot;highlighter-rouge&quot;&gt;alias cmd = 'nick'&lt;/code&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 13 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/linux/2020/01/13/process-of-linux/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/linux/2020/01/13/process-of-linux/</guid>
+      </item>
+    
+      <item>
+        <title>리눅스 IO Redirection - Shell &amp; Script</title>
+        <description>&lt;h3 id=&quot;linux-io-redirection&quot;&gt;Linux IO Redirection&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;output&quot;&gt;output&lt;/h4&gt;
+
+&lt;p&gt;출력 방향을 바꾸어 반환시킴- redirections of standard output&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ls -l (1)&amp;gt; result.txt&lt;/code&gt; : 출력 결과를 result.txt 파일에 넣음 / 1 == standard output, 2 == standard error&lt;/p&gt;
+
+&lt;p&gt;프로그램 실행 상태 : 프로세스&lt;/p&gt;
+
+&lt;h4 id=&quot;input&quot;&gt;input&lt;/h4&gt;
+
+&lt;p&gt;file 내 포함되어 있는 걸 입력값을 줄 수 있음&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cat type.txt &lt;/code&gt; : cat에 type을 인자로 Cmd line arg로 전달함&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cat &amp;lt; type.txt &lt;/code&gt; : Standard Input (표준 입력) 으로 들어감&lt;/p&gt;
+
+&lt;h4 id=&quot;append&quot;&gt;append&lt;/h4&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;shell--script&quot;&gt;Shell &amp;amp; Script&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Shell vs Kernel ( core )&lt;/p&gt;
+
+&lt;p&gt;shell 에 명령어 입력 &amp;gt; shell은 해석 후 kernel 에게 전달 &amp;gt; hardware &amp;gt; kernel &amp;gt; shell&lt;/p&gt;
+
+&lt;h4 id=&quot;bash-vs-zshell&quot;&gt;bash vs zshell&lt;/h4&gt;
+
+&lt;p&gt;같은 부모를 갖고 있지만 zsh이 더 편리하다는 평가를 받고 있음&lt;/p&gt;
+
+&lt;h4 id=&quot;shell-script&quot;&gt;Shell script&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chmod +x file&lt;/code&gt; &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;-rw-r--r--&lt;/code&gt; &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;-rwxr-xr-x&lt;/code&gt; : x &amp;gt; excutable&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 13 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/linux/2020/01/13/linux-tutorial-IO-Redirection/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/linux/2020/01/13/linux-tutorial-IO-Redirection/</guid>
+      </item>
+    
+      <item>
+        <title>리눅스 권한 permission</title>
+        <description>&lt;h3 id=&quot;permission&quot;&gt;Permission&lt;/h3&gt;
+
+&lt;p&gt;제어 가능 대상 : user &amp;gt; file and directory에 대한 Read and Write and Excute&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Permission denied&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;-rw-r–r–  1 park-eunbin staff    68 12 22 16:31 test.txt&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;-/rw-/r–/r– /&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;1/&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;park-eunbin staff  /&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;68 /&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;12 22 16:31/&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;test.txt&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;access mode&lt;/strong&gt;
+Type ( 파일 -, 디렉토리 d, 링크 ) / Owners Permission (rw &amp;gt; Read, Write, X-excute)/ Groups Permission/ Other /&lt;/li&gt;
+  &lt;li&gt;/&lt;/li&gt;
+  &lt;li&gt;Owner Group /&lt;/li&gt;
+  &lt;li&gt;-&lt;/li&gt;
+  &lt;li&gt;생성일&lt;/li&gt;
+  &lt;li&gt;대상 이름&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;change-mode&quot;&gt;CHange MODe&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chmod [options] mode[, mode] file1 [file2 ...]&lt;/code&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;eg&quot;&gt;e.g.&lt;/h5&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chmod o-r file.type&lt;/code&gt; : other 사용자의 Read 권한 삭제&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chmod o+r file.type&lt;/code&gt; : other 사용자의 Read 권한 부여&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chmod o+w file.type&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chmod u-r file.type&lt;/code&gt; : 소유자의 Read 권한 삭제&lt;/p&gt;
+
+&lt;h4 id=&quot;excute&quot;&gt;Excute&lt;/h4&gt;
+
+&lt;p&gt;파일 실행 권한&lt;/p&gt;
+
+&lt;p&gt;특정 프로그램(해석기, Parser)을 통해 실행하는 것 &amp;gt; 제약 없음.&lt;/p&gt;
+
+&lt;h5 id=&quot;eg-1&quot;&gt;e.g.&lt;/h5&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chmod u+x file.type&lt;/code&gt; : user 실행 권한 부여&lt;/p&gt;
+
+&lt;h4 id=&quot;directory&quot;&gt;Directory&lt;/h4&gt;
+
+&lt;p&gt;r : 디렉토리 안 파일이나 디렉토리 열람 권한&lt;/p&gt;
+
+&lt;p&gt;w : 디렉토리 내 파일 생성 및 삭제 권한&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chmod -R o+w dir&lt;/code&gt;하부 디렉토리 모두 변경&lt;/p&gt;
+
+&lt;h4 id=&quot;octal-modes&quot;&gt;Octal Modes&lt;/h4&gt;
+
+&lt;p&gt;1 - excite only 2 - write only, 4 - read only&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chmod 111 file.type&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;class&quot;&gt;Class&lt;/h4&gt;
+
+&lt;p&gt;Reference, Class&lt;/p&gt;
+
+&lt;p&gt;u, owner&lt;/p&gt;
+
+&lt;p&gt;g, group&lt;/p&gt;
+
+&lt;p&gt;o, others&lt;/p&gt;
+
+&lt;p&gt;a, all&lt;/p&gt;
+
+&lt;h5 id=&quot;eg-2&quot;&gt;e.g.&lt;/h5&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chmod a+w file&lt;/code&gt; : 모든 사용자에게 write 권한 부여&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chmod a=rwx file&lt;/code&gt; : 모든 사용자에게 r,w,x 권한 부여&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chmod a= file&lt;/code&gt; : 모든 권한 삭제&lt;/p&gt;
+</description>
+        <pubDate>Mon, 13 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/linux/2020/01/13/linux-permission/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/linux/2020/01/13/linux-permission/</guid>
+      </item>
+    
+      <item>
+        <title>리눅스 그룹</title>
+        <description>
+</description>
+        <pubDate>Mon, 13 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/linux/2020/01/13/linux-group/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/linux/2020/01/13/linux-group/</guid>
+      </item>
+    
+      <item>
+        <title>리눅스 디렉토리 구조와 파일 찾는 법</title>
+        <description>&lt;h3 id=&quot;directory-tree&quot;&gt;Directory tree&lt;/h3&gt;
+
+&lt;p&gt;디렉토리 : 정리정돈의 수단, 데이터와 실행 프로그램 성격에 따라 정해진 규칙이 있음.&lt;/p&gt;
+
+&lt;p&gt;/bin - user binaries : 사용자 사용 명령어 위치&lt;/p&gt;
+
+&lt;p&gt;/sbin - System binaries :  시스템 관리 목적이 있는 명령어 위치&lt;/p&gt;
+
+&lt;p&gt;/etc - Configuration Files : 설정&lt;/p&gt;
+
+&lt;p&gt;/var - Variable Files&lt;/p&gt;
+
+&lt;p&gt;/tmp - Temporary Files&lt;/p&gt;
+
+&lt;p&gt;/home - Home Directories&lt;/p&gt;
+
+&lt;p&gt;/opt - Optional add-on Applications&lt;/p&gt;
+
+&lt;p&gt;/usr - User Programs : 사용자 설치 프로그램은 /usr/bin 에 저장되고, 번들형식으로 사용자에게 제공되는 것들은 /bin에 저장됨&lt;/p&gt;
+
+&lt;h4 id=&quot;locate--find&quot;&gt;locate &amp;amp; find&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;locate&lt;/strong&gt;는 Directory 가 아니라 DB 안에서 찾기 때문에 훨씬 빠른 반환이 가능함&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;find&lt;/strong&gt; 는 Directory를 뒤져 찾음. 다양한 사용법이 있음.&lt;/p&gt;
+
+&lt;h4 id=&quot;whereis--path&quot;&gt;whereis &amp;amp; $PATH&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;whereis&lt;/strong&gt; 프로그램&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;which&lt;/strong&gt; - locate a program file in the user’s path&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;$PATH&lt;/strong&gt; - 환경변수&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;echo $PATH&lt;/code&gt; : path 변수에 담겨있는 데이터가 echo를 통해 출력됨.&lt;/p&gt;
+
+&lt;p&gt;e.g. ls 입력 &amp;gt; $PATH에 담겨있는 디렉토리를 검색해서, ls를 존재하는지 찾고 발견 시 실행하는 것&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 13 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/linux/2020/01/13/linux-directory/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/linux/2020/01/13/linux-directory/</guid>
+      </item>
     
       <item>
         <title>jekyll 이미지 오류 - not found</title>
@@ -3431,6 +3742,14 @@ uses: high-speed network encryptions&lt;/li&gt;
     
       
         
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       
