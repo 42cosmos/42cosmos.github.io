@@ -2,7 +2,7 @@
 layout: post
 title: 'IO Redirection - Shell & Script'
 tags: [inflearn, Linux]
-categories: 'Study/linux'
+categories: 'Study/Linux'
 ---
 
 ### Linux IO Redirection

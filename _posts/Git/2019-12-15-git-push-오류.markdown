@@ -2,7 +2,7 @@
 layout: post
 title: '[Error] git push 오류'
 tags: [git, push, error]
-categories: 'Study/git'
+categories: 'Study/Git'
 ---
 
 깃 푸쉬를 했는데 오류가 떴다. 이제 오류를 봐도 아무렇지 않다. 멀쩡한 화면보다 오류를 더 자주 만나기 때문에...

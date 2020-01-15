@@ -2,7 +2,7 @@
 layout: post
 title: 'Message Authentication and Op Mode'
 tags: [auth, security]
-categories: 'Study/security'
+categories: 'Study/Security'
 ---
 
 1. 송신자 확인 / 검증 목적 > 보낸이를 확인하기 위해서 2. 메세지의 무결성 

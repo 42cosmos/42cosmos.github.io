@@ -2,7 +2,7 @@
 layout: post
 title: '디렉토리 구조와 파일 찾는 법'
 tags: [inflearn, Linux]
-categories: 'Study/linux'
+categories: 'Study/Linux'
 ---
 
 ### Directory 구조

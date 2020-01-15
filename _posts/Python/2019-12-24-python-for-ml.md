@@ -2,7 +2,7 @@
 layout: post
 title: '[edwith] python for ML ch1'
 tags: [python]
-categories: 'Study/python'
+categories: 'Study/Python'
 ---
 
 ### 1) Pythonic Code

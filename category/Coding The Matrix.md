@@ -1,6 +1,6 @@
 ---
 layout: category
 title: Study/Coding The Matrix
-permalink: '/Study/ctm'
+permalink: '/Study/CTM'
 ---
 

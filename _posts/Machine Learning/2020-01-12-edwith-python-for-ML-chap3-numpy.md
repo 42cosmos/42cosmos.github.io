@@ -2,7 +2,7 @@
 layout: post
 title: '[Edwith] 머신러닝을 위한 Python_chap03 - Numpy'
 tags: [edwith, ML, python, Numpy]
-categories: 'Study/ml'
+categories: [Study/Machine Learning]
 ---
 
 ### Numpy

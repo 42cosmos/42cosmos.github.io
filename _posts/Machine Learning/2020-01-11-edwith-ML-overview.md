@@ -2,8 +2,7 @@
 layout: post
 title: '[Edwith] 머신러닝을 위한 Python_chap02'
 tags: [edwith, ML, python]
-categories: 'Study/ml'
-
+categories: [Study/Machine Learning]
 ---
 
 *Scala*는 이탤릭체, **vector**는 소문자 볼드, **MATRIX**는 대문자 볼드

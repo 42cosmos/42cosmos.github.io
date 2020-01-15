@@ -1,6 +1,6 @@
 ---
 layout: category
 title: Study/Machine Learning
-permalink: '/Study/ml'
+permalink: '/Study/Machine Learning'
 ---
 

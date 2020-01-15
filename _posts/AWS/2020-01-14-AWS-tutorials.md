@@ -2,7 +2,7 @@
 layout: post
 title: 'AWS tutorial'
 tags: [AWS, study]
-categories: 'Study/aws'
+categories: 'Study/AWS'
 ---
 
 ### AWS 

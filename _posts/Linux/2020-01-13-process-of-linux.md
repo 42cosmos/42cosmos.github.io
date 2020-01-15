@@ -2,7 +2,7 @@
 layout: post
 title: '프로세스 & 실행'
 tags: [inflearn, Linux]
-categories: 'Study/linux'
+categories: 'Study/Linux'
 ---
 
 #### Daemon

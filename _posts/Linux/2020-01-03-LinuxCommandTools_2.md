@@ -2,7 +2,7 @@
 layout: post
 title: 'Linux Command Line Tools - 검색'
 tags: [CLI]
-categories: 'Study/linux'
+categories: 'Study/Linux'
 ---
 
 

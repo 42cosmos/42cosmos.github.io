@@ -2,7 +2,7 @@
 layout: post
 title: 'Security Requirements, Attacks and Model for network security'
 tags: [cryptography, security]
-categories: 'Study/security'
+categories: 'Study/Security'
 ---
 
 

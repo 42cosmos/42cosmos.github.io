@@ -1,5 +1,5 @@
 ---
 layout: category
 title: Study/Web Scraping
-permalink: '/Study/ws'
+permalink: '/Study/Web Scraping'
 ---
