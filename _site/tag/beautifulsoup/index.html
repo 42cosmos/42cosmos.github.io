@@ -6,9 +6,9 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-  <title>Foundation for analytics with python - 1</title>
-  <meta name='description' content="pandasastype(type)">
-  <link rel='canonical' href="http://localhost:4000/study/python/2020/01/10/analytics-with-python-1/">
+  <title>빈둥빈둥 개발 공부 블로그</title>
+  <meta name='description' content="">
+  <link rel='canonical' href="http://localhost:4000/tag/beautifulsoup/">
   <link rel='alternate' type='application/rss+xml' title='빈둥빈둥 개발 공부 블로그' href="http://localhost:4000/feed.xml">
 
   <style>
@@ -340,151 +340,41 @@
 
 </header>
 
+    <div class='o-wrapper'>
+
+  <div class='o-grid'>
+    <div class='o-grid__col'>
+      <h4>BeautifulSoup</h4>
+    </div>
+  </div>
+
+  <div class='o-grid'>
+    
+      <div class='o-grid__col'>
+
+  <a href='/study/ws/2020/01/15/pyautogui-image/' class='c-post-card  c-post-card--first   c-post-card--last '>
+    <h2 class='c-post-card__title'>BeautifulSoup 네이버 블로그 검색결과 가져오기</h2>
+
+    
+
+    <p class='c-post-card__excerpt u-font-medium'>
+      BeautifulSoup 가장 기본 형식 - 검색어 고정 형태 import urllib.request from bs4...
+    </p>
+
+    <span class='c-post-card__date'>15 Jan 2020</span>
+  </a>
+
+</div>
+
+    
+  </div>
+
+  <div class='o-grid'>
     
 
 
-
-<div class='o-wrapper'>
-  <div class='o-grid'>
-    <div class='o-grid__col'>
-      <article class='c-post' itemscope itemtype='http://schema.org/BlogPosting'>
-
-        <h1 class='c-post__title u-text-center'>Foundation for analytics with python - 1</h1>
-
-        <time class='c-post__date' datetime='2020-01-10T00:00:00+09:00' itemprop='datePublished'>10 Jan 2020</time><br>
-
-        <div class='c-content' itemprop='articleBody'>
-          
-
-          <h1 id="pandas">pandas</h1>
-<hr />
-<p><code class="highlighter-rouge">astype(type)</code></p>
-
-<p><code class="highlighter-rouge">loc[[행], [열]]</code> - 라벨 값을 기반으로 행 데이터 읽기
-e.g. ) data_frame.loc[data_frame[‘Invoice Number’].str.startswith(‘920-‘), :]</p>
-
-<p><code class="highlighter-rouge">iloc[[행], [열]]</code> - 인덱스 값을 기반으로 단일 행을 선택해 열 헤더 행으로 사용할 수 있게 함</p>
-
-<p><code class="highlighter-rouge">.ix[]</code> &gt; <code class="highlighter-rouge">loc</code> 과 같으나 경고 메세지 반환</p>
-
-<p>’:’ &gt; 모든 행</p>
-
-<hr />
-
-<p><code class="highlighter-rouge">.columns</code> - 열 출력
-e.g.) data_frame.columns = data_frame.iloc[0]</p>
-
-<p><code class="highlighter-rouge">.index</code> - 행 출력</p>
-
-<hr />
-
-<p><code class="highlighter-rouge">.contains()</code> - 특정 문자열 포함 요소 탐색
-e.g.) data_frame[‘Supplier Name’].str.contains(‘Z’))</p>
-
-<p><code class="highlighter-rouge">.isin()</code> - 특정 값의 포함 여부를 확인 후 boolean 타입으로 반환</p>
-
-<p><code class="highlighter-rouge">.startswith('')</code> - 특정 문자열로 시작되는 요소 탐색</p>
-
-<p><code class="highlighter-rouge">.endswith('')</code> -  특정 문자열로 끝나는 요소 탐색</p>
-
-<hr />
-
-<p><code class="highlighter-rouge">.reindex()</code></p>
-
-<p><code class="highlighter-rouge">drop()</code> - 제거</p>
-
-<p><code class="highlighter-rouge">read_csv(header = None, names = list_V)</code></p>
-
-<p><code class="highlighter-rouge">concat(axis=0)</code>- 0 = 수평 / 1 = 수직으로 합침</p>
-
-<blockquote>
-  <p><code class="highlighter-rouge">merge()</code> &gt; <code class="highlighter-rouge">pandas.merge(DataFrame1, DataFrame2, on='key', how='inner')</code></p>
-
-  <p>Numpy &gt; <code class="highlighter-rouge">numpy.concatenate([array1, array2], axis=1)</code></p>
-
-  <p><code class="highlighter-rouge">numpy.hstack((array1, array2))</code></p>
-
-  <p><code class="highlighter-rouge">numpy.c[array1, array2]</code></p>
-</blockquote>
-
-<p><br /></p>
-
-<p><br /></p>
-
-<h2 id="errors">Errors</h2>
-
-<hr />
-
-<ol>
-  <li>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>with open(input_file, 'r', newline=' ') as csv_in_file:
-ValueError: illegal newline value:
-</code></pre></div>    </div>
-
-    <p><code class="highlighter-rouge">newline=' '</code> -&gt; <code class="highlighter-rouge">newline=''</code>  으로 변경하니 오류 해결!</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">modulenotfounderror no module named 'pandas'</code></p>
-
-    <p>가상환경을 열어서 pandas 설치하고 지웠다가 다시 설치하고 컴퓨터 재부팅하고 막… 오만가지 난리를 펼치다가… 터미널 창에서 <code class="highlighter-rouge">which python3</code> 입력해서 나오는 주소를 py 파일 라인 1에 붙여넣고 실행하니 오류 해결!</p>
-
-    <p><code class="highlighter-rouge"><span class="c1">#! /Users/park-eunbin/miniconda3/envs/IP/bin/python3</span></code></p>
-
-    <p><br /></p>
-  </li>
-  <li>b’Skipping line 13: expected 5 fields, saw 7\n’ -&gt;
-<code class="highlighter-rouge">data_frame = pd.read_csv(input_file, error_bad_lines=False, warn_bad_lines=False)</code> 로 해결</li>
-  <li>pandas <code class="highlighter-rouge">.ix[]</code> Message</li>
-</ol>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.ix is deprecated. Please use
-
-.loc for label based indexing or
-
-.iloc for positional indexing
-</code></pre></div></div>
-
-<ol>
-  <li><code class="highlighter-rouge">delimiter =','</code> 오류 &gt; 해결 못함… 왜? 왜 $1,600.60을 제대로 못걸러내냐</li>
-</ol>
-
-        </div>
-
-        <div class='c-tags'>
-          
-            <a href='/tag/python'>python</a>
-          
-            <a href='/tag/pandas'>pandas</a>
-          
-        </div>
-
-        <hr>
-
-        <section class='disqus'>
-  <div id='disqus_thread'></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = 'http://localhost:4000/study/python/2020/01/10/analytics-with-python-1/';
-    };
-
-    (function() {
-      var d = document, s = d.createElement('script');
-
-      // Change `aspirethemes-demos` with your Disqus shortcode
-      s.src = '//aspirethemes-demos.disqus.com/embed.js';
-
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-<noscript>Please enable JavaScript to view the <a href='https://disqus.com/?ref_noscript' rel='nofollow'>comments powered by Disqus.</a></noscript>
-</section>
-
-      </article>
-    </div>
   </div>
 </div>
-
 
     <footer class='c-footer'>
   <div class='o-grid'>

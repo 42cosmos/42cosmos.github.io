@@ -280,6 +280,10 @@
     
   
 
+  
+    
+  
+
 -->
 
 
@@ -290,34 +294,34 @@
 
 		<ul>
 			<li>
-				<a class='c-nav__link' href="/Study/Git">Git</a>
+				<a class='c-nav__link' href="/Study/git">Git</a>
 			</li>
 			<li>
-				<a class='c-nav__link' href="/Study/Python">Python</a>
+				<a class='c-nav__link' href="/Study/python">Python</a>
 			</li>
 			<li>
-				<a class='c-nav__link' href="/Study/WS">Web Scraping</a>
+				<a class='c-nav__link' href="/Study/ws">Web Scraping</a>
 			</li>
 			<li>
-				<a class='c-nav__link' href="/Study/Linux">Linux Administration</a>
+				<a class='c-nav__link' href="/Study/linux">Linux Administration</a>
 			</li>
 			<li>
-				<a class='c-nav__link' href="/Study/Web">Web</a>
+				<a class='c-nav__link' href="/Study/web">Web</a>
 			</li>
 			<li>
-				<a class='c-nav__link' href="/Study/ML">Machine Learning</a>
+				<a class='c-nav__link' href="/Study/ml">Machine Learning</a>
 			</li>
 			<li>
-				<a class='c-nav__link' href="/Study/Security">Security</a>
+				<a class='c-nav__link' href="/Study/security">Security</a>
 			</li>
 			<li>
-				<a class='c-nav__link' href="/Study/DB">Database</a>
+				<a class='c-nav__link' href="/Study/db">Database</a>
 			</li>
 			<li>
-				<a class='c-nav__link' href="/Study/CM">Coding The Matrix</a>
+				<a class='c-nav__link' href="/Study/ctm">Coding The Matrix</a>
 			</li>
 			<li>
-				<a class='c-nav__link' href="/Study/AWS">AWS</a>
+				<a class='c-nav__link' href="/Study/aws">AWS</a>
 			</li>
 
 		</ul>
@@ -388,6 +392,22 @@
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 1초 쉼
 </span><span class="n">p</span><span class="o">.</span><span class="n">typewrite</span><span class="p">(</span><span class="s">'Hello'</span><span class="p">)</span> 
 <span class="n">p</span><span class="o">.</span><span class="n">typewrite</span><span class="p">([</span><span class="s">'enter'</span><span class="p">])</span> 
+</code></pre></div></div>
+
+<h3 id="opencv-python">opencv-python</h3>
+
+<p>위치가 변경되어도 선택할 수 있도록 함</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">num7</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">locateOnScreen</span><span class="p">(</span><span class="s">'file.png'</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> 
+
+<span class="n">num7</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">locateCenterOnScreen</span><span class="p">(</span><span class="s">'file.png'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>스크린샷까지 자동화</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">p</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s">'name.png'</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">px</span><span class="p">,</span> <span class="n">px</span><span class="p">))</span>
 </code></pre></div></div>
 
 

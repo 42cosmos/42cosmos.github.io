@@ -1,4 +1,4 @@
-I"<h3 id="py-auto-gui">py auto gui</h3>
+I"{<h3 id="py-auto-gui">py auto gui</h3>
 
 <p>as p</p>
 
@@ -34,6 +34,22 @@
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 1초 쉼
 </span><span class="n">p</span><span class="o">.</span><span class="n">typewrite</span><span class="p">(</span><span class="s">'Hello'</span><span class="p">)</span> 
 <span class="n">p</span><span class="o">.</span><span class="n">typewrite</span><span class="p">([</span><span class="s">'enter'</span><span class="p">])</span> 
+</code></pre></div></div>
+
+<h3 id="opencv-python">opencv-python</h3>
+
+<p>위치가 변경되어도 선택할 수 있도록 함</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">num7</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">locateOnScreen</span><span class="p">(</span><span class="s">'file.png'</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> 
+
+<span class="n">num7</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">locateCenterOnScreen</span><span class="p">(</span><span class="s">'file.png'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>스크린샷까지 자동화</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">p</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s">'name.png'</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">px</span><span class="p">,</span> <span class="n">px</span><span class="p">))</span>
 </code></pre></div></div>
 
 :ET
