@@ -2,7 +2,7 @@
 layout: post
 title: 'Modern Cryptography'
 tags: [cryptography, security]
-categories: 'Study/Security'
+categories: 'Study/security'
 ---
 
 현대 암호 : 컴퓨터가 암호화하고, 데이터가 2진수이며 이것이 암호화 된다

@@ -2,7 +2,7 @@
 layout: post
 title: 'Foundation for analytics with python - 1'
 tags: [python, pandas]
-categories: 'Study/Python'
+categories: 'Study/python'
 ---
 
 # pandas

@@ -5,14 +5,85 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 14 Jan 2020 18:44:08 +0900</pubDate>
-    <lastBuildDate>Tue, 14 Jan 2020 18:44:08 +0900</lastBuildDate>
+    <pubDate>Wed, 15 Jan 2020 16:36:45 +0900</pubDate>
+    <lastBuildDate>Wed, 15 Jan 2020 16:36:45 +0900</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
 
     
       <item>
+        <title>사담</title>
+        <description>&lt;h3 id=&quot;뭐해먹고-살지-나&quot;&gt;뭐해먹고 살지 나…&lt;/h3&gt;
+
+&lt;p&gt;공부는 하고 있는데… 뭐랄까… 모르겠다 …&lt;/p&gt;
+
+&lt;p&gt;지금 배우는 건 정말 재밌고 계속 공부할 수록 흥미롭고 더 배우고싶은 기분인데… 내가 4학년이라는 것도 그렇고… 앞으로 뭐 해먹고 살아야할지가 너무 막막하다.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 15 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/chat/2020/01/15/%E1%84%89%E1%85%A2%E1%84%87%E1%85%A7%E1%86%A8-%E1%84%89%E1%85%A1%E1%84%83%E1%85%A1%E1%86%B7/</link>
+        <guid isPermaLink="true">http://localhost:4000/chat/2020/01/15/%E1%84%89%E1%85%A2%E1%84%87%E1%85%A7%E1%86%A8-%E1%84%89%E1%85%A1%E1%84%83%E1%85%A1%E1%86%B7/</guid>
+      </item>
+    
+      <item>
+        <title>pyautogui 이미지 좌표 클릭</title>
+        <description>
+</description>
+        <pubDate>Wed, 15 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/ws/2020/01/15/pyautogui-image/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/ws/2020/01/15/pyautogui-image/</guid>
+      </item>
+    
+      <item>
+        <title>pyautogui 기초사용법</title>
+        <description>&lt;h3 id=&quot;py-auto-gui&quot;&gt;py auto gui&lt;/h3&gt;
+
+&lt;p&gt;as p&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;설정 - 보안 및 개인 정보 보호 - 개인정보보호 - 손쉬운 사용 - 터미널 체크&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;마우스와 키보드를 제어한다. &amp;gt; 자동화 프로그램 ( 매크로 ) 생성 시 이용&lt;/p&gt;
+
+&lt;p&gt;마우스 좌표를 먼저 알아야 함 : 해상도에 따른 위치&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# (x, y)
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;moveTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 절대적인 위치 변경
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;moveRel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 상대적인 위치 변경
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;click&quot;&gt;Click&lt;/h4&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 한 번
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clicks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 두 번 클릭, 클릭 사이에 2초 텀
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;doubleClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;keyboard-ctrl&quot;&gt;Keyboard Ctrl&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;파일이 열리는 시간을 생각해서 typewrite 필수&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;‘키’를 누를 때는 [대괄호] 내에 삽입&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 1초 쉼
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;typewrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Hello'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;typewrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'enter'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Wed, 15 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/ws/2020/01/15/pyauto-1/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/ws/2020/01/15/pyauto-1/</guid>
+      </item>
+    
+      <item>
         <title>AWS tutorial</title>
         <description>&lt;h3 id=&quot;aws&quot;&gt;AWS&lt;/h3&gt;
+
+&lt;p&gt;첫날부터 오류가 났다… 고작 로그인도 못해서 지금 지원 메일을 보냈다… 아니 말하자면 로그인은 됐는데… 에휴 됐다 말해서 뭐하나…따흐흑&lt;/p&gt;
 
 </description>
         <pubDate>Tue, 14 Jan 2020 00:00:00 +0900</pubDate>
@@ -21,7 +92,7 @@
       </item>
     
       <item>
-        <title>리눅스 사용자</title>
+        <title>사용자</title>
         <description>&lt;h3 id=&quot;다중사용자&quot;&gt;다중사용자&lt;/h3&gt;
 
 &lt;p&gt;복잡도가 증가&lt;br /&gt;
@@ -66,7 +137,7 @@ symbol &amp;gt; 1. # - 관리자 2. $ - 일반 유저&lt;/p&gt;
       </item>
     
       <item>
-        <title>리눅스 프로세스와 실행</title>
+        <title>프로세스 &amp; 실행</title>
         <description>&lt;h4 id=&quot;daemon&quot;&gt;Daemon&lt;/h4&gt;
 
 &lt;p&gt;특성&lt;/p&gt;
@@ -119,7 +190,7 @@ symbol &amp;gt; 1. # - 관리자 2. $ - 일반 유저&lt;/p&gt;
       </item>
     
       <item>
-        <title>리눅스 IO Redirection - Shell &amp; Script</title>
+        <title>IO Redirection - Shell &amp; Script</title>
         <description>&lt;h3 id=&quot;linux-io-redirection&quot;&gt;Linux IO Redirection&lt;/h3&gt;
 
 &lt;hr /&gt;
@@ -165,7 +236,7 @@ symbol &amp;gt; 1. # - 관리자 2. $ - 일반 유저&lt;/p&gt;
       </item>
     
       <item>
-        <title>리눅스 권한 permission</title>
+        <title>권한 permission</title>
         <description>&lt;h3 id=&quot;permission&quot;&gt;Permission&lt;/h3&gt;
 
 &lt;p&gt;제어 가능 대상 : user &amp;gt; file and directory에 대한 Read and Write and Excute&lt;/p&gt;
@@ -271,8 +342,20 @@ Type ( 파일 -, 디렉토리 d, 링크 ) / Owners Permission (rw &amp;gt; Read,
       </item>
     
       <item>
-        <title>리눅스 그룹</title>
-        <description>
+        <title>Group - 파일과 디렉토리 공동 관리</title>
+        <description>&lt;h3 id=&quot;group&quot;&gt;Group&lt;/h3&gt;
+
+&lt;p&gt;file 생성자 (유저) 외에 한 명 이상의 사용자에게 권한 부여&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/var&lt;/code&gt; 아래에 공용 directory 생성&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo groupadd developer&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo usermon -a -G group_name user_name&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;exit 후 재접속&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo chown {-R} [user]{:group} file&lt;/code&gt; 형식으로 입력&lt;/li&gt;
+&lt;/ol&gt;
+
 </description>
         <pubDate>Mon, 13 Jan 2020 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/study/linux/2020/01/13/linux-group/</link>
@@ -280,8 +363,8 @@ Type ( 파일 -, 디렉토리 d, 링크 ) / Owners Permission (rw &amp;gt; Read,
       </item>
     
       <item>
-        <title>리눅스 디렉토리 구조와 파일 찾는 법</title>
-        <description>&lt;h3 id=&quot;directory-tree&quot;&gt;Directory tree&lt;/h3&gt;
+        <title>디렉토리 구조와 파일 찾는 법</title>
+        <description>&lt;h3 id=&quot;directory-구조&quot;&gt;Directory 구조&lt;/h3&gt;
 
 &lt;p&gt;디렉토리 : 정리정돈의 수단, 데이터와 실행 프로그램 성격에 따라 정해진 규칙이 있음.&lt;/p&gt;
 
@@ -3746,6 +3829,12 @@ uses: high-speed network encryptions&lt;/li&gt;
     
       
         
+      
+    
+      
+    
+      
+    
       
     
       

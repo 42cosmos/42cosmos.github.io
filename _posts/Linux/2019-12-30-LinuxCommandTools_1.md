@@ -2,7 +2,7 @@
 layout: post
 title: 'Linux Command Line Tools - 텍스트 처리'
 tags: [CLI]
-categories: 'Study/Linux'
+categories: 'Study/linux'
 ---
 
 ### head

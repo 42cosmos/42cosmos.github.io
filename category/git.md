@@ -1,7 +1,7 @@
 ---
 layout: category
 title: Study/Git
-permalink: '/Study/Git'
+permalink: '/Study/git'
 ---
 
 

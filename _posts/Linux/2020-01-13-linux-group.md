@@ -2,7 +2,7 @@
 layout: post
 title: 'Group - 파일과 디렉토리 공동 관리'
 tags: [inflearn, Linux]
-categories: 'Study/Linux'
+categories: 'Study/linux'
 ---
 
 ### Group

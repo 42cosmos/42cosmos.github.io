@@ -2,7 +2,7 @@
 layout: post
 title: '권한 permission'
 tags: [inflearn, Linux]
-categories: 'Study/Linux'
+categories: 'Study/linux'
 ---
 
 ### Permission

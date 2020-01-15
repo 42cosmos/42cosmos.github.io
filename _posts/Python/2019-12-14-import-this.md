@@ -2,7 +2,7 @@
 layout: post
 title: The Zen of Python
 tags: [Zen_of_Python]
-categories: 'Study/Python'
+categories: 'Study/python'
 ---
 Beautiful is better than ugly.
 

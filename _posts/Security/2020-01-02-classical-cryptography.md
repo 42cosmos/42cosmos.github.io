@@ -2,7 +2,7 @@
 layout: post
 title: 'Claasical Cryptography'
 tags: [cryptography, security]
-categories: 'Study/Security'
+categories: 'Study/security'
 ---
 
 
