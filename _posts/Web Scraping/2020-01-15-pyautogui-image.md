@@ -41,7 +41,7 @@ url = base_url + urllib.parse.quote_plus(plus_url)
 
 
 
-#### 네이버 이미지 저장
+#### 네이버 이미지 저장하기
 
 ```python
 base_url = 'https://search.naver.com/search.naver?where=image&sm=tab_jum&query='
