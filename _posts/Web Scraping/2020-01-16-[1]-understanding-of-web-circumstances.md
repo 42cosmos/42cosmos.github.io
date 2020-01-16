@@ -19,7 +19,7 @@ categories: [Study/Web Scraping]
 
 
 
-![스크린샷 2020-01-16 오후 4.07.44](/Users/park-eunbin/Library/Application Support/typora-user-images/스크린샷 2020-01-16 오후 4.07.44.png)
+![scrapy_tutorial_list](/images/scrapy_tutorial_list.png)
 
 1. items.py - 데이터를 들고올 때 클래스 형태로 만들 수 있음 
 2. pipelines.py - 데이터 수집 후 후처리 필터링 입력 진행
@@ -67,7 +67,7 @@ class linkScrap(scrapy.Spider):
 
 
 
-`i.xpath('/div[3]/div/text()').extract() ` 의 값은
+`i.xpath('/div[3]/div/text()').extract() ` 의 값은 
 
 ```
 ['\r\n\t\t\t\r\n                                    The primary goal of this book is to promote object-oriented design using Python and to illustrate the use of the emerging object-oriented design patterns.\r\nA secondary goal of the book is to present mathematical tools just in time. Analysis techniques and proofs are presented as needed and in the proper context.\r\n                                    ',
