@@ -11,6 +11,8 @@ categories: [Study/Web Scraping]
 - parser의 역할이 강함
 - 자동으로 유니코드로 변환해서 UTF-8 출력
 
+
+
 #### Scrapy
 
 - 파이프라인 지원 : 데이터 후처리 (필터링 등) 가능
@@ -153,3 +155,4 @@ Out[11]: ['Computers', 'Programming', 'Languages', 'Python']
 2. 눈을 똑바로 뜨자
 3. 더 똑똑해지자
 4. 컴퓨터는 잘못 없다
+

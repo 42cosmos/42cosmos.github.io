@@ -1,4 +1,4 @@
-I"�<h3 id="beautifulsoup">BeautifulSoup</h3>
+I"�<h3 id="beautifulsoup">BeautifulSoup</h3>
 
 <hr />
 
@@ -28,7 +28,7 @@
 
 <p><strong>urllib.parse.quote_plus()</strong></p>
 
-<h4 id="네이버-이미지-저장">네이버 이미지 저장</h4>
+<h4 id="네이버-이미지-저장하기">네이버 이미지 저장하기</h4>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">base_url</span> <span class="o">=</span> <span class="s">'https://search.naver.com/search.naver?where=image&amp;sm=tab_jum&amp;query='</span>
 <span class="n">plus_url</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'search'</span><span class="p">)</span>

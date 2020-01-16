@@ -1,0 +1,60 @@
+I"�<h3 id="웹-크롤링-이슈">웹 크롤링 이슈</h3>
+
+<p><strong>저작권법 허용</strong></p>
+
+<ol>
+  <li>단순 링크</li>
+  <li>직접 링크 : 특정 게시물 링크</li>
+</ol>
+
+<p><strong>저작권법 위반</strong></p>
+
+<ol>
+  <li>프레임 링크 - 저작물 일부를 홈페이지 표시</li>
+  <li>임베드 링크 - 저작물 전체를 홈페이지 표시</li>
+</ol>
+
+<p>크롤링 데이터 임의적 사용은 괜찮지만, 어딘가에 게시할 때는 주의하여야 함.</p>
+
+<h3 id="로봇-배제-표준-robotstxt">로봇 배제 표준 (robots.txt)</h3>
+
+<p>크롤링 허용 확인 - 게시물에 대한 권한이 누구에게 있는가?</p>
+
+<p>유저와 운영자의 이해관계 차이 존재</p>
+
+<p><br /></p>
+
+<ol>
+  <li>
+    <p>모두 허용<br />
+User-agent:<br />
+Allow:</p>
+  </li>
+  <li>
+    <p>모두 차단<br />
+User-agent:<br />
+Disallow:</p>
+  </li>
+  <li>
+    <p>조합  <br />
+User-agent: googlebot    # googlebot 로봇만 적용
+Disallow: /private/     # 이 디렉토리를 접근 차단한다.
+User-agent: googlebot-news  # googlebot-news 로봇만 적용
+Disallow: /         # 모든 디렉토리를 접근 차단한다.
+User-agent: *        # 모든 로봇 적용
+Disallow: /something/    # 이 디렉토리를 접근 차단한다.출처 : <a href="https://ko.wikipedia.org/wiki/로봇_배제_표준">위키/로봇 배제 표준</a></p>
+  </li>
+</ol>
+
+<h3 id="scrapy-구조">Scrapy 구조</h3>
+
+<p>/spiders - 실제 크롤링 로직이 들어감</p>
+
+<p>items.py - 크롤링 대상 저장</p>
+
+<p>pipelines.py - 크롤링 결과를 DB 삽입 혹은 필터링 결정</p>
+
+<p>settings.py - 전체 프로젝트 설정 : 파이프라인 순서 결정, 로그 파일 지정 및 레벨 변경 등</p>
+
+<p>scrapy.cfg -</p>
+:ET

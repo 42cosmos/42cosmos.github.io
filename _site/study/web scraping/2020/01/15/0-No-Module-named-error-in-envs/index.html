@@ -6,9 +6,9 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-  <title>pyautogui 기초사용법</title>
-  <meta name='description' content="py auto gui">
-  <link rel='canonical' href="http://localhost:4000/study/web%20scraping/2020/01/15/pyauto-1/">
+  <title>[Error] No module named selenium in env</title>
+  <meta name='description' content="">
+  <link rel='canonical' href="http://localhost:4000/study/web%20scraping/2020/01/15/0-No-Module-named-error-in-envs/">
   <link rel='alternate' type='application/rss+xml' title='빈둥빈둥 개발 공부 블로그' href="http://localhost:4000/feed.xml">
 
   <style>
@@ -284,6 +284,14 @@
     
   
 
+  
+    
+  
+
+  
+    
+  
+
 -->
 
 
@@ -343,81 +351,49 @@
     
 
 
+  <meta itemprop='og:image' content='http://localhost:4000/images/nomodulename_selenium.png'>
+
 
 <div class='o-wrapper'>
   <div class='o-grid'>
     <div class='o-grid__col'>
       <article class='c-post' itemscope itemtype='http://schema.org/BlogPosting'>
 
-        <h1 class='c-post__title u-text-center'>pyautogui 기초사용법</h1>
+        <h1 class='c-post__title u-text-center'>[Error] No module named selenium in env</h1>
 
         <time class='c-post__date' datetime='2020-01-15T00:00:00+09:00' itemprop='datePublished'>15 Jan 2020</time><br>
 
         <div class='c-content' itemprop='articleBody'>
           
+  <img src='/images/nomodulename_selenium.png' class='c-post__image' alt='[Error] No module named selenium in env'>
 
-          <h3 id="py-auto-gui">py auto gui</h3>
 
-<p>as p</p>
+          <p><img src="/images/nomodulename_selenium.png" alt="nomodulename_selenium" /></p>
 
-<p><em>설정 - 보안 및 개인 정보 보호 - 개인정보보호 - 손쉬운 사용 - 터미널 체크</em></p>
+<p>ModuleNotFoundError: No module named ‘selenium’ - Atom</p>
 
-<p>마우스와 키보드를 제어한다. &gt; 자동화 프로그램 ( 매크로 ) 생성 시 이용</p>
+<p><img src="/images/nomodulename_bs4.png" alt="nomodulename_bs4" /></p>
 
-<p>마우스 좌표를 먼저 알아야 함 : 해상도에 따른 위치</p>
+<p>ModuleNotFoundError: No module named ‘bs4’ - Jupyter notebook</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">p</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>
-<span class="c1"># (x, y)
-</span><span class="n">p</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">(,</span> <span class="n">time</span><span class="p">))</span>
-<span class="c1"># 절대적인 위치 변경
-</span><span class="n">p</span><span class="o">.</span><span class="n">moveRel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">(,</span> <span class="n">time</span><span class="p">))</span>
-<span class="c1"># 상대적인 위치 변경
-</span></code></pre></div></div>
+<p>저 상황일 때는 아무리 <code class="highlighter-rouge">conda install pip</code>  등 뭘 해줘도 소용이 없었다. 난! 설치를 했는데! 왜! 넌! 없다고 말 하니? ㅠ</p>
 
-<h4 id="click">Click</h4>
+<p>파이썬 버전이 2개나 깔려있으니까 (2.x / 3.x) 정확히 명시해주기로 했다.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">p</span><span class="o">.</span><span class="n">click</span><span class="p">()</span> <span class="c1"># 한 번
-</span><span class="n">p</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">clicks</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># 두 번 클릭, 클릭 사이에 2초 텀
-</span><span class="n">p</span><span class="o">.</span><span class="n">doubleClick</span><span class="p">()</span>
+<p>환경 : 맥북 카탈리나 10.15.2 - 콘다 가상환경 사용</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 -m pip install BeautifulSoup4
 </code></pre></div></div>
 
-<h4 id="keyboard-ctrl">Keyboard Ctrl</h4>
-
-<p><strong>파일이 열리는 시간을 생각해서 typewrite 필수</strong></p>
-
-<ul>
-  <li>‘키’를 누를 때는 [대괄호] 내에 삽입</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 1초 쉼
-</span><span class="n">p</span><span class="o">.</span><span class="n">typewrite</span><span class="p">(</span><span class="s">'Hello'</span><span class="p">)</span> 
-<span class="n">p</span><span class="o">.</span><span class="n">typewrite</span><span class="p">([</span><span class="s">'enter'</span><span class="p">])</span> 
-</code></pre></div></div>
-
-<h3 id="opencv-python">opencv-python</h3>
-
-<p>위치가 변경되어도 선택할 수 있도록 함</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">num7</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">locateOnScreen</span><span class="p">(</span><span class="s">'file.png'</span><span class="p">)</span>
-<span class="n">q</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> 
-
-<span class="n">num7</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">locateCenterOnScreen</span><span class="p">(</span><span class="s">'file.png'</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>스크린샷까지 자동화</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">p</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s">'name.png'</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">px</span><span class="p">,</span> <span class="n">px</span><span class="p">))</span>
-</code></pre></div></div>
-
+<p><strong>문제 해결!</strong></p>
 
         </div>
 
         <div class='c-tags'>
           
-            <a href='/tag/pyautogui'>pyautogui</a>
+            <a href='/tag/selenium'>selenium</a>
           
-            <a href='/tag/python'>python</a>
+            <a href='/tag/web scraping'>web scraping</a>
           
         </div>
 
@@ -427,7 +403,7 @@
   <div id='disqus_thread'></div>
   <script>
     var disqus_config = function () {
-      this.page.url = 'http://localhost:4000/study/web%20scraping/2020/01/15/pyauto-1/';
+      this.page.url = 'http://localhost:4000/study/web%20scraping/2020/01/15/0-No-Module-named-error-in-envs/';
     };
 
     (function() {

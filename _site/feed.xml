@@ -5,10 +5,360 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 15 Jan 2020 23:22:03 +0900</pubDate>
-    <lastBuildDate>Wed, 15 Jan 2020 23:22:03 +0900</lastBuildDate>
+    <pubDate>Thu, 16 Jan 2020 19:53:15 +0900</pubDate>
+    <lastBuildDate>Thu, 16 Jan 2020 19:53:15 +0900</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
 
+    
+      <item>
+        <title>[3] web crawling to actual site </title>
+        <description>&lt;h3 id=&quot;실전&quot;&gt;실전&lt;/h3&gt;
+
+</description>
+        <pubDate>Thu, 16 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/web%20scraping/2020/01/16/3-crawling-with-actual-sites/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/16/3-crawling-with-actual-sites/</guid>
+      </item>
+    
+      <item>
+        <title>[2] web crawling issues and Scrapy structure </title>
+        <description>&lt;h3 id=&quot;웹-크롤링-이슈&quot;&gt;웹 크롤링 이슈&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;저작권법 허용&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;단순 링크&lt;/li&gt;
+  &lt;li&gt;직접 링크 : 특정 게시물 링크&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;저작권법 위반&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;프레임 링크 - 저작물 일부를 홈페이지 표시&lt;/li&gt;
+  &lt;li&gt;임베드 링크 - 저작물 전체를 홈페이지 표시&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;크롤링 데이터 임의적 사용은 괜찮지만, 어딘가에 게시할 때는 주의하여야 함.&lt;/p&gt;
+
+&lt;h3 id=&quot;로봇-배제-표준-robotstxt&quot;&gt;로봇 배제 표준 (robots.txt)&lt;/h3&gt;
+
+&lt;p&gt;크롤링 허용 확인 - 게시물에 대한 권한이 누구에게 있는가?&lt;/p&gt;
+
+&lt;p&gt;유저와 운영자의 이해관계 차이 존재&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;모두 허용&lt;br /&gt;
+User-agent:&lt;br /&gt;
+Allow:&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;모두 차단&lt;br /&gt;
+User-agent:&lt;br /&gt;
+Disallow:&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;조합  &lt;br /&gt;
+User-agent: googlebot    # googlebot 로봇만 적용
+Disallow: /private/     # 이 디렉토리를 접근 차단한다.
+User-agent: googlebot-news  # googlebot-news 로봇만 적용
+Disallow: /         # 모든 디렉토리를 접근 차단한다.
+User-agent: *        # 모든 로봇 적용
+Disallow: /something/    # 이 디렉토리를 접근 차단한다.출처 : &lt;a href=&quot;https://ko.wikipedia.org/wiki/로봇_배제_표준&quot;&gt;위키/로봇 배제 표준&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;scrapy-구조&quot;&gt;Scrapy 구조&lt;/h3&gt;
+
+&lt;p&gt;/spiders - 실제 크롤링 로직이 들어감&lt;/p&gt;
+
+&lt;p&gt;items.py - 크롤링 대상 저장&lt;/p&gt;
+
+&lt;p&gt;pipelines.py - 크롤링 결과를 DB 삽입 혹은 필터링 결정&lt;/p&gt;
+
+&lt;p&gt;settings.py - 전체 프로젝트 설정 : 파이프라인 순서 결정, 로그 파일 지정 및 레벨 변경 등&lt;/p&gt;
+
+&lt;p&gt;scrapy.cfg - 전체 프로젝트 배포 시 설정&lt;/p&gt;
+
+&lt;h4 id=&quot;동작&quot;&gt;동작&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;items.py 정의&lt;/li&gt;
+  &lt;li&gt;/spiders 안에 시작 url 지정 (start_requests - 특정 url에 대한 callback함수 지정 가능, start_urls - 스트링 리스트, ), 각 url에 대한 callback 함수 지정 (parse() - common)&lt;/li&gt;
+  &lt;li&gt;callback 함수 정의&lt;br /&gt;
+selector를 이용해 데이터 선택 (xpath, css)&lt;/li&gt;
+  &lt;li&gt;Pipeline을 통해 데이터 필터링 혹은 DB에 저장&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;spiders&quot;&gt;Spiders&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;크롤러 이름 지정
+    &lt;ul&gt;
+      &lt;li&gt;name&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;스타트 url 지정
+    &lt;ul&gt;
+      &lt;li&gt;start_requests :
+        &lt;ul&gt;
+          &lt;li&gt;콜백 함수 지정 가능&lt;/li&gt;
+          &lt;li&gt;사이트 로그인 시 사용&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;start_urls :
+        &lt;ul&gt;
+          &lt;li&gt;시작 주소를 리스트 형태로 추가&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;parser 정의
+    &lt;ul&gt;
+      &lt;li&gt;def parser(self, response):&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;selector&quot;&gt;Selector&lt;/h4&gt;
+
+&lt;p&gt;html 문서에 특정 노드 선택&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;css vs xpath&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; response.xpath('//title/text()')
+&amp;gt;&amp;gt;&amp;gt; response.css('title::text')
+
+&amp;gt;&amp;gt;&amp;gt; response.xpath('//base/@href').extract()
+&amp;gt;&amp;gt;&amp;gt; response.css('base::attr(href)')
+
+&amp;gt;&amp;gt;&amp;gt; response.xpath('//a[contains(@href, &quot;image&quot;)]/@href')
+&amp;gt;&amp;gt;&amp;gt; response.css('a[href*=image]::attr(href)').extract()
+
+&amp;gt;&amp;gt;&amp;gt; response.xpath('//a[contains(@href. &quot;image&quot;)]/img/@src').extract()
+&amp;gt;&amp;gt;&amp;gt; response.scc('a[href*=image] img::attr(src)').extract()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;pipeline&quot;&gt;Pipeline&lt;/h4&gt;
+
+&lt;p&gt;데이터 크롤링 이후 특정 행동 수행&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;데이터 유효성 검사&lt;/li&gt;
+  &lt;li&gt;중복 체크&lt;/li&gt;
+  &lt;li&gt;DB 저장&lt;/li&gt;
+  &lt;li&gt;필터링&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;settings.py&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;파이프 클래스 및 순서 지정&lt;/p&gt;
+
+    &lt;p&gt;ITEM_PIPELINES = {&lt;/p&gt;
+
+    &lt;p&gt;‘project_name.pipelines.CommunityPipline’ : 200,&lt;/p&gt;
+
+    &lt;p&gt;} &amp;gt; 숫자가 낮을 수록 선실행&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;logging&quot;&gt;Logging&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;settings.py&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;LOG_FILE = ‘logfile.log’&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;LOG_LEVEL = logging.DEBUG&lt;/p&gt;
+
+        &lt;p&gt;설정파일에 파일명과 로그레벨을 통해 정의가 가능&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Log Level&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;logging.CRITICAL - for critical errors (highest severity)&lt;/li&gt;
+      &lt;li&gt;logging.ERROR - for regular errors&lt;/li&gt;
+      &lt;li&gt;logging.WARNING - for warning messages&lt;/li&gt;
+      &lt;li&gt;logging.INFO - for informational messages&lt;/li&gt;
+      &lt;li&gt;logging.DEBUG - for debugging messages (lowest severity)&lt;/li&gt;
+    &lt;/ol&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;LOG_LEVEL = logging.WARNING 이라고 설정하면 1~3까지가 지정됨&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Thu, 16 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/web%20scraping/2020/01/16/2-issues-of-web-crawling/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/16/2-issues-of-web-crawling/</guid>
+      </item>
+    
+      <item>
+        <title>[1] Scrapy 활용 </title>
+        <description>&lt;h3 id=&quot;웹-크롤러&quot;&gt;웹 크롤러&lt;/h3&gt;
+
+&lt;h4 id=&quot;beautiful-soup&quot;&gt;Beautiful Soup&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;parser의 역할이 강함&lt;/li&gt;
+  &lt;li&gt;자동으로 유니코드로 변환해서 UTF-8 출력&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;scrapy&quot;&gt;Scrapy&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;파이프라인 지원 : 데이터 후처리 (필터링 등) 가능&lt;/li&gt;
+  &lt;li&gt;로깅 정보 확인 가능&lt;/li&gt;
+  &lt;li&gt;상대적으로 bs보다 간편함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/scrapy_tutorial_list.png&quot; alt=&quot;scrapy_tutorial_list&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;items.py - 데이터를 들고올 때 클래스 형태로 만들 수 있음&lt;/li&gt;
+  &lt;li&gt;pipelines.py - 데이터 수집 후 후처리 필터링 입력 진행&lt;/li&gt;
+  &lt;li&gt;settings.py - 스크래피, 스파이더 설정 : 파이프라인 순서, 이름 등의 설정&lt;/li&gt;
+  &lt;li&gt;spider/ - 스크랩 할 내용을 프로그래밍&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;itemspy&quot;&gt;items.py&lt;/h4&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scrapy&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TutorialItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scrapy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 상속 필수
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scrapy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Field&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scrapy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Field&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;desc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scrapy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Field&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;가져오려는 아이템 정의&lt;/p&gt;
+
+&lt;h4 id=&quot;spidernew_filepy&quot;&gt;/spider/new_file.py&lt;/h4&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scrapy&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;linkScrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scrapy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Spider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;dmoz&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 스파이더 이름 지정
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;domain&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dmoztools.net&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;start_urls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'https://dmoztools.net/Computers/Programming/Languages/Python/Books/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'https://dmoztools.net/Computers/Programming/Languages/Python/Resources/'&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 스크랩 할 url 지정
+&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'//div'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'div[3]/a/div/text()'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'div[3]/a/@href'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;desc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'/div[3]/div/text()'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;*&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;desc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;i.xpath('/div[3]/div/text()').extract() &lt;/code&gt; 의 값은&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;['\r\n\t\t\t\r\n                                    The primary goal of this book is to promote object-oriented design using Python and to illustrate the use of the emerging object-oriented design patterns.\r\nA secondary goal of the book is to present mathematical tools just in time. Analysis techniques and proofs are presented as needed and in the proper context.\r\n                                    ',
+ '\r\n                                  ',
+ '\r\n                                  ',
+ '\r\n                                ',
+ '\r\n                                  ',
+ '\r\n                                  ',
+ '\r\n                                ',
+ 'Health']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;로 나오니 리스트 0번째 값 추출 후 strip()으로 내용만 추출… 하고싶었는데 빈칸이 출력됨&lt;/p&gt;
+
+&lt;h4 id=&quot;in-terminal&quot;&gt;in Terminal&lt;/h4&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scrapy&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shell&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'url'&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'//title'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;                                     
+&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&amp;lt;title&amp;gt;DMOZ - Computers: Programming: Languages: Python: Books&amp;lt;/title&amp;gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'//title'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;                                               
+&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Selector&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xpath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'//title'&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&amp;lt;title&amp;gt;DMOZ - Computers: Programming:...'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  
+&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'//title/text()'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;                              
+&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'DMOZ - Computers: Programming: Languages: Python: Books'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'//title/text()'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;w+):'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;                          
+&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Computers'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Programming'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Languages'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Python'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;describtion이 전혀 나오지 않는다.&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;scrapy shell url&lt;/code&gt; 로 만질 때는 아주 잘 나오는데 막상 코드로 넣으면 빈 리스트만 반환한다.  미치겠다… 미치겠다 왜 … 않되? 따흐ㅡㄱ 왜 안 되는지 정말 모르겠다… 짐작은 가는데… 내가 어떻게 만져야하는지 모르겠다… 빵 먹고싶다…&lt;/p&gt;
+
+    &lt;p&gt;title:&lt;/p&gt;
+
+    &lt;p&gt;//*[@id=”site-list-content”]/div[17]/div[3]/a/div&lt;/p&gt;
+
+    &lt;p&gt;//*[@id=”site-list-content”]/div[18]/div[3]/a/div&lt;/p&gt;
+
+    &lt;p&gt;desc:&lt;/p&gt;
+
+    &lt;p&gt;//*[@id=”site-list-content”]/div[17]/div[3]/div/text()&lt;/p&gt;
+
+    &lt;p&gt;//*[@id=”site-list-content”]/div[18]/div[3]/div/text()&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;쓰레기값 해결 문제&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;title&quot;: [&quot;Data Structures and Algorithms with Object-Oriented Design Patterns in Python &quot;], &quot;link&quot;: [&quot;http://www.brpreiss.com/books/opus7/html/book.html&quot;], &quot;desc&quot;: [&quot;\r\n\t\t\t\r\n                                    The primary goal of this book is to promote object-oriented design using Python and to illustrate the use of the emerging object-oriented design patterns.\r\nA secondary goal of the book is to present mathematical tools just in time. Analysis techniques and proofs are presented as needed and in the proper context.\r\n                                    &quot;, &quot;\r\n                                  &quot;]},
+{&quot;title&quot;: [], &quot;link&quot;: [], &quot;desc&quot;: []},
+   
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;값이 정확히 나온 부분의 문제 : desc 리스트 [0]번째 값만 필요함 - 정규표현식을 써야 하는 건가? 근데 리스트 형태라서 strip만 되는 거 같은데…&lt;/li&gt;
+      &lt;li&gt;빈 값 처리 - 뭐야!&lt;/li&gt;
+    &lt;/ol&gt;
+
+    &lt;p&gt;를 해야한다…&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;문제-해결&quot;&gt;문제 해결&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;i.xpath('/div[3]/div/text()').extract()&lt;/code&gt; &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;i.xpath('div[3]/div/text()').extract()&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;하~ 진짜 슬래쉬 때문에 개고생 하다니…핳&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;고찰&quot;&gt;고찰&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;나는 바보다&lt;/li&gt;
+  &lt;li&gt;눈을 똑바로 뜨자&lt;/li&gt;
+  &lt;li&gt;더 똑똑해지자&lt;/li&gt;
+  &lt;li&gt;컴퓨터는 잘못 없다&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Thu, 16 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/web%20scraping/2020/01/16/1-understanding-of-web-circumstances/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/16/1-understanding-of-web-circumstances/</guid>
+      </item>
     
       <item>
         <title>사담</title>
@@ -25,7 +375,43 @@
       </item>
     
       <item>
-        <title>BeautifulSoup 네이버 블로그 검색결과 가져오기</title>
+        <title>[3] Selenium을 사용한 기본 구글 크롤링</title>
+        <description>&lt;h3 id=&quot;google-scraping-using-selenium-and-beautifulsoup&quot;&gt;Google Scraping using Selenium and BeautifulSoup&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;urllib.parse&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;quote_plus&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bs4&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;base_url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'https://www.google.com/search?q='&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plus_url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base_url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;quote_plus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plus_url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Chrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page_source&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'html.parser'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'.r'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select_one&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'.LC20lb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attrs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'href'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# a 태그 안에 있는 href 가져오기
+&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;bs로만 구글 크롤링은 헤더가 있어야 함&lt;/p&gt;
+
+&lt;p&gt;또한 가져온 결과에서는 클래스 이름이 없음 &amp;gt; 결과는 있지만 클래스 이름이 달라지기 때문에 혼합 사용 권장&lt;/p&gt;
+</description>
+        <pubDate>Wed, 15 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/web%20scraping/2020/01/15/3-google-scraping-using-selenium-and-beautifulsoup/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/15/3-google-scraping-using-selenium-and-beautifulsoup/</guid>
+      </item>
+    
+      <item>
+        <title>[2] BeautifulSoup 네이버 블로그 검색결과 가져오기</title>
         <description>&lt;h3 id=&quot;beautifulsoup&quot;&gt;BeautifulSoup&lt;/h3&gt;
 
 &lt;hr /&gt;
@@ -56,7 +442,7 @@
 
 &lt;p&gt;&lt;strong&gt;urllib.parse.quote_plus()&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;네이버-이미지-저장&quot;&gt;네이버 이미지 저장&lt;/h4&gt;
+&lt;h4 id=&quot;네이버-이미지-저장하기&quot;&gt;네이버 이미지 저장하기&lt;/h4&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;base_url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'https://search.naver.com/search.naver?where=image&amp;amp;sm=tab_jum&amp;amp;query='&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;plus_url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'search'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -81,12 +467,12 @@
 
 </description>
         <pubDate>Wed, 15 Jan 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/study/web%20scraping/2020/01/15/pyautogui-image/</link>
-        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/15/pyautogui-image/</guid>
+        <link>http://localhost:4000/study/web%20scraping/2020/01/15/2-pyautogui-image/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/15/2-pyautogui-image/</guid>
       </item>
     
       <item>
-        <title>pyautogui 기초사용법</title>
+        <title>[1] pyautogui 기초사용법</title>
         <description>&lt;h3 id=&quot;py-auto-gui&quot;&gt;py auto gui&lt;/h3&gt;
 
 &lt;p&gt;as p&lt;/p&gt;
@@ -143,8 +529,34 @@
 
 </description>
         <pubDate>Wed, 15 Jan 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/study/web%20scraping/2020/01/15/pyauto-1/</link>
-        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/15/pyauto-1/</guid>
+        <link>http://localhost:4000/study/web%20scraping/2020/01/15/1-pyauto/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/15/1-pyauto/</guid>
+      </item>
+    
+      <item>
+        <title>[Error] No module named selenium in env</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/images/nomodulename_selenium.png&quot; alt=&quot;nomodulename_selenium&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ModuleNotFoundError: No module named ‘selenium’ - Atom&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/nomodulename_bs4.png&quot; alt=&quot;nomodulename_bs4&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ModuleNotFoundError: No module named ‘bs4’ - Jupyter notebook&lt;/p&gt;
+
+&lt;p&gt;저 상황일 때는 아무리 &lt;code class=&quot;highlighter-rouge&quot;&gt;conda install pip&lt;/code&gt;  등 뭘 해줘도 소용이 없었다. 난! 설치를 했는데! 왜! 넌! 없다고 말 하니? ㅠ&lt;/p&gt;
+
+&lt;p&gt;파이썬 버전이 2개나 깔려있으니까 (2.x / 3.x) 정확히 명시해주기로 했다.&lt;/p&gt;
+
+&lt;p&gt;환경 : 맥북 카탈리나 10.15.2 - 콘다 가상환경 사용&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python3 -m pip install BeautifulSoup4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;문제 해결!&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 15 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/web%20scraping/2020/01/15/0-No-Module-named-error-in-envs/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/15/0-No-Module-named-error-in-envs/</guid>
       </item>
     
       <item>
@@ -3897,6 +4309,10 @@ uses: high-speed network encryptions&lt;/li&gt;
     
       
         
+      
+    
+      
+    
       
     
       
