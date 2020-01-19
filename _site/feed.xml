@@ -5,15 +5,39 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 16 Jan 2020 19:53:15 +0900</pubDate>
-    <lastBuildDate>Thu, 16 Jan 2020 19:53:15 +0900</lastBuildDate>
+    <pubDate>Sun, 19 Jan 2020 14:50:58 +0900</pubDate>
+    <lastBuildDate>Sun, 19 Jan 2020 14:50:58 +0900</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
 
     
       <item>
-        <title>[3] web crawling to actual site </title>
+        <title></title>
+        <description>&lt;p&gt;###&lt;/p&gt;
+</description>
+        <pubDate>Sun, 19 Jan 2020 14:50:58 +0900</pubDate>
+        <link>http://localhost:4000/2020/01/19/2020-01-19-1-Selenium-with-scarpy-day1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/19/2020-01-19-1-Selenium-with-scarpy-day1/</guid>
+      </item>
+    
+      <item>
+        <title>[3] web crawling to actual site</title>
         <description>&lt;h3 id=&quot;실전&quot;&gt;실전&lt;/h3&gt;
 
+&lt;p&gt; 커뮤니티 스크래핑 하는 중이다.&lt;/p&gt;
+
+&lt;p&gt;클리앙 하다가 에러 수정하느라 시간을 날렸는데&lt;/p&gt;
+
+&lt;p&gt;왜 나는 try except 를 바로 생각하지 않았을까… ㅠㅠ&lt;/p&gt;
+
+&lt;p&gt;코드는 이따가 깃헙에 올려야겠따… ㅠㅠ&lt;/p&gt;
+
+&lt;h3 id=&quot;고찰&quot;&gt;고찰&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;수업은 배속해서 듣지 말자&lt;/li&gt;
+  &lt;li&gt;오류가 나면 try except 로 먼저 처리한 후에 어디서 오류가 났는지 확인하자&lt;/li&gt;
+  &lt;li&gt;힘들어도 다 하고 자면 뿌듯하다 ^&lt;strong&gt;__&lt;/strong&gt;_^&lt;/li&gt;
+&lt;/ol&gt;
 </description>
         <pubDate>Thu, 16 Jan 2020 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/study/web%20scraping/2020/01/16/3-crawling-with-actual-sites/</link>

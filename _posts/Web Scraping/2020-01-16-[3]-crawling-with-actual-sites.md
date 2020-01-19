@@ -1,8 +1,8 @@
 ---
 layout: post
-title: '[3] web crawling to actual site '
+title: '[3] web crawling to actual site'
 categories: [Study/Web Scraping]
-image: ''/images/scrapy_startproject_tree.png'
+image: '/images/scrapy_startproject_tree.png'
 ---
 
 ### 실전
