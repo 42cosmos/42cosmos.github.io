@@ -1,8 +1,9 @@
 ---
 layout: post
-title: '[3] PhantomJS & Headless Chrome'
+title: '[3] Selenium PhantomJS & Headless Chrome'
 categories: [Study/Web Scraping]
 image: 
+tags: [selenium, web scraping]
 ---
 
 ### Phantom JS
