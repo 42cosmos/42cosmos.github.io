@@ -2,9 +2,23 @@
 layout: post
 title: '[1] Scrapy 활용 '
 categories: [Study/Web Scraping]
+tags: [scrapy, web scraping]
 ---
 
-### 웹 크롤러
+### 웹 크롤러 Scrapy
+
+- 파이프라인 지원 : 데이터 후처리 (필터링 등) 가능
+- 로깅 정보 확인 가능
+- 상대적으로 bs보다 간편함
+- 안정적 크롤링 가능 
+- 시간 단축 > 동시다발적 크롤링으로 인한 순서 변경 
+- 다양한 포맷으로 저장 가능
+
+Framework 
+
+- 함수와 코드 선작성
+- 특성 함수의 위치, 사용, 작성을 지정
+- 
 
 #### Beautiful Soup
 
@@ -13,11 +27,20 @@ categories: [Study/Web Scraping]
 
 
 
-#### Scrapy
+### 
 
-- 파이프라인 지원 : 데이터 후처리 (필터링 등) 가능
-- 로깅 정보 확인 가능
-- 상대적으로 bs보다 간편함
+#### Spider 
+
+1. 이름 : 여러 가지 크롤러(spider)를 둘 수 있으므로, 각 이름을 지정
+2. 페이지 주소 : 크롤링 할 주소 지정
+
+```
+scrapy genspider 'crawler_name' 'url'
+
+# Expected Result
+Created spider 'gmarket' using template 'basic' in module:
+  ecommerce.spiders.gmarket
+```
 
 
 
@@ -86,7 +109,7 @@ class linkScrap(scrapy.Spider):
 
 
 
-#### in Terminal
+#### in Terminal - shell
 
 ```python
 >>> scrapy shell 'url'
@@ -106,11 +129,65 @@ Out[11]: ['Computers', 'Programming', 'Languages', 'Python']
 
 
 
+#### 문법 - 사용법
+
+```
+response.css('head > title').get() 
+response.css('head > title').getall() # list
+response.css('head > title::text').get() # 
+response.xpath('//div/ul/li/text()').get() # 
+response.css('div.best-list li > a::text').getall(
+```
+
+
+
+#### 정규표현식
+
+```
+response.css('div.best-list li > a::text')[1].re('(\w+)')
+
+response.xpath('//div[@class="best-list"]/ul/li/a/text()')[1].re('(\w+)')
+```
+
+
+
+
+
+### Pipelines - Filtering
+
+아이템이 생성될 때 파이프라인 함수를 한 번씩 거친다고 생가하면 됨!
+
+```python
+from scrapy.exceptions import DropItem
+class NavernewsPipeline(object):
+def process_item(self, item, spider):
+print (item)
+if item['price'] > 10000:
+return item else:
+raise DropItem("drop item having lower price than 10000")
+```
+
+
+
+### dd
+
+```python
+    def start_requests(self):
+        yield scrapy.Request(url='http://corners.gmarket.co.kr/Bestsellers', callback=self.parse)
+
+```
+
+지정 url 크롤링 후 parse 함수를 call-back ( call-back 으로 부르는 함수는 반드시 response 보유 필수)
+
+
+
+
+
 ### 문제
 
 1. describtion이 전혀 나오지 않는다. 
 
-   `scrapy shell url` 로 만질 때는 아주 잘 나오는데 막상 코드로 넣으면 빈 리스트만 반환한다.  미치겠다... 미치겠다 왜 ... 않되? 따흐ㅡㄱ 왜 안 되는지 정말 모르겠다... 짐작은 가는데... 내가 어떻게 만져야하는지 모르겠다... 빵 먹고싶다...
+   `scrapy shell url` 로 만질 때는 아주 잘 나오는데 막상 코드로 넣으면 빈 리스트만 반환한다.  미치겠다... 미치겠다 외 ... 않되? 왜 안 되는지 정말 모르겠다... 짐작은 가는데... 내가 어떻게 만져야하는지 모르겠다... 빵 먹고싶다...
 
    title:
 

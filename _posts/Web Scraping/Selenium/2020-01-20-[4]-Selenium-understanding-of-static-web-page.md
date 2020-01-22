@@ -1,8 +1,9 @@
 ---
 layout: post
-title: '[4] Understanding of static web page'
+title: '[4] Selenium Understanding of static web page'
 categories: [Study/Web Scraping]
 image: 
+tags: [selenium, web scraping]
 ---
 
 ### Ajax과 같은 동적 웹페이지 데이터 로딩

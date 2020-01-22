@@ -3,6 +3,7 @@ layout: post
 title: '[5] Selenium Practice'
 categories: [Study/Web Scraping]
 image: 
+tags: [selenium, web scraping]
 ---
 
 ### 네이버 기사 댓글 크롤링

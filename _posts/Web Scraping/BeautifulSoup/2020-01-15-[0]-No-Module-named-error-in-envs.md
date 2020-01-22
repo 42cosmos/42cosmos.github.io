@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[Error] No module named selenium in env'
-tags: [selenium, web scraping]
+tags: [error, selenium, web scraping]
 categories: [Study/Web Scraping]
 image: '/images/nomodulename_selenium.png'
 ---

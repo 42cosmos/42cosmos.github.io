@@ -1,8 +1,9 @@
 ---
 layout: post
-title: '[6] XPATH 이해하기'
+title: '[6] Selenium XPATH 이해하기'
 categories: [Study/Web Scraping]
 image: 
+tags: [selenium, web scraping]
 ---
 
 ### XML 특정 요소나 속성에 접근키 위한 경로 지정 언어

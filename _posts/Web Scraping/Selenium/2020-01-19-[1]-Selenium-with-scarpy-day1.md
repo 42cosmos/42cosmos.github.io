@@ -1,8 +1,8 @@
 ---
 layout: post
-title: '[1] 크롤링 기본'
+title: '[1] Selenium 크롤링 기본'
 categories: [Study/Web Scraping]
-image: 
+tags: [selenium, web scraping]
 ---
 
 #### 웹페이지 가져오기
