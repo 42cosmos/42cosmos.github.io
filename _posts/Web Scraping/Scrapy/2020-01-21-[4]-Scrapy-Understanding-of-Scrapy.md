@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[4] Scrapy Practices '
+title: '[4] Scrapy Practices'
 categories: [Study/Web Scraping]
 tags: [scrapy, web scraping]
 
@@ -13,3 +13,58 @@ tags: [scrapy, web scraping]
     `settings.py` 안에 `#CONCURRENT_REQUESTS = n`  주석 해제 후 숫자 변경 > 단, 속도 저하 
 
  
+
+### 데이터 후처리
+
+정규표현식
+
+```python
+import re
+
+def parse(self, response):
+  data = json.loads(response.body_as_unicode())
+  for item in data['items']:
+    print(re.sub('</S+>', '', item['title']))
+```
+
+
+
+### JSON 데이터 크롤링 처리
+
+```python
+import json
+
+def parse(self, response):
+  data = json.loads(response.body_as_unicode())
+  for item in data['items']:
+    doc = Naveropenapiitem()
+    doc['title'] = item['title']
+    doc['link'] = item['link']
+```
+
+`loads()`함수로 가져오면서 `body_as_unicode()`처리
+
+for문으로 json 데이터를 한 개씩 쪼개서 입력 가능
+
+
+
+### Naver openapi - 요청변수
+
+```python
+for index in range(10):
+  yield scrapy.Request(url=url + words_var + '&display=100&start=' + str(index*100 + 1), headers=header_var)
+```
+
+'&display=100&start=' + str(index*100 + 1)  처럼 작성 가능 >> 
+
+1. 0 > 1부터 100개
+2. 1 > 101부터 100개 
+3. 2 > 201부터 100개
+
+
+
+
+
+### 숙제
+
+\<b>,\n, \t ... 등의 태그 없애기
