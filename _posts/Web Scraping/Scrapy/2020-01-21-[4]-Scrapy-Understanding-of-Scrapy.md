@@ -1,10 +1,6 @@
 ---
 layout: post
-<<<<<<< HEAD
 title: '[4] Scrapy Practices'
-=======
-title: '[4] Scrapy Practices '
->>>>>>> 53393aa606501f232b9b8a883ba64bf06eeeb7f9
 categories: [Study/Web Scraping]
 tags: [scrapy, web scraping]
 
@@ -16,8 +12,8 @@ tags: [scrapy, web scraping]
 2. 동시 크롤링 횟수 조정 
     `settings.py` 안에 `#CONCURRENT_REQUESTS = n`  주석 해제 후 숫자 변경 > 단, 속도 저하 
 
-<<<<<<< HEAD
- 
+
+
 
 ### 데이터 후처리
 
@@ -73,6 +69,3 @@ for index in range(10):
 ### 숙제
 
 \<b>,\n, \t ... 등의 태그 없애기
-=======
- 
->>>>>>> 53393aa606501f232b9b8a883ba64bf06eeeb7f9

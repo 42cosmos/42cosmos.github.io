@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[4] Scrapy & Selenium wrap up!'
+title: '[5] Scrapy & Selenium wrap up!'
 categories: [Study/Web Scraping]
 tags: [scrapy, web scraping]
 ---
