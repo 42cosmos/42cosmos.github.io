@@ -5,19 +5,10 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 09 Feb 2020 16:42:01 +0900</pubDate>
-    <lastBuildDate>Sun, 09 Feb 2020 16:42:01 +0900</lastBuildDate>
+    <pubDate>Sun, 09 Feb 2020 16:45:22 +0900</pubDate>
+    <lastBuildDate>Sun, 09 Feb 2020 16:45:22 +0900</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
 
-    
-      <item>
-        <title>머신러닝을 위한 Python 05</title>
-        <description>
-</description>
-        <pubDate>Wed, 29 Jan 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/study/python/2020/01/29/ml-with-python/</link>
-        <guid isPermaLink="true">http://localhost:4000/study/python/2020/01/29/ml-with-python/</guid>
-      </item>
     
       <item>
         <title>[1] Understanding of Database</title>
@@ -2049,9 +2040,9 @@ np.t_array.sum(axis = 0)
       </item>
     
       <item>
-        <title></title>
-        <description>&lt;h1 id=&quot;pandas&quot;&gt;pandas&lt;/h1&gt;
-&lt;hr /&gt;
+        <title>Pandas 101</title>
+        <description>&lt;h3 id=&quot;pandas-101&quot;&gt;Pandas 101&lt;/h3&gt;
+
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;astype(type)&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;loc[[행], [열]]&lt;/code&gt; - 라벨 값을 기반으로 행 데이터 읽기
@@ -6582,8 +6573,6 @@ uses: high-speed network encryptions&lt;/li&gt;
     
       
         
-      
-    
       
     
       
