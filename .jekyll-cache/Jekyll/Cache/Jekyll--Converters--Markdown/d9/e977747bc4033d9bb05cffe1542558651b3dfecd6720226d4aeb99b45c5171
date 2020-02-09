@@ -1,0 +1,115 @@
+I"�<h1 id="pandas">pandas</h1>
+<hr />
+<p><code class="highlighter-rouge">astype(type)</code></p>
+
+<p><code class="highlighter-rouge">loc[[행], [열]]</code> - 라벨 값을 기반으로 행 데이터 읽기
+e.g. ) data_frame.loc[data_frame[‘Invoice Number’].str.startswith(‘920-‘), :]</p>
+
+<p><code class="highlighter-rouge">iloc[[행], [열]]</code> - 인덱스 값을 기반으로 단일 행을 선택해 열 헤더 행으로 사용할 수 있게 함</p>
+
+<p><code class="highlighter-rouge">.ix[]</code> &gt; <code class="highlighter-rouge">loc</code> 과 같으나 경고 메세지 반환</p>
+
+<p>’:’ &gt; 모든 행</p>
+
+<hr />
+
+<p><code class="highlighter-rouge">.columns</code> - 열 출력
+e.g.) data_frame.columns = data_frame.iloc[0]</p>
+
+<p><code class="highlighter-rouge">.index</code> - 행 출력</p>
+
+<hr />
+
+<p><code class="highlighter-rouge">.contains()</code> - 특정 문자열 포함 요소 탐색
+e.g.) data_frame[‘Supplier Name’].str.contains(‘Z’))</p>
+
+<p><code class="highlighter-rouge">.isin()</code> - 특정 값의 포함 여부를 확인 후 boolean 타입으로 반환</p>
+
+<p><code class="highlighter-rouge">.startswith('')</code> - 특정 문자열로 시작되는 요소 탐색</p>
+
+<p><code class="highlighter-rouge">.endswith('')</code> -  특정 문자열로 끝나는 요소 탐색</p>
+
+<hr />
+
+<p><code class="highlighter-rouge">.reindex()</code></p>
+
+<p><code class="highlighter-rouge">drop()</code> - 제거</p>
+
+<p><code class="highlighter-rouge">read_csv(header = None, names = list_V)</code></p>
+
+<p><code class="highlighter-rouge">concat(axis=0)</code>- 0 = 수평 / 1 = 수직으로 합침</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">merge()</code> &gt; <code class="highlighter-rouge">pandas.merge(DataFrame1, DataFrame2, on='key', how='inner')</code></p>
+
+  <p>Numpy &gt; <code class="highlighter-rouge">numpy.concatenate([array1, array2], axis=1)</code></p>
+
+  <p><code class="highlighter-rouge">numpy.hstack((array1, array2))</code></p>
+
+  <p><code class="highlighter-rouge">numpy.c[array1, array2]</code></p>
+</blockquote>
+
+<h3 id="data-frame">Data Frame</h3>
+<p>Series를 모아 만든 Data Table == 기본 2차원
+각 열마다 고유의 데이터 타입을 가질 수 있음<br />
+구조적 데이터 구조에 대한 분석 &gt; 가장 적합한 data object <br />
+각 row instance, tuple 마다 인덱스가 있고, 각 컬럼별로도 인덱스값이 있음</p>
+
+<h4 id="nested-dict">Nested Dict</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pop</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Nevada'</span> <span class="p">:</span> <span class="p">{</span><span class="mi">2001</span><span class="p">:</span><span class="mf">2.4</span><span class="p">,</span> <span class="mi">2002</span><span class="p">:</span><span class="mf">2.9</span><span class="p">},</span> <span class="s">'Ohio'</span> <span class="p">:</span> <span class="p">{</span><span class="mi">2000</span> <span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2001</span> <span class="p">:</span> <span class="mf">1.7</span><span class="p">,</span> <span class="mi">2002</span> <span class="p">:</span> <span class="mf">3.6</span><span class="p">}}</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="selection">Selection</h4>
+
+<ol>
+  <li><code class="highlighter-rouge">df.name</code> - Series</li>
+  <li><code class="highlighter-rouge">df['name'][:3]</code> -  column name with index num</li>
+  <li><code class="highlighter-rouge">df['name'][[0, 5, 10]]</code> - return values more than 1 index</li>
+  <li><code class="highlighter-rouge">df[df['name' &gt; 25]]</code> -  return values more than 25 in dataframe</li>
+  <li><code class="highlighter-rouge">df[:3]</code> - return 0, 1, 2 rows by row</li>
+  <li><code class="highlighter-rouge">df[['col1', 'col2']][:2]</code> - return 2 rows only in col1, col2</li>
+  <li><code class="highlighter-rouge">df[['col1', 'col2']].iloc[:10]</code> - return 0 to 10 rows only in col1, col2</li>
+  <li><code class="highlighter-rouge">df.index = list(range(0, df.shape[0]))</code> - re indexing</li>
+</ol>
+
+<h4 id="drop">Drop</h4>
+
+<ol>
+  <li><code class="highlighter-rouge">df.drop(1)</code> - drop row index num 1</li>
+</ol>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<h3 id="errors">Errors</h3>
+
+<ol>
+  <li>
+    <p><code class="highlighter-rouge">modulenotfounderror no module named 'pandas'</code></p>
+
+    <p>가상환경을 열어서 pandas 설치하고 지웠다가 다시 설치하고 컴퓨터 재부팅하고 막… 오만가지 난리를 펼치다가… 터미널 창에서 <code class="highlighter-rouge">which python3</code> 입력해서 나오는 주소를 py 파일 라인 1에 붙여넣고 실행하니 오류 해결!</p>
+
+    <p><code class="highlighter-rouge"><span class="c1">#! /Users/park-eunbin/miniconda3/envs/IP/bin/python3</span></code></p>
+
+    <p><br /></p>
+  </li>
+  <li>b’Skipping line 13: expected 5 fields, saw 7\n’ -&gt;
+<code class="highlighter-rouge">data_frame = pd.read_csv(input_file, error_bad_lines=False, warn_bad_lines=False)</code> 로 해결</li>
+  <li>pandas <code class="highlighter-rouge">.ix[]</code> Message</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.ix is deprecated. Please use
+
+.loc for label based indexing or
+
+.iloc for positional indexing
+</code></pre></div></div>
+
+<ol>
+  <li><code class="highlighter-rouge">delimiter =','</code> 오류 &gt; 해결 못함… 왜? 왜 $1,600.60을 제대로 못걸러내냐</li>
+</ol>
+
+:ET

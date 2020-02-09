@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[edwith] python for ML ch1'
+title: '머신러닝을 위한 Python 01'
 tags: [python]
 categories: 'Study/Python'
 ---

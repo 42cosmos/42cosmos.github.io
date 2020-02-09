@@ -1,0 +1,236 @@
+I"�><h1 id="pandas">pandas</h1>
+<hr />
+<p><code class="highlighter-rouge">astype(type)</code></p>
+
+<p><code class="highlighter-rouge">loc[[행], [열]]</code> - 라벨 값을 기반으로 행 데이터 읽기
+e.g. ) data_frame.loc[data_frame[‘Invoice Number’].str.startswith(‘920-‘), :]</p>
+
+<p><code class="highlighter-rouge">iloc[[행], [열]]</code> - 인덱스 값을 기반으로 단일 행을 선택해 열 헤더 행으로 사용할 수 있게 함</p>
+
+<p><code class="highlighter-rouge">.ix[]</code> &gt; <code class="highlighter-rouge">loc</code> 과 같으나 경고 메세지 반환</p>
+
+<p>’:’ &gt; 모든 행</p>
+
+<hr />
+
+<p><code class="highlighter-rouge">.columns</code> - 열 출력
+e.g.) data_frame.columns = data_frame.iloc[0]</p>
+
+<p><code class="highlighter-rouge">.index</code> - 행 출력</p>
+
+<hr />
+
+<p><code class="highlighter-rouge">.contains()</code> - 특정 문자열 포함 요소 탐색
+e.g.) data_frame[‘Supplier Name’].str.contains(‘Z’))</p>
+
+<p><code class="highlighter-rouge">.isin()</code> - 특정 값의 포함 여부를 확인 후 boolean 타입으로 반환</p>
+
+<p><code class="highlighter-rouge">.startswith('')</code> - 특정 문자열로 시작되는 요소 탐색</p>
+
+<p><code class="highlighter-rouge">.endswith('')</code> -  특정 문자열로 끝나는 요소 탐색</p>
+
+<hr />
+
+<p><code class="highlighter-rouge">.reindex()</code></p>
+
+<p><code class="highlighter-rouge">drop()</code> - 제거</p>
+
+<p><code class="highlighter-rouge">read_csv(header = None, names = list_V)</code></p>
+
+<p><code class="highlighter-rouge">concat(axis=0)</code>- 0 = 수평 / 1 = 수직으로 합침</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">merge()</code> &gt; <code class="highlighter-rouge">pandas.merge(DataFrame1, DataFrame2, on='key', how='inner')</code></p>
+
+  <p>Numpy &gt; <code class="highlighter-rouge">numpy.concatenate([array1, array2], axis=1)</code></p>
+
+  <p><code class="highlighter-rouge">numpy.hstack((array1, array2))</code></p>
+
+  <p><code class="highlighter-rouge">numpy.c[array1, array2]</code></p>
+</blockquote>
+
+<h3 id="data-frame">Data Frame</h3>
+<p>Series를 모아 만든 Data Table == 기본 2차원
+각 열마다 고유의 데이터 타입을 가질 수 있음<br />
+구조적 데이터 구조에 대한 분석 &gt; 가장 적합한 data object <br />
+각 row instance, tuple 마다 인덱스가 있고, 각 컬럼별로도 인덱스값이 있음</p>
+
+<h4 id="nested-dict">Nested Dict</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pop</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Nevada'</span> <span class="p">:</span> <span class="p">{</span><span class="mi">2001</span><span class="p">:</span><span class="mf">2.4</span><span class="p">,</span> <span class="mi">2002</span><span class="p">:</span><span class="mf">2.9</span><span class="p">},</span> <span class="s">'Ohio'</span> <span class="p">:</span> <span class="p">{</span><span class="mi">2000</span> <span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2001</span> <span class="p">:</span> <span class="mf">1.7</span><span class="p">,</span> <span class="mi">2002</span> <span class="p">:</span> <span class="mf">3.6</span><span class="p">}}</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="selection">Selection</h4>
+
+<ol>
+  <li><code class="highlighter-rouge">df.name</code> - Series</li>
+  <li><code class="highlighter-rouge">df['name'][:3]</code> -  column name with index num</li>
+  <li><code class="highlighter-rouge">df['name'][[0, 5, 10]]</code> - return values more than 1 index</li>
+  <li><code class="highlighter-rouge">df[df['name' &gt; 25]]</code> -  return values more than 25 in dataframe</li>
+  <li><code class="highlighter-rouge">df[:3]</code> - return 0, 1, 2 rows by row</li>
+  <li><code class="highlighter-rouge">df[['col1', 'col2']][:2]</code> - return 2 rows only in col1, col2</li>
+  <li><code class="highlighter-rouge">df[['col1', 'col2']].iloc[:10]</code> - return 0 to 10 rows only in col1, col2</li>
+  <li><code class="highlighter-rouge">df.index = list(range(0, df.shape[0]))</code> - re indexing</li>
+</ol>
+
+<h4 id="drop">Drop</h4>
+
+<ol>
+  <li><code class="highlighter-rouge">df.drop(1)</code> - drop row that index num 1</li>
+  <li><code class="highlighter-rouge">df.drop([0,1,3,6])</code> - drop rows after multiple index</li>
+  <li><code class="highlighter-rouge">df.drop('col_name', axis=1)</code> # same as <code class="highlighter-rouge">del df['col_name']</code></li>
+</ol>
+
+<p><br /></p>
+
+<h3 id="basic-operation-in-dataframe">Basic Operation in DataFrame</h3>
+
+<h4 id="series-operation">Series operation</h4>
+<p>numpy랑 비슷<br />
+index 기준으로 연산을 수행 &gt; 겹치는 index 가 없는 경우 NaN 반환<br />
+넘파이는 사이즈가 같지 않으면 error / 시리즈는 에러는 없지만 리스트 인덱스를 기준으로 더해주면서 없을 경우 nan</p>
+
+<ol>
+  <li><code class="highlighter-rouge">df1.add(df2, fill_value=0)</code> - add df2 to df1</li>
+</ol>
+
+<h4 id="series--dataframe">Series + DataFrame</h4>
+<p>data는 column 이름을 기준으로 broadcasting이 일어남<br />
+축을 변경해서 ( 세로 &gt; 가로 ) 더해주면, s2의 index (원래 column) 값과 df의 index 값을 기준으로 broadcasting이 일어남</p>
+
+<h3 id="lambda-map-apply">Lambda, Map, Apply</h3>
+
+<h4 id="lambda-함수">lambda 함수</h4>
+<p>한 줄로 함수를 표현하는 익명함수<br />
+<code class="highlighter-rouge">lambda argument : expression</code></p>
+
+<h4 id="map-함수">map 함수</h4>
+<p>함수와 sequence형 데이터를 인자로 받아 각 lmn 마다 입력받은 함수를 적용해 list 반환<br />
+일반적으로 함수를 lambda 형태로 표현</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ex</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">ex</span><span class="p">,</span> <span class="n">ex</span><span class="p">))</span>
+<span class="c1">#
+</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">x</span><span class="p">,</span> <span class="n">ex</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h5 id="map-for-series">Map for Series</h5>
+<p>Pandas의 Series type 데이터에도 map 함수 사용 가능<br />
+function 대신 dict, sequence형 자료 등으로 대체 가능</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s1</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">s1</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># output
+</span><span class="mi">0</span>     <span class="mi">0</span>
+<span class="mi">1</span>     <span class="mi">1</span>
+<span class="mi">2</span>     <span class="mi">4</span>
+<span class="mi">3</span>     <span class="mi">9</span>
+<span class="mi">4</span>    <span class="mi">16</span>
+<span class="mi">5</span>    <span class="mi">25</span>
+<span class="mi">6</span>    <span class="mi">36</span>
+<span class="mi">7</span>    <span class="mi">49</span>
+<span class="mi">8</span>    <span class="mi">64</span>
+<span class="mi">9</span>    <span class="mi">81</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+  
+<span class="n">z</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span> <span class="p">:</span> <span class="s">'a'</span><span class="p">,</span> <span class="mi">2</span> <span class="p">:</span> <span class="s">'b'</span><span class="p">,</span> <span class="mi">3</span> <span class="p">:</span> <span class="s">'c'</span><span class="p">}</span>
+<span class="n">s1</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="c1"># output
+</span><span class="mi">0</span>    <span class="n">NaN</span>
+<span class="mi">1</span>      <span class="n">a</span>
+<span class="mi">2</span>      <span class="n">b</span>
+<span class="mi">3</span>      <span class="n">c</span>
+<span class="mi">4</span>    <span class="n">NaN</span>
+<span class="mi">5</span>    <span class="n">NaN</span>
+<span class="mi">6</span>    <span class="n">NaN</span>
+<span class="mi">7</span>    <span class="n">NaN</span>
+<span class="mi">8</span>    <span class="n">NaN</span>
+<span class="mi">9</span>    <span class="n">NaN</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+  
+<span class="c1"># e.g. 1
+</span><span class="n">df</span><span class="p">[</span><span class="s">'sex_code'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sex</span><span class="o">.</span><span class="nb">map</span><span class="p">({</span><span class="s">'male'</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'female'</span> <span class="p">:</span> <span class="mi">1</span><span class="p">})</span> 
+<span class="c1"># e.g. 2
+</span><span class="n">df</span><span class="p">[</span><span class="s">'height_categories'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">height</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="s">'대'</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">70</span> <span class="k">else</span> <span class="s">'소'</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<h4 id="apply-for-dataframe">Apply for dataframe</h4>
+<p>map과 달리 series 전체 - column 전체에 해당 함수 적용 - map 은 각 lmn마다 lambda를 적용시키는 경우라면<br />
+입력값이 series 데이터로 입력받아 handling 가능<br />
+각 컬럼별로 반환 - 통계 자료 뽑을 때 유용함<br />
+요약 정보를 보기 위한 data frame 형태로도 사용이 가능</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="nb">min</span><span class="p">()</span>
+<span class="n">df_info</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> 
+<span class="c1"># f == 시리즈 데이터 전체가 들어감. 데이터 전체의 최대 최소를 구해진 후 반환이 됨
+</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Series</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="nb">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="nb">max</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">()],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s">'min'</span><span class="p">,</span> <span class="s">'max'</span><span class="p">,</span> <span class="s">'mean'</span><span class="p">])</span> 
+<span class="c1"># 두 행을 새로 생성해서 전체 데이터를 집어 넣어 min, max 찾기
+</span><span class="n">df_info</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="applymap-for-dataframe">Applymap for dataFrame</h4>
+
+<ul>
+  <li>Series 단위가 아닌 lmn 단위 전체에 함수를 적용</li>
+  <li>Series 단위에 apply를 적용시킬 때와 같은 효과
+<br />
+    <ol>
+      <li>applymap, apply : DF 단위 내에서</li>
+      <li>map : Series 단위 내에서</li>
+    </ol>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="o">-</span><span class="n">x</span>
+<span class="n">df_info</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><a href="images/pandas_describe.png">!image</a></p>
+
+<h3 id="built-in-functions">Built-in Functions</h3>
+<h4 id="describe">describe</h4>
+<p>Numeric type 데이터 요약 정보</p>
+
+<h4 id="unique">Unique</h4>
+<p>Series data의 유일한 값을 list로 반환<br />
+데이터 라벨링-라벨인코더가 가능해짐 
+<code class="highlighter-rouge">dict(enumerate(df['column_name'].unique()))</code></p>
+
+<p><br /></p>
+
+<h3 id="errors">Errors</h3>
+
+<ol>
+  <li>
+    <p><code class="highlighter-rouge">modulenotfounderror no module named 'pandas'</code></p>
+
+    <p>가상환경을 열어서 pandas 설치하고 지웠다가 다시 설치하고 컴퓨터 재부팅하고 막… 오만가지 난리를 펼치다가… 터미널 창에서 <code class="highlighter-rouge">which python3</code> 입력해서 나오는 주소를 py 파일 라인 1에 붙여넣고 실행하니 오류 해결!</p>
+
+    <p><code class="highlighter-rouge"><span class="c1">#! /Users/park-eunbin/miniconda3/envs/IP/bin/python3</span></code></p>
+
+    <p><br /></p>
+  </li>
+  <li>b’Skipping line 13: expected 5 fields, saw 7\n’ -&gt;
+<code class="highlighter-rouge">data_frame = pd.read_csv(input_file, error_bad_lines=False, warn_bad_lines=False)</code> 로 해결</li>
+  <li>pandas <code class="highlighter-rouge">.ix[]</code> Message</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.ix is deprecated. Please use
+
+.loc for label based indexing or
+
+.iloc for positional indexing
+</code></pre></div></div>
+
+<ol>
+  <li><code class="highlighter-rouge">delimiter =','</code> 오류 &gt; 해결 못함… 왜? 왜 $1,600.60을 제대로 못걸러내냐</li>
+</ol>
+
+:ET
