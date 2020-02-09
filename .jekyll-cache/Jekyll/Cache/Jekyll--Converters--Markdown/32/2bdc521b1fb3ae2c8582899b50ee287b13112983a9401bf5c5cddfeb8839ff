@@ -1,0 +1,36 @@
+I"X<p><a href="https://www.inflearn.com/course/SQL-DB-MYSQL-파이썬-데이터분석">SQL/DB(MySQL) 기본부터 파이썬/데이터분석 활용까지!</a></p>
+
+<h3 id="relational-database-management-system">Relational DataBase Management System</h3>
+
+<p><strong>C</strong>reate <strong>R</strong>ead <strong>U</strong>pdate <strong>D</strong>elete</p>
+
+<p>table - 표</p>
+
+<p>row, recod - 행 (데이터 자체)</p>
+
+<p>column - 열 (데이터 구조)</p>
+
+<p>####</p>
+
+<ul>
+  <li>pymysql.connect() 메소드를 사용하여 MySQL에 연결
+    <ul>
+      <li>호스트명, 포트, 로그인, 암호, 접속할 DB 등을 파라미터로 지정</li>
+      <li>주요 파라미터
+        <ul>
+          <li>host : 접속할 mysql server 주소</li>
+          <li>port : 접속할 mysql server 의 포트 번호</li>
+          <li>user : mysql ID</li>
+          <li>passwd : mysql ID의 암호</li>
+          <li>db : 접속할 데이터베이스</li>
+          <li>charset=’utf8’ : mysql에서 select하여 데이타를 가져올 때 한글이 깨질 수 있으므로 연결 설정에 넣어줌</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>db = pymysql.connect(host='localhost', port=3306, user='root', passwd='pwd', db='name', charset='utf8')
+</code></pre></div></div>
+
+:ET

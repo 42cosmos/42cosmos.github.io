@@ -1,51 +1,728 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>빈둥빈둥 개발 공부 블로그</title>
+    <title>빈둥빈둥 공부 블로그</title>
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jan 2020 14:50:58 +0900</pubDate>
-    <lastBuildDate>Sun, 19 Jan 2020 14:50:58 +0900</lastBuildDate>
+    <pubDate>Sun, 09 Feb 2020 11:42:34 +0900</pubDate>
+    <lastBuildDate>Sun, 09 Feb 2020 11:42:34 +0900</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
 
     
       <item>
-        <title></title>
+        <title>[Inflearn] 머신러닝을 위한 Python chap 01-02</title>
         <description>&lt;p&gt;###&lt;/p&gt;
 </description>
-        <pubDate>Sun, 19 Jan 2020 14:50:58 +0900</pubDate>
-        <link>http://localhost:4000/2020/01/19/2020-01-19-1-Selenium-with-scarpy-day1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/19/2020-01-19-1-Selenium-with-scarpy-day1/</guid>
+        <pubDate>Wed, 29 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/python/2020/01/29/1-ml-with-python-inf/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/python/2020/01/29/1-ml-with-python-inf/</guid>
       </item>
     
       <item>
-        <title>[3] web crawling to actual site</title>
-        <description>&lt;h3 id=&quot;실전&quot;&gt;실전&lt;/h3&gt;
+        <title>[1] Understanding of Database</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://www.inflearn.com/course/SQL-DB-MYSQL-파이썬-데이터분석&quot;&gt;SQL/DB(MySQL) 기본부터 파이썬/데이터분석 활용까지!&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt; 커뮤니티 스크래핑 하는 중이다.&lt;/p&gt;
+&lt;h3 id=&quot;relational-database-management-system&quot;&gt;Relational DataBase Management System&lt;/h3&gt;
 
-&lt;p&gt;클리앙 하다가 에러 수정하느라 시간을 날렸는데&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;C&lt;/strong&gt;reate &lt;strong&gt;R&lt;/strong&gt;ead &lt;strong&gt;U&lt;/strong&gt;pdate &lt;strong&gt;D&lt;/strong&gt;elete&lt;/p&gt;
 
-&lt;p&gt;왜 나는 try except 를 바로 생각하지 않았을까… ㅠㅠ&lt;/p&gt;
+&lt;p&gt;table - 표&lt;/p&gt;
 
-&lt;p&gt;코드는 이따가 깃헙에 올려야겠따… ㅠㅠ&lt;/p&gt;
+&lt;p&gt;row, recod - 행 (데이터 자체)&lt;/p&gt;
+
+&lt;p&gt;column - 열 (데이터 구조)&lt;/p&gt;
+
+&lt;p&gt;####&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;pymysql.connect() 메소드를 사용하여 MySQL에 연결
+    &lt;ul&gt;
+      &lt;li&gt;호스트명, 포트, 로그인, 암호, 접속할 DB 등을 파라미터로 지정&lt;/li&gt;
+      &lt;li&gt;주요 파라미터
+        &lt;ul&gt;
+          &lt;li&gt;host : 접속할 mysql server 주소&lt;/li&gt;
+          &lt;li&gt;port : 접속할 mysql server 의 포트 번호&lt;/li&gt;
+          &lt;li&gt;user : mysql ID&lt;/li&gt;
+          &lt;li&gt;passwd : mysql ID의 암호&lt;/li&gt;
+          &lt;li&gt;db : 접속할 데이터베이스&lt;/li&gt;
+          &lt;li&gt;charset=’utf8’ : mysql에서 select하여 데이타를 가져올 때 한글이 깨질 수 있으므로 연결 설정에 넣어줌&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;db = pymysql.connect(host='localhost', port=3306, user='root', passwd='pwd', db='name', charset='utf8')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Tue, 28 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/database/2020/01/28/5-Database-101/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/database/2020/01/28/5-Database-101/</guid>
+      </item>
+    
+      <item>
+        <title>conda 가상환경 jupyter - NoModuleError 오류</title>
+        <description>&lt;h3 id=&quot;오류&quot;&gt;오류&lt;/h3&gt;
+
+&lt;p&gt;기실 멀쩡히 돌아가는 화면 보다 오류를 더 많이 본다! 하하&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/DB_nomodule_in_jupyter0.png&quot; alt=&quot;DB_nomodule_in_jupyter0&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/DB_nomodule_in_jupyter1.png&quot; alt=&quot;DB_nomodule_in_jupyter1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/DB_nomodule_in_jupyter2.png&quot; alt=&quot;DB_nomodule_in_jupyter2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;where pymysql&lt;/code&gt; 을 하면 찾을 수 없다고 하면서… 설치하려니까 &lt;code class=&quot;highlighter-rouge&quot;&gt;already install&lt;/code&gt; 를 보여줬다. 설치되어있는 패키지도 확인 했는데… 분명히 있는데…&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;재부팅&lt;/li&gt;
+  &lt;li&gt;설치 확인&lt;/li&gt;
+  &lt;li&gt;삭제 후 재설치&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;모두 했는데 안 된다는 건… 역시 내 문제라는 이야기다.&lt;/p&gt;
+
+&lt;h3 id=&quot;해결&quot;&gt;해결&lt;/h3&gt;
+
+&lt;p&gt;전제조건부터 잘못 되었다. 터미널에서 가상환경을 열고 ! 주피터를 켜면 ! 그게 가상환경과 주피터의 만남…✨이라는 조건을 넣고 들어가서 뭐든 안 됐던 거다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/DB_nomodule_in_jupyter3.png&quot; alt=&quot;DB_nomodule_in_jupyter3&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/DB_nomodule_in_jupyter4.png&quot; alt=&quot;DB_nomodule_in_jupyter4&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ python -m ipykernel install --user --name=envs'_name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python -m ipykernel install --user
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;터미널 창에서 입력해준 후에… 주피터에서 새로 파일을 만들면! 짜잔&lt;/p&gt;
+
+&lt;p&gt;1번 방법으로 하면 이렇게 나온다!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/DB_nomodule_in_jupyter5.png&quot; alt=&quot;DB_nomodule_in_jupyter5&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;첫-번째-해결책-커널-지우는-법&quot;&gt;첫 번째 해결책 커널 지우는 법&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jupyter kernelspec uninstall Kernel_name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Tue, 28 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/database/2020/01/28/%E1%84%80%E1%85%A1%E1%84%89%E1%85%A1%E1%86%BC%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC-%E1%84%8C%E1%85%AE%E1%84%91%E1%85%B5%E1%84%90%E1%85%A5-%E1%84%8B%E1%85%A9%E1%84%85%E1%85%B2/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/database/2020/01/28/%E1%84%80%E1%85%A1%E1%84%89%E1%85%A1%E1%86%BC%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC-%E1%84%8C%E1%85%AE%E1%84%91%E1%85%B5%E1%84%90%E1%85%A5-%E1%84%8B%E1%85%A9%E1%84%85%E1%85%B2/</guid>
+      </item>
+    
+      <item>
+        <title>[2] Principle of GIT - GIT from HELL</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://www.inflearn.com/course/지옥에서-온-git#curriculum&quot;&gt;지옥에서 온 GIT&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;git&quot;&gt;GIT&lt;/h3&gt;
+
+&lt;p&gt;incredibly COMPLEX&lt;/p&gt;
+
+&lt;h4 id=&quot;version&quot;&gt;Version&lt;/h4&gt;
+
+&lt;p&gt;단위 &amp;gt; 작업의 완결 상태 - 의미있는 변화 == 버전&lt;/p&gt;
+
+&lt;p&gt;효용성&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;차이점 과거 시점 내용&lt;/li&gt;
+  &lt;li&gt;과거로의 회귀&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;git-stage-area&quot;&gt;Git stage area&lt;/h4&gt;
+
+&lt;p&gt;git add 과정을 통해 commit 하고싶은 파일만 하게끔 함 : add 한 파일만이 commit 됨 - 선택적 commit이 가능함&lt;/p&gt;
+
+&lt;p&gt;add 된 파일의 commit 대기 장소 … 대합실&lt;/p&gt;
+
+&lt;h4 id=&quot;git-diff&quot;&gt;git diff&lt;/h4&gt;
+
+&lt;p&gt;( commit ) 버전 간의 소스코드 차이&lt;/p&gt;
+
+&lt;h4 id=&quot;회귀&quot;&gt;회귀&lt;/h4&gt;
+
+&lt;h5 id=&quot;reset&quot;&gt;reset&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git reset 'commit id' --hard
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;옵션은 hard, soft 등 존재&lt;/p&gt;
+
+&lt;p&gt;해당 아이디가 가장 최신이 됨&lt;/p&gt;
+
+&lt;p&gt;버려진 파일들은 어딘가에 남아 복구할 수 있음. &lt;strong&gt;공유 이후의 reset X&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;revert&quot;&gt;revert&lt;/h5&gt;
+
+&lt;p&gt;commit을 취소하면서 새로운 버전을 만듦&lt;/p&gt;
+
+&lt;h3 id=&quot;원리&quot;&gt;원리&lt;/h3&gt;
+
+&lt;h4 id=&quot;add-원리&quot;&gt;add 원리&lt;/h4&gt;
+
+&lt;h5 id=&quot;gistory&quot;&gt;gistory&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install gistory
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;설치 후 .git 폴더 진입 &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;gistory&lt;/code&gt; &amp;gt; 웹 브라우저에서 이미지 내 해당 주소로 진입&lt;/p&gt;
+
+&lt;p&gt;index 내 파일이 add 한 오브젝트 (객체)&lt;/p&gt;
+
+&lt;p&gt;git은 파일 저장 시 파일의 이름이 달라도 내용이 같으면 같은 오브젝트로 저장한다.&lt;/p&gt;
+
+&lt;h5 id=&quot;objects&quot;&gt;Objects&lt;/h5&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;파일 내용 함양 -  blob&lt;/li&gt;
+  &lt;li&gt;어떤 디렉토리의 파일명과 그 파일내용-blob 을 담고있는 것 - tree&lt;/li&gt;
+  &lt;li&gt;commit&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h5 id=&quot;object-파일명의-원리&quot;&gt;Object 파일명의 원리&lt;/h5&gt;
+
+&lt;p&gt;저장 파일은 SHA1로 해쉬값을 생성&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;78981922613b2afb6025042ff6bd878ac1994e85&lt;/code&gt; : 해쉬값&lt;/p&gt;
+
+&lt;p&gt;가장 앞 2자리 78을 이름삼아 디렉토리 생성, 981922613b2afb6025042ff6bd878ac1994e85을 이름으로 파일에 내용을 저장&lt;/p&gt;
+
+&lt;h4 id=&quot;commit-원리&quot;&gt;commit 원리&lt;/h4&gt;
+
+&lt;p&gt;commit msg도 내용처럼 object 안에 포함됨&lt;/p&gt;
+
+&lt;p&gt;:: Parent - 이전 commit이 누구인가?&lt;/p&gt;
+
+&lt;p&gt;:: Tree - commit이 일어난 시점에의 작업 dir에 있는 파일 이름과 내용  - 각 커밋은 트리를 가지고 있어서 그 커밋이 만들어진 시점의 파일의 이름과 내용이 담겨있음 (해당 트리는 파일 이름과 내용이 링크가 되어있기 때문에,) 버전에 적혀있는 트리를 통해 버전이 만들어진 시점 » 프로젝트 폴더에 대한 상태를 알아냄 (aka snapshot)&lt;/p&gt;
+
+&lt;h4 id=&quot;status-원리&quot;&gt;status 원리&lt;/h4&gt;
+
+&lt;p&gt;index 와 가장 최신 commit 내용 일치 == 현재 커밋할 것 없음  » 해쉬값의 변화로 인한 status 알림!이라고 짐작할 수 있음&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;TBC&lt;/p&gt;
+</description>
+        <pubDate>Fri, 24 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/git/2020/01/24/2-Git-Study/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/git/2020/01/24/2-Git-Study/</guid>
+      </item>
+    
+      <item>
+        <title>[6] Selenium XPATH 이해하기</title>
+        <description>&lt;h3 id=&quot;xml-특정-요소나-속성에-접근키-위한-경로-지정-언어&quot;&gt;XML 특정 요소나 속성에 접근키 위한 경로 지정 언어&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;태그 및 속성 선택&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;crawling_data = soup.find('h1')
+crawling_data = soup.find(id='title')
+crawling_data = soup.find('p', class_='cssstyle') crawling_data = soup.find('p', attrs = {'align': 'center'})
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;CSS Selector&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;crawling_data = soup.select('html &amp;gt; title')
+crawling_data = soup.select('div.article_view')
+crawling_data = soup.select('#harmonyContainer')
+crawling_data = soup.select('div#mArticle div#harmonyContainer')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;XPath&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;bs 미지원 / Selenium or PhantomJS 지원&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;a href=&quot;https://wkdtjsgur100.github.io/selenium-xpath/&quot;&gt;xpath 문법&lt;/a&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 문서 내 태그 검색
+title = driver.find_element_by_xpath(&quot;//title&quot;)
+   
+# 절대 경로
+title = driver.find_element_by_xpath(&quot;/html/head/title&quot;)
+   
+# html 태그 내 검색
+title = driver.find_element_by_xpath(&quot;/html//title&quot;)
+   
+# soup.find('h3', attrs = {'class' : 'tit_s'})
+title_content = driver.find_element_by_xpath(&quot;//h3[@class='tit_view']&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Tue, 21 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/web%20scraping/2020/01/21/6-Selenium-Understanding-of-XPATH/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/21/6-Selenium-Understanding-of-XPATH/</guid>
+      </item>
+    
+      <item>
+        <title>[5] Selenium Practice</title>
+        <description>&lt;h3 id=&quot;네이버-기사-댓글-크롤링&quot;&gt;네이버 기사 댓글 크롤링&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;options.add_argument('headless')&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;헤드리스 옵션을 넣을 때와 그렇지 않을 때 가져오는 데이터의 차이가 나타났다. 왜? 저 한 줄을 고작 주석처리 할 뿐이었는데 어떻게 고쳐야하는지 모르겠다.&lt;/p&gt;
+
+&lt;p&gt;headless 일 때 가져오는 댓글의 수 겨우 10개. 없을 때는 내가 원하는 만큼 잘 가져온다. … 음… 도대체 왜?&lt;/p&gt;
+</description>
+        <pubDate>Tue, 21 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/web%20scraping/2020/01/21/5-Selenium-practice/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/21/5-Selenium-practice/</guid>
+      </item>
+    
+      <item>
+        <title>[5] Scrapy &amp; Selenium wrap up!</title>
+        <description>&lt;h3 id=&quot;정리&quot;&gt;정리&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;태그 및 속성으로 선택&lt;/li&gt;
+  &lt;li&gt;CSS Selector 선택&lt;/li&gt;
+  &lt;li&gt;XPATH 선택&lt;/li&gt;
+  &lt;li&gt;데이터 후처리
+    &lt;ul&gt;
+      &lt;li&gt;파이썬 문자열 함수 / 정규표현식&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;다양한-크롤링-기술&quot;&gt;다양한 크롤링 기술&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Open API&lt;/li&gt;
+  &lt;li&gt;로그인 필요한 웹페이지 크롤링
+    &lt;ul&gt;
+      &lt;li&gt;다양한 환경에서 가능 :&lt;/li&gt;
+      &lt;li&gt;Selenium 브라우저 자체 제어&lt;/li&gt;
+      &lt;li&gt;Headless Chrome&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;업무-자동화-기술&quot;&gt;업무 자동화 기술&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;크롤링 데이터 기반
+    &lt;ul&gt;
+      &lt;li&gt;엑셀&lt;/li&gt;
+      &lt;li&gt;구글 쉬트&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;풀스택과-데이터-과학-기본&quot;&gt;풀스택과 데이터 과학 기본&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;데이터 수집&lt;/li&gt;
+  &lt;li&gt;데이터 저장&lt;/li&gt;
+  &lt;li&gt;데이터 분석&lt;/li&gt;
+  &lt;li&gt;데이터 시각화 - 서비스 개발 (insight)&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Tue, 21 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/web%20scraping/2020/01/21/5-Scrapy-&-Selenium-warp-up/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/21/5-Scrapy-&-Selenium-warp-up/</guid>
+      </item>
+    
+      <item>
+        <title>[4] Scrapy Practices</title>
+        <description>&lt;h3 id=&quot;others&quot;&gt;others&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;필드명 순서의 랜덤 : DB 안에 넣는 데이터라 크게 신경쓰지 않아도 됨. 그럼에도 불구하고 원하는 순서가 있다면 &lt;code class=&quot;highlighter-rouge&quot;&gt;settings.py&lt;/code&gt; 안에 &lt;code class=&quot;highlighter-rouge&quot;&gt;FEED_EXPORT_FIELDS = ['a', 'b', 'c'] &lt;/code&gt; 선언&lt;/li&gt;
+  &lt;li&gt;동시 크롤링 횟수 조정 
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;settings.py&lt;/code&gt; 안에 &lt;code class=&quot;highlighter-rouge&quot;&gt;#CONCURRENT_REQUESTS = n&lt;/code&gt;  주석 해제 후 숫자 변경 &amp;gt; 단, 속도 저하&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;데이터-후처리&quot;&gt;데이터 후처리&lt;/h3&gt;
+
+&lt;p&gt;정규표현식&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loads&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body_as_unicode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'items'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&amp;lt;/S+&amp;gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'title'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;json-데이터-크롤링-처리&quot;&gt;JSON 데이터 크롤링 처리&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;json&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loads&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body_as_unicode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'items'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;doc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Naveropenapiitem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;doc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'title'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'title'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;doc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'link'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'link'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;loads()&lt;/code&gt;함수로 가져오면서 &lt;code class=&quot;highlighter-rouge&quot;&gt;body_as_unicode()&lt;/code&gt;처리&lt;/p&gt;
+
+&lt;p&gt;for문으로 json 데이터를 한 개씩 쪼개서 입력 가능&lt;/p&gt;
+
+&lt;h3 id=&quot;naver-openapi---요청변수&quot;&gt;Naver openapi - 요청변수&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scrapy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;words_var&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'&amp;amp;display=100&amp;amp;start='&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;header_var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;‘&amp;amp;display=100&amp;amp;start=’ + str(index*100 + 1)  처럼 작성 가능 »&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;0 &amp;gt; 1부터 100개&lt;/li&gt;
+  &lt;li&gt;1 &amp;gt; 101부터 100개&lt;/li&gt;
+  &lt;li&gt;2 &amp;gt; 201부터 100개&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;숙제&quot;&gt;숙제&lt;/h3&gt;
+
+&lt;p&gt;&amp;lt;b&amp;gt;,\n, \t … 등의 태그 없애기&lt;/p&gt;
+</description>
+        <pubDate>Tue, 21 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/web%20scraping/2020/01/21/4-Scrapy-Understanding-of-Scrapy/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/21/4-Scrapy-Understanding-of-Scrapy/</guid>
+      </item>
+    
+      <item>
+        <title>[3] Scrapy OOP for Scrapy</title>
+        <description>&lt;h3 id=&quot;understanding-of-oop-for-scrapy&quot;&gt;Understanding of OOP for Scrapy&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;사물 설계도 - class&lt;/li&gt;
+  &lt;li&gt;설계도 기반 사물1 객체 생성 - object&lt;/li&gt;
+  &lt;li&gt;사물1 객체 기능 호출
+    &lt;ul&gt;
+      &lt;li&gt;attribute : 사물 1 객체의 변수&lt;/li&gt;
+      &lt;li&gt;method : 사물 1 객체의 함수 (e.g. 사물1.method())&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;객체-생성&quot;&gt;객체 생성&lt;/h4&gt;
+
+&lt;p&gt;객체이름 = 클래스이름()&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;객체-기능-호출&quot;&gt;객체 기능 호출&lt;/h4&gt;
+
+&lt;p&gt;객체이름.method = 값&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;객체가 가진 값은 공유되지 않음.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h3 id=&quot;고찰&quot;&gt;고찰&lt;/h3&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;수업은 배속해서 듣지 말자&lt;/li&gt;
-  &lt;li&gt;오류가 나면 try except 로 먼저 처리한 후에 어디서 오류가 났는지 확인하자&lt;/li&gt;
-  &lt;li&gt;힘들어도 다 하고 자면 뿌듯하다 ^&lt;strong&gt;__&lt;/strong&gt;_^&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;인간 해부도는 똑같지만 마음과 생각은 모두 다르다고 생각해보자&lt;/p&gt;
 </description>
-        <pubDate>Thu, 16 Jan 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/study/web%20scraping/2020/01/16/3-crawling-with-actual-sites/</link>
-        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/16/3-crawling-with-actual-sites/</guid>
+        <pubDate>Tue, 21 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/web%20scraping/2020/01/21/3-Scrapy-Object-Oriented-Programming/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/21/3-Scrapy-Object-Oriented-Programming/</guid>
       </item>
     
       <item>
-        <title>[2] web crawling issues and Scrapy structure </title>
+        <title>[4] Selenium Understanding of static web page</title>
+        <description>&lt;h3 id=&quot;ajax과-같은-동적-웹페이지-데이터-로딩&quot;&gt;Ajax과 같은 동적 웹페이지 데이터 로딩&lt;/h3&gt;
+
+&lt;p&gt;“웹페이지 새로고침 X &amp;gt; 특정 부분만 변경”&lt;/p&gt;
+
+&lt;p&gt;특정 부분을 동적으로 가져오고, 해당 부분만 변경 시 그 부분만 변화 == 댓글 등&lt;/p&gt;
+
+&lt;p&gt;웹브라우저에 전부 로딩 시킨 후 가져올 수 있음&lt;/p&gt;
+
+&lt;h3 id=&quot;동적-데이터-특징-필요조건&quot;&gt;동적 데이터 특징-필요조건&lt;/h3&gt;
+
+&lt;p&gt;전체 html 파일 로딩과의 시간차 발생 &amp;gt; 해당 데이터를 불러올 때까지 기다리는 함수(클래스, 객체) 필요 &amp;amp;&amp;amp; 줄여진 댓글창 ‘더보기’ &amp;gt; 원하는 댓글 수보다 댓글이 없을 때 해야할 기능&lt;/p&gt;
+
+&lt;h4 id=&quot;특정-태그-일정-시간-기다리기&quot;&gt;특정 태그 일정 시간 기다리기&lt;/h4&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium.webdriver.support.ui&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WebDriverWait&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium.webdriver.support&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expected_conditions&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EC&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;element&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WebDriverWait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;until&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;presence_of_element_located&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;By&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;alex-area&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;(By.ID, “alex-area”) : ( 기다릴 객체, “객체 이름”)&lt;/p&gt;
+
+&lt;h4 id=&quot;특정-태그-존재-여부-확인-기능&quot;&gt;특정 태그 존재 여부 확인 기능&lt;/h4&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium.webdriver.common.by&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;By&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;By.CLASS_NAME: class name&lt;/li&gt;
+  &lt;li&gt;By.CSS_SELECTOR: css selector&lt;/li&gt;
+  &lt;li&gt;By.ID: id&lt;/li&gt;
+  &lt;li&gt;By.NAME: name&lt;/li&gt;
+  &lt;li&gt;By.TAG_NAME: tag name&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium.common.exceptions&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TimeoutException&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;element&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WebDriverWait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;until&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;presence_of_element_located&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;By&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CSS_SELECTOR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;more_button&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_element_by_css_selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+  &lt;span class=&quot;n&quot;&gt;more_button&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+  
+&lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TimeoutException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;loop&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;키보드-마우스-동작-자동화-actionchains&quot;&gt;키보드-마우스 동작 자동화 (ActionChains)&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;actions = webdriver.ActionChains(driver)&lt;/code&gt; : 변수 선언 후 정적 데이터(버튼)를 갖고 있는 변수를 &lt;code class=&quot;highlighter-rouge&quot;&gt;actions.click(var_name)&lt;/code&gt; 클릭 함수 내 인자값으로 삽입 &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;actions.perform()&lt;/code&gt; 삽입이 반드시 필요함&lt;/p&gt;
+
+&lt;p&gt;== &lt;code class=&quot;highlighter-rouge&quot;&gt;webdriver.ActionChains(driver).click(var_name).perform()&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;브라우저-내에서-pause&quot;&gt;브라우저 내에서 pause&lt;/h4&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium.webdriver.support.ui&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WebDriverWait&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium.common.exceptions&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TimeoutException&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;TimeoutException은 WebDriverWait를 함수로 기다릴 때 일정 시간이 지났는데도 태그가 나타나지 않을 때 (예외 상황)&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 20 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/web%20scraping/2020/01/20/4-Selenium-understanding-of-static-web-page/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/20/4-Selenium-understanding-of-static-web-page/</guid>
+      </item>
+    
+      <item>
+        <title>[3] Selenium PhantomJS &amp; Headless Chrome</title>
+        <description>&lt;h3 id=&quot;phantom-js&quot;&gt;Phantom JS&lt;/h3&gt;
+
+&lt;p&gt;화&lt;/p&gt;
+
+&lt;p&gt;면 없이 실행하는 프로그램 - Web testing &amp;gt; 시간이 단축되지는 않기에 경우에 따라 선택적 사용이 필요&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;터미널 환경에서 동작하는 크롤러에게 권장&lt;/li&gt;
+  &lt;li&gt;최신 셀레니움은 지원을 하지 않는 상태&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;* 기존 부분 &lt;code class=&quot;highlighter-rouge&quot;&gt;webdriver.Chrome('*')&lt;/code&gt; 만 변경&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;아예 안 됨!&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;headless-chrome&quot;&gt;Headless Chrome&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'headless'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;: PhantomJS와 유사한 기술로 크롬브라우저 기능으로 개발됨&lt;/p&gt;
+
+&lt;p&gt;* 상동&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;c_options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ChromeOptions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;c_options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'headless'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Chrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c_options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;coptions.add_argument('window-size=1920x1080')&lt;/code&gt; : 웹 브라우저 사이즈 지정&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;coptions.add_argument('disable-gpu')&lt;/code&gt; : 그래픽카드 사용 안 함&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;coptions.add_argument('User-Agent: ~~')&lt;/code&gt; : 서버 요청 시 헤더 재 구성&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;coptions.add_argument('lang=koKR')&lt;/code&gt; : 사용자 언어&lt;/p&gt;
+</description>
+        <pubDate>Mon, 20 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/web%20scraping/2020/01/20/3-Selenium-PhantomJS/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/20/3-Selenium-PhantomJS/</guid>
+      </item>
+    
+      <item>
+        <title>사담</title>
+        <description>&lt;h3 id=&quot;title&quot;&gt;title&lt;/h3&gt;
+
+&lt;p&gt;티스토리를 아직도 다 옮기지 못했다.&lt;/p&gt;
+
+&lt;p&gt;이 블로그 수정사안도 계획은 다 짜 놨는데… 시작을 결정 못 했다.&lt;/p&gt;
+
+&lt;p&gt;카테고리가 제일 골머리 썩을 거 같은 이 예감&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 19 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/chat/2020/01/19/%E1%84%89%E1%85%A1%E1%84%83%E1%85%A1%E1%86%B7/</link>
+        <guid isPermaLink="true">http://localhost:4000/chat/2020/01/19/%E1%84%89%E1%85%A1%E1%84%83%E1%85%A1%E1%86%B7/</guid>
+      </item>
+    
+      <item>
+        <title>[2] Selenium 기본</title>
+        <description>&lt;h3 id=&quot;selenium&quot;&gt;Selenium&lt;/h3&gt;
+
+&lt;h4 id=&quot;with-chrome-browser&quot;&gt;with Chrome browser&lt;/h4&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium.webdriver.common.keys&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Keys&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;chd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'경로/경로/'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Chrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'url'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;get-returns-using-specific-function&quot;&gt;get Returns using specific function&lt;/h4&gt;
+
+&lt;p&gt;main func&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;find_element_by_name('w')&lt;/code&gt; : 최초 발견한 name 으로 가져오기&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;find_elements_by_name('w')&lt;/code&gt; : 동일한 name을 리스트형으로 가져오기&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;find_elements_by_id&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;find_elements_by_tag_name&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;find_elements_by_class_name&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;find_elements_by_css_selector&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;find_elements_by_xpath&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;clear()&lt;/code&gt; : clear input txt&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;send_keys(kw)&lt;/code&gt; : send keyboard input&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Keys.RETURN == enter&lt;/li&gt;
+      &lt;li&gt;dir(Keys) : 키에 대응되는 이름 찾기&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;assert 로 driver.page_source에서 특정 키워드 확인&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;assert &quot;No results found.&quot; not in driver.page_source&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;time.sleep() 일정시간 브라우저 내용 확인&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;driver.quit()&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;요소-내용&quot;&gt;요소 내용&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;head : get_attribute(‘text’)
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;head_title = driver.find_element_by_css_selector('head &amp;gt; title').get_attribute('text')&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;body : text
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;title = driver.find_element_by_css_selector('tag.class_name').text&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Sun, 19 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/web%20scraping/2020/01/19/2-Selenium-101/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/19/2-Selenium-101/</guid>
+      </item>
+    
+      <item>
+        <title>[1] Selenium 크롤링 기본</title>
+        <description>&lt;h4 id=&quot;웹페이지-가져오기&quot;&gt;웹페이지 가져오기&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;requests.get('url')&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;웹페이지-파싱하기&quot;&gt;웹페이지 파싱하기&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;파싱 == 문자열 의미 분석&lt;/li&gt;
+  &lt;li&gt;bs 라이브러리 사용
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;'BeautifulSoup('var', 'html.parser)'&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;데이터-추출&quot;&gt;데이터 추출&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;soup.find()&lt;/code&gt; 함수로 원하는 부분 지정&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.get_text()&lt;/code&gt; 함수로 추출 부분 가져옴&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;필요 데이터 추출 방법&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;태그와 속성으로 선택&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.find('tag')&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.find(id='tag')&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.find('p', class='css.tag')&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.find('p', attrs = {'align' : 'center'})&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;CSS Selector로 선택&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.select('html &amp;gt; title')&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.select('div.article_view')&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.select('#harmonyContainer')&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.select('div#mArticle')&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;브라우저&quot;&gt;브라우저&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;javascript 코드 이해 동반&lt;/li&gt;
+  &lt;li&gt;브라우저를 통한 요청 &amp;gt; 난이도 하향 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Sun, 19 Jan 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/web%20scraping/2020/01/19/1-Selenium-with-scarpy-day1/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/19/1-Selenium-with-scarpy-day1/</guid>
+      </item>
+    
+      <item>
+        <title>[2] Scrapy web crawling issues and Scrapy structure </title>
         <description>&lt;h3 id=&quot;웹-크롤링-이슈&quot;&gt;웹 크롤링 이슈&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;저작권법 허용&lt;/strong&gt;&lt;/p&gt;
@@ -226,13 +903,30 @@ selector를 이용해 데이터 선택 (xpath, css)&lt;/li&gt;
 
 </description>
         <pubDate>Thu, 16 Jan 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/study/web%20scraping/2020/01/16/2-issues-of-web-crawling/</link>
-        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/16/2-issues-of-web-crawling/</guid>
+        <link>http://localhost:4000/study/web%20scraping/2020/01/16/2-Scrapy-Issues-of-web-crawling/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/16/2-Scrapy-Issues-of-web-crawling/</guid>
       </item>
     
       <item>
         <title>[1] Scrapy 활용 </title>
-        <description>&lt;h3 id=&quot;웹-크롤러&quot;&gt;웹 크롤러&lt;/h3&gt;
+        <description>&lt;h3 id=&quot;웹-크롤러-scrapy&quot;&gt;웹 크롤러 Scrapy&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;파이프라인 지원 : 데이터 후처리 (필터링 등) 가능&lt;/li&gt;
+  &lt;li&gt;로깅 정보 확인 가능&lt;/li&gt;
+  &lt;li&gt;상대적으로 bs보다 간편함&lt;/li&gt;
+  &lt;li&gt;안정적 크롤링 가능&lt;/li&gt;
+  &lt;li&gt;시간 단축 &amp;gt; 동시다발적 크롤링으로 인한 순서 변경&lt;/li&gt;
+  &lt;li&gt;다양한 포맷으로 저장 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Framework&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;함수와 코드 선작성&lt;/li&gt;
+  &lt;li&gt;특성 함수의 위치, 사용, 작성을 지정&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h4 id=&quot;beautiful-soup&quot;&gt;Beautiful Soup&lt;/h4&gt;
 
@@ -241,13 +935,21 @@ selector를 이용해 데이터 선택 (xpath, css)&lt;/li&gt;
   &lt;li&gt;자동으로 유니코드로 변환해서 UTF-8 출력&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;scrapy&quot;&gt;Scrapy&lt;/h4&gt;
+&lt;p&gt;###&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;파이프라인 지원 : 데이터 후처리 (필터링 등) 가능&lt;/li&gt;
-  &lt;li&gt;로깅 정보 확인 가능&lt;/li&gt;
-  &lt;li&gt;상대적으로 bs보다 간편함&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h4 id=&quot;spider&quot;&gt;Spider&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;이름 : 여러 가지 크롤러(spider)를 둘 수 있으므로, 각 이름을 지정&lt;/li&gt;
+  &lt;li&gt;페이지 주소 : 크롤링 할 주소 지정&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;scrapy genspider 'crawler_name' 'url'
+
+# Expected Result
+Created spider 'gmarket' using template 'basic' in module:
+  ecommerce.spiders.gmarket
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/scrapy_tutorial_list.png&quot; alt=&quot;scrapy_tutorial_list&quot; /&gt;&lt;/p&gt;
 
@@ -305,7 +1007,7 @@ selector를 이용해 데이터 선택 (xpath, css)&lt;/li&gt;
 
 &lt;p&gt;로 나오니 리스트 0번째 값 추출 후 strip()으로 내용만 추출… 하고싶었는데 빈칸이 출력됨&lt;/p&gt;
 
-&lt;h4 id=&quot;in-terminal&quot;&gt;in Terminal&lt;/h4&gt;
+&lt;h4 id=&quot;in-terminal---shell&quot;&gt;in Terminal - shell&lt;/h4&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scrapy&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shell&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'url'&lt;/span&gt;
 
@@ -322,13 +1024,51 @@ selector를 이용해 데이터 선택 (xpath, css)&lt;/li&gt;
 &lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Computers'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Programming'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Languages'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Python'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;h4 id=&quot;문법---사용법&quot;&gt;문법 - 사용법&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;response.css('head &amp;gt; title').get() 
+response.css('head &amp;gt; title').getall() # list
+response.css('head &amp;gt; title::text').get() # 
+response.xpath('//div/ul/li/text()').get() # 
+response.css('div.best-list li &amp;gt; a::text').getall(
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;정규표현식&quot;&gt;정규표현식&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;response.css('div.best-list li &amp;gt; a::text')[1].re('(\w+)')
+
+response.xpath('//div[@class=&quot;best-list&quot;]/ul/li/a/text()')[1].re('(\w+)')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;pipelines---filtering&quot;&gt;Pipelines - Filtering&lt;/h3&gt;
+
+&lt;p&gt;아이템이 생성될 때 파이프라인 함수를 한 번씩 거친다고 생가하면 됨!&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scrapy.exceptions&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DropItem&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NavernewsPipeline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;process_item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'price'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DropItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;drop item having lower price than 10000&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;dd&quot;&gt;dd&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;start_requests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scrapy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'http://corners.gmarket.co.kr/Bestsellers'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;지정 url 크롤링 후 parse 함수를 call-back ( call-back 으로 부르는 함수는 반드시 response 보유 필수)&lt;/p&gt;
+
 &lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
     &lt;p&gt;describtion이 전혀 나오지 않는다.&lt;/p&gt;
 
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;scrapy shell url&lt;/code&gt; 로 만질 때는 아주 잘 나오는데 막상 코드로 넣으면 빈 리스트만 반환한다.  미치겠다… 미치겠다 왜 … 않되? 따흐ㅡㄱ 왜 안 되는지 정말 모르겠다… 짐작은 가는데… 내가 어떻게 만져야하는지 모르겠다… 빵 먹고싶다…&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;scrapy shell url&lt;/code&gt; 로 만질 때는 아주 잘 나오는데 막상 코드로 넣으면 빈 리스트만 반환한다.  미치겠다… 미치겠다 외 … 않되? 왜 안 되는지 정말 모르겠다… 짐작은 가는데… 내가 어떻게 만져야하는지 모르겠다… 빵 먹고싶다…&lt;/p&gt;
 
     &lt;p&gt;title:&lt;/p&gt;
 
@@ -380,22 +1120,8 @@ selector를 이용해 데이터 선택 (xpath, css)&lt;/li&gt;
 
 </description>
         <pubDate>Thu, 16 Jan 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/study/web%20scraping/2020/01/16/1-understanding-of-web-circumstances/</link>
-        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/16/1-understanding-of-web-circumstances/</guid>
-      </item>
-    
-      <item>
-        <title>사담</title>
-        <description>&lt;h3 id=&quot;뭐해먹고-살지-나&quot;&gt;뭐해먹고 살지 나…&lt;/h3&gt;
-
-&lt;p&gt;공부는 하고 있는데… 뭐랄까… 모르겠다 …&lt;/p&gt;
-
-&lt;p&gt;지금 배우는 건 정말 재밌고 계속 공부할 수록 흥미롭고 더 배우고싶은 기분인데… 내가 4학년이라는 것도 그렇고… 앞으로 뭐 해먹고 살아야할지가 너무 막막하다.&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 15 Jan 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/chat/2020/01/15/%E1%84%89%E1%85%A2%E1%84%87%E1%85%A7%E1%86%A8-%E1%84%89%E1%85%A1%E1%84%83%E1%85%A1%E1%86%B7/</link>
-        <guid isPermaLink="true">http://localhost:4000/chat/2020/01/15/%E1%84%89%E1%85%A2%E1%84%87%E1%85%A7%E1%86%A8-%E1%84%89%E1%85%A1%E1%84%83%E1%85%A1%E1%86%B7/</guid>
+        <link>http://localhost:4000/study/web%20scraping/2020/01/16/1-Scrapy-Understanding-of-web-circumstances/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/16/1-Scrapy-Understanding-of-web-circumstances/</guid>
       </item>
     
       <item>
@@ -581,18 +1307,6 @@ selector를 이용해 데이터 선택 (xpath, css)&lt;/li&gt;
         <pubDate>Wed, 15 Jan 2020 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/study/web%20scraping/2020/01/15/0-No-Module-named-error-in-envs/</link>
         <guid isPermaLink="true">http://localhost:4000/study/web%20scraping/2020/01/15/0-No-Module-named-error-in-envs/</guid>
-      </item>
-    
-      <item>
-        <title>AWS tutorial</title>
-        <description>&lt;h3 id=&quot;aws&quot;&gt;AWS&lt;/h3&gt;
-
-&lt;p&gt;첫날부터 오류가 났다… 고작 로그인도 못해서 지금 지원 메일을 보냈다… 아니 말하자면 로그인은 됐는데… 에휴 됐다 말해서 뭐하나…따흐흑&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 14 Jan 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/study/aws/2020/01/14/AWS-tutorials/</link>
-        <guid isPermaLink="true">http://localhost:4000/study/aws/2020/01/14/AWS-tutorials/</guid>
       </item>
     
       <item>
@@ -1293,8 +2007,8 @@ np.t_array.sum(axis = 0)
 
 </description>
         <pubDate>Sun, 12 Jan 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/study/machine%20learning/2020/01/12/edwith-python-for-ML-chap3-numpy/</link>
-        <guid isPermaLink="true">http://localhost:4000/study/machine%20learning/2020/01/12/edwith-python-for-ML-chap3-numpy/</guid>
+        <link>http://localhost:4000/study/python/2020/01/12/edwith-python-for-ML-chap3-numpy/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/python/2020/01/12/edwith-python-for-ML-chap3-numpy/</guid>
       </item>
     
       <item>
@@ -1330,8 +2044,8 @@ np.t_array.sum(axis = 0)
 &lt;p&gt;list=w^t x=list &amp;gt;로 표현해 y의 예측치를 찾아낼 수 있을 것임&lt;/p&gt;
 </description>
         <pubDate>Sat, 11 Jan 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/study/machine%20learning/2020/01/11/edwith-ML-overview/</link>
-        <guid isPermaLink="true">http://localhost:4000/study/machine%20learning/2020/01/11/edwith-ML-overview/</guid>
+        <link>http://localhost:4000/study/python/2020/01/11/edwith-ML-overview/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/python/2020/01/11/edwith-ML-overview/</guid>
       </item>
     
       <item>
@@ -2345,8 +3059,8 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
 &lt;p&gt;&lt;br /&gt;&lt;strong&gt;get_top_n_similarity_news&lt;/strong&gt;  : 키값으로 정렬해서 밸류값 중 가장 큰 값의 인덱스 값을 같이 반환해주는 함 / 가장 유사한 값 10개&lt;/p&gt;
 </description>
         <pubDate>Thu, 02 Jan 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/study/machine%20learning/2020/01/02/edwith-python-for-ML/</link>
-        <guid isPermaLink="true">http://localhost:4000/study/machine%20learning/2020/01/02/edwith-python-for-ML/</guid>
+        <link>http://localhost:4000/study/python/2020/01/02/edwith-python-for-ML/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/python/2020/01/02/edwith-python-for-ML/</guid>
       </item>
     
       <item>
@@ -3165,7 +3879,7 @@ AVALIABILITY** :Ensuring timely and reliable access to and use of information
       </item>
     
       <item>
-        <title>[Git] Git Study</title>
+        <title>[1] Git Study</title>
         <description>&lt;h3 id=&quot;git&quot;&gt;Git&lt;/h3&gt;
 
 &lt;ul&gt;
@@ -3314,8 +4028,8 @@ git merget origin master
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLBHVuYlKEkULuUe_Ca3wiaFon6dPWIWAZ&quot;&gt;유튜브 Git - Teamlab 강의&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 18 Dec 2019 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/study/git/2019/12/18/Git-Study/</link>
-        <guid isPermaLink="true">http://localhost:4000/study/git/2019/12/18/Git-Study/</guid>
+        <link>http://localhost:4000/study/git/2019/12/18/1-Git-Study/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/git/2019/12/18/1-Git-Study/</guid>
       </item>
     
       <item>
@@ -4329,10 +5043,1380 @@ uses: high-speed network encryptions&lt;/li&gt;
         <guid isPermaLink="true">http://localhost:4000/study/security/2019/09/30/Message-Auth-and-OpMode/</guid>
       </item>
     
+      <item>
+        <title>[6] MySQL - Example of Command line</title>
+        <description>&lt;p&gt;Book 테이블에서 모든 도서의 이름과 가격을 검색하시오.&lt;/p&gt;
+
+&lt;p&gt;SELECT bookname, price FROM Book;&lt;/p&gt;
+
+&lt;p&gt;Book 테이블에서 모든 도서의 가격과 이름을 검색하시오.&lt;/p&gt;
+
+&lt;p&gt;SELECT price, bookname FROM Book;&lt;/p&gt;
+
+&lt;p&gt;Book 테이블에서 모든 도서의 도서번호, 도서이름, 출판사, 가격을 검색하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT bookid, bookname, publisher, price FROM Book;&lt;/p&gt;
+
+&lt;p&gt;테이블의 모든 속성을 보이려면&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM Book;&lt;/p&gt;
+
+&lt;p&gt;Book 테이블에서 도서 테이블에 있는 모든 출판사를 검색하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT publisher FROM Book;&lt;/p&gt;
+
+&lt;p&gt;중복된 데이터를 제거하여 한 번씩만 출력하려면?
+ SELECT DISTINCT publisher FROM Book;&lt;/p&gt;
+
+&lt;p&gt;Book 테이블에서 가격이 10,000원 이상 20,000 이하인 도서를 검색하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM Book WHERE price BETWEEN 10000 AND 20000&lt;/p&gt;
+
+&lt;p&gt;AND를 이용하여 변경&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM Book WHERE price &amp;gt;= 10000 AND price &amp;lt;= 20000;&lt;/p&gt;
+
+&lt;p&gt;Book 테이블에서 출판사가 ‘굿스포츠’ 혹은 ‘대한미디어’인 도서를 검색하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM Book WHERE publisher IN (‘굿스포츠’, ‘대한미디어’)&lt;/p&gt;
+
+&lt;p&gt;출판사가 ‘굿스포츠’ 혹은 ‘대한미디어’가 아닌 도서를 검색하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM Book WHERE publisher NOT IN (‘굿스포츠’, ‘대한미디어’)&lt;/p&gt;
+
+&lt;p&gt;STUDENT 테이블에서 나이(AGE)가 30 이상인 학생 출력하기&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM STUDENT WHERE AGE &amp;gt;= 30&lt;/p&gt;
+
+&lt;p&gt;STUDENT 테이블에서 10번 과정 소속 학생 출력하기&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM STUDENT WHERE COU_ID=10&lt;/p&gt;
+
+&lt;p&gt;STUDENT 테이블에서 이름이 김준형인 학생을 출력하기&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM STUDENT WHERE STU_NAME=’김준형’&lt;/p&gt;
+
+&lt;p&gt;STUDENT 테이블에서 나이가 21에서 29 사이인 학생을 검색&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM STUDENT WHERE AGE &amp;gt;= 21 AND AGE &amp;lt;= 29&lt;/p&gt;
+
+&lt;p&gt;STUDENT 테이블에서 나이가 21에서 29 사이인 학생 출력&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM STUDENT WHERE AGE BETWEEN 21 AND 29&lt;/p&gt;
+
+&lt;p&gt;STUDENT 테이블에서 나이가 21이거나 27이거나 28인 학생만 검색&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM STUDENT WHERE AGE=21 OR AGE=27 OR AGE=28&lt;/p&gt;
+
+&lt;p&gt;STUDENT 테이블에서 나이가 21이거나 27이거나 28인 학생 출력&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM STUDENT WHERE AGE IN (21, 27, 28)&lt;/p&gt;
+
+&lt;p&gt;Book 테이블에서 도서이름에 ‘축구’가 포함된 책이름과 출판사를 검색하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT bookname, publisher FROM Book WHERE bookname LIKE ‘%축구%’;&lt;/p&gt;
+
+&lt;p&gt;도서이름의 왼쪽 두 번째 위치에 ‘구’라는 문자열을 갖는 도서를 검색하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM Book WHERE bookname LIKE ‘_구%’;&lt;/p&gt;
+
+&lt;p&gt;Book 테이블에서 축구에 관한 도서 중 가격이 20,000원 이상인 도서를 검색하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM Book WHERE bookname LIKE ‘%축구%’ AND price &amp;gt;= 20000;&lt;/p&gt;
+
+&lt;p&gt;출판사가 ‘굿스포츠’ 혹은 ‘대한미디어’인 도서를 검색하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM Book WHERE publisher=’굿스포츠’ OR publisher=’대한미디어’;&lt;/p&gt;
+
+&lt;p&gt;성이 ‘김’인 학생을 출력&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM STUDENT WHERE STU_NAME LIKE ‘김%’&lt;/p&gt;
+
+&lt;p&gt;이름의 두 번째 글자가 ‘봉’이고 그 뒤는 무엇이든 관계없는 사원 출력&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM STUDENT WHERE STU_NAME LIKE ‘_봉%’&lt;/p&gt;
+
+&lt;p&gt;이름과 과정번호와 이메일 출력&lt;/p&gt;
+
+&lt;p&gt;SELECT STU_NAME, COU_ID, STU_EMAIL FROM STUDENT&lt;/p&gt;
+
+&lt;p&gt;STUDENT 테이블에서 이메일이 NULL인 학생은&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM STUDENT WHERE STU_EMAIL=NULL&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM STUDENT WHERE STU_EMAIL IS NULL&lt;/p&gt;
+
+&lt;p&gt;이메일이 NULL이 아닌 학생 출력&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM STUDENT WHERE STU_EMAIL IS NOT NULL&lt;/p&gt;
+
+&lt;p&gt;Book 테이블에서 도서를 이름순으로 정렬하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM Book ORDER BY bookname (ASC);&lt;/p&gt;
+
+&lt;p&gt;도서를 가격순으로 정렬하고, 가격이 같으면 이름순으로 정렬&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM Book ORDER BY price, bookname;&lt;/p&gt;
+
+&lt;p&gt;도서를 가격의 내림차순으로 정렬하고 만약 가격이 같다면 출판사의 오름 차순으 로 정렬하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM Book ORDER BY price DESC, publisher ASC;&lt;/p&gt;
+
+&lt;p&gt;나이를 기준으로 오름차순으로 정렬하여 출력&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM STUDENT ORDER BY AGE ASC&lt;/p&gt;
+
+&lt;p&gt;나이가 많은 사람부터 적은 사람 순으로 순차적으로 출력&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM STUDENT ORDER BY AGE DESC&lt;/p&gt;
+
+&lt;p&gt;고객이 주문한 도서의 총 판매액을 구하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT SUM(saleprice) FROM Orders;&lt;/p&gt;
+
+&lt;p&gt;고객이 주문한 도서의 총 판매액을 총매출로 구하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT SUM(saleprice) AS 총매출 FROM Orders;&lt;/p&gt;
+
+&lt;p&gt;2번 김연아 고객이 주문한 도서의 총 판매액을 총매출로 구하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT SUM(saleprice) AS 총매출 FROM Orders WHERE custid=2;&lt;/p&gt;
+
+&lt;p&gt;고객이 주문한 도서의 총 판매액, 평균값, 최저가, 최고가를 구하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT SUM(saleprice) AS Total,&lt;/p&gt;
+
+&lt;p&gt;​	AVG(saleprice) AS Average,&lt;/p&gt;
+
+&lt;p&gt;​	MIN(saleprice) AS Minimum,&lt;/p&gt;
+
+&lt;p&gt;​	MAX(saleprice) AS Maximum&lt;/p&gt;
+
+&lt;p&gt;FROM Orders;&lt;/p&gt;
+
+&lt;p&gt;서점의 도서 판매 건수를 구하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT COUNT(*) FROM Orders;&lt;/p&gt;
+
+&lt;p&gt;학생들의 나이 총합 출력&lt;/p&gt;
+
+&lt;p&gt;SELECT SUM(AGE) AS [나이 총합] FROM STUDENT&lt;/p&gt;
+
+&lt;p&gt;학생들의 나이 평균 출력&lt;/p&gt;
+
+&lt;p&gt;SELECT AVG(AGE) AS [나이 총합] FROM STUDENT&lt;/p&gt;
+
+&lt;p&gt;고객별로 주문한 도서의 총 수량과 총 판매액을 구하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT custid, COUNT(*) AS 도서수량, SUM(saleprice) AS 총액 FROM Orders GROUP BY custid;&lt;/p&gt;
+
+&lt;p&gt;가격이 8,000원 이상인 도서를 두 권 이상 구매한 고객에 대하여 고객별 주문 도 서의 총 수량을 구해 보세요.&lt;/p&gt;
+
+&lt;p&gt;SELECT custid, COUNT(*) AS 도서수량 FROM Orders WHERE saleprice &amp;gt;= 8000&lt;/p&gt;
+
+&lt;p&gt;GROUP BY custid HAVING count(*) &amp;gt;= 2;&lt;/p&gt;
+
+&lt;p&gt;소속 과정별 평균 나이를 과정 번호와 함께 출력&lt;/p&gt;
+
+&lt;p&gt;SELECT COU_ID, AVG(AGE) AS [평균 나이] FROM STUDENT GROUP BY COU_ID&lt;/p&gt;
+
+&lt;p&gt;과정별 평균 나이가 25세 이상인 과정의 번호와 평균 나이 구하기&lt;/p&gt;
+
+&lt;p&gt;SELECT COU_ID, AVG(AGE) AS [평균 나이] FROM STUDENT
+ GROUP BY COU_ID HAVING AVG(AGE) &amp;gt;= 25&lt;/p&gt;
+
+&lt;p&gt;Customer 와 Orders 테이블을 합치려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM Customer, Orders;&lt;/p&gt;
+
+&lt;p&gt;고객과 고객의 주문에 관한 데이터를 모두 보려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM Customer, Orders WHERE Customer.custid =Orders.custid;&lt;/p&gt;
+
+&lt;p&gt;고객과 고객의 주문에 관한 데이터를 모두 고객번호 순으로 정렬하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM Customer, Orders WHERE Customer.custid = Orders.custid ORDER BY Customer.custid;&lt;/p&gt;
+
+&lt;p&gt;고객의 이름과 고객이 주문한 도서의 판매가격을 검색하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT name, saleprice FROM Customer, Orders WHERE Customer.custid =Orders.custid;&lt;/p&gt;
+
+&lt;p&gt;고객별로 주문한 모든 도서의 총 판매액과 고객이름을 구하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT name, SUM(saleprice) FROM Customer, Orders WHERE Customer.custid = Orders.custid GROUP BY Customer.name&lt;/p&gt;
+
+&lt;p&gt;고객별로 주문한 모든 도서의 총 판매액을 구하고, 고객별로 정렬하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT name, SUM(saleprice) FROM Customer, Orders WHERE Customer.custid = Orders.custid GROUP BY Customer.name ORDER BY Customer.name;&lt;/p&gt;
+
+&lt;p&gt;고객의 이름과 고객이 주문한 도서의 이름을 구하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT Customer.name, book.bookname FROM Customer, Orders, Book&lt;/p&gt;
+
+&lt;p&gt;WHERE Customer.custid =Orders.custid AND Orders.bookid =Book.bookid;&lt;/p&gt;
+
+&lt;p&gt;가격이 20,000원인 도서를 주문한 고객의 이름과 도서의 이름을 구하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT Customer.name, book.bookname FROM Customer, Orders, Book
+ WHERE Customer.custid =Orders.custid&lt;/p&gt;
+
+&lt;p&gt;​	AND Orders.bookid =Book.bookid AND Book.price =20000;&lt;/p&gt;
+
+&lt;p&gt;도서를 구매하지 않은 고객을 포함하여 고객의 이름과 고객이 주문한 도서의 판매 가격을 구하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT Customer.name, Orders.saleprice FROM Customer LEFT OUTER JOIN Orders&lt;/p&gt;
+
+&lt;p&gt;ON Customer.custid =Orders.custid;&lt;/p&gt;
+
+&lt;p&gt;도서가격이 가장 비싼 도서의 이름은?&lt;/p&gt;
+
+&lt;p&gt;SELECT bookname FROM Book WHERE price = ( SELECT MAX(price) FROM Book) ;&lt;/p&gt;
+
+&lt;p&gt;도서를 구매한 적이 있는 고객의 이름을 검색하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT name FROM Customer WHERE custid IN (SELECT custid FROM Orders);&lt;/p&gt;
+
+&lt;p&gt;대한미디어에서 출판한 도서를 구매한 고객의 이름을 알려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT name FROM Customer WHERE custid IN (SELECT custid FROM Orders
+ WHERE bookid IN (SELECT bookid FROM Book WHERE publisher=’대한미디어’));&lt;/p&gt;
+
+&lt;p&gt;도서를 주문하지 않은 고객의 이름을 검색하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT name FROM Customer
+ EXCEPT SELECT name FROM Customer WHERE custid IN (SELECT custid FROM Orders);&lt;/p&gt;
+
+&lt;p&gt;주문이 있는 고객의 이름과 주소를 검색하려면?&lt;/p&gt;
+
+&lt;p&gt;SELECT name, address FROM Customer WHERE EXISTS (SELECT * FROM Orders&lt;/p&gt;
+
+&lt;p&gt;WHERE Customer.custid = Orders.custid);&lt;/p&gt;
+
+&lt;p&gt;25세 이상인 학생들로 구성된 과정의 학생 정보 출력&lt;/p&gt;
+
+&lt;p&gt;SELECT STU_NAME, age, COU_ID FROM STUDENT&lt;/p&gt;
+
+&lt;p&gt;WHERE COU_ID IN ( SELECT DISTINCT COU_ID FROM STUDENT WHERE age&amp;gt;=25 )&lt;/p&gt;
+
+&lt;p&gt;스포츠 의학은 한솔의학서적에서 출간했으며 가격은 90,000원이다. Book 테이블에 새로운 도서 ‘스포츠 의학’을 삽입하려면?&lt;/p&gt;
+
+&lt;p&gt;INSERT INTO Book(bookid, bookname, publisher, price) VALUES (11, ‘스포츠 의학’, ‘한솔의학서적’, 90000);&lt;/p&gt;
+
+&lt;p&gt;스포츠 의학은 한솔의학서적에서 출간했으며 가격은 미정이다. Book 테이블에 새로운 도서 ‘스포츠 의학’을 삽입하려면?&lt;/p&gt;
+
+&lt;p&gt;INSERT INTO Book(bookid, bookname, publisher) VALUES (12, ‘스포츠 의학’, ‘한솔의학서적’);&lt;/p&gt;
+
+&lt;p&gt;Customer 테이블에서 고객번호가 5인 고객의 주소를 ‘대한민국 부산’으로 변경하려면?&lt;/p&gt;
+
+&lt;p&gt;UPDATE Customer SET address=’대한민국 부산’ WHERE custid=5;&lt;/p&gt;
+
+&lt;p&gt;Customer 테이블에서 박세리 고객의 주소를 김연아 고객의 주소로 변경하려면?&lt;/p&gt;
+
+&lt;p&gt;UPDATE Customer SET address = (SELECT address FROM Customer WHERE name=’김연아’)&lt;/p&gt;
+
+&lt;p&gt;WHERE name=’박세리’;&lt;/p&gt;
+
+&lt;p&gt;과정 번호가 10번인 학생의 과정 번호를 30번으로 수정&lt;/p&gt;
+
+&lt;p&gt;UPDATE STUDENT SET COU_ID=30 WHERE COU_ID=10&lt;/p&gt;
+
+&lt;p&gt;Customer 테이블에서 고객번호가 5인 고객을 삭제하려면?&lt;/p&gt;
+
+&lt;p&gt;DELETE FROM Customer WHERE custid=5;&lt;/p&gt;
+
+&lt;p&gt;모든 고객을 삭제하시오.&lt;/p&gt;
+
+&lt;p&gt;DELETE FROM Customer;&lt;/p&gt;
+
+&lt;p&gt;30번 과정 소속 학생을 삭제&lt;/p&gt;
+
+&lt;p&gt;DELETE [FROM] STUDENT WHERE COU_ID=30&lt;/p&gt;
+
+&lt;p&gt;영화 ( 영화번호, 제목, 장르번호, 제작년도, 제작사 )&lt;/p&gt;
+
+&lt;p&gt;영화 테이블 전체를 검색하시오.&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM 영화&lt;/p&gt;
+
+&lt;p&gt;모든 영화제목과 제작사를 검색하시오.
+ SELECT 제목, 제작사 FROM 영화&lt;/p&gt;
+
+&lt;p&gt;제작년도가 2010년 이후인 영화제목을 검색하시오.
+ SELECT 제목 FROM 영화 WHERE 제작년도 &amp;gt;= 2010&lt;/p&gt;
+
+&lt;p&gt;제작년도가 2000년 부터 2019년 사이인 영화제목과 제작년도를 검색하시오.&lt;/p&gt;
+
+&lt;p&gt;SELECT 제목, 제작년도 FROM 영화 WHERE 제작년도 &amp;gt;= 2000 AND 제작년도 &amp;lt;= 2019&lt;/p&gt;
+
+&lt;p&gt;“하늘” 단어가 포함된 영화제목을 검색하시오.&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM 영화 WHERE 제목 LIKE ‘%하늘%’&lt;/p&gt;
+
+&lt;p&gt;모든 영화제목을 제작년도 순으로 검색하시오.
+ SELECT * FROM 영화 ORDER BY 제작년도&lt;/p&gt;
+
+&lt;p&gt;모든 영화제목을 제작년도 순으로 검색. 단 제작년도가 같으면 영화제목 순으로 검색하시오.&lt;/p&gt;
+
+&lt;p&gt;SELECT * FROM 영화 ORDER BY 제작년도, 제목&lt;/p&gt;
+
+&lt;p&gt;———&lt;/p&gt;
+
+&lt;p&gt;영화장르 ( 장르번호, 장르명)&lt;/p&gt;
+
+&lt;p&gt;영화 ( 영화번호, 제목, 장르번호, 제작년도, 제작사)&lt;/p&gt;
+
+&lt;p&gt;영화제목, 장르명, 제작사를 select 하시오.&lt;/p&gt;
+
+&lt;p&gt;SELECT 제목, 장르명, 제작사 FROM 영화, 영화장르&lt;/p&gt;
+
+&lt;p&gt;장르번호별 영화의 건수를 select 하시오.&lt;/p&gt;
+
+&lt;p&gt;SELECT 장르번호, COUNT(*) AS 영화건수 FROM 영화 GROUP BY 장르번호&lt;/p&gt;
+
+&lt;p&gt;장르명별 영화의 건수를 select 하시오.&lt;/p&gt;
+
+&lt;p&gt;SELECT 장르명, COUNT(*) AS 영화건수 FROM 영화, 영화장르 GROUP BY 장르명&lt;/p&gt;
+
+&lt;p&gt;2개 이상의 영화를 만든 제작사를 select 하시오.&lt;/p&gt;
+
+&lt;p&gt;SELECT 제작사, COUNT(&lt;em&gt;) FROM 영화 GROUP BY 제작사 HAVING COUNT(&lt;/em&gt;) &amp;gt;= 2&lt;/p&gt;
+
+&lt;p&gt;가장 최근에 만들어진 영화 제목과 제작년도를 select 하시오.&lt;/p&gt;
+
+&lt;p&gt;SELECT 제목, 제작년도 FROM 영화 WHERE 제작년도 = (SELECT MAX( 제작년도 ) FROM 영화 )&lt;/p&gt;
+
+&lt;p&gt;———&lt;/p&gt;
+
+&lt;p&gt;영화장르 ( 장르번호, 장르명)&lt;/p&gt;
+
+&lt;p&gt;영화 ( 영화번호, 제목, 장르번호, 제작년도, 제작사)&lt;/p&gt;
+
+&lt;p&gt;영화장르 테이블에 3개의 장르 정보를 insert 하시오.
+ INSERT INTO 영화장르 VALUES (1, ‘sf’)&lt;/p&gt;
+
+&lt;p&gt;영화 테이블에 5개의 영화정보를 insert 하시오.
+ INSERT INTO 영화 VALUES (1, ‘룰루랄라’, 01, 2019, ‘신기루’)&lt;/p&gt;
+
+&lt;p&gt;영화 테이블에서 1번째 영화의 제작년도를 변경하시오.
+ UPDATE 영화 SET 제작년도 = ‘2019’ WHERE 영화번호 = 101&lt;/p&gt;
+
+&lt;p&gt;영화 테이블에서 2번째 영화의 장르번호를 변경하시오. 변경이 안된다면 이유를 설명하시오&lt;/p&gt;
+
+&lt;p&gt;UPDATE 영화 SET 장르번호 = 21 WHERE 영화번호 =101&lt;/p&gt;
+
+&lt;p&gt;영화 테이블에서 영화장르의 장르번호를 외래키로 사용하고 있어서 변경 불가능&lt;/p&gt;
+
+&lt;p&gt;영화장르 테이블에서 1번째 장르를 삭제하시오. 삭제가 안된다면 이유를 설명하시오&lt;/p&gt;
+
+&lt;p&gt;DELETE FROM 영화장르 WHERE 장르번호 = 01&lt;/p&gt;
+
+&lt;p&gt;영화장르의 장르번호를 영화테이블에서 데이터를 사용하고 있어서 변경 불가능&lt;/p&gt;
+</description>
+        <pubDate>Mon, 15 Apr 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/database/2019/04/15/6-example/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/database/2019/04/15/6-example/</guid>
+      </item>
+    
+      <item>
+        <title>[4] Database 관계대수와 관계해수</title>
+        <description>&lt;h3 id=&quot;ch5-관계-대수와-관계-해수&quot;&gt;CH5 관계 대수와 관계 해수&lt;/h3&gt;
+
+&lt;h4 id=&quot;01-관계-대수&quot;&gt;01 관계 대수&lt;/h4&gt;
+
+&lt;p&gt;: 원하는 데이터를 얻기 위해서 어떻게 질의를 수행할 것인지 일련의 연산을 순서대로 명시해야 하는 절차적 언어&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;관계 대수는 관계 해석과 기능과 능력 면에서 동등하다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;관계 대수로 표현한 식은 관계 해석으로 표현할 수 있다. ( 역 성립 )&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;사용자가 요청한 데이터를 정보화 ~= 산술 연산자와 유사&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;대수 : 수 대신 문자를 사용해 문제를 쉽게 하고, 수학적 법칙을 간단 명확하게 표현&lt;/p&gt;
+
+&lt;p&gt;관계 대수 : 데이터베이스에 저장된 데이터를 문자와 사용한 연산을 통해 요청한 데이터를 정보화하여 얻을 수 있는데 그 원리가 산술 연산자와 유사함&lt;/p&gt;
+
+&lt;h4 id=&quot;순수-관계-연산자&quot;&gt;순수 관계 연산자&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;셀렉트&lt;/strong&gt; &lt;strong&gt;(SELECT, σ)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;릴레이션에서 주어진 조건에 만족하는 튜플을 선택하는 연산자&lt;/p&gt;
+
+&lt;p&gt;수평적 (가로)으로 절단하여 그 일부를 가지고 구성한 것 = 수평 연산&lt;/p&gt;
+
+&lt;p&gt;σ&lt;조건&gt; (R)&lt;/조건&gt;&lt;/p&gt;
+
+&lt;p&gt;σ점수&amp;gt;80(학생)  &amp;gt; 학생 릴레이션에서 80점 초과 학생만 찾을 때&lt;/p&gt;
+
+&lt;p&gt;셀렉트 연산자 : 하나의 입력 릴레이션에 적용되므로 단항 연산자이며, 한 릴레이션에서 조건을 만족하는 튜플의 부분 집합을 생성&lt;/p&gt;
+
+&lt;p&gt;조건 : 프레디키드(predicate) &amp;gt; 일반적으로 릴레이션의 임의의 어트리뷰트와 성수, 비교 연산자, 부울 연산자를 포함할 수 있다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;프로젝트 (PROJECT, π)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;릴레이션에서 어트리뷰트 리스트에 제시된 어트리뷰트만을 추출하는 연산자&lt;/p&gt;
+
+&lt;p&gt;릴레이션의 열(세로)에 해당하는 어트리뷰트를 추출하는 것 = 수직 연산&lt;/p&gt;
+
+&lt;p&gt;π&lt;어트리뷰트 리스트=&quot;&quot;&gt;(R)&lt;/어트리뷰트&gt;&lt;/p&gt;
+
+&lt;p&gt;π이름, 전공 (학생) &amp;gt; 학생 릴레이션에서 이름과 성적 추출&lt;/p&gt;
+
+&lt;p&gt;결과 : 릴레이션의 카디날리티는 입력 릴의 카디날리티와 같고 차수는 항상 원 릴의 차수보다 작거나 같다&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;조인 (JOIN, ▷◁)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;공통 속성을 중심으로 두 개의 릴레이션을 하나로 합쳐서 새 릴레이션을 만듦&lt;/p&gt;
+
+&lt;p&gt;종류 : 세타 조인, 동등 조인, 자연 조인, 외부 조인, 세미 조인&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;
+        &lt;ol&gt;
+          &lt;li&gt;세타 조인과 동등 조인&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;세타 조인 : 선택연산의 비교 연산자가 = , &amp;lt; , &amp;gt; 등이 사용되는 연산&lt;/p&gt;
+
+&lt;p&gt;동등 조인 : 세타 조인 중 비교 연산자가 =인 조인이고 표기 형식 ▷◁을 사용&lt;/p&gt;
+
+&lt;p&gt;R ▷◁ 키 속성r = 키 속성s S&lt;/p&gt;
+
+&lt;p&gt;학생 ▷◁ 학번=학번 성적&lt;/p&gt;
+
+&lt;p&gt;중복되지 않은 값은 결과에 포함되지 않음 + 불필요한 중복이 있음&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;
+        &lt;ol&gt;
+          &lt;li&gt;자연 조인
+ 동등 조인 결과로 얻어진 불필요한 중복되는 어트리뷰트를 한 개 제외한 조인
+ R ▷◁ S
+ 학생 ▷◁N 성적
+ 조인 연산자들 중에서 가장 자주 사용
+ 중복되지 않을 때는 삭제된다.&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;
+        &lt;ol&gt;
+          &lt;li&gt;외부 조인
+ 상대 릴레이션에서 대응되는 튜플을 갖지 못한 튜플이나 조인 어트리뷰트에 널 값이 들어 있는 튜플들을 다루기 위해서 조인 연산을 확장한 조인
+ 릴레이션에 관련된 튜플이 없으면 결과 릴레이션에서 어트리뷰트를 널 값으로 채운다.&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;ol&gt;
+          &lt;li&gt;
+            &lt;ol&gt;
+              &lt;li&gt;왼쪽 외부 조인
+ R의 모든 튜플들을 결과에 포함, S에 관련 튜플이 없으면 결과 릴레이션에서 릴레이션 S의 어트리뷰트들은 널 값으로 채운다.&lt;/li&gt;
+            &lt;/ol&gt;
+          &lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;
+        &lt;ol&gt;
+          &lt;li&gt;
+            &lt;ol&gt;
+              &lt;li&gt;오른쪽 외부 조인
+ S의 모든 튜플을 결과에 포함, R에 관련 튜플이 없으면 결과 릴레이션에서 R의 어트리뷰트는 널 값으로 채운다.&lt;/li&gt;
+            &lt;/ol&gt;
+          &lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;
+        &lt;ol&gt;
+          &lt;li&gt;
+            &lt;ol&gt;
+              &lt;li&gt;완전 외부 조인
+ R과 S의 모든 튜플을 결과에 포함시키고, 상대 릴레이션에 관련된 튜플이 없으면 결과 릴레이션에서 상대 릴레이션의 어트리뷰트는 널 값으로 채운다.&lt;/li&gt;
+            &lt;/ol&gt;
+          &lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;디비전&lt;/strong&gt; &lt;strong&gt;(DIVISION, ÷)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;X ⊃ Y인 2개의 릴레이션에서 R(X)와 S(Y)가 있을 때, R의 속성이 S의 속성값을 모두 가진 튜플에서 S가 가진 속성을 제외한 속성만을 구하는 연산&lt;/p&gt;
+
+&lt;p&gt;R [속성r ÷ 속성s] S&lt;/p&gt;
+
+&lt;p&gt;속성 r,s는 동일 속성값을 가지는 속성이어야 한다.&lt;/p&gt;
+
+&lt;h4 id=&quot;일반-집합-연산자&quot;&gt;일반 집합 연산자&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;합집합 (UNION, ⋃)&lt;/p&gt;
+
+    &lt;p&gt;R 또는 S에 있거나 R과 S 모두에 속한 튜플로 이루어진 릴레이션&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;R ⋃ S = {t&lt;/td&gt;
+          &lt;td&gt;t ∈ R ∨ t ∈ S}&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    &lt;p&gt;중복된 튜플 제외 후 결과 릴레이션의 차수는 R 또는 S의 차수와 같디.&lt;/p&gt;
+
+    &lt;p&gt;결과 릴레이션의 어트리뷰트의 이름과 같거나 S 어트리뷰트의 이름이 같아야 한다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;교집합 (INTERSECT, ∩)&lt;/p&gt;
+
+    &lt;p&gt;R과 S 모두에 속한 튜플로 이루어진 릴레이션, 공통 정보 이외는 삭제&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;R ∩ S = {t&lt;/td&gt;
+          &lt;td&gt;t ∈ R ∧ t ∈ S}&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;결과 릴레이션의 차수는 R 또는 S와 같으며, 카디날리티&lt;/td&gt;
+          &lt;td&gt;R ∩ S&lt;/td&gt;
+          &lt;td&gt;는 릴레이션 R이나 S의 카디날리티보다 크지 않다.&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;차집합 (DIFFERENCE, -)&lt;/p&gt;
+
+    &lt;p&gt;R에는 속하지만 S에는 속하지 않는 튜플로 이루어진 릴레이션&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;R - S = {t&lt;/td&gt;
+          &lt;td&gt;t ∈ R ∧ t ∉ S}&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    &lt;p&gt;겹치지 않는 튜플만 잔여&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;카티션 프로덕트 연산자 (CARTESIAN PRODUCT, ✕)&lt;/p&gt;
+
+    &lt;p&gt;차수가 n + m이고, 카디날리티가 i*j이고, 어트리뷰트가 (A1, A2, … An, B1, B2, … Bm)이며, R과 S의 튜플들의 모든 가능한 조합으로 이루어진 릴레이션&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;R x S = {r ∙ s&lt;/td&gt;
+          &lt;td&gt;r ∈ R ∧ s ∈ S}&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;외부 합집합&lt;/p&gt;
+
+    &lt;p&gt;합병 가능한 두 개의 릴레이션에 대해서만 적용&lt;/p&gt;
+
+    &lt;p&gt;외부 합집합 U+는 완전하게 합병 가능하지 않은 두 릴레이션을 합집합으로 만드는 것&lt;/p&gt;
+
+    &lt;p&gt;합병 가능하지 않은 어트리뷰트에 해당하는 값이 없는 튜플 = 널 값&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Mon, 15 Apr 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/database/2019/04/15/4/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/database/2019/04/15/4/</guid>
+      </item>
+    
+      <item>
+        <title>[3] Database 데이터 종속성과 정규화</title>
+        <description>&lt;h3 id=&quot;데이터-종속성과-정규화&quot;&gt;데이터 종속성과 정규화&lt;/h3&gt;
+
+&lt;h4 id=&quot;01-정규화의-의미&quot;&gt;01 정규화의 의미&lt;/h4&gt;
+
+&lt;h5 id=&quot;정규화&quot;&gt;정규화&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;자료 저장 공간을 최소화하고 데이터베이스 내의 데이터가 불일치 되는 위험을 최소화&lt;/li&gt;
+  &lt;li&gt;갱신 이상이 생기지 않도록 하기 위해 불필요한 데이터가 중복 저장되지 않도록 방지&lt;/li&gt;
+  &lt;li&gt;잘못된 릴레이션 스키마를 보다 더 작은 속성의 세트로 나누어 갱신 이상이 발생하지 않는 바람직한 릴레이션 스키마로 만들어 가는 과정&lt;/li&gt;
+  &lt;li&gt;반복적인 자료를 제거하여 데이터의 중복을 감소시킴으로써 중복으로 인한 여러 가지 이상현상을 제거&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h6 id=&quot;데이터베이스-스키마가-잘못-설계된-경우&quot;&gt;데이터베이스 스키마가 잘못 설계된 경우&lt;/h6&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;100번 학생이 전자계산기구조와 운영체제라는 두 과목을 신청하였기에 이 학생의 이름은 두 번 저장되는 문제점 발생&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;중복된 데이터의 저장으로 인해 저장 공간이 낭비된다는 문제점 이외에도 중복되어 저장된 데 이터 때문에 릴레이션의 수정, 삽입, 삭제와 같은 조작을 할 때 여러 가지 곤란한 이상(anomaly) 현상이 생김&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h5 id=&quot;목적&quot;&gt;목적&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;어떤 관계라도 데이터베이스 내에서 표현이 가능하도록 만드는 것&lt;/li&gt;
+  &lt;li&gt;관계에서 바람직하지 않은 삽입, 삭제, 갱신 이상이 발생하지 않도록 하는 것&lt;/li&gt;
+  &lt;li&gt;새로운 형태의 데이터가 삽입될 때 관계를 재구성할 필요성을 줄이는 것&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;보다 간단한 관계 연산에 기초하여 검색을 보다 효율적으로 하는 것&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;이상현상-anomaly&quot;&gt;이상현상 (Anomaly)&lt;/h5&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;수정 이상
+    &lt;ul&gt;
+      &lt;li&gt;중복 데이터 중에서 일부만 갱신되어 정보의 모순이 발생하는 것&lt;/li&gt;
+      &lt;li&gt;중복 튜플 중 일부 튜플의 속성값만 변경시킴으로써 정보의 모순성이 발생하는 것&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;삽입 이상&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;불필요한 정보를 함께 저장하지 않고는 어떤 정보를 저장하는 것이 불가능하기에 원하지 않는 정보를 강제로 삽입해야 하는 것&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;삭제 이상&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;유용한 정보를 함께 삭제하지 않고는 어떤 정보를 삭제하는 것이 불가능한 것&lt;/li&gt;
+      &lt;li&gt;한 튜플이 삭제됨으로써 유지되어야 할 정보까지도 삭제되는 연쇄 삭제현상으로 정보 손실 발생\&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;02-함수종속&quot;&gt;02 함수종속&lt;/h4&gt;
+
+&lt;p&gt;임의 튜플에서 X의 값이 Y의 값을 함수적으로 결정한다면, Y가 X에 종속되었다고 한다 ( X → Y )&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;결정자 : 주어진 릴레이션에서 다른 속성 또는 속성의 집합을 고유하게 결정하는 하나 이상의 속성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;수강&lt;/strong&gt; &lt;strong&gt;릴레이션에서&lt;/strong&gt; &lt;strong&gt;결정자는&lt;/strong&gt;&lt;strong&gt;?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;함수-종속의-성질&quot;&gt;함수 종속의 성질&lt;/h5&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;완전 함수 종속&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;​	주어진 릴레이션 R에서 속성 B가 복합 속성 A에 함수적으로 종속하면서&lt;/p&gt;
+
+&lt;p&gt;​	속성 A의 어떤 진부분 집합에도 함수적으로 종속하지 않는 것&lt;/p&gt;
+
+&lt;p&gt;​	속성 B가 속성 A에 완전하게 함수적으로 종속한다고 표현&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;부분 함수 종속&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;속성 B가 복합 속성 A 전체가 아닌 일부에 의해 함수적으로 종속할 수 있는 속성이 존재할 때&lt;/p&gt;
+
+&lt;h4 id=&quot;03-정규화-과정&quot;&gt;03 정규화 과정&lt;/h4&gt;
+
+&lt;p&gt;&amp;gt; 차수가 높을 수록 데이터베이스의 무결성을 저해할 수 있는 논리적 모순 존재 가능성 하락&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 중복 데이터 존재 가능성 하락&lt;/p&gt;
+
+&lt;h5 id=&quot;제1정규형&quot;&gt;제1정규형&lt;/h5&gt;
+
+&lt;p&gt;: 어떤 릴레이션 R에 속한 모든 도메인이 원잣값만으로만 구성&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;반복 집합이 있는 비정규 릴레이션 &amp;gt; 반복 집합 제거 &amp;gt; 모든 속성값이 원잣값으로 구성된 제1정규형 릴레이션&lt;/li&gt;
+  &lt;li&gt;더이상 분해될 수 없는 원잣값으로만 구성된 릴레이션&lt;/li&gt;
+  &lt;li&gt;규칙에 위배된다면 비정규 릴레이션에 해당&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;제1정규형에 만족하는 릴레이션&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;어떤 릴레이션 R에 속한 모든 도메인이 원자값&lt;/li&gt;
+  &lt;li&gt;릴레이션의 속성값이 반복 집단이 없는, 더이상 분해될 수 없는 원자값으로만 구성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;반복 집합이 있는 비정규 릴레이션&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;* 반복 집한은 한 개의 기본키 값에 대해 두 개 이상의 값을 가질 수 있는 속성&lt;/p&gt;
+
+&lt;h5 id=&quot;제2정규형&quot;&gt;제2정규형&lt;/h5&gt;
+
+&lt;p&gt;: 어떤 릴레이션 R이 제1정규형이고, 키에 속하지 않는 속성 모두가 키에 완전 함수 종목으로 구성&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;모든 속성값이 원잣값으로 구성된 제1정규형 릴레이션 &amp;gt; 부분함수의 종속성 제거 
+         &amp;gt; 제1정규형이면서 키가 아닌 모든 속성이 키에 완전함수적으로 종속&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;부분 함수 종속성 : 여러가지 갱신 이상이 발생&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​	&amp;gt; 갱인 이상이 발생하지 않도록 부분 함수적 종속성 제거 후 속성 모두가 기본키에 완전 함수 종속&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;하나의 릴레이션에 서로 다른 정보 기록으로 발생 &amp;gt; 이행적 함수 종속성 제거 후 직접적으로 함수적 종속&lt;/li&gt;
+  &lt;li&gt;릴레이션을 분해 후 표현 &amp;gt; 중복 감소 및 갱신 이상 빈도수 감소&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;무손실&lt;/strong&gt; &lt;strong&gt;분해&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;* 자연 조인할 때 아무 정보 손실 없이 원래의 릴레이션으로 복귀된다면, 2NF로 두 개의 릴레이션으로 분해&lt;/p&gt;
+
+&lt;h5 id=&quot;제3정규형&quot;&gt;제3정규형&lt;/h5&gt;
+
+&lt;p&gt;: 어떤 릴레이션 R이 2NF고, 모든 속성이 기보니에 이행적 함수 종속이 아닐 때&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;이행적 함수 종속을 제거 - 키에 대해서 직접적으로 함수 종목&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이행적 함수 종속성 : 속성 A, B, C가 주어졌을 때 A→B와 B→C의 함수적 종속성이 존재하면 
+ ( A→B^B→C ) 속성 C가 이행적으로 A에 종속한다 ( A→C )&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;이행적 함수 종속으로 인한 갱신 이상&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​	1. 수정 이상 - 정보의 모순성 발생  2. 삽입 이상 - 임시 삽입 모순  3. 갱신 이상 - 연쇄 삭제 현상
+ * 모든 속성값이 원잣값으로 종속된 제2정규형 릴레이션 &amp;gt; 이행적 함수 종속 제거 &amp;gt; 키에 대해서 직접적으로 함수 종속하는 제3정규형 릴레이션&lt;/p&gt;
+
+&lt;h5 id=&quot;보이스--코드-정규형&quot;&gt;보이스 / 코드 정규형&lt;/h5&gt;
+
+&lt;p&gt;: 릴레이션 R이 제3정규형을 만족하고, 모든 결정자가 후보키일 때&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;키에 대해서 직접적 함수 종속인 제3정규형 릴레이션 &amp;gt; 후보키가 아닌 결정자를 제거 
+                 &amp;gt; 모든 결정자가 후보키로 구성된 BCNF 릴레이션&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;BCNF에 속한 모든 릴레이션은 제3정규형에 속함 ( 역은 성립 불가능 )&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;결정자가 후보키가 아닌 릴레이션에서의 갱신 이상&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​	1. 수정 이상 - 정보의 모순성 발생  2. 삽입 이상 - 임시 삽입 모순  3. 갱신 이상 - 연쇄 삭제 현상&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;키가 아니면서 결정자 역할을 하는 속성 제거&lt;/li&gt;
+  &lt;li&gt;키가 아니면서 결정자 역할을 하는 속성과 그 결정자에 함수적으로 종속하는 속성을 하나의 릴레이션에 넣는다.&lt;/li&gt;
+  &lt;li&gt;이 릴레이션에서 결정자는 기본키가 된다&lt;/li&gt;
+  &lt;li&gt;기존 릴레이션에 결정자를 남겨 기본키의 구성요소가 되도록 한다&lt;/li&gt;
+  &lt;li&gt;이 결정자는 새 릴레이션에 대한 외래키 역할도 한다&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 15 Apr 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/database/2019/04/15/3/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/database/2019/04/15/3/</guid>
+      </item>
+    
+      <item>
+        <title>[2] Database 관계 데이터 모델과 관계 무결성 제약조건  </title>
+        <description>&lt;h3 id=&quot;관계-데이터-모델과-관계-무결성-제약조건&quot;&gt;관계 데이터 모델과 관계 무결성 제약조건&lt;/h3&gt;
+
+&lt;h4 id=&quot;01-관계형-데이터베이스의-구조&quot;&gt;01 관계형 데이터베이스의 구조&lt;/h4&gt;
+
+&lt;h5 id=&quot;릴레이션--테이블&quot;&gt;릴레이션 = 테이블&lt;/h5&gt;
+
+&lt;p&gt;: 정보를 구분하여 저장하는 기본 단위&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 표의 형태로 표현 ( 실질적 데이터 저장 &amp;gt; 테이블 )&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 릴레이션 스키마와 릴레이션 인스턴스의 합&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 동일한 데이터베이스 내에서 같은 이름의 릴레이션 존재 불가능&lt;/p&gt;
+
+&lt;p&gt;&amp;gt;현실 시계의 어떤 엔티티 표현&lt;/p&gt;
+
+&lt;h5 id=&quot;속성--열&quot;&gt;속성 = 열&lt;/h5&gt;
+
+&lt;p&gt;: 가장 작은 논리적 단위 - 파일 구조상 데이터 항목 / 데이터 필드&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 구체적인 정보 항목             &amp;gt; 엔티티의 특성 기술&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 관리 할 필요가 이는 속성만 선택하여 릴레이션에 포함&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 같은 이름의 속성 존재 불가능&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 속성의 개수 : 차수 ( Degree )&lt;/p&gt;
+
+&lt;p&gt;속성(어트리뷰트) = 열 = 필드 / 속성의 개수 = 차수&lt;/p&gt;
+
+&lt;h5 id=&quot;튜플--행&quot;&gt;튜플 = 행&lt;/h5&gt;
+
+&lt;p&gt;: 속성의 모임 - 레코드와 같은 의미&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 엔티티에 속한 구성원 개개의 정보 표현&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 카디날리티 : 릴레이션을 구성하는 튜플의 수 = 행의 갯수 / 튜플 = 행 = 레코드 / 튜플의 개수 = 카디날리티&lt;/p&gt;
+
+&lt;h5 id=&quot;도메인&quot;&gt;도메인&lt;/h5&gt;
+
+&lt;p&gt;: 각 속성이 취할 수 있는 같은 타입의 원자값의 집합&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 데이터 타입에 해당      &amp;gt; 동일 도메인 여러 속성에서 사용 가능&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 릴레이션에 저장되는 데이터값들이 본래 의도했던 값들만 저장되게 한다&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 실제 속성값을 나타낼 때 그 값의 합법 여부를 시스템이 검사&lt;/p&gt;
+
+&lt;h5 id=&quot;릴레이션-스키마와-인스턴스&quot;&gt;릴레이션 스키마와 인스턴스&lt;/h5&gt;
+
+&lt;p&gt;릴레이션 스키마 : 릴레이션 내포&lt;/p&gt;
+
+&lt;p&gt;​	&amp;gt; 릴레이션 이름과 일정수의 속성의 집합&lt;/p&gt;
+
+&lt;p&gt;​	&amp;gt; 릴레이션의 논리적 구조 정의 : 릴레이션 이름과 속성의 집합&lt;/p&gt;
+
+&lt;p&gt;릴레이션 인스턴스 : 릴레이션 외포&lt;/p&gt;
+
+&lt;p&gt;​	&amp;gt; 어느 한 시점에서 릴레이션에 포함되어 있는 튜플의 집합&lt;/p&gt;
+
+&lt;p&gt;​	&amp;gt; 릴레이션에 포함되어 있는 내용 또는 상태로 튜플 전체를 의미&lt;/p&gt;
+
+&lt;h4 id=&quot;02-릴레이션의-특징&quot;&gt;02 릴레이션의 특징&lt;/h4&gt;
+
+&lt;h5 id=&quot;속성-간의-순서&quot;&gt;속성 간의 순서&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;릴레이션을 구성하는 속성 간 순서는 중요하지 않다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;속성의 순서를 바꾼다고 다른 릴레이션이 되지는 않는다. &amp;gt; 속성 이름에 의해 참조되기 때문&lt;/li&gt;
+  &lt;li&gt;속성 순서를 정해놓는 것이 좋으며 상용 dbms는 속성이 순서를 가짐&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;상이한-튜플&quot;&gt;상이한 튜플&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;한 릴레이션에 포함된 튜플은 모두 다르다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;어떤 튜플도 정확하게 동일한 값을 갖지 않는다&lt;/li&gt;
+  &lt;li&gt;튜플을 유일하게 식별하기 위해 고유값을 저장하는 속성이 적어도 한 개 있어야 한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;튜플의-순서&quot;&gt;튜플의 순서&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;릴레이션에 포함된 튜플의 순서는 중요하지 않다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;릴레이션의 포함된 튜플의 순서는 무의미&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;릴레이션&lt;/strong&gt; &lt;strong&gt;변동성&lt;/strong&gt; &lt;strong&gt;-&lt;/strong&gt; 튜플의 삽입, 삭제 등의 잡업으로 릴레이션은 시간에 따라 변함&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;속성&lt;/strong&gt; &lt;strong&gt;명칭과&lt;/strong&gt; &lt;strong&gt;값&lt;/strong&gt; &lt;strong&gt;-&lt;/strong&gt; 유일한 식별을 위해 명칭은 유일해야 하며, 속성 구성 값은 동일할 수 있다&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;튜플의&lt;/strong&gt; &lt;strong&gt;속성&lt;/strong&gt; &lt;strong&gt;-&lt;/strong&gt; 속성은 원잣값만을 저장해야 한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;속성은 여러 개의 값을 리스트나 집합 형태로 저장 불가능&lt;/li&gt;
+  &lt;li&gt;하나 속성이 두 값을 갖게 되면 릴레이션 추가 후 이를 참조&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;03-키의-개념-및-종류&quot;&gt;03 키의 개념 및 종류&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;이상&lt;/strong&gt;&lt;strong&gt;( Anomaly )&lt;/strong&gt; &lt;strong&gt;현상&lt;/strong&gt; &lt;strong&gt;-&lt;/strong&gt; 데이터가 중복 저장되면 릴레이션 조작 시 예상치 못한 곤란한 현상 발생&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;키&lt;/strong&gt; &lt;strong&gt;-&lt;/strong&gt; 튜플을 유일하게 식별하기 위한 고유한 값을 저장하는 속성 혹은 속성의 집합&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;수퍼키&lt;/strong&gt;&lt;strong&gt;( Super Key ) -&lt;/strong&gt; 튜플을 유일하게 식별하기 위해 사용하는 하나 혹은 그 이상의 속성 집합&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;문제점 : 튜플 고유 구별을 위해 꼭 필요하지 않은 속성을 포함&lt;/li&gt;
+  &lt;li&gt;한 릴레이션을 구성하는 속성들 중 각 튜플을 유일하게 식별할 수 있는 하나 또는 그 이상의 속성의 집합&lt;/li&gt;
+  &lt;li&gt;유일성 개념 포함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;후보키&lt;/strong&gt; &lt;strong&gt;( Candidate Key ) -&lt;/strong&gt; 최소한의 속성으로 구성된 유일성을 갖는 속성의 집합&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;후보키 지정 시 후보키 속성값만을 비교하면 되는 장점&lt;/li&gt;
+  &lt;li&gt;릴레이션 구성 속성 중 각 튜플을 유일하게 식별할 수 있는 최소한의 속성의 집합&lt;/li&gt;
+  &lt;li&gt;유일성과 최소성 개념 포함&lt;/li&gt;
+  &lt;li&gt;수퍼키와 공통점 : 릴레이션에 있는 가 튜플을 고유하게 식별할 수 있어야 한다&lt;/li&gt;
+  &lt;li&gt;수퍼키와 차이점 : 최소한의 속성으로 구성된 유일성을 갖는 속성의 집합&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;기본키&lt;/strong&gt; &lt;strong&gt;( Primary Key ) -&lt;/strong&gt; 후보키 중 튜플을 식별하는데 기준으로 사용하는 키&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;하나의 릴레이션에서 후보키가 하나뿐일 때 그 후보키를 기본키로 사용&lt;/li&gt;
+  &lt;li&gt;두 개 이상 존재 시 릴레이션 특성을 고려해 이들 중 하나를 선택&lt;/li&gt;
+  &lt;li&gt;Null 값 저장 불가능&lt;/li&gt;
+  &lt;li&gt;기본키로 정의된 속성에는 동일 값이 중복 저장 불가능&lt;/li&gt;
+  &lt;li&gt;모든 릴레이션에는 적어도 하나의 기본키 ( 후보키 )가 존재&lt;/li&gt;
+  &lt;li&gt;여러 후보키 중 하나를 선택하여 튜플을 식별하는데 기준으로 사용하는 키&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;대체키&lt;/strong&gt; &lt;strong&gt;( Alternate Key ) -&lt;/strong&gt; 후보키가 둘 이상일 때 기본키로 선택되지 않은 나머지 후보키&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;보조키라고도 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;복합키&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;하나의 칼럼이 후보키 역할을 하지 못함&lt;/li&gt;
+  &lt;li&gt;두 개 이상의 칼럼이 합쳐져야 후보키의 역할을 하는 경우&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;외래키&lt;/strong&gt; &lt;strong&gt;( Foreign Key )&lt;/strong&gt; - 상호 관련 테이블 사이에서 데이터의 일관성을 보장해주는 수단&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;어떤 릴레이션의 기본키를 참조하는 속성 또는 속성의 집합&lt;/li&gt;
+  &lt;li&gt;외래키 속성은 참조하는 릴레이션의 기본키와 동일한 도메인을 가져야 함&lt;/li&gt;
+  &lt;li&gt;두 테이블 간 데이터 불일치로 발생하는 이상현상 방지 &amp;gt; 데이터 사이 참조 관계 설정&lt;/li&gt;
+  &lt;li&gt;A 릴레이션과 참조하고 있는 B릴레이션의 기본키와 같은 속성을 A에서 찾아 이를 외래키로 지정&lt;/li&gt;
+  &lt;li&gt;외래키로 지정되면 참조 테이블에서 사용 중인 기본키를 삭제, 변경 불가능&lt;/li&gt;
+  &lt;li&gt;기본키에 없는 값은 외래키 값으로 입력 불가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;자체 릴레이션을 참조하는 외래키             기본키 구성요소가 되는 외래키&lt;/p&gt;
+
+&lt;h4 id=&quot;04-무결성-제약조건&quot;&gt;04 무결성 제약조건&lt;/h4&gt;
+
+&lt;h5 id=&quot;개체-무결성&quot;&gt;개체 무결성&lt;/h5&gt;
+
+&lt;p&gt;: 개체가 결점이 없음&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무결한 개체 = 데이터베이스에 저장, 관리될 때 본질적으로 서로 구별 가능&lt;/li&gt;
+  &lt;li&gt;식별 가능한 상태에 있게 되면 개체 부결성이 보장된 상태&lt;/li&gt;
+  &lt;li&gt;릴레이션 식별자의 역할 = 기본키&lt;/li&gt;
+  &lt;li&gt;기본키 구성 속성은 null / 중복값 불가능&lt;/li&gt;
+  &lt;li&gt;기본키 값이 널 값을 갖게 된다면 튜플을 유일하게 식별할 수 없음&lt;/li&gt;
+  &lt;li&gt;튜플 유일 식별 불가능은 서로 구별할 수 없는 개체가 존재하게 된다는 의미 &amp;gt; 개체 무결성 위배&lt;/li&gt;
+  &lt;li&gt;기본키의 유일 식별성을 잃지 않도록 하기 위해 중복되는 값을 갖으면 안 됨&lt;/li&gt;
+  &lt;li&gt;특정 개체가 무결성을 유지하도록 하기 위해서 릴레이션을 생성하는 데이터 정의문 에서 어떤 속성이 릴레이션의 기본키인지를 알려주어야 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;gt; 개체 무결정 제약조건 : 기본키는 NULL 이나 중복 값을 가질 수 없다&lt;/p&gt;
+
+&lt;h5 id=&quot;참조-무결성&quot;&gt;참조 무결성&lt;/h5&gt;
+
+&lt;p&gt;: 릴레이션 간 적용되는 제약조건&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;외래키 값은 null이거나 참조 릴레이션의 기본키 값과 동일해야 함&lt;/li&gt;
+  &lt;li&gt;릴레이션 모델에서는 두 개체 간의 관계를 외래키 혹은 릴레이션으로 표현&lt;/li&gt;
+  &lt;li&gt;릴레이션은 참조할 수 없는 외래키 값을 가질 수 없음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;gt; 참조 무결성 제약조건 : 외래키는 참조할 수 없는 값을 가질 수 없다.&lt;/p&gt;
+
+&lt;p&gt;참조 무결성 제약 조건 유지&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;두 테이블 간 외래키에 의한 참조 관계에 있고 두 테이블 간 데이터 불일치가 발생하는 상황이 될 때&lt;/li&gt;
+  &lt;li&gt;DBMS는 제한, 연쇄, 널 값으로 대체와 같은 조취를 취할 수 있다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h6 id=&quot;a-테이블-첫-번째-튜플을-삭제하려-할-때&quot;&gt;A 테이블 첫 번째 튜플을 삭제하려 할 때&lt;/h6&gt;
+
+&lt;p&gt;제한은 삭제하려는 튜플의 부서 번호 값을 사원 테이블에서 가지고 있는 튜플이 있으므로 삭제 연산 거절&lt;/p&gt;
+
+&lt;p&gt;연쇄는 삭제된 부서 번호 값을 갖는 사원 테이블의 튜플도 함께 삭제&lt;/p&gt;
+
+&lt;p&gt;널 값으로 대체는 삭제 연산을 수행한 뒤 삭제된 부서 번호 값을 갖는 사원 테이블의 튜플에서 부서 번호를 널 값으로 대체&lt;/p&gt;
+</description>
+        <pubDate>Mon, 15 Apr 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/database/2019/04/15/2/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/database/2019/04/15/2/</guid>
+      </item>
+    
+      <item>
+        <title>[1] Database 데이터 모델</title>
+        <description>&lt;h3 id=&quot;데이터-모델&quot;&gt;데이터 모델&lt;/h3&gt;
+
+&lt;h4 id=&quot;01-데이터-모델의-개요&quot;&gt;01 데이터 모델의 개요&lt;/h4&gt;
+
+&lt;p&gt;정보화 시스템 구축 : 현실 세계에서 일어나는 사건들을 전산화&lt;/p&gt;
+
+&lt;p&gt;현실 세계를 개념화, 단순화하여 가시적으로 표현&lt;/p&gt;
+
+&lt;p&gt;데이터 모델링 : 체계적으로 표현하고 문서화하는 기법 - 정보시스템의 중심을 데이터 관점에서 접근&lt;/p&gt;
+
+&lt;p&gt;\1. 어떤 데이터가 존재하는지   2. 업무에서 필요로 하는 정보가 무엇인지 분석
+ &amp;gt; 모델링 자체가 업무를 분석 : 프로젝트 참여한 모든 사람은 모델링에 참여하거나 내용 이해 필수&lt;/p&gt;
+
+&lt;p&gt;데이터 모델 : 현실 세계를 단순화, 추상화하여 체계적으로 데이터의 구조를 표현 &amp;gt; 그래픽적 구현&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;주 목적&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;업무 정보를 구성하는데 기초가 되는 정보를 일정한 표기법으로 표현함으로써 정보 시스템 구축 대상이 되는 업무 내용을 정확하게 분석하는 것이다.&lt;/li&gt;
+      &lt;li&gt;분석된 모델을 가지고 실제 데이터베이스를 생성하여 개발 및 데이터 관리에 사용하기 위한 것이다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;gt;&amp;gt; 새로운 시스템이나 개선 시스템 개발의 기초를 제공하며 조직 내 구성원 간의 의사소통의 수단&lt;/p&gt;
+
+&lt;h5 id=&quot;데이터-모델의-구성요소&quot;&gt;데이터 모델의 구성요소&lt;/h5&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;구조&lt;/strong&gt; &lt;strong&gt;(S : Structure)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;데이터의 정적 성질, 데이터베이스에서 표현될 대상으로써의 엔티티 타임과 이들 간의 관계를 명세&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;연산&lt;/strong&gt; &lt;strong&gt;(O : Operation)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;데이터의 동적 성질, 엔티티 인스턴스에 적용 가능한 연산에 대한 명세&lt;/p&gt;
+
+&lt;p&gt;엔티티 인스턴스를 처리하는 작업에 대한 명세 &amp;gt; 데이터 조작 기법&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;제약조건&lt;/strong&gt; &lt;strong&gt;(C : Constraint)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;데이터가 무결하도록 하기 위해 사용 - 데이터를 조작하는데 있어 한계를 규정짓는 것&lt;/p&gt;
+
+&lt;h5 id=&quot;엔티티-관계-속성&quot;&gt;엔티티, 관계, 속성&lt;/h5&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;업무가 관여하는 어떤 것 (Entity)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;사람이 생각하는 개념이나 정보단위같은 현실 세계의 대상체&lt;/p&gt;
+
+&lt;p&gt;유 / 무형의 정보 &amp;gt; 서로 연관된 몇 개의 속성으로 구성&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;업무가 관여하는 어떤 것 간의 관계 (Relation)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;데이터의 가장 작은 논리적 단위, 하나의 엔티티는 한 개 이상으 속성으로 구성&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;어떤 것이 가지는 성격 (Attribute)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;엔티티와 엔티티 혹은 엔티티와 속성 간의 연관성&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 자연계에 존재하는 모든 유형의 정보를 세 가지 관점으로 접근하여 모델링&lt;/p&gt;
+
+&lt;h4 id=&quot;개념적-데이터-모델과-논리적-데이터-모델&quot;&gt;개념적 데이터 모델과 논리적 데이터 모델&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;h5 id=&quot;개념적-데이터-모델&quot;&gt;개념적 데이터 모델&lt;/h5&gt;
+
+    &lt;p&gt;( 개체 관계 모델 - E-R 모델 ) » 정보 모델링&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;엔티티를 인간이 이해할 수 있는 정보구조로 표현하는 과정&lt;/p&gt;
+
+&lt;p&gt;현실 세계에서 존재하는 데이터를 엔티티와 엔티티 내의 공통된 속성과 엔티티들 사이의 관계를 정의하는 추상화 과정&lt;/p&gt;
+
+&lt;p&gt;엔티티를 추상화 시킨 엔티티 타임 : 해당 타입에 속하는 엔티티들의 공통적이 특성을 나타내는 속성&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;h5 id=&quot;논리적-데이터-모델&quot;&gt;논리적 데이터 모델&lt;/h5&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;데이터 모델링&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;컴퓨터가 이해할 수 있도록 변환&lt;/p&gt;
+
+&lt;p&gt;필드로 기술된 데이터 타입과 이 테이터 타입 간의 관계를 이용하여 현실세계를 표현하는 방법&lt;/p&gt;
+
+&lt;p&gt;\1. 관계 데이터 모델   2. 계층 데이터 모델  3. 네트워크 데이터 모델&lt;/p&gt;
+
+&lt;h3 id=&quot;02-개념적-데이터-모델&quot;&gt;02 개념적 데이터 모델&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;목적 : 현실 세계를 추상화하는 과정으로 업무적인 관점에서 접근하고 분석하는 단계&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;E-R 다이어그램 : 엔티티와 이들 간의 관계를 알기 쉽게 도형을 사용해 표현&lt;/p&gt;
+
+&lt;h4 id=&quot;엔티티와-엔티티-타입&quot;&gt;엔티티와 엔티티 타입&lt;/h4&gt;
+
+&lt;p&gt;엔티티 타입 : 독립적으로 전재하면서 고유하게 식별 가능한 실세계의 엔티티 (실체 / 추상)&lt;/p&gt;
+
+&lt;p&gt;​	    엔티티들은 엔티티 타입으로 분류&lt;/p&gt;
+
+&lt;p&gt;엔티티의 집합 : 동일한 속성을 가진 엔티티의 모임 ( 엔티티 인스턴스의 집합 ).&lt;/p&gt;
+
+&lt;p&gt;엔티티 : 엔티티 타입을 구성하는 원소, 다른 모든 것과 구분되는 유/무형의 것 &amp;gt; 업무 수행을 위해 알아야 할 대상&lt;/p&gt;
+
+&lt;h4 id=&quot;속성&quot;&gt;속성&lt;/h4&gt;
+
+&lt;p&gt;속성 : 엔티티의 성질, 분류, 수량, 상태, 특성을 구체적으로 나타내는 세부 항목&lt;/p&gt;
+
+&lt;p&gt;속성값 : 엔티티의 특성이나 상태가 현실화된 값&lt;/p&gt;
+
+&lt;h4 id=&quot;속성-유형&quot;&gt;속성 유형&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;단순 속성과 복합 속성&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;단순 속성 : 더이상 작은 구성원소로 분해할 수 없는 속성&lt;/p&gt;
+
+&lt;p&gt;복합 속성 : 몇 개의 기본적 단순 속성으로 분해할 수 있는 속성&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;단일 값 속성과 다중 값 속성&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;단일 값 속성 : 각 엔티티에 대해 하나의 값만 갖는 것&lt;/p&gt;
+
+&lt;p&gt;다중 값 속성 : 한 엔티티에 대해 여러 값을 갖는 것&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;유도 속성과 저장 속성&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;유도 속성 : 속성 값이 다른 속성이나 엔티티가 갖고 있는 값으로부터 유도되어 결정되는 경우&lt;/p&gt;
+
+&lt;p&gt;저장 속성 : 유도 속성을 생성하는 데 사용된 속성&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;널 속성&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;널 값을 갖는 속성&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;
+        &lt;p&gt;속성값이 엔티티에 해당하지 않는 경우&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;속성값을 알 수 없는 경우&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;값이 존재하지만 값이 누락된 경우&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;값이 존재하는지 알 수 없어 모르는 경우&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;관계타입&quot;&gt;관계타입&lt;/h4&gt;
+
+&lt;p&gt;: 엔티티 사이의 연관성을 표 현하는 개념 &amp;gt; 동사구로 관계 정의 / 엔티티 집합 사이의 대응-사상을 의미&lt;/p&gt;
+
+&lt;p&gt;관계 집합 : 한 관계 타입에 속하는 모든 관계 인스턴스&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;관계 유형&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;카디날리티 : 관계에 참여하는 하나의 엔티티에 대해 다른 엔티티가 몇 개 참여하는지 나타내는 것&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 관계 대응 엔티티 수 : 하나의 관계에 실제 참여 가능한 인스턴스의 수&lt;/p&gt;
+
+&lt;p&gt;(1) 일대일  (2) 일대다  (3) 다대다&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;카디날리티 비율의 최소값과 최대값&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;어떤 관계 타입에 참여하는 각 엔티티 타입에 대해&lt;/p&gt;
+
+&lt;p&gt;min은 이 엔티티 타입 내의 각 엔티티는 적어도 min번 관계에 참여함을 의미한다.&lt;/p&gt;
+
+&lt;p&gt;min = 0은 어떤 엔티티가 반드시 관계에 참여해야 할 필요는 없음을 의미한다&lt;/p&gt;
+
+&lt;p&gt;max는 이 엔티티 타입 내의 각 엔티티는 최대한 max번 관계에 참여함을 의미한다.&lt;/p&gt;
+
+&lt;p&gt;max = *는 어떤 엔티티가 관계에 임의의 수 만큼 참여할 수 있음을 의미한다.&lt;/p&gt;
+
+&lt;p&gt;(표)&lt;/p&gt;
+
+&lt;h4 id=&quot;엔티티의-키&quot;&gt;엔티티의 키&lt;/h4&gt;
+
+&lt;p&gt;키 속성 : 엔티티 인스턴스를 유일하게 식별하는 데 사용 : 중복 값을 갖지 않는 속성&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; 타 엔티티와 구별할 수 있는 속성이며 키를 속성에 및줄을 그어 표현한다. (그림)&lt;/p&gt;
+
+&lt;h4 id=&quot;강한-엔티티-타입과-약한-엔티티-타입&quot;&gt;강한 엔티티 타입과 약한 엔티티 타입&lt;/h4&gt;
+
+&lt;p&gt;강한 엔티티 타입 ( 정규 엔티티 타입 ) : 고유 엔티티들을 식별할 수 있는 엔티티 타입&lt;/p&gt;
+
+&lt;p&gt;강한 엔티티 = 독립 / 부모 엔티티&lt;/p&gt;
+
+&lt;p&gt;약한 엔티티 타입 : 자기 자신만의 속성만으로는 키를 명세할 수 없는 엔티티&lt;/p&gt;
+
+&lt;p&gt;약한 엔티티 = 종속 / 자식 엔티티&lt;/p&gt;
+
+&lt;p&gt;소유 엔티티 타입 ( 식별 엔티티 타입 ) : 소유엔타에 의해야만 약한 엔티티 타입이 식별 가능&lt;/p&gt;
+
+&lt;p&gt;구별자 ( 부분키 ) : 약한 엔티티 타입을 구별하기 위해 사용되는 이름은 단독으로 엔티티를 구분할 수 없음&lt;/p&gt;
+
+&lt;p&gt;구별자는 강한 엔티티와 연관된 약한 엔티티 집합 내에서만 서로 구별 가능&lt;/p&gt;
+
+&lt;p&gt;이중링크 : 부양가족 엔티티가 전체참여를 하고 있다는 것&lt;/p&gt;
+
+&lt;p&gt;​	&amp;gt; 약한 엔티티를 강한 엔티티에 연관시켜 엔티티를 유일하게 식별하게 하는 것&lt;/p&gt;
+
+&lt;h4 id=&quot;isa-관계&quot;&gt;ISA 관계&lt;/h4&gt;
+
+&lt;p&gt;상위 엔티티와 하위 엔티티 간의 관계&lt;/p&gt;
+
+&lt;p&gt;같은 속성을 갖는 여러 엔티티를 하나의 상위 엔티티로 결합할 수 있으며, 특정 엔티티는 서로 구별되는 여러 하위 엔티티로 나눌 수 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;03-논리적-데이터-모델--데이터-모델링-&quot;&gt;03 논리적 데이터 모델 ( 데이터 모델링 )&lt;/h3&gt;
+
+&lt;p&gt;: 개념적 모델링 과정에서 얻은 개념적 구조를 컴퓨터 환경에 맞도록 변환하는 과정&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;목적 : 정확한 업무 분석을 통한 자료의 흐름을 분석 후 실체와 속성의 관계를 구조적으로 설계&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;계층-데이터-모델&quot;&gt;계층 데이터 모델&lt;/h4&gt;
+
+&lt;p&gt;데이터를 저장하는 단위( Entity )의 구조가 상하종속적인 관계로 구성 /&lt;/p&gt;
+
+&lt;p&gt;일대다 ( 1 : N ) 대응 관계만 존재 &amp;gt; 레코드 삭제 시 연쇄삭제&lt;/p&gt;
+
+&lt;p&gt;레코드의 집합 : 세그먼트 ( 부모 / 자식 세그먼트 )&lt;/p&gt;
+
+&lt;p&gt;레코드 타입 ( 논리적 구조 ) : 트리 형태로 표현 &amp;gt; 엔티티가 트리를 구성하는 노드 역할&lt;/p&gt;
+
+&lt;p&gt;장점 : 데이터 액세스 속도가 빠르고 데이터 사용량을 쉽게 예측할 수 있다&lt;/p&gt;
+
+&lt;p&gt;단점 : 데이터 구조가 상하 종속적인 관계로 구성 &amp;gt; 변화하는 프로세서 수용 불가능&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;관계의 유형&lt;/p&gt;
+
+    &lt;p&gt;- 속성 관계 : 세그먼트 (엔티티)를 구성하는 속성들의 관계&lt;/p&gt;
+
+    &lt;p&gt;- 엔티티 관계 : 엔티티와 엔티티 간의 관계를 링크로 표시&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;네트워크-데이터-모델&quot;&gt;네트워크 데이터 모델&lt;/h4&gt;
+
+&lt;p&gt;그래프를 이용해 데이터 논리구조를 표현&lt;/p&gt;
+
+&lt;p&gt;다대다 ( N : M ) 대응 관계를 만족하는 구조 &amp;gt; 오너와 멤버 관계로 표현&lt;/p&gt;
+
+&lt;p&gt;레코드 타입 : 도형적으로 표현 ( 그래프 형태 ) &amp;gt; 망 데이터 모델&lt;/p&gt;
+
+&lt;p&gt;단점 : 구성과 설계가 복잠함 / 계층형 데이터베이스 관리 시스템의 단점이었던 데이터 종속성 또한 해결 불가&lt;/p&gt;
+
+&lt;h4 id=&quot;관계-데이터-모델&quot;&gt;관계 데이터 모델&lt;/h4&gt;
+
+&lt;p&gt;: 계층 모델과 망 모델의 복잡한 구조를 단순화&lt;/p&gt;
+
+&lt;p&gt;일대일, 일대다, 다대다 관계를 자유로이 표현 가능&lt;/p&gt;
+
+&lt;p&gt;장점 : 변화하는 업무 프로세스를 쉽게 적용 가능 &amp;gt; 유지 보수의 용이, 생산성 향상 및 응용프로그램 개발 용이&lt;/p&gt;
+
+&lt;p&gt;​      간결성, 보기 편리하고 구조가 간단하여 설계 및 관리가 편리, 다른 데이터베이스로의 변환이 편리&lt;/p&gt;
+
+&lt;p&gt;단점 : 많은 자원이 필요하기에 시스템 부하가 상대적으로 빈번함&lt;/p&gt;
+</description>
+        <pubDate>Mon, 15 Apr 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/database/2019/04/15/1-Database-Study-in-school/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/database/2019/04/15/1-Database-Study-in-school/</guid>
+      </item>
+    
 
     
       
         
+      
+    
+      
+    
       
     
       

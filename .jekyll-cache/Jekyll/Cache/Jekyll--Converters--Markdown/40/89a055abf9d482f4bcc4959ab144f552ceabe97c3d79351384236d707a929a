@@ -1,0 +1,37 @@
+I"�<h3 id="phantom-js">Phantom JS</h3>
+
+<p>화</p>
+
+<p>면 없이 실행하는 프로그램 - Web testing &gt; 시간이 단축되지는 않기에 경우에 따라 선택적 사용이 필요</p>
+
+<ul>
+  <li>터미널 환경에서 동작하는 크롤러에게 권장</li>
+  <li>최신 셀레니움은 지원을 하지 않는 상태</li>
+</ul>
+
+<p>* 기존 부분 <code class="highlighter-rouge">webdriver.Chrome('*')</code> 만 변경</p>
+
+<p><em>아예 안 됨!</em></p>
+
+<h3 id="headless-chrome">Headless Chrome</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'headless'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>: PhantomJS와 유사한 기술로 크롬브라우저 기능으로 개발됨</p>
+
+<p>* 상동</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">c_options</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">ChromeOptions</span><span class="p">()</span>
+<span class="n">c_options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'headless'</span><span class="p">)</span>
+<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">c_options</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">coptions.add_argument('window-size=1920x1080')</code> : 웹 브라우저 사이즈 지정</p>
+
+<p><code class="highlighter-rouge">coptions.add_argument('disable-gpu')</code> : 그래픽카드 사용 안 함</p>
+
+<p><code class="highlighter-rouge">coptions.add_argument('User-Agent: ~~')</code> : 서버 요청 시 헤더 재 구성</p>
+
+<p><code class="highlighter-rouge">coptions.add_argument('lang=koKR')</code> : 사용자 언어</p>
+:ET

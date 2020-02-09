@@ -1,8 +1,8 @@
 ---
 layout: post
 title: '[Edwith] 머신러닝을 위한 Python_chap01'
-tags: [edwith, ML, python]
-categories: [Study/Machine Learning]
+tags: [ML, Python]
+categories: [Study/Python]
 ---
 
 ### News Categorisitaion

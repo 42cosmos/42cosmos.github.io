@@ -1,0 +1,48 @@
+I"A<h3 id="xml-특정-요소나-속성에-접근키-위한-경로-지정-언어">XML 특정 요소나 속성에 접근키 위한 경로 지정 언어</h3>
+
+<ol>
+  <li>
+    <p>태그 및 속성 선택</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>crawling_data = soup.find('h1')
+crawling_data = soup.find(id='title')
+crawling_data = soup.find('p', class_='cssstyle') crawling_data = soup.find('p', attrs = {'align': 'center'})
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>CSS Selector</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>crawling_data = soup.select('html &gt; title')
+crawling_data = soup.select('div.article_view')
+crawling_data = soup.select('#harmonyContainer')
+crawling_data = soup.select('div#mArticle div#harmonyContainer')
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>XPath</p>
+
+    <ul>
+      <li>
+        <p>bs 미지원 / Selenium or PhantomJS 지원</p>
+      </li>
+      <li>
+        <p><a href="https://wkdtjsgur100.github.io/selenium-xpath/">xpath 문법</a></p>
+      </li>
+    </ul>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 문서 내 태그 검색
+title = driver.find_element_by_xpath("//title")
+   
+# 절대 경로
+title = driver.find_element_by_xpath("/html/head/title")
+   
+# html 태그 내 검색
+title = driver.find_element_by_xpath("/html//title")
+   
+# soup.find('h3', attrs = {'class' : 'tit_s'})
+title_content = driver.find_element_by_xpath("//h3[@class='tit_view']")
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+:ET
