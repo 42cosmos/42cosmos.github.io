@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+  <title>Seaborn Visualisation</title>
+  <meta name='description' content="Bar Chart">
+  <link rel='canonical' href="http://localhost:4000/study/python/2020/02/11/Seaborn-visualisation/">
+  <link rel='alternate' type='application/rss+xml' title='빈둥빈둥 공부 블로그' href="http://localhost:4000/feed.xml">
+
+  <style>
+    
+
+    html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:0.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace, monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace, monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}[type="search"]::-webkit-search-cancel-button,[type="search"]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}body,h1,h2,h3,h4,h5,h6,p,ul,blockquote,pre,dl,dd,ol,figure,hr,fieldset,legend{margin:0;padding:0}li>ol,li>ul{margin-bottom:0}table{border-collapse:collapse;border-spacing:0}address,h1,h2,h3,h4,h5,h6,blockquote,p,pre,dl,ol,ul,figure,hr,table,fieldset{margin-bottom:26px}dd,ol,ul{list-style-position:inside;margin-left:13px}@-webkit-keyframes spin{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes spin{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.icon{position:relative;display:inline-block;width:25px;height:25px;overflow:hidden;fill:currentColor}.icon__cnt{width:100%;height:100%;background:inherit;fill:inherit;pointer-events:none;transform:translateX(0);-ms-transform:translate(0.5px, -0.3px)}.icon--m{width:50px;height:50px}.icon--l{width:100px;height:100px}.icon--xl{width:150px;height:150px}.icon--xxl{width:200px;height:200px}.icon__spinner{position:absolute;top:0;left:0;width:100%;height:100%}.icon--ei-spinner .icon__spinner,.icon--ei-spinner-2 .icon__spinner{-webkit-animation:spin 1s steps(12) infinite;animation:spin 1s steps(12) infinite}.icon--ei-spinner-3 .icon__spinner{-webkit-animation:spin 1.5s linear infinite;animation:spin 1.5s linear infinite}.icon--ei-sc-facebook{fill:#3b5998}.icon--ei-sc-github{fill:#333}.icon--ei-sc-google-plus{fill:#dd4b39}.icon--ei-sc-instagram{fill:#3f729b}.icon--ei-sc-linkedin{fill:#0976b4}.icon--ei-sc-odnoklassniki{fill:#ed812b}.icon--ei-sc-skype{fill:#00aff0}.icon--ei-sc-soundcloud{fill:#f80}.icon--ei-sc-tumblr{fill:#35465c}.icon--ei-sc-twitter{fill:#55acee}.icon--ei-sc-vimeo{fill:#1ab7ea}.icon--ei-sc-vk{fill:#45668e}.icon--ei-sc-youtube{fill:#e52d27}.icon--ei-sc-pinterest{fill:#bd081c}.icon--ei-sc-telegram{fill:#0088cc}.highlight{margin:0;background:#fff}.highlighter-rouge .highlight{background:#FAFAFA}.highlight .c{color:#998;font-style:italic}.highlight .err{color:#a61717;background-color:#e3d2d2}.highlight .k{font-weight:bold}.highlight .o{font-weight:bold}.highlight .cm{color:#998;font-style:italic}.highlight .cp{color:#999;font-weight:bold}.highlight .c1{color:#998;font-style:italic}.highlight .cs{color:#999;font-weight:bold;font-style:italic}.highlight .gd{color:#000;background-color:#fdd}.highlight .gd .x{color:#000;background-color:#faa}.highlight .ge{font-style:italic}.highlight .gr{color:#a00}.highlight .gh{color:#999}.highlight .gi{color:#000;background-color:#dfd}.highlight .gi .x{color:#000;background-color:#afa}.highlight .go{color:#888}.highlight .gp{color:#555}.highlight .gs{font-weight:bold}.highlight .gu{color:#aaa}.highlight .gt{color:#a00}.highlight .kc{font-weight:bold}.highlight .kd{font-weight:bold}.highlight .kp{font-weight:bold}.highlight .kr{font-weight:bold}.highlight .kt{color:#458;font-weight:bold}.highlight .m{color:#099}.highlight .s{color:#d14}.highlight .na{color:#008080}.highlight .nb{color:#0086B3}.highlight .nc{color:#458;font-weight:bold}.highlight .no{color:#008080}.highlight .ni{color:#800080}.highlight .ne{color:#900;font-weight:bold}.highlight .nf{color:#900;font-weight:bold}.highlight .nn{color:#555}.highlight .nt{color:#000080}.highlight .nv{color:#008080}.highlight .ow{font-weight:bold}.highlight .w{color:#bbb}.highlight .mf{color:#099}.highlight .mh{color:#099}.highlight .mi{color:#099}.highlight .mo{color:#099}.highlight .sb{color:#d14}.highlight .sc{color:#d14}.highlight .sd{color:#d14}.highlight .s2{color:#d14}.highlight .se{color:#d14}.highlight .sh{color:#d14}.highlight .si{color:#d14}.highlight .sx{color:#d14}.highlight .sr{color:#009926}.highlight .s1{color:#d14}.highlight .ss{color:#990073}.highlight .bp{color:#999}.highlight .vc{color:#008080}.highlight .vg{color:#008080}.highlight .vi{color:#008080}.highlight .il{color:#099}body{color:#323232;font-size:19px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";line-height:32px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}*::selection{color:#fff;background:#00A0FF}a{text-decoration:none;color:#323232;transition:.4s}a:hover,a:active,a:focus{text-decoration:underline}img{display:block;max-width:100%;font-style:italic}hr{height:1px;margin:26px 0;border:0;background-color:#E9EFF3}h1,h2,h3,h4,h5,h6{font-weight:inherit;line-height:initial;font-weight:600}h1{font-size:36px;margin-top:15px}h2{font-size:28px}h3{font-size:24px}h4{font-size:20px}h5{font-size:18px}h6{font-size:16px}blockquote{padding-left:13px;border-left:3px solid #2B5F72}pre,code{font-family:Courier,monospace;background-color:#FAFAFA}pre{overflow:auto;padding:26px;margin-bottom:13px;font-size:16px;line-height:25px;white-space:pre-wrap;word-wrap:break-word}li code,p code{padding:3px 7px}input[type='text'],input[type='tel'],input[type='number'],input[type='email'],select,textarea{width:100%;padding:13px;border:1px solid #E9EFF3;border-radius:0;outline:none;background-color:#fff;font-size:14px;appearance:none;transition:.4s}input[type='text']:hover,input[type='text']:active,input[type='text']:focus,input[type='tel']:hover,input[type='tel']:active,input[type='tel']:focus,input[type='number']:hover,input[type='number']:active,input[type='number']:focus,input[type='email']:hover,input[type='email']:active,input[type='email']:focus,select:hover,select:active,select:focus,textarea:hover,textarea:active,textarea:focus{border:1px solid #323232}.o-grid{margin:0 auto;display:flex;flex-wrap:wrap;max-width:700px}.o-grid:after{content:'';display:table;clear:both}.o-grid .o-grid{margin-right:-13px;margin-left:-13px;padding:0}.o-grid--full{max-width:100vw}.o-grid__col{float:left;padding-right:13px;padding-left:13px}.o-grid__col--1-4-s{width:25%}.o-grid__col--1-3-s{width:33.3333333333%}.o-grid__col--2-4-s{width:50%}.o-grid__col--3-4-s{width:75%}.o-grid__col--4-4-s{width:100%}@media (min-width: 40em){.o-grid__col--1-4-m{width:25%}.o-grid__col--1-3-m{width:33.3333333333%}.o-grid__col--2-4-m{width:50%}.o-grid__col--3-4-m{width:75%}}@media (min-width: 64em){.o-grid__col--1-4-l{width:25%}.o-grid__col--1-3-l{width:33.3333333333%}.o-grid__col--2-4-l{width:50%}.o-grid__col--3-4-l{width:75%}}.o-grid__col--full{width:100%}.o-grid__col--center{margin:0 auto}.o-grid__col--end{margin-left:auto}.o-wrapper{padding:26px 0}.c-off-canvas-container{display:flex;min-height:100vh;flex-direction:column}.c-off-canvas-container .o-wrapper{flex:1 0 auto}.o-categories{padding:18px 0px 50px 0px;text-align:center;font-weight:600;font-size:larger}.o-plain-list{margin:0;padding:0;list-style:none}.c-header__inner{padding:13px 0;border-bottom:1px solid #E9EFF3;width:690px}.c-header__icon{vertical-align:middle}.c-logo__link{font-size:19px;font-weight:900;transition:.4s}.c-logo__link:hover,.c-logo__link:active,.c-logo__link:focus{color:#00A0FF;text-decoration:none}.c-nav__item{font-size:16px}.c-nav__link{display:block;transition:.4s}.c-nav__link--current{color:#00A0FF}.home-template .c-nav__link--current:not(:hover){color:#323232}.c-nav__link:hover,.c-nav__link:active,.c-nav__link:focus{color:#00A0FF;text-decoration:none}ul li{list-style:none;padding:0 0 0 20px}ul>li a{color:#7e7e7e}.c-off-canvas-toggle{float:right;position:relative;top:7px;z-index:10;height:19px;width:25px;cursor:pointer}.c-off-canvas-toggle__icon{position:absolute;left:0;height:1px;width:25px;background:#323232;cursor:pointer}.c-off-canvas-toggle__icon:before,.c-off-canvas-toggle__icon:after{content:'';display:block;height:100%;background-color:inherit;transition:.4s}.c-off-canvas-toggle__icon:before{transform:translateY(16px)}.c-off-canvas-toggle__icon:after{transform:translateY(7px)}.c-off-canvas-toggle--close .c-off-canvas-toggle__icon{height:2px;background-color:transparent}.c-off-canvas-toggle--close .c-off-canvas-toggle__icon:before,.c-off-canvas-toggle--close .c-off-canvas-toggle__icon:after{position:relative;visibility:visible;background:#323232}.c-off-canvas-toggle--close .c-off-canvas-toggle__icon:before{top:11px;transform:rotate(-45deg)}.c-off-canvas-toggle--close .c-off-canvas-toggle__icon:after{top:9px;transform:rotate(45deg)}.c-off-canvas-toggle--close{top:0;float:none;display:block;margin-left:auto}html,body{overflow-x:hidden}.c-off-canvas-content{position:fixed;top:0;right:0;width:300px;height:100%;padding:20px 26px;background-color:#fff;transform:translate3d(300px, 0, 0)}.c-off-canvas-container{transform:translate3d(0, 0, 0);transition:transform .4s cubic-bezier(0.16, 0.68, 0.43, 0.99)}.c-off-canvas-container.is-active{transform:translate3d(-300px, 0, 0)}.c-off-canvas-container.is-active:after{position:fixed;top:0;right:0;bottom:0;left:0;content:'';background-color:rgba(0,0,0,0.2)}.c-tags{margin-top:120px}.c-tags a{display:inline-block;padding:3px 13px;margin:0 7px 3px 0;font-size:12px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";line-height:25px;background-color:#FAFAFA;transition:.4s}.c-tags a:hover,.c-tags a:active,.c-tags a:focus{text-decoration:none;background-color:#FAFAFA}@media (max-width: 39.99em){.c-tags{margin-bottom:22px}}.c-btn{display:inline-block;padding:7px 26px;cursor:pointer;transition:.4s;text-align:center;vertical-align:middle;white-space:nowrap;line-height:inherit;border:0;border-radius:0;color:#fff;background-color:#207cdf;font-size:16px}.c-btn:hover,.c-btn:active,.c-btn:focus{text-decoration:none;background-color:#238cf6}.c-btn--full{width:100%}.c-btn--small{padding:3px 13px}.c-post-card{display:block;padding:26px 0;word-break:break-word;border-bottom:1px solid #E9EFF3;width:680px}.c-post-card--first{padding-top:0}.c-post-card--last{padding-bottom:0;border-bottom:0}.c-post-card__title{margin-bottom:10px;font-size:19px;font-weight:600;transition:.4s}@media (min-width: 40em){.c-post-card__title{font-size:22px}}.c-post-card__excerpt{margin-bottom:10px;font-size:16px}.c-post-card__date{display:block;color:#2B5F72;direction:ltr;font-size:12px;font-weight:600;line-height:22px;text-transform:uppercase}.c-post-card:hover{color:#323232;text-decoration:none}.c-post-card:hover .c-post-card__title{color:#00A0FF}.c-pagination{text-transform:uppercase;transition:.4s}.c-pagination:hover,.c-pagination:active,.c-pagination:focus{color:#00A0FF;text-decoration:none}.c-pagination__text{position:relative;font-size:14px;letter-spacing:2px}.c-pagination__text--prev{left:-13px}.c-pagination__text--next{right:-13px}.c-pagination__icon{vertical-align:text-top}.c-pagination__icon--prev{left:-7px}.c-pagination__icon--next{right:-7px}.c-post{margin:0 auto;width:740px}.c-post__title{font-size:24px;margin-bottom:13px}@media (min-width: 40em){.c-post__title{font-size:28px}}.c-post__date{position:relative;padding-top:13px;display:block;text-align:center;margin-bottom:13px;font-size:14px;font-weight:600;line-height:22px;color:#2B5F72;text-transform:uppercase}.c-post__date:after{position:absolute;content:'';top:0;left:50%;height:1px;width:52px;background:#FAFAFA;transform:translateX(-50%)}.c-post__image{margin:0 auto 13px}h3,h4,h5,h6{margin-top:60px;margin-bottom:20px;font-weight:800}p{margin-top:6px;margin-bottom:6px}.c-content{font-size:16px}.c-content a:not(.c-btn){text-decoration:underline;text-decoration-skip:ink}.c-content a:not(.c-btn):hover,.c-content a:not(.c-btn):active,.c-content a:not(.c-btn):focus{color:#00A0FF}.twitter-tweet,.fluid-width-video-wrapper{margin-bottom:13px !important}.c-social-nav__item{display:inline-block}.c-social-nav__icon{fill:#323232;vertical-align:middle;transition:.4s}.c-social-nav__icon:hover,.c-social-nav__icon:active,.c-social-nav__icon:focus{fill:#00A0FF}.c-footer{padding:26px 0;background-color:#FAFAFA}.u-hidden{display:none}.u-hidden-visually{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.u-font-medium{font-size:16px;line-height:25px}.u-font-small{font-size:14px;line-height:22px}.u-font-tiny{font-size:12px;line-height:19px}.u-text-left{text-align:left}.u-text-right{text-align:right}.u-text-center{text-align:center}.u-text-justify{text-align:justify}.u-inline{display:inline}.u-block{display:block}.u-inline-block{display:inline-block}.u-left{float:left}.u-right{float:right}.u-clearfix:after{content:'';display:table;clear:both}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Google Analytics Code -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155310440-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-155310440-1');
+</script>
+
+
+
+  <div class='js-off-canvas-container c-off-canvas-container'>
+    <header class='c-header'>
+  <div class='o-grid'>
+    <div class='o-grid__col o-grid__col--full'>
+      <div class='c-header__inner'>
+
+        <div class='o-grid'>
+          <div class='o-grid__col o-grid__col--3-4-s'>
+            <div class='c-logo u-text-left'>
+              <a class='c-logo__link' href='/'>빈둥빈둥 공부 블로그</a>
+            </div>
+          </div>
+
+          <div class='o-grid__col o-grid__col--1-4-s'>
+            <label class='js-off-canvas-toggle c-off-canvas-toggle' aria-label='Toggle navigation'>
+              <span class='c-off-canvas-toggle__icon'></span>
+            </label>
+          </div>
+
+          <div class='o-grid__col o-grid__col--1-4-s'>
+            <div class='c-off-canvas-content'>
+              <label class='js-off-canvas-toggle c-off-canvas-toggle c-off-canvas-toggle--close'>
+                <span class='c-off-canvas-toggle__icon'></span>
+              </label>
+
+              <ul class='c-nav o-plain-list '>
+                <!--
+
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/Study/AWS'>Study/AWS</a>
+      </li>
+    
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/Study/CTM'>Study/Coding The Matrix</a>
+      </li>
+    
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/Study/DB'>Study/Database</a>
+      </li>
+    
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/Study/Git'>Study/Git</a>
+      </li>
+    
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/Study/linux'>Study/Linux</a>
+      </li>
+    
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/Study/Machine Learning'>Study/Machine Learning</a>
+      </li>
+    
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/Study/Python'>Study/Python</a>
+      </li>
+    
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/Study/Security'>Study/Security</a>
+      </li>
+    
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/Study'>Study</a>
+      </li>
+    
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/Study/Web Scraping'>Study/Web Scraping</a>
+      </li>
+    
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/Study/Web'>Study/Web</a>
+      </li>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <li class='c-nav__item' role='presentation'>
+        <a class='c-nav__link' href='/chat'>사담</a>
+      </li>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+-->
+
+
+<div class='c-nav__item' role='presentation'>
+	<li><a class='c-nav__link' href="/">Home</a></li>
+	<li><a class='c-nav__link' href="/About">About</a></li>
+	<li><a class='c-nav__link' href="/">Study</a></li>
+
+		<ul>
+			<li>
+				<a class='c-nav__link' href="/Study/Git">Git</a>
+			</li>
+			<li>
+				<a class='c-nav__link' href="/Study/Python">Python</a>
+			</li>
+			<li>
+				<a class='c-nav__link' href="/Study/Web Scraping">Web Scraping</a>
+			</li>
+			<li>
+				<a class='c-nav__link' href="/Study/Linux">Linux Administration</a>
+			</li>
+			<li>
+				<a class='c-nav__link' href="/Study/Web">Web</a>
+			</li>
+			<li>
+				<a class='c-nav__link' href="/Study/Machine Learning">Machine Learning</a>
+			</li>
+			<li>
+				<a class='c-nav__link' href="/Study/Security">Security</a>
+			</li>
+			<li>
+				<a class='c-nav__link' href="/Study/DB">Database</a>
+			</li>
+			<!-- <li>
+				<a class='c-nav__link' href="/Study/CTM">Coding The Matrix</a>
+			</li> -->
+			<!-- <li>
+				<a class='c-nav__link' href="/Study/AWS">AWS</a>
+			</li> -->
+
+		</ul>
+
+	<li><a class='c-nav__link' href="/chat">사담</a></li>
+</div>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</header>
+
+    
+
+
+
+<div class='o-wrapper'>
+  <div class='o-grid'>
+    <div class='o-grid__col'>
+      <article class='c-post' itemscope itemtype='http://schema.org/BlogPosting'>
+
+        <h1 class='c-post__title u-text-center'>Seaborn Visualisation</h1>
+
+        <time class='c-post__date' datetime='2020-02-11T00:00:00+09:00' itemprop='datePublished'>11 Feb 2020</time><br>
+
+        <div class='c-content' itemprop='articleBody'>
+          
+
+          <h3 id="bar-chart">Bar Chart</h3>
+
+<h4 id="dataframe-형태로-반환">DataFrame 형태로 반환</h4>
+
+<p><em>데이터가 리스트 형태로 있음을 가정</em></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">make_df</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="n">df_name</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">df1</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">df2</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df_name</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">'{}'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">col1</span><span class="p">),</span> <span class="s">'{}'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">col2</span><span class="p">)]</span>
+
+    <span class="k">if</span> <span class="n">sort</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">df_name</span>
+
+    <span class="k">if</span> <span class="n">sort</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">df_name</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">(</span><span class="s">'{}'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">col1</span><span class="p">)),</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ol>
+  <li>리스트를 시리즈 형태로 만들어서 concat을 axis =1 로 맞추어 합쳤다. 두 개 이상 받을 때는 이 함수를 못쓰는데… 여러개 받게끔 할 수도 있지 않을까?</li>
+  <li>데이터는 Numeric type 이기 때문에 배열 정렬을 할 수 있어서 기본이 True인 선택값으로 넣어줬다.</li>
+</ol>
+
+<h4 id="bar-chart-with-seaborn">Bar Chart with Seaborn</h4>
+
+<p><em>데이터가 데이터프레임 형태로 있음을 가정</em></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bar_plot</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span><span class="s">'Blues'</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">"font.size"</span><span class="p">]</span> <span class="o">=</span> <span class="n">font_size</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">grid</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s">'y'</span><span class="p">)</span>
+        <span class="n">plot_value</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plot_value</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ax</span>
+</code></pre></div></div>
+
+<ol>
+  <li>들어온 데이터프레임은 sns.barplot으로 만들어준다. 여기서 x와 y는 df.columns[n]으로, 데이터프레임에서 특정 열을 뽑아 (시리즈) 지정해준다.</li>
+  <li>팔레트는 아무 색이나 넣어봤다</li>
+  <li><a href="https://financedata.github.io/posts/faq_matplotlib_default_chart_size.html">rcParams</a> 으로 차트를 다양하게 만질 수 있다길래 폰트 사이즈를 바꿨다. <br />
+   저렇게 말고 다르게 바꿀 수 있는 방법은 없나 고민을 하다가… 이미 바꿨는데 왜 또 대안을 찾나 싶어서 관뒀다.</li>
+  <li>그리드 선택 기본값 False</li>
+</ol>
+
+<h4 id="multiplt-bar-chart">Multiplt Bar Chart</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">tmp2</span><span class="p">,</span> <span class="n">id_vars</span><span class="o">=</span><span class="n">Zs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s">"Brands"</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s">"Counts (</span><span class="si">%</span><span class="s">)"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">multiple_bar_chart</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ylim</span><span class="p">,</span> <span class="n">ylabel_text</span><span class="o">=</span><span class="s">"Count"</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+    <span class="n">mb</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">'labels'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">'Counts (</span><span class="si">%</span><span class="s">)'</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s">'Brands'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+                 <span class="n">palette</span><span class="o">=</span><span class="s">'PRGn_r'</span><span class="p">)</span>
+
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+           <span class="n">left</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">trim</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">'center left'</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">shadow</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s">"large"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">''</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">ylabel_text</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ylim</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="n">plot_value</span><span class="p">(</span><span class="n">mb</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ol>
+  <li>들어오는 data는 melt 함수를 적용한 df다. melt 함수에서 var_name과 value_name을 지정해주고 그걸 y와 hue로 지정해줬는데,… 다른 방법을 사용하면 함수 재활용을 할 수 있을 것 같다. y와 hue를 column으로 불러준다느니 뭐나느니 하면서…</li>
+  <li>sns.despine은 barplot이 뚜껑이 휭 하길래 넣어줬더니 뚜껑이 만들어졌다. 정확히 이해를 못하고 집어 쳐넣은 거라 아직도 이해를 못했다.</li>
+</ol>
+
+<h3 id="display-values-in-plot">Display Values in Plot</h3>
+
+<p>ha와 va만 제대로 알고 있었어도 이렇게 개고생은 안 하는 건데 나는 바보 멍청이다.</p>
+
+<p>시간을 오래 끌게 만든 내 무지함이 원망스러웠다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">plot_value</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">axis</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">patches</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_y</span><span class="p">()</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1.01</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">())</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s">"center"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span> 
+
+    <span class="k">elif</span> <span class="n">axis</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">patches</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1.01</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_y</span><span class="p">()</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span>
+            
+            <span class="n">ha</span> <span class="o">=</span> <span class="s">'left'</span>
+
+            <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">ha</span> <span class="o">=</span> <span class="s">'right'</span>
+                
+            <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s">'center'</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="n">ha</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ol>
+  <li>axis=0일 때, 즉 세로형 그래프일 때는 음수값이 하나도 없었으니까 버무리고 넘어갈 수 있었다.
+    <ol>
+      <li><a href="https://dailyheumsi.tistory.com/98">ax.patches</a>로 막대기를 하나씩 끌어오고, 각 막대기가 갖고 있는 값을 p.get_sth()으로 가져온다. 가져올 수 있는 값은 4개로, left(x), bottom(y), width, height 이다.</li>
+      <li>x은 그래프 최상단의 값을 정중앙에 놓기 위해 막대기의 절반 값을 만들어주고, y는 그 값을 막대기와 값 사이의 여백을 주어 가독성을 높이기 위해 설정 해주었다. value 설정을 안 해주고 그냥 height 값을 집어넣으면 float 타입으로 반환 된다. 내 기준에 소수점은 안 예뻐서 int 값으로 때려박았다.</li>
+    </ol>
+  </li>
+  <li>axis=1 == 가로형 그래프
+    <ol>
+      <li>ha와 va의 용법이 문제였다!!!! 우ㅇ아아아</li>
+    </ol>
+  </li>
+</ol>
+
+<h3 id="pandas-from_records--melt-function">Pandas from_records &amp; melt Function</h3>
+
+<p>데이터 재구조화</p>
+
+<p><em>a, b값은 리스트</em></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">from_records</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span>
+        <span class="p">[(</span><span class="s">'comments'</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="p">(</span><span class="s">'likes'</span><span class="p">,</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">])],</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">id_vars</span><span class="o">=</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s">"source"</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s">"value_numbers"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>이것도 저 a[0]~ 이 부분을 어떻게 바꿀 수 있지 않을까 생각이 드는데 … ㅠㅠ 흠</p>
+
+<p>https://rfriend.tistory.com/tag/Python%20pandas%20melt%28%29%20함수</p>
+
+<p>이 블로그가 설명을 아주 기깔나게 잘 해주셔서 많이 참고했다.</p>
+
+<h3 id="seaborn-catplot">Seaborn catplot</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">catplot</span><span class="p">(</span><span class="n">input_df</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">11</span><span class="p">):</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s">"white"</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="s">"value_numbers"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">"source"</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s">"labels"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">input_df</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">"bar"</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s">'h'</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="n">value</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">'center left'</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">shadow</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">trim</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">set_xlabels</span><span class="p">(</span><span class="s">''</span><span class="p">)</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">set_ylabels</span><span class="p">(</span><span class="s">''</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="n">plot_value</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">ax</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Col 별로 x, y 데이터를 보여줄 수 있다.</p>
+
+<p>sns.catplot 내부에서 legend를 False 처리하고 바깥에서 matplotlib 으로 처리해줬다.</p>
+
+<p>참고 : https://stackoverflow.com/questions/38807895/seaborn-multiple-barplots</p>
+
+<h3 id="frequency-distribution">Frequency Distribution</h3>
+
+<p><em>데이터가 csv 파일 형태로 있음을 가정</em></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">frequency_distribution</span><span class="p">(</span><span class="n">df_col</span><span class="p">,</span> <span class="n">max_limit</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+    
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">df_col</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">stddev</span> <span class="o">=</span> <span class="n">df_col</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="n">df_col</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="n">f</span><span class="p">,</span><span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_col</span><span class="p">,</span><span class="n">kde</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">max_limit</span><span class="o">*</span><span class="mf">0.05</span><span class="p">),</span> <span class="n">max_limit</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">df_col</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Frequency'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+    
+    <span class="n">inbox</span> <span class="o">=</span> <span class="s">"Normal</span><span class="se">\n</span><span class="s">Mean = </span><span class="si">%0.2</span><span class="s">f</span><span class="se">\n</span><span class="s">Std. Dev. = </span><span class="si">%0.2</span><span class="s">f </span><span class="se">\n</span><span class="s">N = </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">stddev</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
+    <span class="n">textbox</span> <span class="o">=</span> <span class="n">offsetbox</span><span class="o">.</span><span class="n">AnchoredText</span><span class="p">(</span><span class="n">inbox</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">textbox</span><span class="p">)</span>
+
+    <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_col</span><span class="p">,</span> <span class="n">hist</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">([])</span>
+</code></pre></div></div>
+
+<h3 id="고찰">고찰</h3>
+
+<p>뭔가 더 좋은 방법이 있지 않을까 항상 고민을 하지만… 능력이 없어 고민으로 시간을 질질 끌다 결국 막을 내리기만 해 답답하기만 하다.</p>
+
+<p>빈도수 차트는 왜 선이 꾸깃꾸깃하게 나올까 미치겠다…</p>
+
+<p>다 하고 교수님 메일이 아니라 깃허브로 보냈고 교수님이 머지해 주시긴 하셨는데… 생각해보니 메일로 보냈어야 하나 싶다… ㅠㅠ아니 선이 왜 꾸깃꾸깃 하냐고 진짜 미치겠네</p>
+
+<p>ㅇ</p>
+
+        </div>
+
+        <div class='c-tags'>
+          
+            <a href='/tag/visualisation'>visualisation</a>
+          
+            <a href='/tag/Seaborn'>Seaborn</a>
+          
+        </div>
+
+        <hr>
+
+        <section class='disqus'>
+  <div id='disqus_thread'></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://localhost:4000/study/python/2020/02/11/Seaborn-visualisation/';
+    };
+
+    (function() {
+      var d = document, s = d.createElement('script');
+
+      // Change `aspirethemes-demos` with your Disqus shortcode
+      s.src = '//aspirethemes-demos.disqus.com/embed.js';
+
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href='https://disqus.com/?ref_noscript' rel='nofollow'>comments powered by Disqus.</a></noscript>
+</section>
+
+      </article>
+    </div>
+  </div>
+</div>
+
+
+    <footer class='c-footer'>
+  <div class='o-grid'>
+    <div class='o-grid__col o-grid__col--full'>
+
+      <ul class='o-plain-list c-social-nav u-text-center'>
+        <li class='c-social-nav__item'>
+          <a href='' target='_blank'>
+            <span class='c-social-nav__icon' data-icon='ei-sc-twitter' data-size='s'></span>
+          </a>
+        </li>
+        <li class='c-social-nav__item'>
+          <a href='' target='_blank'>
+            <span class='c-social-nav__icon' data-icon='ei-sc-facebook' data-size='s'></span>
+          </a>
+        </li>
+        <li class='c-social-nav__item'>
+          <a href='' target='_blank'>
+            <span class='c-social-nav__icon' data-icon='ei-sc-instagram' data-size='s'></span>
+          </a>
+        </li>
+        <li class='c-social-nav__item'>
+          <a href='' target='_blank'>
+            <span class='c-social-nav__icon' data-icon='ei-sc-github' data-size='s'></span>
+          </a>
+        </li>
+        <li class='c-social-nav__item'>
+          <a href='mailto:parkeb417@icloud.com' target='_blank'>
+            <span class='c-social-nav__icon' data-icon='ei-envelope' data-size='s'></span>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</footer>
+  </div>
+
+  <script src="/js/jquery-3.1.1.min.js"> </script>
+  <script src="/js/evil-icons.min.js">   </script>
+  <script src="/js/jquery.fitvids.js">   </script>
+  <script src="/js/app.js">              </script>
+</body>
+
+</html>
