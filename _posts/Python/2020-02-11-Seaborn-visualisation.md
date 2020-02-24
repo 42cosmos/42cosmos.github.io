@@ -8,25 +8,22 @@ categories: [Study/Python]
 
 ### Bar Chart
 
-
-
 #### DataFrame 형태로 반환
 
 *데이터가 리스트 형태로 있음을 가정*
 
 ```python
-def make_df(df1, df2, col1, col2, sort=True):
-    df_name = pd.concat([pd.Series(df1), pd.Series(df2)], axis=1)
+def make_df(col1, col2, sort, *args):
+    df_name = pd.concat([pd.Series(i) for i in args], axis=1)
     df_name.columns = ['{}'.format(col1), '{}'.format(col2)]
 
     if sort is False:
         return df_name
 
-    if sort is True:
-        return df_name.sort_values(by=('{}'.format(col1)), ascending=False)
+    return df_name.sort_values(by=('{}'.format(col1)), ascending=False)
 ```
 
-1. 리스트를 시리즈 형태로 만들어서 concat을 axis =1 로 맞추어 합쳤다. 두 개 이상 받을 때는 이 함수를 못쓰는데... 여러개 받게끔 할 수도 있지 않을까? 
+1. 리스트를 시리즈 형태로 만들어서 concat을 axis =1 로 맞추어 합쳤다. 
 2. 데이터는 Numeric type 이기 때문에 배열 정렬을 할 수 있어서 기본이 True인 선택값으로 넣어줬다. 
 
 
@@ -70,8 +67,7 @@ data = pd.melt(tmp2, id_vars=Zs[0], var_name="Brands", value_name="Counts (%)")
 
 def multiple_bar_chart(data, ylim, ylabel_text="Count", font_size=11, figsize=(10,10)):
     plt.figure(figsize=figsize)
-    mb = sns.barplot(x='labels', y='Counts (%)', hue='Brands', data=data,
-                 palette='PRGn_r')
+    mb = sns.barplot(x='labels', y='Counts (%)', hue='Brands', data=data, palette='PRGn_r')
 
     sns.despine(fig=None, ax=None, top=False, right=False,
            left=False, bottom=False, offset=None, trim=False)
