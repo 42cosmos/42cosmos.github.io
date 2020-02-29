@@ -5,10 +5,88 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 11 Feb 2020 17:44:31 +0900</pubDate>
-    <lastBuildDate>Tue, 11 Feb 2020 17:44:31 +0900</lastBuildDate>
+    <pubDate>Sat, 29 Feb 2020 19:18:57 +0900</pubDate>
+    <lastBuildDate>Sat, 29 Feb 2020 19:18:57 +0900</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
 
+    
+      <item>
+        <title>Data Visualisation</title>
+        <description>&lt;h3 id=&quot;데이터-시각화&quot;&gt;데이터 시각화&lt;/h3&gt;
+
+&lt;p&gt;트랜드, 특이점, 패턴을 분석하기 위한 시각화&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Comparision and Ranking&lt;/li&gt;
+  &lt;li&gt;Part to Whole&lt;/li&gt;
+  &lt;li&gt;Trend&lt;/li&gt;
+  &lt;li&gt;Correlation&lt;/li&gt;
+  &lt;li&gt;Distribution&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;comparision-and-ranking&quot;&gt;Comparision and Ranking&lt;/h3&gt;
+
+&lt;h4 id=&quot;column-chart---vertical--bar-chart-horizontal-&quot;&gt;Column chart - vertical  (Bar chart-horizontal )&lt;/h4&gt;
+
+&lt;p&gt;: Comparision among different items 비교와 순위&lt;/p&gt;
+
+&lt;h4 id=&quot;dual-axis-chart&quot;&gt;Dual Axis chart&lt;/h4&gt;
+
+&lt;p&gt;: plot data using two y-axes and a shared x-axis&lt;/p&gt;
+
+&lt;p&gt;Pareto chart : highlight the most importatnt among a set of factors (typically large)&lt;/p&gt;
+
+&lt;h3 id=&quot;part-to-whole&quot;&gt;Part to whole&lt;/h3&gt;
+
+&lt;h4 id=&quot;pie-chart-&quot;&gt;Pie chart *&lt;/h4&gt;
+
+&lt;p&gt;: static number and how categories represent part of a whole&lt;/p&gt;
+
+&lt;p&gt;특정 포지션을 집중적으로 볼 수 있음&lt;/p&gt;
+
+&lt;h3 id=&quot;trend&quot;&gt;Trend&lt;/h3&gt;
+
+&lt;h4 id=&quot;line-graph-추세&quot;&gt;Line graph 추세&lt;/h4&gt;
+
+&lt;p&gt;: reveals trends or progress over time and can be used to show many different categories of data&lt;/p&gt;
+
+&lt;h3 id=&quot;correlation-연관성&quot;&gt;Correlation 연관성&lt;/h3&gt;
+
+&lt;h4 id=&quot;scatter-plot-chart-산포도&quot;&gt;Scatter plot chart 산포도&lt;/h4&gt;
+
+&lt;p&gt;: will show the relationship between two different variables or it can reveal the distribution trends&lt;/p&gt;
+
+&lt;h4 id=&quot;bubble-chart&quot;&gt;Bubble chart&lt;/h4&gt;
+
+&lt;p&gt;: variation of a scatter chart in which an additional data is represented in the size of the bubbles&lt;/p&gt;
+
+&lt;p&gt;특정 지점의 크기를 달리해 보여줌 &amp;gt; 연관관계 및 빈도수 시각화 가능 - BCG Matrix&lt;/p&gt;
+
+&lt;h4 id=&quot;heatmap&quot;&gt;Heatmap&lt;/h4&gt;
+
+&lt;p&gt;: shows the relationship between two items and provides rating information, such as high to low or poor or excellent&lt;/p&gt;
+
+&lt;h3 id=&quot;distribution&quot;&gt;Distribution&lt;/h3&gt;
+
+&lt;h4 id=&quot;histogram&quot;&gt;Histogram&lt;/h4&gt;
+
+&lt;p&gt;: Groups numeric data into bins, displaying the bins as segmented columns ( pareto is also part of histogram )&lt;/p&gt;
+
+&lt;h4 id=&quot;box-plot&quot;&gt;Box plot&lt;/h4&gt;
+
+&lt;p&gt;: displays the five-number summary of a set of data. The five-number summary is the minimum, first quartile ( top 25% ), median, third quatile ( top 75% ), and maximum &amp;gt; 단순 평균보다 분포도를 더 쉽게 알 수 있음&lt;/p&gt;
+
+&lt;h4 id=&quot;geo-chart&quot;&gt;Geo chart&lt;/h4&gt;
+
+&lt;p&gt;: made explore location based distributed data&lt;/p&gt;
+
+&lt;p&gt;분포데이터를 지도상에 표기 ( 지역 사용자 등 )&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 24 Feb 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/python/2020/02/24/DV/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/python/2020/02/24/DV/</guid>
+      </item>
     
       <item>
         <title>Seaborn Visualisation</title>

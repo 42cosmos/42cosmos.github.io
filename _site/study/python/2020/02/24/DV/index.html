@@ -6,9 +6,9 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-  <title>빈둥빈둥 공부 블로그</title>
-  <meta name='description' content="">
-  <link rel='canonical' href="http://localhost:4000/page3/">
+  <title>Data Visualisation</title>
+  <meta name='description' content="데이터 시각화">
+  <link rel='canonical' href="http://localhost:4000/study/python/2020/02/24/DV/">
   <link rel='alternate' type='application/rss+xml' title='빈둥빈둥 공부 블로그' href="http://localhost:4000/feed.xml">
 
   <style>
@@ -360,205 +360,128 @@
 
 </header>
 
-    <div class='o-wrapper'>
+    
+
+
+
+<div class='o-wrapper'>
   <div class='o-grid'>
-    
-      <div class='o-grid__col'>
+    <div class='o-grid__col'>
+      <article class='c-post' itemscope itemtype='http://schema.org/BlogPosting'>
 
-  <a href='/study/web%20scraping/2020/01/15/2-pyautogui-image/' class='c-post-card  c-post-card--first  '>
-    <h2 class='c-post-card__title'>[2] BeautifulSoup 네이버 블로그 검색결과 가져오기</h2>
+        <h1 class='c-post__title u-text-center'>Data Visualisation</h1>
 
-    
+        <time class='c-post__date' datetime='2020-02-24T00:00:00+09:00' itemprop='datePublished'>24 Feb 2020</time><br>
 
-    <p class='c-post-card__excerpt u-font-medium'>
-      BeautifulSoup 가장 기본 형식 - 검색어 고정 형태 import urllib.request from bs4...
-    </p>
+        <div class='c-content' itemprop='articleBody'>
+          
 
-    <span class='c-post-card__date'>15 Jan 2020</span>
-  </a>
+          <h3 id="데이터-시각화">데이터 시각화</h3>
 
-</div>
+<p>트랜드, 특이점, 패턴을 분석하기 위한 시각화</p>
 
-    
-      <div class='o-grid__col'>
+<ol>
+  <li>Comparision and Ranking</li>
+  <li>Part to Whole</li>
+  <li>Trend</li>
+  <li>Correlation</li>
+  <li>Distribution</li>
+</ol>
 
-  <a href='/study/web%20scraping/2020/01/15/1-pyauto/' class='c-post-card  '>
-    <h2 class='c-post-card__title'>[1] pyautogui 기초사용법</h2>
+<h3 id="comparision-and-ranking">Comparision and Ranking</h3>
 
-    
+<h4 id="column-chart---vertical--bar-chart-horizontal-">Column chart - vertical  (Bar chart-horizontal )</h4>
 
-    <p class='c-post-card__excerpt u-font-medium'>
-      py auto gui as p 설정 - 보안 및 개인 정보 보호...
-    </p>
+<p>: Comparision among different items 비교와 순위</p>
 
-    <span class='c-post-card__date'>15 Jan 2020</span>
-  </a>
+<h4 id="dual-axis-chart">Dual Axis chart</h4>
 
-</div>
+<p>: plot data using two y-axes and a shared x-axis</p>
 
-    
-      <div class='o-grid__col'>
+<p>Pareto chart : highlight the most importatnt among a set of factors (typically large)</p>
 
-  <a href='/study/web%20scraping/2020/01/15/0-No-Module-named-error-in-envs/' class='c-post-card  '>
-    <h2 class='c-post-card__title'>[Error] No module named selenium in env</h2>
+<h3 id="part-to-whole">Part to whole</h3>
 
-    
-      <img src='/images/nomodulename_selenium.png' class='c-post__image' alt='[Error] No module named selenium in env'>
-    
+<h4 id="pie-chart-">Pie chart *</h4>
 
-    <p class='c-post-card__excerpt u-font-medium'>
-      ModuleNotFoundError: No module named ‘selenium’ - Atom ModuleNotFoundError: No module named ‘bs4’...
-    </p>
+<p>: static number and how categories represent part of a whole</p>
 
-    <span class='c-post-card__date'>15 Jan 2020</span>
-  </a>
+<p>특정 포지션을 집중적으로 볼 수 있음</p>
 
-</div>
+<h3 id="trend">Trend</h3>
 
-    
-      <div class='o-grid__col'>
+<h4 id="line-graph-추세">Line graph 추세</h4>
 
-  <a href='/study/linux/2020/01/13/%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%8C%E1%85%A1/' class='c-post-card  '>
-    <h2 class='c-post-card__title'>사용자</h2>
+<p>: reveals trends or progress over time and can be used to show many different categories of data</p>
 
-    
+<h3 id="correlation-연관성">Correlation 연관성</h3>
 
-    <p class='c-post-card__excerpt u-font-medium'>
-      다중사용자 복잡도가 증가 유닉스 계열 &gt; 다중사용자 시스템 id, who id &gt;...
-    </p>
+<h4 id="scatter-plot-chart-산포도">Scatter plot chart 산포도</h4>
 
-    <span class='c-post-card__date'>13 Jan 2020</span>
-  </a>
+<p>: will show the relationship between two different variables or it can reveal the distribution trends</p>
 
-</div>
+<h4 id="bubble-chart">Bubble chart</h4>
 
-    
-      <div class='o-grid__col'>
+<p>: variation of a scatter chart in which an additional data is represented in the size of the bubbles</p>
 
-  <a href='/study/linux/2020/01/13/process-of-linux/' class='c-post-card  '>
-    <h2 class='c-post-card__title'>프로세스 & 실행</h2>
+<p>특정 지점의 크기를 달리해 보여줌 &gt; 연관관계 및 빈도수 시각화 가능 - BCG Matrix</p>
 
-    
+<h4 id="heatmap">Heatmap</h4>
 
-    <p class='c-post-card__excerpt u-font-medium'>
-      Daemon 특성 항상 실행되고 있음 server 같은 프로그램 언제 클라이언트가 접속할지 모름...
-    </p>
+<p>: shows the relationship between two items and provides rating information, such as high to low or poor or excellent</p>
 
-    <span class='c-post-card__date'>13 Jan 2020</span>
-  </a>
+<h3 id="distribution">Distribution</h3>
 
-</div>
+<h4 id="histogram">Histogram</h4>
 
-    
-      <div class='o-grid__col'>
+<p>: Groups numeric data into bins, displaying the bins as segmented columns ( pareto is also part of histogram )</p>
 
-  <a href='/study/linux/2020/01/13/linux-tutorial-IO-Redirection/' class='c-post-card  '>
-    <h2 class='c-post-card__title'>IO Redirection - Shell & Script</h2>
+<h4 id="box-plot">Box plot</h4>
 
-    
+<p>: displays the five-number summary of a set of data. The five-number summary is the minimum, first quartile ( top 25% ), median, third quatile ( top 75% ), and maximum &gt; 단순 평균보다 분포도를 더 쉽게 알 수 있음</p>
 
-    <p class='c-post-card__excerpt u-font-medium'>
-      Linux IO Redirection output 출력 방향을 바꾸어 반환시킴- redirections of standard output...
-    </p>
+<h4 id="geo-chart">Geo chart</h4>
 
-    <span class='c-post-card__date'>13 Jan 2020</span>
-  </a>
+<p>: made explore location based distributed data</p>
 
-</div>
+<p>분포데이터를 지도상에 표기 ( 지역 사용자 등 )</p>
 
-    
-      <div class='o-grid__col'>
 
-  <a href='/study/linux/2020/01/13/linux-permission/' class='c-post-card  '>
-    <h2 class='c-post-card__title'>권한 permission</h2>
+        </div>
 
-    
+        <div class='c-tags'>
+          
+            <a href='/tag/visualisation'>visualisation</a>
+          
+        </div>
 
-    <p class='c-post-card__excerpt u-font-medium'>
-      Permission 제어 가능 대상 : user &gt; file and directory에 대한 Read...
-    </p>
+        <hr>
 
-    <span class='c-post-card__date'>13 Jan 2020</span>
-  </a>
+        <section class='disqus'>
+  <div id='disqus_thread'></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://localhost:4000/study/python/2020/02/24/DV/';
+    };
 
-</div>
+    (function() {
+      var d = document, s = d.createElement('script');
 
-    
-      <div class='o-grid__col'>
-
-  <a href='/study/linux/2020/01/13/linux-group/' class='c-post-card  '>
-    <h2 class='c-post-card__title'>Group - 파일과 디렉토리 공동 관리</h2>
-
-    
-
-    <p class='c-post-card__excerpt u-font-medium'>
-      Group file 생성자 (유저) 외에 한 명 이상의 사용자에게 권한 부여 /var...
-    </p>
-
-    <span class='c-post-card__date'>13 Jan 2020</span>
-  </a>
-
-</div>
-
-    
-      <div class='o-grid__col'>
-
-  <a href='/study/linux/2020/01/13/linux-directory/' class='c-post-card  '>
-    <h2 class='c-post-card__title'>디렉토리 구조와 파일 찾는 법</h2>
-
-    
-
-    <p class='c-post-card__excerpt u-font-medium'>
-      Directory 구조 디렉토리 : 정리정돈의 수단, 데이터와 실행 프로그램 성격에 따라 정해진...
-    </p>
-
-    <span class='c-post-card__date'>13 Jan 2020</span>
-  </a>
-
-</div>
-
-    
-      <div class='o-grid__col'>
-
-  <a href='/2020/01/13/jekyll-%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5-%E1%84%8B%E1%85%A9%E1%84%85%E1%85%B2/' class='c-post-card   c-post-card--last '>
-    <h2 class='c-post-card__title'>jekyll 이미지 오류 - not found</h2>
-
-    
-      <img src='/images/이미지오류.png' class='c-post__image' alt='jekyll 이미지 오류 - not found'>
-    
-
-    <p class='c-post-card__excerpt u-font-medium'>
-      문제 깃허브에 편하게 사진을 올리고 싶은 나. 드래그 앤 드롭으로 넣는 거...
-    </p>
-
-    <span class='c-post-card__date'>13 Jan 2020</span>
-  </a>
-
-</div>
-
-    
-  </div>
-
-  <div class='o-grid'>
-    
-  <div class='o-grid__col o-grid__col--2-4-s'>
-    <a class='c-pagination' href='/page2'>
-      <div class='c-pagination__icon c-pagination__icon--prev' data-icon='ei-chevron-left'></div>
-      <span class='c-pagination__text c-pagination__text--prev'>Previous</span>
-    </a>
-  </div>
-
-
-
-  <div class='o-grid__col o-grid__col--end o-grid__col--2-4-s u-text-right'>
-    <a class='c-pagination' href='/page4'>
-      <span class='c-pagination__text c-pagination__text--next'>Next</span>
-      <div class='c-pagination__icon c-pagination__icon--next' data-icon='ei-chevron-right'></div>
-    </a>
-  </div>
-
+      // Change `aspirethemes-demos` with your Disqus shortcode
+      s.src = '//aspirethemes-demos.disqus.com/embed.js';
+
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href='https://disqus.com/?ref_noscript' rel='nofollow'>comments powered by Disqus.</a></noscript>
+</section>
+
+      </article>
+    </div>
   </div>
 </div>
+
 
     <footer class='c-footer'>
   <div class='o-grid'>
