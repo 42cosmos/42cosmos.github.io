@@ -5,10 +5,93 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 29 Feb 2020 19:18:57 +0900</pubDate>
-    <lastBuildDate>Sat, 29 Feb 2020 19:18:57 +0900</lastBuildDate>
+    <pubDate>Sun, 01 Mar 2020 14:12:04 +0900</pubDate>
+    <lastBuildDate>Sun, 01 Mar 2020 14:12:04 +0900</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
 
+    
+      <item>
+        <title>date &amp; time handling in python</title>
+        <description>&lt;h3 id=&quot;날짜-및-시간-다루기&quot;&gt;날짜 및 시간 다루기&lt;/h3&gt;
+
+</description>
+        <pubDate>Sun, 01 Mar 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/python/2020/03/01/date-&-time_handling-with-python/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/python/2020/03/01/date-&-time_handling-with-python/</guid>
+      </item>
+    
+      <item>
+        <title>Time Series with python</title>
+        <description>&lt;h3 id=&quot;시계열-데이터-분석&quot;&gt;시계열 데이터 분석&lt;/h3&gt;
+
+&lt;p&gt;독립변수 / 종속변수  +  &lt;strong&gt;시계열 데이터&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;정상 시계열
+    &lt;ul&gt;
+      &lt;li&gt;뚜렷한 추세 없음&lt;/li&gt;
+      &lt;li&gt;시간 흐름에 따른 동일한 진폭&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;비정상 시계열
+    &lt;ul&gt;
+      &lt;li&gt;시간에 따른 데이터의 변화&lt;/li&gt;
+      &lt;li&gt;추세와 시간대 존재&lt;/li&gt;
+      &lt;li&gt;평균 수준이 시간대에 따라 다르다&lt;/li&gt;
+      &lt;li&gt;가변적 분산&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;비정상 시계열일 경우 반드시 정상 시계열로의 변환 필요&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;비정상-시계열의-정상화&quot;&gt;비정상 시계열의 정상화&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;분산이 일정하지 않은 경우&lt;/dt&gt;
+      &lt;dd&gt;
+        &lt;p&gt;분산안정화변환 ( 로그, 제곱근, Box-cox 변환 시도)&lt;/p&gt;
+      &lt;/dd&gt;
+    &lt;/dl&gt;
+  &lt;/li&gt;
+  &lt;li&gt;추세를 가지는 경우
+    &lt;ul&gt;
+      &lt;li&gt;결정적 추세 &amp;gt; 분해법 또는 추세항 모형에 포함&lt;/li&gt;
+      &lt;li&gt;확률적 추세 ( Dickey-Fuller의 단위근 검정 ) &amp;gt; 차분&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;계절성을 가지는 경우
+    &lt;ul&gt;
+      &lt;li&gt;결정적 계절 추세 &amp;gt; 계절 추세항 모형에 포함&lt;/li&gt;
+      &lt;li&gt;확률적 계절 추세 ( 계절형 단위근 검정 ) &amp;gt; 계절차분&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;arima&quot;&gt;ARIMA&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;A&lt;/strong&gt;uto &lt;strong&gt;R&lt;/strong&gt;egression &lt;strong&gt;I&lt;/strong&gt;ntergrated with &lt;strong&gt;M&lt;/strong&gt;oving &lt;strong&gt;A&lt;/strong&gt;verage&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ARIMA(p, d, q) &amp;gt; 모수 설정&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;in-pandas&quot;&gt;in Pandas&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;arima 모형은 반드시 series 형태를 전제함&lt;/li&gt;
+  &lt;li&gt;데이터 타입을 float으로 변경&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Sun, 01 Mar 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/study/python/2020/03/01/Time-Series-Analysis/</link>
+        <guid isPermaLink="true">http://localhost:4000/study/python/2020/03/01/Time-Series-Analysis/</guid>
+      </item>
     
       <item>
         <title>Data Visualisation</title>
@@ -6992,6 +7075,12 @@ uses: high-speed network encryptions&lt;/li&gt;
     
       
         
+      
+    
+      
+    
+      
+    
       
     
       
