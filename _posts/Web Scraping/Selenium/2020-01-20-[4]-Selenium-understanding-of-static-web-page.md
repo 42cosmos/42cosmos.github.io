@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '[4] Selenium Understanding of static web page'
-categories: 'Web_Scraping Selenium'
+title: 'Selenium [4] Understanding of static web page'
+categories: 'Web_Scraping'
 image: 
 tags: [selenium, web scraping]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '[6] Selenium XPATH 이해하기'
-categories: 'Web_Scraping Selenium'
+title: 'Selenium [6] XPATH 이해하기'
+categories: 'Web_Scraping'
 image: 
 tags: [selenium, web scraping]
 ---

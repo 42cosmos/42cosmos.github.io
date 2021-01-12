@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '[5] Selenium Practice'
-categories: 'Web_Scraping Selenium'
+title: 'Selenium [5] Practice'
+categories: 'Web_Scraping'
 image: 
 tags: [selenium, web scraping]
 ---

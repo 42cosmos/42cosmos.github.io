@@ -1,4 +1,8 @@
-# Decision Tree
+---
+categories: ML/DL
+title: 'Decision Tree'
+---
+
 
 장점 : 해석력 > 모델의 정확성 이외에도 활용성 ( 메세지 ) :: 결과에 대한 풀이 (연속형 - 범주형 등의 형태에 대한 범용성 높음)
 

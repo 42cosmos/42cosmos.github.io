@@ -1,8 +1,8 @@
 ---
 layout: post
-title: '[3] Selenium을 사용한 기본 구글 크롤링'
+title: 'BeautifulSoup [3] 기본 구글 크롤링 w/ Selenium'
 tags: [BeautifulSoup, python]
-categories: 'Web_Scraping BeautifulSoup'
+categories: 'Web_Scraping'
 ---
 
 ### Google Scraping using Selenium and BeautifulSoup

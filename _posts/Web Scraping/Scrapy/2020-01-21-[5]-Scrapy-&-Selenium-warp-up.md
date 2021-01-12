@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '[5] Scrapy & Selenium wrap up!'
-categories: 'Web_Scraping Scrapy'
+title: 'Scrapy [5] Scrapy with Selenium wrap up!'
+categories: 'Web_Scraping'
 tags: [scrapy, web scraping]
 ---
 

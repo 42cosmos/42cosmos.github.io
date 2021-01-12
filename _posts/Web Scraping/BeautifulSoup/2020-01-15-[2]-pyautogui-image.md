@@ -1,8 +1,8 @@
 ---
 layout: post
-title: '[2] BeautifulSoup 네이버 블로그 검색결과 가져오기'
+title: 'BeautifulSoup [2] 네이버 블로그 검색결과 가져오기'
 tags: [BeautifulSoup, python]
-categories: 'Web_Scraping BeautifulSoup'
+categories: 'Web_Scraping'
 ---
 
 ### BeautifulSoup

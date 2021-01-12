@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '[2] Scrapy web crawling issues and Scrapy structure '
-categories: 'Web_Scraping Scrapy'
+title: 'Scrapy [2] web crawling issues and Scrapy structure '
+categories: 'Web_Scraping'
 tags: [scrapy, web scraping]
 ---
 

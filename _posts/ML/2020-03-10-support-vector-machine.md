@@ -1,4 +1,8 @@
-# Support Vector Machine
+---
+categories: ML/DL
+title: 'SVM'
+---
+
 
 정확한 분포를 찾을 수 없을 때 > lda 를 적용하기 힘들 때 - 선형관계가 아닌 경우 
 

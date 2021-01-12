@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '[1] Selenium 크롤링 기본'
-categories: 'Web_Scraping Selenium'
+title: 'Selenium [1] 크롤링 기본'
+categories: 'Web_Scraping'
 tags: [selenium, web scraping]
 ---
 

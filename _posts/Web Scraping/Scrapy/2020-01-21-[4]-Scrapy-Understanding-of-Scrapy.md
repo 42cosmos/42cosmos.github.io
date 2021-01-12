@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '[4] Scrapy Practices'
-categories: 'Web_Scraping Scrapy'
+title: 'Scrapy [4] Practices'
+categories: 'Web_Scraping'
 tags: [scrapy, web scraping]
 
 ---

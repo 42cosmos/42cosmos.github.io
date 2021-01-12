@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '[3] Scrapy OOP for Scrapy'
-categories: 'Web_Scraping Scrapy'
+title: 'Scrapy [3] OOP for Scrapy'
+categories: 'Web_Scraping'
 tags: [scrapy, web scraping]
 ---
 
