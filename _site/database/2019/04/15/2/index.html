@@ -1,0 +1,1082 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="DB," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="빈둥빈둥 공부블로그" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="관계 데이터 모델과 관계 무결성 제약조건">
+<meta name="keywords" content="DB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[2] Database 관계 데이터 모델과 관계 무결성 제약조건 ">
+<meta property="og:url" content="http://localhost:4000/database/2019/04/15/2/">
+<meta property="og:site_name" content="빈둥빈둥 공부블로그">
+<meta property="og:description" content="관계 데이터 모델과 관계 무결성 제약조건">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[2] Database 관계 데이터 모델과 관계 무결성 제약조건 ">
+<meta name="twitter:description" content="관계 데이터 모델과 관계 무결성 제약조건">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/"/>
+
+
+
+
+
+  <title>[2] Database 관계 데이터 모델과 관계 무결성 제약조건   | 빈둥빈둥 공부블로그</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">빈둥빈둥 공부블로그</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">All about STUDY!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+<div id="posts" class="posts-expand">
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/database/2019/04/15/2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eunbin Park">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="빈둥빈둥 공부블로그">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            [2] Database 관계 데이터 모델과 관계 무결성 제약조건  
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-15T00:00:00+09:00">
+                2019-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Database" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/database/2019/04/15/2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="/database/2019/04/15/2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="관계-데이터-모델과-관계-무결성-제약조건">관계 데이터 모델과 관계 무결성 제약조건</h3>
+
+<h4 id="01-관계형-데이터베이스의-구조">01 관계형 데이터베이스의 구조</h4>
+
+<h5 id="릴레이션--테이블">릴레이션 = 테이블</h5>
+
+<p>: 정보를 구분하여 저장하는 기본 단위</p>
+
+<p>&gt; 표의 형태로 표현 ( 실질적 데이터 저장 &gt; 테이블 )</p>
+
+<p>&gt; 릴레이션 스키마와 릴레이션 인스턴스의 합</p>
+
+<p>&gt; 동일한 데이터베이스 내에서 같은 이름의 릴레이션 존재 불가능</p>
+
+<p>&gt;현실 시계의 어떤 엔티티 표현</p>
+
+<h5 id="속성--열">속성 = 열</h5>
+
+<p>: 가장 작은 논리적 단위 - 파일 구조상 데이터 항목 / 데이터 필드</p>
+
+<p>&gt; 구체적인 정보 항목             &gt; 엔티티의 특성 기술</p>
+
+<p>&gt; 관리 할 필요가 이는 속성만 선택하여 릴레이션에 포함</p>
+
+<p>&gt; 같은 이름의 속성 존재 불가능</p>
+
+<p>&gt; 속성의 개수 : 차수 ( Degree )</p>
+
+<p>속성(어트리뷰트) = 열 = 필드 / 속성의 개수 = 차수</p>
+
+<h5 id="튜플--행">튜플 = 행</h5>
+
+<p>: 속성의 모임 - 레코드와 같은 의미</p>
+
+<p>&gt; 엔티티에 속한 구성원 개개의 정보 표현</p>
+
+<p>&gt; 카디날리티 : 릴레이션을 구성하는 튜플의 수 = 행의 갯수 / 튜플 = 행 = 레코드 / 튜플의 개수 = 카디날리티</p>
+
+<h5 id="도메인">도메인</h5>
+
+<p>: 각 속성이 취할 수 있는 같은 타입의 원자값의 집합</p>
+
+<p>&gt; 데이터 타입에 해당      &gt; 동일 도메인 여러 속성에서 사용 가능</p>
+
+<p>&gt; 릴레이션에 저장되는 데이터값들이 본래 의도했던 값들만 저장되게 한다</p>
+
+<p>&gt; 실제 속성값을 나타낼 때 그 값의 합법 여부를 시스템이 검사</p>
+
+<h5 id="릴레이션-스키마와-인스턴스">릴레이션 스키마와 인스턴스</h5>
+
+<p>릴레이션 스키마 : 릴레이션 내포</p>
+
+<p>​	&gt; 릴레이션 이름과 일정수의 속성의 집합</p>
+
+<p>​	&gt; 릴레이션의 논리적 구조 정의 : 릴레이션 이름과 속성의 집합</p>
+
+<p>릴레이션 인스턴스 : 릴레이션 외포</p>
+
+<p>​	&gt; 어느 한 시점에서 릴레이션에 포함되어 있는 튜플의 집합</p>
+
+<p>​	&gt; 릴레이션에 포함되어 있는 내용 또는 상태로 튜플 전체를 의미</p>
+
+<h4 id="02-릴레이션의-특징">02 릴레이션의 특징</h4>
+
+<h5 id="속성-간의-순서">속성 간의 순서</h5>
+
+<ul>
+  <li>
+    <p>릴레이션을 구성하는 속성 간 순서는 중요하지 않다</p>
+  </li>
+  <li>속성의 순서를 바꾼다고 다른 릴레이션이 되지는 않는다. &gt; 속성 이름에 의해 참조되기 때문</li>
+  <li>속성 순서를 정해놓는 것이 좋으며 상용 dbms는 속성이 순서를 가짐</li>
+</ul>
+
+<h5 id="상이한-튜플">상이한 튜플</h5>
+
+<ul>
+  <li>
+    <p>한 릴레이션에 포함된 튜플은 모두 다르다</p>
+  </li>
+  <li>어떤 튜플도 정확하게 동일한 값을 갖지 않는다</li>
+  <li>튜플을 유일하게 식별하기 위해 고유값을 저장하는 속성이 적어도 한 개 있어야 한다</li>
+</ul>
+
+<h5 id="튜플의-순서">튜플의 순서</h5>
+
+<ul>
+  <li>
+    <p>릴레이션에 포함된 튜플의 순서는 중요하지 않다</p>
+  </li>
+  <li>
+    <p>릴레이션의 포함된 튜플의 순서는 무의미</p>
+  </li>
+</ul>
+
+<p><strong>릴레이션</strong> <strong>변동성</strong> <strong>-</strong> 튜플의 삽입, 삭제 등의 잡업으로 릴레이션은 시간에 따라 변함</p>
+
+<p><strong>속성</strong> <strong>명칭과</strong> <strong>값</strong> <strong>-</strong> 유일한 식별을 위해 명칭은 유일해야 하며, 속성 구성 값은 동일할 수 있다</p>
+
+<p><strong>튜플의</strong> <strong>속성</strong> <strong>-</strong> 속성은 원잣값만을 저장해야 한다.</p>
+
+<ul>
+  <li>속성은 여러 개의 값을 리스트나 집합 형태로 저장 불가능</li>
+  <li>하나 속성이 두 값을 갖게 되면 릴레이션 추가 후 이를 참조</li>
+</ul>
+
+<h4 id="03-키의-개념-및-종류">03 키의 개념 및 종류</h4>
+
+<p><strong>이상</strong><strong>( Anomaly )</strong> <strong>현상</strong> <strong>-</strong> 데이터가 중복 저장되면 릴레이션 조작 시 예상치 못한 곤란한 현상 발생</p>
+
+<p><strong>키</strong> <strong>-</strong> 튜플을 유일하게 식별하기 위한 고유한 값을 저장하는 속성 혹은 속성의 집합</p>
+
+<p><strong>수퍼키</strong><strong>( Super Key ) -</strong> 튜플을 유일하게 식별하기 위해 사용하는 하나 혹은 그 이상의 속성 집합</p>
+
+<ul>
+  <li>문제점 : 튜플 고유 구별을 위해 꼭 필요하지 않은 속성을 포함</li>
+  <li>한 릴레이션을 구성하는 속성들 중 각 튜플을 유일하게 식별할 수 있는 하나 또는 그 이상의 속성의 집합</li>
+  <li>유일성 개념 포함</li>
+</ul>
+
+<p><strong>후보키</strong> <strong>( Candidate Key ) -</strong> 최소한의 속성으로 구성된 유일성을 갖는 속성의 집합</p>
+
+<ul>
+  <li>후보키 지정 시 후보키 속성값만을 비교하면 되는 장점</li>
+  <li>릴레이션 구성 속성 중 각 튜플을 유일하게 식별할 수 있는 최소한의 속성의 집합</li>
+  <li>유일성과 최소성 개념 포함</li>
+  <li>수퍼키와 공통점 : 릴레이션에 있는 가 튜플을 고유하게 식별할 수 있어야 한다</li>
+  <li>수퍼키와 차이점 : 최소한의 속성으로 구성된 유일성을 갖는 속성의 집합</li>
+</ul>
+
+<p><strong>기본키</strong> <strong>( Primary Key ) -</strong> 후보키 중 튜플을 식별하는데 기준으로 사용하는 키</p>
+
+<ul>
+  <li>하나의 릴레이션에서 후보키가 하나뿐일 때 그 후보키를 기본키로 사용</li>
+  <li>두 개 이상 존재 시 릴레이션 특성을 고려해 이들 중 하나를 선택</li>
+  <li>Null 값 저장 불가능</li>
+  <li>기본키로 정의된 속성에는 동일 값이 중복 저장 불가능</li>
+  <li>모든 릴레이션에는 적어도 하나의 기본키 ( 후보키 )가 존재</li>
+  <li>여러 후보키 중 하나를 선택하여 튜플을 식별하는데 기준으로 사용하는 키</li>
+</ul>
+
+<p><strong>대체키</strong> <strong>( Alternate Key ) -</strong> 후보키가 둘 이상일 때 기본키로 선택되지 않은 나머지 후보키</p>
+
+<ul>
+  <li>보조키라고도 함</li>
+</ul>
+
+<p><strong>복합키</strong></p>
+
+<ul>
+  <li>하나의 칼럼이 후보키 역할을 하지 못함</li>
+  <li>두 개 이상의 칼럼이 합쳐져야 후보키의 역할을 하는 경우</li>
+</ul>
+
+<p><strong>외래키</strong> <strong>( Foreign Key )</strong> - 상호 관련 테이블 사이에서 데이터의 일관성을 보장해주는 수단</p>
+
+<ul>
+  <li>어떤 릴레이션의 기본키를 참조하는 속성 또는 속성의 집합</li>
+  <li>외래키 속성은 참조하는 릴레이션의 기본키와 동일한 도메인을 가져야 함</li>
+  <li>두 테이블 간 데이터 불일치로 발생하는 이상현상 방지 &gt; 데이터 사이 참조 관계 설정</li>
+  <li>A 릴레이션과 참조하고 있는 B릴레이션의 기본키와 같은 속성을 A에서 찾아 이를 외래키로 지정</li>
+  <li>외래키로 지정되면 참조 테이블에서 사용 중인 기본키를 삭제, 변경 불가능</li>
+  <li>기본키에 없는 값은 외래키 값으로 입력 불가능</li>
+</ul>
+
+<p>자체 릴레이션을 참조하는 외래키             기본키 구성요소가 되는 외래키</p>
+
+<h4 id="04-무결성-제약조건">04 무결성 제약조건</h4>
+
+<h5 id="개체-무결성">개체 무결성</h5>
+
+<p>: 개체가 결점이 없음</p>
+
+<ul>
+  <li>무결한 개체 = 데이터베이스에 저장, 관리될 때 본질적으로 서로 구별 가능</li>
+  <li>식별 가능한 상태에 있게 되면 개체 부결성이 보장된 상태</li>
+  <li>릴레이션 식별자의 역할 = 기본키</li>
+  <li>기본키 구성 속성은 null / 중복값 불가능</li>
+  <li>기본키 값이 널 값을 갖게 된다면 튜플을 유일하게 식별할 수 없음</li>
+  <li>튜플 유일 식별 불가능은 서로 구별할 수 없는 개체가 존재하게 된다는 의미 &gt; 개체 무결성 위배</li>
+  <li>기본키의 유일 식별성을 잃지 않도록 하기 위해 중복되는 값을 갖으면 안 됨</li>
+  <li>특정 개체가 무결성을 유지하도록 하기 위해서 릴레이션을 생성하는 데이터 정의문 에서 어떤 속성이 릴레이션의 기본키인지를 알려주어야 함</li>
+</ul>
+
+<p>&gt; 개체 무결정 제약조건 : 기본키는 NULL 이나 중복 값을 가질 수 없다</p>
+
+<h5 id="참조-무결성">참조 무결성</h5>
+
+<p>: 릴레이션 간 적용되는 제약조건</p>
+
+<ul>
+  <li>외래키 값은 null이거나 참조 릴레이션의 기본키 값과 동일해야 함</li>
+  <li>릴레이션 모델에서는 두 개체 간의 관계를 외래키 혹은 릴레이션으로 표현</li>
+  <li>릴레이션은 참조할 수 없는 외래키 값을 가질 수 없음</li>
+</ul>
+
+<p>&gt; 참조 무결성 제약조건 : 외래키는 참조할 수 없는 값을 가질 수 없다.</p>
+
+<p>참조 무결성 제약 조건 유지</p>
+
+<ul>
+  <li>두 테이블 간 외래키에 의한 참조 관계에 있고 두 테이블 간 데이터 불일치가 발생하는 상황이 될 때</li>
+  <li>DBMS는 제한, 연쇄, 널 값으로 대체와 같은 조취를 취할 수 있다</li>
+</ul>
+
+<h6 id="a-테이블-첫-번째-튜플을-삭제하려-할-때">A 테이블 첫 번째 튜플을 삭제하려 할 때</h6>
+
+<p>제한은 삭제하려는 튜플의 부서 번호 값을 사원 테이블에서 가지고 있는 튜플이 있으므로 삭제 연산 거절</p>
+
+<p>연쇄는 삭제된 부서 번호 값을 갖는 사원 테이블의 튜플도 함께 삭제</p>
+
+<p>널 값으로 대체는 삭제 연산을 수행한 뒤 삭제된 부서 번호 값을 갖는 사원 테이블의 튜플에서 부서 번호를 널 값으로 대체</p>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            
+            <a href="/tag/#/DB" rel="tag"># DB</a>
+          
+        </div>
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/database/2019/04/15/3/" rel="next" title="[3] Database 데이터 종속성과 정규화">
+                <i class="fa fa-chevron-left"></i> [3] Database 데이터 종속성과 정규화
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/database/2019/04/15/1-Database-Study-in-school/" rel="prev" title="[1] Database 데이터 모델">
+                [1] Database 데이터 모델 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/images/avatar.gif"
+               alt="Eunbin Park" />
+          <p class="site-author-name" itemprop="name">Eunbin Park</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-3"> <a class="nav-link" href="#관계-데이터-모델과-관계-무결성-제약조건"> <span class="nav-number">1</span> <span class="nav-text">관계 데이터 모델과 관계 무결성 제약조건</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-4"> <a class="nav-link" href="#01-관계형-데이터베이스의-구조"> <span class="nav-number">1.1</span> <span class="nav-text">01 관계형 데이터베이스의 구조</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-5"> <a class="nav-link" href="#릴레이션--테이블"> <span class="nav-number">1.1.1</span> <span class="nav-text">릴레이션 = 테이블</span> </a> </li> <li class="nav-item nav-level-5"> <a class="nav-link" href="#속성--열"> <span class="nav-number">1.1.2</span> <span class="nav-text">속성 = 열</span> </a> </li> <li class="nav-item nav-level-5"> <a class="nav-link" href="#튜플--행"> <span class="nav-number">1.1.3</span> <span class="nav-text">튜플 = 행</span> </a> </li> <li class="nav-item nav-level-5"> <a class="nav-link" href="#도메인"> <span class="nav-number">1.1.4</span> <span class="nav-text">도메인</span> </a> </li> <li class="nav-item nav-level-5"> <a class="nav-link" href="#릴레이션-스키마와-인스턴스"> <span class="nav-number">1.1.5</span> <span class="nav-text">릴레이션 스키마와 인스턴스</span> </a> </li> </ol> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#02-릴레이션의-특징"> <span class="nav-number">1.2</span> <span class="nav-text">02 릴레이션의 특징</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-5"> <a class="nav-link" href="#속성-간의-순서"> <span class="nav-number">1.2.1</span> <span class="nav-text">속성 간의 순서</span> </a> </li> <li class="nav-item nav-level-5"> <a class="nav-link" href="#상이한-튜플"> <span class="nav-number">1.2.2</span> <span class="nav-text">상이한 튜플</span> </a> </li> <li class="nav-item nav-level-5"> <a class="nav-link" href="#튜플의-순서"> <span class="nav-number">1.2.3</span> <span class="nav-text">튜플의 순서</span> </a> </li> </ol> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#03-키의-개념-및-종류"> <span class="nav-number">1.3</span> <span class="nav-text">03 키의 개념 및 종류</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#04-무결성-제약조건"> <span class="nav-number">1.4</span> <span class="nav-text">04 무결성 제약조건</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-5"> <a class="nav-link" href="#개체-무결성"> <span class="nav-number">1.4.1</span> <span class="nav-text">개체 무결성</span> </a> </li> <li class="nav-item nav-level-5"> <a class="nav-link" href="#참조-무결성"> <span class="nav-number">1.4.2</span> <span class="nav-text">참조 무결성</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-6"> <a class="nav-link" href="#a-테이블-첫-번째-튜플을-삭제하려-할-때"> <span class="nav-number">1.4.2.1</span> <span class="nav-text">A 테이블 첫 번째 튜플을 삭제하려 할 때</span> </a> </li> </ol> </li> </ol> </li> </ol> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eunbin Park</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://jekyllrb.com">Jekyll</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      
+      <script type="text/javascript">
+          var disqus_config = function () {
+              this.page.url = 'http://localhost:4000/database/2019/04/15/2/';
+              this.page.identifier = '/database/2019/04/15/2/';
+              this.page.title = '[2] Database 관계 데이터 모델과 관계 무결성 제약조건  ';
+          };
+          var d = document, s = d.createElement('script');
+          s.src = 'https://.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', '' + +new Date());
+          (d.head || d.body).appendChild(s);
+      </script>
+      
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+

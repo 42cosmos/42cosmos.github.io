@@ -1,0 +1,1199 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="DB," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="빈둥빈둥 공부블로그" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Book 테이블에서 모든 도서의 이름과 가격을 검색하시오.">
+<meta name="keywords" content="DB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[6] MySQL - Example of Command line">
+<meta property="og:url" content="http://localhost:4000/database/2019/04/15/6-example/">
+<meta property="og:site_name" content="빈둥빈둥 공부블로그">
+<meta property="og:description" content="Book 테이블에서 모든 도서의 이름과 가격을 검색하시오.">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[6] MySQL - Example of Command line">
+<meta name="twitter:description" content="Book 테이블에서 모든 도서의 이름과 가격을 검색하시오.">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/"/>
+
+
+
+
+
+  <title>[6] MySQL - Example of Command line | 빈둥빈둥 공부블로그</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">빈둥빈둥 공부블로그</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">All about STUDY!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+<div id="posts" class="posts-expand">
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/database/2019/04/15/6-example/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eunbin Park">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="빈둥빈둥 공부블로그">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            [6] MySQL - Example of Command line
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-15T00:00:00+09:00">
+                2019-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Database" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/database/2019/04/15/6-example/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="/database/2019/04/15/6-example/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <p>Book 테이블에서 모든 도서의 이름과 가격을 검색하시오.</p>
+
+<p>SELECT bookname, price FROM Book;</p>
+
+<p>Book 테이블에서 모든 도서의 가격과 이름을 검색하시오.</p>
+
+<p>SELECT price, bookname FROM Book;</p>
+
+<p>Book 테이블에서 모든 도서의 도서번호, 도서이름, 출판사, 가격을 검색하려면?</p>
+
+<p>SELECT bookid, bookname, publisher, price FROM Book;</p>
+
+<p>테이블의 모든 속성을 보이려면</p>
+
+<p>SELECT * FROM Book;</p>
+
+<p>Book 테이블에서 도서 테이블에 있는 모든 출판사를 검색하려면?</p>
+
+<p>SELECT publisher FROM Book;</p>
+
+<p>중복된 데이터를 제거하여 한 번씩만 출력하려면?
+ SELECT DISTINCT publisher FROM Book;</p>
+
+<p>Book 테이블에서 가격이 10,000원 이상 20,000 이하인 도서를 검색하려면?</p>
+
+<p>SELECT * FROM Book WHERE price BETWEEN 10000 AND 20000</p>
+
+<p>AND를 이용하여 변경</p>
+
+<p>SELECT * FROM Book WHERE price &gt;= 10000 AND price &lt;= 20000;</p>
+
+<p>Book 테이블에서 출판사가 ‘굿스포츠’ 혹은 ‘대한미디어’인 도서를 검색하려면?</p>
+
+<p>SELECT * FROM Book WHERE publisher IN (‘굿스포츠’, ‘대한미디어’)</p>
+
+<p>출판사가 ‘굿스포츠’ 혹은 ‘대한미디어’가 아닌 도서를 검색하려면?</p>
+
+<p>SELECT * FROM Book WHERE publisher NOT IN (‘굿스포츠’, ‘대한미디어’)</p>
+
+<p>STUDENT 테이블에서 나이(AGE)가 30 이상인 학생 출력하기</p>
+
+<p>SELECT * FROM STUDENT WHERE AGE &gt;= 30</p>
+
+<p>STUDENT 테이블에서 10번 과정 소속 학생 출력하기</p>
+
+<p>SELECT * FROM STUDENT WHERE COU_ID=10</p>
+
+<p>STUDENT 테이블에서 이름이 김준형인 학생을 출력하기</p>
+
+<p>SELECT * FROM STUDENT WHERE STU_NAME=’김준형’</p>
+
+<p>STUDENT 테이블에서 나이가 21에서 29 사이인 학생을 검색</p>
+
+<p>SELECT * FROM STUDENT WHERE AGE &gt;= 21 AND AGE &lt;= 29</p>
+
+<p>STUDENT 테이블에서 나이가 21에서 29 사이인 학생 출력</p>
+
+<p>SELECT * FROM STUDENT WHERE AGE BETWEEN 21 AND 29</p>
+
+<p>STUDENT 테이블에서 나이가 21이거나 27이거나 28인 학생만 검색</p>
+
+<p>SELECT * FROM STUDENT WHERE AGE=21 OR AGE=27 OR AGE=28</p>
+
+<p>STUDENT 테이블에서 나이가 21이거나 27이거나 28인 학생 출력</p>
+
+<p>SELECT * FROM STUDENT WHERE AGE IN (21, 27, 28)</p>
+
+<p>Book 테이블에서 도서이름에 ‘축구’가 포함된 책이름과 출판사를 검색하려면?</p>
+
+<p>SELECT bookname, publisher FROM Book WHERE bookname LIKE ‘%축구%’;</p>
+
+<p>도서이름의 왼쪽 두 번째 위치에 ‘구’라는 문자열을 갖는 도서를 검색하려면?</p>
+
+<p>SELECT * FROM Book WHERE bookname LIKE ‘_구%’;</p>
+
+<p>Book 테이블에서 축구에 관한 도서 중 가격이 20,000원 이상인 도서를 검색하려면?</p>
+
+<p>SELECT * FROM Book WHERE bookname LIKE ‘%축구%’ AND price &gt;= 20000;</p>
+
+<p>출판사가 ‘굿스포츠’ 혹은 ‘대한미디어’인 도서를 검색하려면?</p>
+
+<p>SELECT * FROM Book WHERE publisher=’굿스포츠’ OR publisher=’대한미디어’;</p>
+
+<p>성이 ‘김’인 학생을 출력</p>
+
+<p>SELECT * FROM STUDENT WHERE STU_NAME LIKE ‘김%’</p>
+
+<p>이름의 두 번째 글자가 ‘봉’이고 그 뒤는 무엇이든 관계없는 사원 출력</p>
+
+<p>SELECT * FROM STUDENT WHERE STU_NAME LIKE ‘_봉%’</p>
+
+<p>이름과 과정번호와 이메일 출력</p>
+
+<p>SELECT STU_NAME, COU_ID, STU_EMAIL FROM STUDENT</p>
+
+<p>STUDENT 테이블에서 이메일이 NULL인 학생은</p>
+
+<p>SELECT * FROM STUDENT WHERE STU_EMAIL=NULL</p>
+
+<p>SELECT * FROM STUDENT WHERE STU_EMAIL IS NULL</p>
+
+<p>이메일이 NULL이 아닌 학생 출력</p>
+
+<p>SELECT * FROM STUDENT WHERE STU_EMAIL IS NOT NULL</p>
+
+<p>Book 테이블에서 도서를 이름순으로 정렬하려면?</p>
+
+<p>SELECT * FROM Book ORDER BY bookname (ASC);</p>
+
+<p>도서를 가격순으로 정렬하고, 가격이 같으면 이름순으로 정렬</p>
+
+<p>SELECT * FROM Book ORDER BY price, bookname;</p>
+
+<p>도서를 가격의 내림차순으로 정렬하고 만약 가격이 같다면 출판사의 오름 차순으 로 정렬하려면?</p>
+
+<p>SELECT * FROM Book ORDER BY price DESC, publisher ASC;</p>
+
+<p>나이를 기준으로 오름차순으로 정렬하여 출력</p>
+
+<p>SELECT * FROM STUDENT ORDER BY AGE ASC</p>
+
+<p>나이가 많은 사람부터 적은 사람 순으로 순차적으로 출력</p>
+
+<p>SELECT * FROM STUDENT ORDER BY AGE DESC</p>
+
+<p>고객이 주문한 도서의 총 판매액을 구하려면?</p>
+
+<p>SELECT SUM(saleprice) FROM Orders;</p>
+
+<p>고객이 주문한 도서의 총 판매액을 총매출로 구하려면?</p>
+
+<p>SELECT SUM(saleprice) AS 총매출 FROM Orders;</p>
+
+<p>2번 김연아 고객이 주문한 도서의 총 판매액을 총매출로 구하려면?</p>
+
+<p>SELECT SUM(saleprice) AS 총매출 FROM Orders WHERE custid=2;</p>
+
+<p>고객이 주문한 도서의 총 판매액, 평균값, 최저가, 최고가를 구하려면?</p>
+
+<p>SELECT SUM(saleprice) AS Total,</p>
+
+<p>​	AVG(saleprice) AS Average,</p>
+
+<p>​	MIN(saleprice) AS Minimum,</p>
+
+<p>​	MAX(saleprice) AS Maximum</p>
+
+<p>FROM Orders;</p>
+
+<p>서점의 도서 판매 건수를 구하려면?</p>
+
+<p>SELECT COUNT(*) FROM Orders;</p>
+
+<p>학생들의 나이 총합 출력</p>
+
+<p>SELECT SUM(AGE) AS [나이 총합] FROM STUDENT</p>
+
+<p>학생들의 나이 평균 출력</p>
+
+<p>SELECT AVG(AGE) AS [나이 총합] FROM STUDENT</p>
+
+<p>고객별로 주문한 도서의 총 수량과 총 판매액을 구하려면?</p>
+
+<p>SELECT custid, COUNT(*) AS 도서수량, SUM(saleprice) AS 총액 FROM Orders GROUP BY custid;</p>
+
+<p>가격이 8,000원 이상인 도서를 두 권 이상 구매한 고객에 대하여 고객별 주문 도 서의 총 수량을 구해 보세요.</p>
+
+<p>SELECT custid, COUNT(*) AS 도서수량 FROM Orders WHERE saleprice &gt;= 8000</p>
+
+<p>GROUP BY custid HAVING count(*) &gt;= 2;</p>
+
+<p>소속 과정별 평균 나이를 과정 번호와 함께 출력</p>
+
+<p>SELECT COU_ID, AVG(AGE) AS [평균 나이] FROM STUDENT GROUP BY COU_ID</p>
+
+<p>과정별 평균 나이가 25세 이상인 과정의 번호와 평균 나이 구하기</p>
+
+<p>SELECT COU_ID, AVG(AGE) AS [평균 나이] FROM STUDENT
+ GROUP BY COU_ID HAVING AVG(AGE) &gt;= 25</p>
+
+<p>Customer 와 Orders 테이블을 합치려면?</p>
+
+<p>SELECT * FROM Customer, Orders;</p>
+
+<p>고객과 고객의 주문에 관한 데이터를 모두 보려면?</p>
+
+<p>SELECT * FROM Customer, Orders WHERE Customer.custid =Orders.custid;</p>
+
+<p>고객과 고객의 주문에 관한 데이터를 모두 고객번호 순으로 정렬하려면?</p>
+
+<p>SELECT * FROM Customer, Orders WHERE Customer.custid = Orders.custid ORDER BY Customer.custid;</p>
+
+<p>고객의 이름과 고객이 주문한 도서의 판매가격을 검색하려면?</p>
+
+<p>SELECT name, saleprice FROM Customer, Orders WHERE Customer.custid =Orders.custid;</p>
+
+<p>고객별로 주문한 모든 도서의 총 판매액과 고객이름을 구하려면?</p>
+
+<p>SELECT name, SUM(saleprice) FROM Customer, Orders WHERE Customer.custid = Orders.custid GROUP BY Customer.name</p>
+
+<p>고객별로 주문한 모든 도서의 총 판매액을 구하고, 고객별로 정렬하려면?</p>
+
+<p>SELECT name, SUM(saleprice) FROM Customer, Orders WHERE Customer.custid = Orders.custid GROUP BY Customer.name ORDER BY Customer.name;</p>
+
+<p>고객의 이름과 고객이 주문한 도서의 이름을 구하려면?</p>
+
+<p>SELECT Customer.name, book.bookname FROM Customer, Orders, Book</p>
+
+<p>WHERE Customer.custid =Orders.custid AND Orders.bookid =Book.bookid;</p>
+
+<p>가격이 20,000원인 도서를 주문한 고객의 이름과 도서의 이름을 구하려면?</p>
+
+<p>SELECT Customer.name, book.bookname FROM Customer, Orders, Book
+ WHERE Customer.custid =Orders.custid</p>
+
+<p>​	AND Orders.bookid =Book.bookid AND Book.price =20000;</p>
+
+<p>도서를 구매하지 않은 고객을 포함하여 고객의 이름과 고객이 주문한 도서의 판매 가격을 구하려면?</p>
+
+<p>SELECT Customer.name, Orders.saleprice FROM Customer LEFT OUTER JOIN Orders</p>
+
+<p>ON Customer.custid =Orders.custid;</p>
+
+<p>도서가격이 가장 비싼 도서의 이름은?</p>
+
+<p>SELECT bookname FROM Book WHERE price = ( SELECT MAX(price) FROM Book) ;</p>
+
+<p>도서를 구매한 적이 있는 고객의 이름을 검색하려면?</p>
+
+<p>SELECT name FROM Customer WHERE custid IN (SELECT custid FROM Orders);</p>
+
+<p>대한미디어에서 출판한 도서를 구매한 고객의 이름을 알려면?</p>
+
+<p>SELECT name FROM Customer WHERE custid IN (SELECT custid FROM Orders
+ WHERE bookid IN (SELECT bookid FROM Book WHERE publisher=’대한미디어’));</p>
+
+<p>도서를 주문하지 않은 고객의 이름을 검색하려면?</p>
+
+<p>SELECT name FROM Customer
+ EXCEPT SELECT name FROM Customer WHERE custid IN (SELECT custid FROM Orders);</p>
+
+<p>주문이 있는 고객의 이름과 주소를 검색하려면?</p>
+
+<p>SELECT name, address FROM Customer WHERE EXISTS (SELECT * FROM Orders</p>
+
+<p>WHERE Customer.custid = Orders.custid);</p>
+
+<p>25세 이상인 학생들로 구성된 과정의 학생 정보 출력</p>
+
+<p>SELECT STU_NAME, age, COU_ID FROM STUDENT</p>
+
+<p>WHERE COU_ID IN ( SELECT DISTINCT COU_ID FROM STUDENT WHERE age&gt;=25 )</p>
+
+<p>스포츠 의학은 한솔의학서적에서 출간했으며 가격은 90,000원이다. Book 테이블에 새로운 도서 ‘스포츠 의학’을 삽입하려면?</p>
+
+<p>INSERT INTO Book(bookid, bookname, publisher, price) VALUES (11, ‘스포츠 의학’, ‘한솔의학서적’, 90000);</p>
+
+<p>스포츠 의학은 한솔의학서적에서 출간했으며 가격은 미정이다. Book 테이블에 새로운 도서 ‘스포츠 의학’을 삽입하려면?</p>
+
+<p>INSERT INTO Book(bookid, bookname, publisher) VALUES (12, ‘스포츠 의학’, ‘한솔의학서적’);</p>
+
+<p>Customer 테이블에서 고객번호가 5인 고객의 주소를 ‘대한민국 부산’으로 변경하려면?</p>
+
+<p>UPDATE Customer SET address=’대한민국 부산’ WHERE custid=5;</p>
+
+<p>Customer 테이블에서 박세리 고객의 주소를 김연아 고객의 주소로 변경하려면?</p>
+
+<p>UPDATE Customer SET address = (SELECT address FROM Customer WHERE name=’김연아’)</p>
+
+<p>WHERE name=’박세리’;</p>
+
+<p>과정 번호가 10번인 학생의 과정 번호를 30번으로 수정</p>
+
+<p>UPDATE STUDENT SET COU_ID=30 WHERE COU_ID=10</p>
+
+<p>Customer 테이블에서 고객번호가 5인 고객을 삭제하려면?</p>
+
+<p>DELETE FROM Customer WHERE custid=5;</p>
+
+<p>모든 고객을 삭제하시오.</p>
+
+<p>DELETE FROM Customer;</p>
+
+<p>30번 과정 소속 학생을 삭제</p>
+
+<p>DELETE [FROM] STUDENT WHERE COU_ID=30</p>
+
+<p>영화 ( 영화번호, 제목, 장르번호, 제작년도, 제작사 )</p>
+
+<p>영화 테이블 전체를 검색하시오.</p>
+
+<p>SELECT * FROM 영화</p>
+
+<p>모든 영화제목과 제작사를 검색하시오.
+ SELECT 제목, 제작사 FROM 영화</p>
+
+<p>제작년도가 2010년 이후인 영화제목을 검색하시오.
+ SELECT 제목 FROM 영화 WHERE 제작년도 &gt;= 2010</p>
+
+<p>제작년도가 2000년 부터 2019년 사이인 영화제목과 제작년도를 검색하시오.</p>
+
+<p>SELECT 제목, 제작년도 FROM 영화 WHERE 제작년도 &gt;= 2000 AND 제작년도 &lt;= 2019</p>
+
+<p>“하늘” 단어가 포함된 영화제목을 검색하시오.</p>
+
+<p>SELECT * FROM 영화 WHERE 제목 LIKE ‘%하늘%’</p>
+
+<p>모든 영화제목을 제작년도 순으로 검색하시오.
+ SELECT * FROM 영화 ORDER BY 제작년도</p>
+
+<p>모든 영화제목을 제작년도 순으로 검색. 단 제작년도가 같으면 영화제목 순으로 검색하시오.</p>
+
+<p>SELECT * FROM 영화 ORDER BY 제작년도, 제목</p>
+
+<p>———</p>
+
+<p>영화장르 ( 장르번호, 장르명)</p>
+
+<p>영화 ( 영화번호, 제목, 장르번호, 제작년도, 제작사)</p>
+
+<p>영화제목, 장르명, 제작사를 select 하시오.</p>
+
+<p>SELECT 제목, 장르명, 제작사 FROM 영화, 영화장르</p>
+
+<p>장르번호별 영화의 건수를 select 하시오.</p>
+
+<p>SELECT 장르번호, COUNT(*) AS 영화건수 FROM 영화 GROUP BY 장르번호</p>
+
+<p>장르명별 영화의 건수를 select 하시오.</p>
+
+<p>SELECT 장르명, COUNT(*) AS 영화건수 FROM 영화, 영화장르 GROUP BY 장르명</p>
+
+<p>2개 이상의 영화를 만든 제작사를 select 하시오.</p>
+
+<p>SELECT 제작사, COUNT(<em>) FROM 영화 GROUP BY 제작사 HAVING COUNT(</em>) &gt;= 2</p>
+
+<p>가장 최근에 만들어진 영화 제목과 제작년도를 select 하시오.</p>
+
+<p>SELECT 제목, 제작년도 FROM 영화 WHERE 제작년도 = (SELECT MAX( 제작년도 ) FROM 영화 )</p>
+
+<p>———</p>
+
+<p>영화장르 ( 장르번호, 장르명)</p>
+
+<p>영화 ( 영화번호, 제목, 장르번호, 제작년도, 제작사)</p>
+
+<p>영화장르 테이블에 3개의 장르 정보를 insert 하시오.
+ INSERT INTO 영화장르 VALUES (1, ‘sf’)</p>
+
+<p>영화 테이블에 5개의 영화정보를 insert 하시오.
+ INSERT INTO 영화 VALUES (1, ‘룰루랄라’, 01, 2019, ‘신기루’)</p>
+
+<p>영화 테이블에서 1번째 영화의 제작년도를 변경하시오.
+ UPDATE 영화 SET 제작년도 = ‘2019’ WHERE 영화번호 = 101</p>
+
+<p>영화 테이블에서 2번째 영화의 장르번호를 변경하시오. 변경이 안된다면 이유를 설명하시오</p>
+
+<p>UPDATE 영화 SET 장르번호 = 21 WHERE 영화번호 =101</p>
+
+<p>영화 테이블에서 영화장르의 장르번호를 외래키로 사용하고 있어서 변경 불가능</p>
+
+<p>영화장르 테이블에서 1번째 장르를 삭제하시오. 삭제가 안된다면 이유를 설명하시오</p>
+
+<p>DELETE FROM 영화장르 WHERE 장르번호 = 01</p>
+
+<p>영화장르의 장르번호를 영화테이블에서 데이터를 사용하고 있어서 변경 불가능</p>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            
+            <a href="/tag/#/DB" rel="tag"># DB</a>
+          
+        </div>
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/computer_security/2019/09/30/Message-Auth-and-OpMode/" rel="next" title="Message Authentication and Op Mode">
+                <i class="fa fa-chevron-left"></i> Message Authentication and Op Mode
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/database/2019/04/15/4/" rel="prev" title="[4] Database 관계대수와 관계해수">
+                [4] Database 관계대수와 관계해수 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/images/avatar.gif"
+               alt="Eunbin Park" />
+          <p class="site-author-name" itemprop="name">Eunbin Park</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eunbin Park</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://jekyllrb.com">Jekyll</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      
+      <script type="text/javascript">
+          var disqus_config = function () {
+              this.page.url = 'http://localhost:4000/database/2019/04/15/6-example/';
+              this.page.identifier = '/database/2019/04/15/6-example/';
+              this.page.title = '[6] MySQL - Example of Command line';
+          };
+          var d = document, s = d.createElement('script');
+          s.src = 'https://.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', '' + +new Date());
+          (d.head || d.body).appendChild(s);
+      </script>
+      
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+

@@ -1,0 +1,1019 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="git,study," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="빈둥빈둥 공부블로그" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Git">
+<meta name="keywords" content="git, study">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[1] Git Study">
+<meta property="og:url" content="http://localhost:4000/git/2019/12/18/1-Git-Study/">
+<meta property="og:site_name" content="빈둥빈둥 공부블로그">
+<meta property="og:description" content="Git">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[1] Git Study">
+<meta name="twitter:description" content="Git">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/"/>
+
+
+
+
+
+  <title>[1] Git Study | 빈둥빈둥 공부블로그</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">빈둥빈둥 공부블로그</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">All about STUDY!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+<div id="posts" class="posts-expand">
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/git/2019/12/18/1-Git-Study/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eunbin Park">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="빈둥빈둥 공부블로그">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            [1] Git Study
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-18T00:00:00+09:00">
+                2019-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Git" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/git/2019/12/18/1-Git-Study/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="/git/2019/12/18/1-Git-Study/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="git">Git</h3>
+
+<ul>
+  <li>가장 대중적인 코드 관리 도구</li>
+  <li>목적 : 이력관리 (버전관리)</li>
+  <li>특징 : ‘분산’ 버전관리</li>
+</ul>
+
+<h4 id="git-setting">Git Setting</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3</pre></td><td class="code"><pre class="highlight"><code>git config --global user.name "name"
+git config --global user.email "email"
+git init # After make a folder
+</code></pre></td></tr></tbody></table></div></div>
+
+<h4 id="git-status">Git Status</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5</pre></td><td class="code"><pre class="highlight"><code>git status
+git add 'file.type'
+git commit 'file.type' -m "Your Message"
+# git commit -m "Your Message" when you need all file commits
+
+</code></pre></td></tr></tbody></table></div></div>
+
+<p>Staged File : Files requiring constant observation Commited File : Save current condition in Git Repo</p>
+
+<ol>
+  <li>git status</li>
+</ol>
+
+<ul>
+  <li>Version Control, Source Code Management</li>
+  <li>When appears ‘Untracked file’. It means Git doesn’t know that file</li>
+</ul>
+
+<ol>
+  <li>git add</li>
+</ol>
+
+<ul>
+  <li>1st alert ‘Changes to be commit’. It means Your file is in Staged Area</li>
+  <li>2nd alert ‘Changes not staged for commit’. It means You’ve got modified file on Tracked file, But not in Staged Area (Not Staged condition)</li>
+</ul>
+
+<ol>
+  <li>git commit</li>
+</ol>
+
+<ul>
+  <li>Source Control is Available since data was committed in Git Repository</li>
+  <li>Enter when you want to SAVE</li>
+</ul>
+
+<h4 id="git-ignore">Git ignore</h4>
+
+<p><code class="language-plaintext highlighter-rouge">git mv file.rft file.gitignore</code></p>
+
+<p>When you’ve got files you want to ignore, make a txt file and change file extention .rtf(.txt etc) to .gittgnore.</p>
+
+<h4 id="git-log---기록">Git log - 기록</h4>
+
+<p>press ‘q’ when escape</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4</pre></td><td class="code"><pre class="highlight"><code>commit a4d380ce1cf6e8866f0f1d07cfaa804083476e0c
+Author: Name &lt;your@email.com&gt;
+Date:   Wed Dec 11 100:00:00 2019 +0000
+
+</code></pre></td></tr></tbody></table></div></div>
+
+<p>commit : Hash Code of your file Author : Author name &lt;Author’s email&gt; Date : Committed date</p>
+
+<p><strong>git log’s 4 command line</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5</pre></td><td class="code"><pre class="highlight"><code>git log --status
+git log --pretty=oneline
+git log --pretty=format : "%h - %an, %ar : %s"
+git log --pretty=format : "%h - %an, %ar : %s" --graph
+
+</code></pre></td></tr></tbody></table></div></div>
+
+<h4 id="git-checkout">Git checkout</h4>
+
+<p><em>Not a recommanded way</em> <code class="language-plaintext highlighter-rouge">git checkout 'hash[:6]'</code> <strong>Keep returning purpose in mind</strong></p>
+
+<h4 id="branch">Branch</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5</pre></td><td class="code"><pre class="highlight"><code>
+git branch # Expected Result with green font colour : * master
+git branch 'name'
+git checkout 'name' # Expecte
+
+</code></pre></td></tr></tbody></table></div></div>
+
+<p>when you checking out to master, files you made with another branch name will disappear</p>
+
+<h4 id="merge">Merge</h4>
+
+<p><code class="language-plaintext highlighter-rouge">git merge name # branch name</code> in the master branch</p>
+
+<h4 id="gitk---history-with-graph">gitk - History with graph</h4>
+
+<p><code class="language-plaintext highlighter-rouge">gitk</code></p>
+
+<h4 id="push">Push</h4>
+
+<p><code class="language-plaintext highlighter-rouge">git push -u origin master</code> Branch called master push to Remote server called origin</p>
+
+<h4 id="remote">Remote</h4>
+
+<p>Create New Repository on terminal line <code class="language-plaintext highlighter-rouge">git remote add origin https://www.github.com/~/~</code> <code class="language-plaintext highlighter-rouge">remote</code> Total command line of remote repository <code class="language-plaintext highlighter-rouge">add</code> Plus <code class="language-plaintext highlighter-rouge">origin</code> the name, the first <code class="language-plaintext highlighter-rouge">https://~</code> same as HTML</p>
+
+<h4 id="remote-command-line">Remote Command Line</h4>
+
+<p><code class="language-plaintext highlighter-rouge">git remote</code> #Expected Result : origin <code class="language-plaintext highlighter-rouge">git remote -v</code> <code class="language-plaintext highlighter-rouge">git remote add origin</code> <code class="language-plaintext highlighter-rouge">git remote add name</code> <code class="language-plaintext highlighter-rouge">git remote rm name</code> # Delete</p>
+
+<h4 id="commit-in-git-remote-server">Commit in Git Remote server</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4</pre></td><td class="code"><pre class="highlight"><code>git add name
+git commit name -m "Message"
+git push origin master
+
+</code></pre></td></tr></tbody></table></div></div>
+
+<h4 id="remote-server-to-local">Remote server to Local</h4>
+
+<ol>
+  <li>Clone - Get everything</li>
+  <li>Pull - Merge same branch</li>
+  <li>Fetch - Only get changed things</li>
+</ol>
+
+<h4 id="1-fork--pull-request">(1) Fork &amp; Pull Request</h4>
+
+<p>Fork🍴 - 타인의 Repo를 나의 github repo로 옮김 Pull Request - Fork로 가져온 타인의 코드 수정 후 반영을 요청함</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4</pre></td><td class="code"><pre class="highlight"><code>git pull address master # Easiest way
+git fetch origin master # bring Latest version &amp; can get another branch
+git merget origin master
+
+</code></pre></td></tr></tbody></table></div></div>
+
+<h4 id="2-permission">(2) Permission</h4>
+
+<p>permission Setting : 작업 권한을 공동 작업자에게 위임 github 내 setting 에서 추가</p>
+
+<p><a href="https://www.youtube.com/playlist?list=PLBHVuYlKEkULuUe_Ca3wiaFon6dPWIWAZ">유튜브 Git - Teamlab 강의</a></p>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            
+            <a href="/tag/#/git" rel="tag"># git</a>
+          
+            
+            <a href="/tag/#/study" rel="tag"># study</a>
+          
+        </div>
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/python/2019/12/24/python-for-ml/" rel="next" title="머신러닝을 위한 Python 01">
+                <i class="fa fa-chevron-left"></i> 머신러닝을 위한 Python 01
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/python/2019/12/17/os.rename()-%EC%97%90%EB%9F%AC/" rel="prev" title="[Error] os.rename() No such file or directory 오류">
+                [Error] os.rename() No such file or directory 오류 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/images/avatar.gif"
+               alt="Eunbin Park" />
+          <p class="site-author-name" itemprop="name">Eunbin Park</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-3"> <a class="nav-link" href="#git"> <span class="nav-number">1</span> <span class="nav-text">Git</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-4"> <a class="nav-link" href="#git-setting"> <span class="nav-number">1.1</span> <span class="nav-text">Git Setting</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#git-status"> <span class="nav-number">1.2</span> <span class="nav-text">Git Status</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#git-ignore"> <span class="nav-number">1.3</span> <span class="nav-text">Git ignore</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#git-log---기록"> <span class="nav-number">1.4</span> <span class="nav-text">Git log - 기록</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#git-checkout"> <span class="nav-number">1.5</span> <span class="nav-text">Git checkout</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#branch"> <span class="nav-number">1.6</span> <span class="nav-text">Branch</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#merge"> <span class="nav-number">1.7</span> <span class="nav-text">Merge</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#gitk---history-with-graph"> <span class="nav-number">1.8</span> <span class="nav-text">gitk - History with graph</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#push"> <span class="nav-number">1.9</span> <span class="nav-text">Push</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#remote"> <span class="nav-number">1.10</span> <span class="nav-text">Remote</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#remote-command-line"> <span class="nav-number">1.11</span> <span class="nav-text">Remote Command Line</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#commit-in-git-remote-server"> <span class="nav-number">1.12</span> <span class="nav-text">Commit in Git Remote server</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#remote-server-to-local"> <span class="nav-number">1.13</span> <span class="nav-text">Remote server to Local</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#1-fork--pull-request"> <span class="nav-number">1.14</span> <span class="nav-text">(1) Fork &amp; Pull Request</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#2-permission"> <span class="nav-number">1.15</span> <span class="nav-text">(2) Permission</span> </a> </li> </ol> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eunbin Park</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://jekyllrb.com">Jekyll</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      
+      <script type="text/javascript">
+          var disqus_config = function () {
+              this.page.url = 'http://localhost:4000/git/2019/12/18/1-Git-Study/';
+              this.page.identifier = '/git/2019/12/18/1-Git-Study/';
+              this.page.title = '[1] Git Study';
+          };
+          var d = document, s = d.createElement('script');
+          s.src = 'https://.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', '' + +new Date());
+          (d.head || d.body).appendChild(s);
+      </script>
+      
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+

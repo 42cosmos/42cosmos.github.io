@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-12T15:34:04+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">빈둥빈둥 공부블로그</title><author><name>Eunbin Park</name></author><entry><title type="html">신경망 구조</title><link href="http://localhost:4000/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0/" rel="alternate" type="text/html" title="신경망 구조" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0</id><content type="html" xml:base="http://localhost:4000/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0/">&lt;h1 id=&quot;신경망-구조&quot;&gt;신경망 구조&lt;/h1&gt;
+
+&lt;p&gt;기본단위 : 뉴런 -&amp;gt; 조합해 복잡한 구조를 이룸&lt;/p&gt;
+
+&lt;p&gt;perceptron&lt;/p&gt;
+
+&lt;p&gt;노드는 뉴런의 연산을 표현 &amp;gt; 들어온 입력에 대한 가중치를 곱해 더해준 다음 &amp;gt; 액티베이션 펑션을 적용시킴&lt;/p&gt;
+
+&lt;p&gt;두 계층 사이 모든 뉴런 연결 -&amp;gt; 전결합계층 : 뉴럴 네트워크의 가장 기본이며, Dense Layer 라고도 칭함&lt;/p&gt;
+
+&lt;p&gt;뉴런 각 개를 하나의 백터로 묶어줌 :: 백터 내적을 묶어주면 Weight * x 로 표현이 가능함&lt;/p&gt;
+
+&lt;h3 id=&quot;얕은-신경망&quot;&gt;얕은 신경망&lt;/h3&gt;
+
+&lt;p&gt;은닉 Activation function으로 시그모이드 / 탄젠트를 주로 사용&lt;/p&gt;
+
+&lt;p&gt;출력 &amp;gt; Linear / Soft / Sigmoin ( Binary )&lt;/p&gt;
+
+&lt;h3 id=&quot;심층-신경망&quot;&gt;심층 신경망&lt;/h3&gt;
+
+&lt;p&gt;5개 이상의 은닉 계층이 있는 경우&lt;/p&gt;
+
+&lt;p&gt;sigmoid 대신 탄젠트 / relu 가 자주 사용됨&lt;/p&gt;
+
+&lt;h1 id=&quot;최적화-이론&quot;&gt;최적화 이론&lt;/h1&gt;
+
+&lt;h3 id=&quot;분석적-방법&quot;&gt;분석적 방법&lt;/h3&gt;
+
+&lt;p&gt;수식을 알고 있을 때 &amp;gt; 미분해서 0이 된다는 것 : 기울기 0 -&amp;gt; 2차 미분 해서 0보다 크면 아래로 볼록한 모양&lt;/p&gt;
+
+&lt;p&gt;여기 다시 들어 보기&lt;/p&gt;
+
+&lt;h3 id=&quot;수치적-방법&quot;&gt;수치적 방법&lt;/h3&gt;
+
+&lt;p&gt;함수 형태와 수식을 모를 때&lt;/p&gt;
+
+&lt;p&gt;Gradient Method&lt;/p&gt;
+
+&lt;p&gt;전역 솔루션 : 전체에서 단 하나 -&amp;gt; 전체에서 가장 작은 값&lt;/p&gt;
+
+&lt;p&gt;지역 솔루션 : 여러 개 일 수 있고, 좁은 지역에서 봤을 때 솔루션이 되는 부분&lt;/p&gt;
+
+&lt;p&gt;하나의 솔루션이 전역인지 지역인지 알 수 없음.&lt;/p&gt;
+
+&lt;p&gt;손실함수를 최소화 하는 방향으로 네트워크 파라미터 (웨이트-w, 편향-b) 를 조절하는 것&lt;/p&gt;</content><author><name>Eunbin Park</name></author><summary type="html">신경망 구조</summary></entry><entry><title type="html">Loss Function</title><link href="http://localhost:4000/2020/03/19/loss-function/" rel="alternate" type="text/html" title="Loss Function" /><published>2020-03-19T00:00:00+09:00</published><updated>2020-03-19T00:00:00+09:00</updated><id>http://localhost:4000/2020/03/19/loss-function</id><content type="html" xml:base="http://localhost:4000/2020/03/19/loss-function/">&lt;h1 id=&quot;손실-함수&quot;&gt;손실 함수&lt;/h1&gt;
+
+&lt;p&gt;지도 학습 알고리즘에 반드시 정의되어야 함&lt;/p&gt;
+
+&lt;p&gt;목적, 비용, 에너지 함수 등이라고도 불림 - 에너지, 코스트 등 다양한 표현에 따라 영문 표기명이 달라짐&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;알고리즘 학습 중 아직 얼마나 못하는지 표현&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;성능-척도&quot;&gt;성능 척도&lt;/h2&gt;
+
+&lt;p&gt;성능 측정 지표 - 정량적 평가 :: 비즈니스 목표와 연관이 높음&lt;/p&gt;
+
+&lt;h3 id=&quot;학습의-수학적-의미&quot;&gt;학습의 수학적 의미&lt;/h3&gt;
+
+&lt;p&gt;argmin(오브젝티브 함수 &amp;gt; loss function 이라고 표현 함 ) 이를 최소화 시키는 세타(min) 값을 찾는 것&lt;/p&gt;
+
+&lt;p&gt;입력과 정답을 동시에 입력 받음&lt;/p&gt;
+
+&lt;p&gt;세타는 학습 될 모든 파라미터를 모은 벡터값 : 네트워크 학습 시 수학적 모델을 두고 학습을 한 다는 것 : 모델 안에 학습 될 수 있는 다양한 파라미터가 있다는 의미 ::&lt;/p&gt;
+
+&lt;p&gt;손실함수는 모델이 해당 모델이 얼마나 못하는지에 대한 지표 &amp;gt; 낮을 수록 좋음&lt;/p&gt;
+
+&lt;p&gt;손실 함수는 세타값에 의해서만 움직임 : x, y는 고정 - 세타값에만 의한 변화&lt;/p&gt;
+
+&lt;h3 id=&quot;평균제곱오차-함수-mse&quot;&gt;평균제곱오차 함수 MSE&lt;/h3&gt;
+
+&lt;p&gt;1/2 : 해당 식을 미분 시 제곱이 내려가 없어지기 때문에 관습적으로 사용한 것임&lt;/p&gt;
+
+&lt;p&gt;오차가 커질 수록 손실함수가 빠르게 증가함 &amp;gt; 선형 (직선) 함수일 경우 일정하게 증가함&lt;/p&gt;
+
+&lt;p&gt;아웃라이너가 뭉게져 나타남 /… 뭐래&lt;/p&gt;
+
+&lt;h4 id=&quot;eg&quot;&gt;e.g.&lt;/h4&gt;
+
+&lt;p&gt;하나의 값 &amp;gt; 오차 :: 세타값 수정 ( gradient decent? ) &amp;gt; 추정치 (y 틸다)를 변경해서 오차 계산을 확인 &amp;gt; 종합적 판단이 가능&lt;/p&gt;
+
+&lt;h3 id=&quot;평균절대오차-함수-mae&quot;&gt;평균절대오차 함수 MAE&lt;/h3&gt;
+
+&lt;p&gt;제곱이 아닌 절대값으로 표현함 &amp;gt; 오차가 커져도 손실함수가 일정하게 증가하며&lt;/p&gt;
+
+&lt;p&gt;, Robust with outliner : 좋은 추정을 해도 오차가 많이 발생 &amp;gt; 굳이 이런 것까지 맞추어야 하는 건 아님&lt;/p&gt;
+
+&lt;p&gt;// 통계적으로 중간 값 ( Median )과의 연관이 있음 -&lt;/p&gt;
+
+&lt;h3 id=&quot;one-hot-encoding&quot;&gt;One Hot Encoding&lt;/h3&gt;
+
+&lt;p&gt;다중 클래스 분류 문제의 정답 표기 시 사용&lt;/p&gt;
+
+&lt;h3 id=&quot;교차-엔트로피-오차-cee&quot;&gt;교차 엔트로피 오차 CEE&lt;/h3&gt;
+
+&lt;p&gt;yi &amp;gt; 원핫 인코딩으로 - 정답인 항 하나만 살아남고 나머지는 소멸 &amp;gt; 정답인 경우만 로그 … 만 살아남아 이걸 학습하게 됨&lt;/p&gt;
+
+&lt;p&gt;실제로는 다른 항들 (0)도 영향을 줌  &amp;gt; 분모에 덧셈이 되어 들어가기 때문&lt;/p&gt;</content><author><name>Eunbin Park</name></author><summary type="html">손실 함수</summary></entry><entry><title type="html">Tensorflow</title><link href="http://localhost:4000/2020/03/17/tensorflow/" rel="alternate" type="text/html" title="Tensorflow" /><published>2020-03-17T00:00:00+09:00</published><updated>2020-03-17T00:00:00+09:00</updated><id>http://localhost:4000/2020/03/17/tensorflow</id><content type="html" xml:base="http://localhost:4000/2020/03/17/tensorflow/">&lt;h1 id=&quot;tensorflow&quot;&gt;TensorFlow&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; import tensorflow as tf&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;perceptron&quot;&gt;Perceptron&lt;/h3&gt;
+
+&lt;p&gt;인체 내 신경세포의 논리게이트 화&lt;/p&gt;
+
+&lt;p&gt;여러 신호를 입력 받아 하나의 신호로 변경 &amp;gt; inputs&lt;/p&gt;
+
+&lt;p&gt;각 가중치 변경 (시냅스 - 연결의 가중치)&lt;/p&gt;
+
+&lt;p&gt;활성함수를 통한 논리적 변경 &amp;gt; outputs  - 비선형 변환&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;벡터 내적 : y = sign(x^T w) - 행 백터의 열벡터화 * 행 벡터 &amp;gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;사인 함수 - 입력의 사인이 플러스 ( 마이너스 )인지 확인&lt;/p&gt;
+
+&lt;h3 id=&quot;이진-분류-문제&quot;&gt;이진 분류 문제&lt;/h3&gt;
+
+&lt;h4 id=&quot;perceptron-동작&quot;&gt;Perceptron 동작&lt;/h4&gt;
+
+&lt;p&gt;편향 표현 - 1 : 전체적 출력이 얼마나 shift 된 지 알아보게 함&lt;/p&gt;
+
+&lt;p&gt;학습률 - 부분 설명 다시 듣기&lt;/p&gt;
+
+&lt;h3 id=&quot;활성함수&quot;&gt;활성함수&lt;/h3&gt;
+
+&lt;h4 id=&quot;sign-함수의-문제&quot;&gt;Sign 함수의 문제&lt;/h4&gt;
+
+&lt;p&gt;결정경계 ( Decision bounday )와의 거리를 신경써야 함&lt;/p&gt;
+
+&lt;h4 id=&quot;tahn-함수&quot;&gt;tahn 함수&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;입력값이 0에 가까울 수록 출력이 빠르게 변함&lt;/li&gt;
+  &lt;li&gt;모든 점에서 미분 가능 : 그라디언트 디센트를 배울 때 중요함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;sigmoid-func&quot;&gt;Sigmoid func&lt;/h4&gt;
+
+&lt;p&gt;1개의 입력&lt;/p&gt;
+
+&lt;p&gt;0에서 1사이 값을 가짐 - 확률 표현이 가능함 ( Binary classification 에 많이 사용됨 - T일 확률과 F (1 - T)일 확률)&lt;/p&gt;
+
+&lt;p&gt;딥러닝에서는 0 센터의 0~1 값을 갖는 함수로만 사용됨&lt;/p&gt;
+
+&lt;h4 id=&quot;softmax-func&quot;&gt;Softmax func&lt;/h4&gt;
+
+&lt;p&gt;n개의 입력&lt;/p&gt;
+
+&lt;p&gt;각 입력의 지수함수를 정규화 함 ( 총 합이 1이 되게끔 함 )&lt;/p&gt;
+
+&lt;p&gt;e.g. 총 4가지 출력이 있을 때, 출력 0.2, 0.4, 0.1이 나왔다면 나머지는 자동으로 0.4가 됨&lt;/p&gt;
+
+&lt;h4 id=&quot;relu-func&quot;&gt;ReLU func&lt;/h4&gt;
+
+&lt;p&gt;0보다 작은 값에 0 값을 강제함&lt;/p&gt;
+
+&lt;p&gt;딥러닝에서 가장 많이 사용되는 활성 함수 - 미분값이 일정해서 학습이 잘 됨 (0 or 1의 값이 나옴)&lt;/p&gt;</content><author><name>Eunbin Park</name></author><summary type="html">TensorFlow</summary></entry><entry><title type="html">Decision Tree</title><link href="http://localhost:4000/2020/03/11/decision-tree/" rel="alternate" type="text/html" title="Decision Tree" /><published>2020-03-11T00:00:00+09:00</published><updated>2020-03-11T00:00:00+09:00</updated><id>http://localhost:4000/2020/03/11/decision-tree</id><content type="html" xml:base="http://localhost:4000/2020/03/11/decision-tree/">&lt;h1 id=&quot;decision-tree&quot;&gt;Decision Tree&lt;/h1&gt;
+
+&lt;p&gt;장점 : 해석력 &amp;gt; 모델의 정확성 이외에도 활용성 ( 메세지 ) :: 결과에 대한 풀이 (연속형 - 범주형 등의 형태에 대한 범용성 높음)&lt;/p&gt;
+
+&lt;p&gt;단점 : 변동성 / 샘플에의 민감&lt;/p&gt;
+
+&lt;p&gt;결과값 &amp;gt; 반응변수 예측하는 형태로 나타남&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;범주형 변수 - 분류&lt;/li&gt;
+  &lt;li&gt;연속형 변수 - 회귀 : 조건을 만족하는 샘플집단의 y의 평균값을 알려줌&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;엔트로피--entropy&quot;&gt;엔트로피  Entropy&lt;/h3&gt;
+
+&lt;p&gt;섞여있는 정도&lt;/p&gt;
+
+&lt;p&gt;정의 1. -p(p - 1) + c&lt;/p&gt;
+
+&lt;p&gt;정의2. -plog…&lt;/p&gt;
+
+&lt;h3 id=&quot;information-gain&quot;&gt;Information gain&lt;/h3&gt;
+
+&lt;p&gt;활용한 변수로 인한 이득 // ig로 각 변수를 평가 (outlook / humidity)  &amp;gt; 어떤 변수를 최상위 노드로 사용할지 결정함&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;4개 모두 yes 일 때 : 4/4 &amp;gt; 로그가 0이 됨&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2/5 &amp;gt; -0.4log2 0.4 - 0.6log2 0.6&lt;/li&gt;
+  &lt;li&gt;all : 9 / 14 개&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;관측치를 많이 갖고 있음 &amp;gt; 다수의 웨이트를 줌  ( e.g. 전체 14개 중 첫 번째 범주에 5/ 4/ 5 - 가중평균을 구해줌)&lt;/p&gt;
+
+&lt;p&gt;섞여있음 ( 엔트로피 높음 ) &amp;gt; 분류 진행 ( 엔트로피 낮춤 )&lt;/p&gt;
+
+&lt;h2 id=&quot;classification-tree&quot;&gt;Classification Tree&lt;/h2&gt;
+
+&lt;p&gt;m번째 노드가 k 범주일 확률 : y가 k 범주 안에 존재하면 카운트 - reason을 어떻게 구하는지에 대한 결정&lt;/p&gt;
+
+&lt;p&gt;ig가 최대화 되는 영역&lt;/p&gt;
+
+&lt;p&gt;오분류율 : 전체 샘플 개수 내 상대 비율 - 오류율&lt;/p&gt;
+
+&lt;p&gt;Rm결정 이후 (특정 변수를 어떤 기준으로 나눌 것인지) 결정된 Rm에 대해 pmk 중 가장 이 값이 커지는 k를 구함 &amp;gt; y범주를 구할 것&lt;/p&gt;
+
+&lt;h2 id=&quot;regression-tree&quot;&gt;Regression Tree&lt;/h2&gt;
+
+&lt;p&gt;종속변수가 연속형 - 시각화 시 높이 == 예측값&lt;/p&gt;
+
+&lt;p&gt;각각에 대해 특정 실수값을 줌  - cm (z 축) 값을 곱함&lt;/p&gt;
+
+&lt;p&gt;임의로 영역을 나눔 &amp;gt; measure 부분을 엔트로피나 gini index를 사용해 최소화되는 점을 찾음&lt;/p&gt;
+
+&lt;p&gt;Cm &amp;gt; 샘플의 평균값&lt;/p&gt;</content><author><name>Eunbin Park</name></author><summary type="html">Decision Tree</summary></entry><entry><title type="html">Support Vector Machine</title><link href="http://localhost:4000/2020/03/10/support-vector-machine/" rel="alternate" type="text/html" title="Support Vector Machine" /><published>2020-03-10T00:00:00+09:00</published><updated>2020-03-10T00:00:00+09:00</updated><id>http://localhost:4000/2020/03/10/support-vector-machine</id><content type="html" xml:base="http://localhost:4000/2020/03/10/support-vector-machine/">&lt;h1 id=&quot;support-vector-machine&quot;&gt;Support Vector Machine&lt;/h1&gt;
+
+&lt;p&gt;정확한 분포를 찾을 수 없을 때 &amp;gt; lda 를 적용하기 힘들 때 - 선형관계가 아닌 경우&lt;/p&gt;
+
+&lt;p&gt;범주형일 때 - classifier  &amp;gt; 보통 기본&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;핵심 - cost 문제 모든 자료를 고려 x 코스트에 영향을 끼치는 값들만 고려할 것 . 경계 부근 점들을 반영해 모델 코스트 계산&lt;/li&gt;
+  &lt;li&gt;바운더리 근처 관측치만 고려 &amp;gt; 예측 정확도 높음&lt;/li&gt;
+  &lt;li&gt;c (에러의 합) 고려 필요 - c가 작으면 에러를 다수 범해도 괜찮음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;연속형 - regression &amp;gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;내적이 아니라 커널로 바꿀 것 ( 커널 : 두 값이 차이날 수록 값이 작아짐 - 가까울 수록 커지는 값)&lt;/p&gt;
+
+&lt;p&gt;정규분포 exp 내부 값과 비슷함 &amp;gt; 가우시안 커널&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;one-class-svm&quot;&gt;One class SVM&lt;/h3&gt;
+
+&lt;p&gt;원 반지름의 최소화 &amp;gt; 점이 반지름 안에 있어야 함&lt;/p&gt;
+
+&lt;p&gt;에러 포함 시 c 값 삽입 (작을 수록 에러를 어느정도 허용)&lt;/p&gt;
+
+&lt;p&gt;라그랑쥬 &amp;gt; 커널 식으로 바꾸면 … 3차원 6차원으로 설정해 원이 아닌 경우를 만들 수 있음&lt;/p&gt;
+
+&lt;p&gt;시그마 - 커질 수록 차이가 완화됨 &amp;gt; 모형이 간단해짐 ( 민감한 반응 &amp;gt; 작은 시그마 값)&lt;/p&gt;</content><author><name>Eunbin Park</name></author><summary type="html">Support Vector Machine</summary></entry><entry><title type="html">뉴욕 택시 데이터 수요예측</title><link href="http://localhost:4000/2020/03/10/%EB%89%B4%EC%9A%95-%ED%83%9D%EC%8B%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%88%98%EC%9A%94%EC%98%88%EC%B8%A1/" rel="alternate" type="text/html" title="뉴욕 택시 데이터 수요예측" /><published>2020-03-10T00:00:00+09:00</published><updated>2020-03-10T00:00:00+09:00</updated><id>http://localhost:4000/2020/03/10/%EB%89%B4%EC%9A%95-%ED%83%9D%EC%8B%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%88%98%EC%9A%94%EC%98%88%EC%B8%A1</id><content type="html" xml:base="http://localhost:4000/2020/03/10/%EB%89%B4%EC%9A%95-%ED%83%9D%EC%8B%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%88%98%EC%9A%94%EC%98%88%EC%B8%A1/">&lt;h1 id=&quot;nyc-택시-데이터-수요-예측&quot;&gt;NYC 택시 데이터 수요 예측&lt;/h1&gt;
+
+&lt;h3 id=&quot;bigquery&quot;&gt;BigQuery&lt;/h3&gt;</content><author><name>Eunbin Park</name></author><summary type="html">NYC 택시 데이터 수요 예측</summary></entry><entry><title type="html">Ml Study</title><link href="http://localhost:4000/2020/03/09/ml-study/" rel="alternate" type="text/html" title="Ml Study" /><published>2020-03-09T00:00:00+09:00</published><updated>2020-03-09T00:00:00+09:00</updated><id>http://localhost:4000/2020/03/09/ml-study</id><content type="html" xml:base="http://localhost:4000/2020/03/09/ml-study/">&lt;h1 id=&quot;linear-discriminant-analysis&quot;&gt;Linear Discriminant Analysis&lt;/h1&gt;
+
+&lt;p&gt;데이터 분류 방법 : LDA&lt;/p&gt;
+
+&lt;p&gt;가정&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;각 숫자 집단은 정규분포 형태 확률분포를 가짐&lt;/li&gt;
+  &lt;li&gt;각 숫자 집단은 비슷한 형태의 공분산 구조를 가짐&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;가정 시 우상향 타원 + 분산을 갖는 (공분산) 형태가 나옴 &amp;gt; 1, 2, 3그룹 모두 비슷하게 갖고 있음&lt;/p&gt;
+
+&lt;p&gt;검은 실선 &amp;gt; 영역 분할 == LDA&lt;/p&gt;
+
+&lt;p&gt;자룔 특정축으로 정사형을 만듦 &amp;gt; 두 분포를 비교하고 분산 대비 평균 차이를 비교&lt;/p&gt;
+
+&lt;p&gt;자료가 같음에도 축이 다르면 바운더리가 변경 &amp;gt; &lt;strong&gt;어떤 축에 정’사영’을 시킬 것인지 문제&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;기본적으로 평균의 차이를 크게하는 곳에 두 개를 이은 벡터를 평행이동 시켜 정사형을 만듦 &amp;gt; 평균 차이의 극대화 ( but 분산 대비 평균의 차이가 커야하지만, 각각의 분산이 크기 때문에 확실한 차이가 있는지 애매함)&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;왼 : 평균 차이 극대화 / 분산이 너무 큼  (분산 줄이는 법 &amp;gt; 단축방향 ) &amp;gt;&lt;/td&gt;
+      &lt;td&gt;오 :  분산의 최소화 방향&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;lda-모델-정의-및-추정&quot;&gt;LDA 모델 정의 및 추정&lt;/h3&gt;
+
+&lt;p&gt;확률분포 관점 : l보다 k에 속할 확률 &amp;gt; log 부분이 커지면 됨 &amp;gt; log파이k/파이l 도 커질 것임&lt;/p&gt;
+
+&lt;p&gt;만약에 시그마 케이가 같을 때 == 간단하게 정리할 수 있음&lt;/p&gt;
+
+&lt;h3 id=&quot;lda-심화적-이해&quot;&gt;LDA 심화적 이해&lt;/h3&gt;
+
+&lt;p&gt;장점 :&lt;/p&gt;
+
+&lt;p&gt;나이브 베이즈 : 설명변수 간 조건부 독립을 가정했음 &amp;gt; 타원 형태는 무시되고 분석을 하게 됐었음&lt;/p&gt;
+
+&lt;p&gt;공분산 구조가 조금 다르더라도 변화의 민감하지 않음&lt;/p&gt;
+
+&lt;p&gt;단점 :&lt;/p&gt;
+
+&lt;p&gt;공분산 구조가 다른 경우 &amp;gt; QDA&lt;/p&gt;
+
+&lt;h4 id=&quot;qda-정의-및-이해&quot;&gt;QDA 정의 및 이해&lt;/h4&gt;
+
+&lt;p&gt;y 샘플들이 각 공분산 구조가 상이한 상황에서도 사용할 수 있게 함&lt;/p&gt;
+
+&lt;p&gt;비선형관계에서 유용하게 쓰임&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;lda qda 비 교&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;공분산 구조를 다르게 가질 수 있는가의 차이 &amp;gt; 추정해야하는 파라미터 수가 많아짐&lt;/p&gt;
+
+&lt;p&gt;샘플이 충분치 않을 때는 lda 가 효율적임&lt;/p&gt;</content><author><name>Eunbin Park</name></author><summary type="html">Linear Discriminant Analysis</summary></entry><entry><title type="html">date &amp;amp; time handling in python</title><link href="http://localhost:4000/python/2020/03/01/date-&-time_handling-with-python/" rel="alternate" type="text/html" title="date &amp;amp; time handling in python" /><published>2020-03-01T00:00:00+09:00</published><updated>2020-03-01T00:00:00+09:00</updated><id>http://localhost:4000/python/2020/03/01/date-&amp;-time_handling-with-python</id><content type="html" xml:base="http://localhost:4000/python/2020/03/01/date-&amp;-time_handling-with-python/">&lt;p&gt;&lt;a href=&quot;https://datascienceschool.net/view-notebook/465066ac92ef4da3b0aba32f76d9750a/&quot;&gt;데이터 사이언스 스쿨&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;datetime-package&quot;&gt;datetime package&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;import datetime&lt;/code&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;날짜 및 시간 == &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;datetime&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;날짜 == &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;data&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;시간 ==&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;time&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;시간 ‘구간’ 정보 == &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;timedelta&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;class&quot;&gt;Class&lt;/h4&gt;
+
+&lt;h4 id=&quot;datetime&quot;&gt;datetime&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Attributes&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;year&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;month&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;day&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hour&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minute&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;second&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;microsecond&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Methods&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;weekday()&lt;/code&gt; : 요일 반환 (0: 월 ~ 6:일)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;strftime()&lt;/code&gt; : 문자열 반환&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;strptime()&lt;/code&gt; : 첫 번째 인수 - 날짜 및 시간, 두 번째 인수 - 문자열 해독 형식&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;date()&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;time()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;날짜 및 시간 지정 문자열&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%Y&lt;/code&gt; : 앞 빈자리를 0으로 채움&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%m  &lt;/code&gt; : 상동&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%d&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%H&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%M&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%S&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%A&lt;/code&gt; : 영문 요일 문자열&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%B&lt;/code&gt; : 영문 월 문자열&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;dt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# datetime.datetime(2020, 03, 01, 1, 26, 55, 731039)
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strftime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%A %d. %B %Y&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 'Sunday 01. March 2020'
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strptime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'2020-03-01 20:45'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;%Y-%m-%d %H:%M&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;dateutil-package&quot;&gt;dateutil package&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;strptime()&lt;/code&gt; &amp;gt; Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parse&lt;/code&gt;  in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dateutil&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;dateutil.parser&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parse&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'2020-03-01'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# datetime.datetime(2020, 3, 01, 0, 0)
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'6/7/2016'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# datetime.datetime(2016, 6, 07, 0, 0)
+# 미국식 
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;timedelta-class&quot;&gt;timedelta Class&lt;/h4&gt;
+
+&lt;p&gt;날짜 혹은 시간의 간격을 구할 때 &amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;datetime.datetime&lt;/code&gt; 클래스 객체의 차이를 구함 &amp;gt;  return &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;datetime.timedelta&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Attributes&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;days&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seconds&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;microseconds&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Methods&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;total_seconds()&lt;/code&gt; : All Attr turns to seconds&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;dt1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;19&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dt2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;td&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dt1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dt2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;td&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# datetime.timedelta(48, 3600)
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;datetime.datetime&lt;/code&gt; 클래스 객체 + &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;datetime.timedelta&lt;/code&gt; 클래스 객체를 더해 새로운 시간을 구할 수 있다&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;t0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2018&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timedelta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;days&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;90&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seconds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;t0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# datetime.datetime(2018, 11, 30, 14, 0)
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Eunbin Park</name></author><category term="Python" /><category term="date" /><category term="time" /><summary type="html">데이터 사이언스 스쿨</summary></entry><entry><title type="html">Time Series with python</title><link href="http://localhost:4000/python/2020/03/01/Time-Series-Analysis/" rel="alternate" type="text/html" title="Time Series with python" /><published>2020-03-01T00:00:00+09:00</published><updated>2020-03-01T00:00:00+09:00</updated><id>http://localhost:4000/python/2020/03/01/Time-Series-Analysis</id><content type="html" xml:base="http://localhost:4000/python/2020/03/01/Time-Series-Analysis/">&lt;h3 id=&quot;시계열-데이터-분석&quot;&gt;시계열 데이터 분석&lt;/h3&gt;
+
+&lt;p&gt;독립변수 / 종속변수  +  &lt;strong&gt;시계열 데이터&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;정상 시계열
+    &lt;ul&gt;
+      &lt;li&gt;뚜렷한 추세 없음&lt;/li&gt;
+      &lt;li&gt;시간 흐름에 따른 동일한 진폭&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;비정상 시계열
+    &lt;ul&gt;
+      &lt;li&gt;시간에 따른 데이터의 변화&lt;/li&gt;
+      &lt;li&gt;추세와 시간대 존재&lt;/li&gt;
+      &lt;li&gt;평균 수준이 시간대에 따라 다르다&lt;/li&gt;
+      &lt;li&gt;가변적 분산&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;비정상 시계열일 경우 반드시 정상 시계열로의 변환 필요&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;비정상-시계열의-정상화&quot;&gt;비정상 시계열의 정상화&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;분산이 일정하지 않은 경우&lt;/dt&gt;
+      &lt;dd&gt;
+        &lt;p&gt;분산안정화변환 ( 로그, 제곱근, Box-cox 변환 시도)&lt;/p&gt;
+      &lt;/dd&gt;
+    &lt;/dl&gt;
+  &lt;/li&gt;
+  &lt;li&gt;추세를 가지는 경우
+    &lt;ul&gt;
+      &lt;li&gt;결정적 추세 &amp;gt; 분해법 또는 추세항 모형에 포함&lt;/li&gt;
+      &lt;li&gt;확률적 추세 ( Dickey-Fuller의 단위근 검정 ) &amp;gt; 차분&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;계절성을 가지는 경우
+    &lt;ul&gt;
+      &lt;li&gt;결정적 계절 추세 &amp;gt; 계절 추세항 모형에 포함&lt;/li&gt;
+      &lt;li&gt;확률적 계절 추세 ( 계절형 단위근 검정 ) &amp;gt; 계절차분&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;arima&quot;&gt;ARIMA&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;A&lt;/strong&gt;uto &lt;strong&gt;R&lt;/strong&gt;egression &lt;strong&gt;I&lt;/strong&gt;ntergrated with &lt;strong&gt;M&lt;/strong&gt;oving &lt;strong&gt;A&lt;/strong&gt;verage&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ARIMA(p, d, q) &amp;gt; 모수 설정&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;in-pandas&quot;&gt;in Pandas&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;arima 모형은 반드시 series 형태를 전제함&lt;/li&gt;
+  &lt;li&gt;데이터 타입을 float으로 변경&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Eunbin Park</name></author><category term="Python" /><category term="TimeSeries" /><summary type="html">시계열 데이터 분석</summary></entry><entry><title type="html">Data Visualisation</title><link href="http://localhost:4000/python/2020/02/24/DV/" rel="alternate" type="text/html" title="Data Visualisation" /><published>2020-02-24T00:00:00+09:00</published><updated>2020-02-24T00:00:00+09:00</updated><id>http://localhost:4000/python/2020/02/24/DV</id><content type="html" xml:base="http://localhost:4000/python/2020/02/24/DV/">&lt;h3 id=&quot;데이터-시각화&quot;&gt;데이터 시각화&lt;/h3&gt;
+
+&lt;p&gt;트랜드, 특이점, 패턴을 분석하기 위한 시각화&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Comparision and Ranking&lt;/li&gt;
+  &lt;li&gt;Part to Whole&lt;/li&gt;
+  &lt;li&gt;Trend&lt;/li&gt;
+  &lt;li&gt;Correlation&lt;/li&gt;
+  &lt;li&gt;Distribution&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;comparision-and-ranking&quot;&gt;Comparision and Ranking&lt;/h3&gt;
+
+&lt;h4 id=&quot;column-chart---vertical--bar-chart-horizontal-&quot;&gt;Column chart - vertical  (Bar chart-horizontal )&lt;/h4&gt;
+
+&lt;p&gt;: Comparision among different items 비교와 순위&lt;/p&gt;
+
+&lt;h4 id=&quot;dual-axis-chart&quot;&gt;Dual Axis chart&lt;/h4&gt;
+
+&lt;p&gt;: plot data using two y-axes and a shared x-axis&lt;/p&gt;
+
+&lt;p&gt;Pareto chart : highlight the most importatnt among a set of factors (typically large)&lt;/p&gt;
+
+&lt;h3 id=&quot;part-to-whole&quot;&gt;Part to whole&lt;/h3&gt;
+
+&lt;h4 id=&quot;pie-chart-&quot;&gt;Pie chart *&lt;/h4&gt;
+
+&lt;p&gt;: static number and how categories represent part of a whole&lt;/p&gt;
+
+&lt;p&gt;특정 포지션을 집중적으로 볼 수 있음&lt;/p&gt;
+
+&lt;h3 id=&quot;trend&quot;&gt;Trend&lt;/h3&gt;
+
+&lt;h4 id=&quot;line-graph-추세&quot;&gt;Line graph 추세&lt;/h4&gt;
+
+&lt;p&gt;: reveals trends or progress over time and can be used to show many different categories of data&lt;/p&gt;
+
+&lt;h3 id=&quot;correlation-연관성&quot;&gt;Correlation 연관성&lt;/h3&gt;
+
+&lt;h4 id=&quot;scatter-plot-chart-산포도&quot;&gt;Scatter plot chart 산포도&lt;/h4&gt;
+
+&lt;p&gt;: will show the relationship between two different variables or it can reveal the distribution trends&lt;/p&gt;
+
+&lt;h4 id=&quot;bubble-chart&quot;&gt;Bubble chart&lt;/h4&gt;
+
+&lt;p&gt;: variation of a scatter chart in which an additional data is represented in the size of the bubbles&lt;/p&gt;
+
+&lt;p&gt;특정 지점의 크기를 달리해 보여줌 &amp;gt; 연관관계 및 빈도수 시각화 가능 - BCG Matrix&lt;/p&gt;
+
+&lt;h4 id=&quot;heatmap&quot;&gt;Heatmap&lt;/h4&gt;
+
+&lt;p&gt;: shows the relationship between two items and provides rating information, such as high to low or poor or excellent&lt;/p&gt;
+
+&lt;h3 id=&quot;distribution&quot;&gt;Distribution&lt;/h3&gt;
+
+&lt;h4 id=&quot;histogram&quot;&gt;Histogram&lt;/h4&gt;
+
+&lt;p&gt;: Groups numeric data into bins, displaying the bins as segmented columns ( pareto is also part of histogram )&lt;/p&gt;
+
+&lt;h4 id=&quot;box-plot&quot;&gt;Box plot&lt;/h4&gt;
+
+&lt;p&gt;: displays the five-number summary of a set of data. The five-number summary is the minimum, first quartile ( top 25% ), median, third quatile ( top 75% ), and maximum &amp;gt; 단순 평균보다 분포도를 더 쉽게 알 수 있음&lt;/p&gt;
+
+&lt;h4 id=&quot;geo-chart&quot;&gt;Geo chart&lt;/h4&gt;
+
+&lt;p&gt;: made explore location based distributed data&lt;/p&gt;
+
+&lt;p&gt;분포데이터를 지도상에 표기 ( 지역 사용자 등 )&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Python" /><category term="visualisation" /><summary type="html">데이터 시각화</summary></entry></feed>

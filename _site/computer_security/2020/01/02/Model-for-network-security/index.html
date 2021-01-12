@@ -1,0 +1,946 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="cryptography,security," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="빈둥빈둥 공부블로그" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Security Requirements Triad">
+<meta name="keywords" content="cryptography, security">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Security Requirements, Attacks and Model for network security">
+<meta property="og:url" content="http://localhost:4000/computer_security/2020/01/02/Model-for-network-security/">
+<meta property="og:site_name" content="빈둥빈둥 공부블로그">
+<meta property="og:description" content="Security Requirements Triad">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://k.kakaocdn.net/dn/W18D1/btqASz63mOh/cOePQK3YbGtHHDFpKUypxK/img.png">
+<meta property="og:image" content="https://k.kakaocdn.net/dn/dhiVPD/btqAQ3gVp1P/A5eAsCBji7Po4nP7WbvrNk/img.png">
+<meta property="og:image" content="https://k.kakaocdn.net/dn/bk4AsR/btqAQOqMjZ5/xIscMgrRYyk0NgsJJTaLsK/img.png">
+<meta property="og:image" content="https://k.kakaocdn.net/dn/bLCjx9/btqAQ3BfVLW/uBmWLk7eqlt60z06ugwn91/img.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Security Requirements, Attacks and Model for network security">
+<meta name="twitter:description" content="Security Requirements Triad">
+<meta name="twitter:image" content="https://k.kakaocdn.net/dn/W18D1/btqASz63mOh/cOePQK3YbGtHHDFpKUypxK/img.png">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/"/>
+
+
+
+
+
+  <title>Security Requirements, Attacks and Model for network security | 빈둥빈둥 공부블로그</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">빈둥빈둥 공부블로그</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">All about STUDY!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+<div id="posts" class="posts-expand">
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/computer_security/2020/01/02/Model-for-network-security/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eunbin Park">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="빈둥빈둥 공부블로그">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            Security Requirements, Attacks and Model for network security
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-02T00:00:00+09:00">
+                2020-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Computer_Security" itemprop="url" rel="index">
+                    <span itemprop="name">Computer_Security</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/computer_security/2020/01/02/Model-for-network-security/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="/computer_security/2020/01/02/Model-for-network-security/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <p><strong>Security Requirements Triad</strong></p>
+
+<p><strong>CONFIDENTIALLITY</strong> : Preserving authorized restrictions on information access and disclosure, including means for protecting personal privacy and proprietary information. 
+&gt; 기밀성 - 무언가를 보이고 싶지 않을 때 (가장 대표적인 형태)</p>
+
+<p><strong>INTEGRITY</strong> : Guarding against information modifications or destruction, including ensuring information non-repudiation and authenticity</p>
+
+<p>&gt; 무결성 - 정보가 허가없이 변경이 되지 않았다는 것.</p>
+
+<p>e.g ) 10만원을 송금할 때 누군가 100만원으로 고칠 수 없음 &gt; 무결성이 깨짐</p>
+
+<p>**
+AVALIABILITY** :Ensuring timely and reliable access to and use of information 
+&gt; 가용성 - 사용자가 사용하려할 때 사용할 수 있는가?</p>
+
+<p>e.g ) 수강신청, 등의 서버 다운 &gt; 해당 서비스를 받지 못하는 상황</p>
+
+<p>== 아무리 보안이 지켜지더라도 사용하지 못하면 의미 없음</p>
+
+<p>3가지가 모두 지켜져야 하는 건 아니고 용도에 따라 달라짐. 공고를 냈을 때는 무결성 가용성만,,,</p>
+
+<p><strong>Security attacks, mechanisms &amp; services</strong></p>
+
+<p>\1. Security Attack
+  - Any action that compromises the security of information</p>
+
+<p>\2. Security Mechanism</p>
+
+<p>- A process / device that is designed to detect, prevent or Security Service recover from a security attack.</p>
+
+<p>\3. Security Service</p>
+
+<p>- A service intended to counter security attacks, typically by implementing one or more mechanisms.</p>
+
+<hr />
+
+<p><img src="https://k.kakaocdn.net/dn/W18D1/btqASz63mOh/cOePQK3YbGtHHDFpKUypxK/img.png" alt="img" /></p>
+
+<p><strong>Passive attacks</strong> 
+\1. 릴리즈 - 내가 공격을 수행하지만 참여하지 않음.</p>
+
+<p>공격이 수행되고 있지만 특별히 가담하고 있는 것은 아님.</p>
+
+<p>내가 중간에서 끼어들지 않는 것.</p>
+
+<p>대표적인 것 : 도청… 바비 앨리스 통신 중 중간에서 내용을 읽음 - 도청은 중간에 가로막거나 끊지 않음</p>
+
+<p>&gt; 패시브 어택 가장 대표적 형태</p>
+
+<p>\2. 교통량, 통화량 분석 - 트래픽 애널리시스 :</p>
+
+<p>교통량이 얼마나 되느냐를 분석. 통신 중 내용을 읽을 수 있으면</p>
+
+<p>도청, but 통신이 진행중이라는 것, 양을 분석하는 것. !!</p>
+
+<p>트래픽은 일반적으로 암호화가 되어 있어서 내용은 모르지만</p>
+
+<p>지나가는 데이터의 용량을 보고 언어정도는 분석</p>
+
+<p>ex ) 예전에 911 이후에 아프가니스탄 침공할 때… 침공할까 날짜기 궁금했는데 미국방부 앞에 앉아서 지나가는 피자 트럭의 갯수를 셈.저녁에 피자 트럭이.. 갑자기 피자 트럭이 60~70대로 늘어난다면 ? 그만큼 많은 사람들의 야근 &gt; 무언가 할 일이 있다는 의미….. »&gt; 트래픽 아날 .. 간접적으로라도 분석이 가능</p>
+
+<p><strong>Active attacks</strong></p>
+
+<p><img src="https://k.kakaocdn.net/dn/dhiVPD/btqAQ3gVp1P/A5eAsCBji7Po4nP7WbvrNk/img.png" alt="img" /></p>
+
+<p>\1. 매스커레이드 :: 타인인 척 하는 것</p>
+
+<p>\2. 리플레이 어택 :: 리플레이 ! 재시작 &gt; 한 번 메세지가 가면, 중간자가 갖고 있다가 다시</p>
+
+<p>발신자에게 보냄; 
+전통적으로 문제가 되고 잘 통하는 공격. 
+// 밥이 앨리스한테 만 원을 보낸다, 
+메세지를 중간에 갖고있다가 그 메세지를 10분 후에 또 보내고 또 보내고…그럼 밥이 앨리스한테 계속 보내는 셈이 됨. 
+밥이 앨리스한테 보내는 메세지를 그대로 가져왔기 때문에 서명, 비밀 정보를 그대로 갖고 있음. 완벽히 정리된 정확한 정보임.</p>
+
+<p><img src="https://k.kakaocdn.net/dn/bk4AsR/btqAQOqMjZ5/xIscMgrRYyk0NgsJJTaLsK/img.png" alt="img" /></p>
+
+<p>인증받을 수 있는 정보 함양
+ &gt; 다시 보내니까 받는 입장에서는 구분 불가
+ &gt;&gt; 막을 수 있는 방법. 
+\1. 시간을 적어 놓음 (서버 시간을 조정으로 혼란 가중)
+\2. 보내는 메세지마다 순서를 매긴다.</p>
+
+<p>\3. 모디피케이션 - 메세지를 받아서 변경하는 것 
+\4. 가용성 - 내가 사용하고 싶을 때 쓰는 것.</p>
+
+<p>:: 가용성 공격 - 서비스 거부 공격**</p>
+
+<p>::(Denial Of Service) 도스 공격이라고 부름</p>
+
+<p>&gt; 분산해서 공격하면 디도스
+    (Distributed Dinial Of Service)</p>
+
+<p>요즘은 양이 많아지는 추세
+막을 수 있는 방법 » 막기가 힘듦. 가게가 문을 열었는데 손님을 받긴 받았는데 저쪽에서 가짜 요청을 막 보냈는데 진짜와 가짜 요청을 구분해 내기가 힘듦.</p>
+
+<p><strong>Model for network security</strong></p>
+
+<p><img src="https://k.kakaocdn.net/dn/bLCjx9/btqAQ3BfVLW/uBmWLk7eqlt60z06ugwn91/img.png" alt="img" /></p>
+
+<p><strong>인포메이션 채널 (인터넷) , 어포넌트 (변조, 날조 등 채널)</strong></p>
+
+<p>메세지에 무언가 변화를 주어 메세지를 암호화 해서 보낸다. 씨크릿 인포메이션 : 암호화시 쓰는 키 - 무언가 변조를 하는데 서로 알고 있는 걸로 변화를 줌 &gt; 안전한 메세지로 변경. »</p>
+
+<p>특이한 것 : 써드 파티 제3자 - 신뢰할 수 있는 제3자의 도움을 받을 수 있음. 제3자를 통해 수발신자가 통신할 수 있음. 씨크릿 인포메이션에 무얼 집어넣느냐에 따라 달라짐.. 트리플 DES… 신뢰할 수 있는 제3자가 비밀</p>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            
+            <a href="/tag/#/cryptography" rel="tag"># cryptography</a>
+          
+            
+            <a href="/tag/#/security" rel="tag"># security</a>
+          
+        </div>
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/computer_security/2020/01/02/Modern-cryptography/" rel="next" title="Modern Cryptography">
+                <i class="fa fa-chevron-left"></i> Modern Cryptography
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/python/2020/01/02/edwith-python-for-ML/" rel="prev" title="머신러닝을 위한 Python 02">
+                머신러닝을 위한 Python 02 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/images/avatar.gif"
+               alt="Eunbin Park" />
+          <p class="site-author-name" itemprop="name">Eunbin Park</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eunbin Park</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://jekyllrb.com">Jekyll</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      
+      <script type="text/javascript">
+          var disqus_config = function () {
+              this.page.url = 'http://localhost:4000/computer_security/2020/01/02/Model-for-network-security/';
+              this.page.identifier = '/computer_security/2020/01/02/Model-for-network-security/';
+              this.page.title = 'Security Requirements, Attacks and Model for network security';
+          };
+          var d = document, s = d.createElement('script');
+          s.src = 'https://.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', '' + +new Date());
+          (d.head || d.body).appendChild(s);
+      </script>
+      
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+

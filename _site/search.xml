@@ -1,0 +1,1127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+    <entry>
+      <title><![CDATA[신경망 구조]]></title>
+      <url>/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0/</url>
+      <content type="text"><![CDATA[신경망 구조기본단위 : 뉴런 -&gt; 조합해 복잡한 구조를 이룸perceptron노드는 뉴런의 연산을 표현 &gt; 들어온 입력에 대한 가중치를 곱해 더해준 다음 &gt; 액티베이션 펑션을 적용시킴두 계층 사이 모든 뉴런 연결 -&gt; 전결합계층 : 뉴럴 네트워크의 가장 기본이며, Dense Layer 라고도 칭함뉴런 각 개를 하나의 백터로 묶어줌 :: 백터 내적을 묶어주면 Weight * x 로 표현이 가능함얕은 신경망은닉 Activation function으로 시그모이드 / 탄젠트를 주로 사용출력 &gt; Linear / Soft / Sigmoin ( Binary )심층 신경망5개 이상의 은닉 계층이 있는 경우sigmoid 대신 탄젠트 / relu 가 자주 사용됨최적화 이론분석적 방법수식을 알고 있을 때 &gt; 미분해서 0이 된다는 것 : 기울기 0 -&gt; 2차 미분 해서 0보다 크면 아래로 볼록한 모양여기 다시 들어 보기수치적 방법함수 형태와 수식을 모를 때Gradient Method전역 솔루션 : 전체에서 단 하나 -&gt; 전체에서 가장 작은 값지역 솔루션 : 여러 개 일 수 있고, 좁은 지역에서 봤을 때 솔루션이 되는 부분하나의 솔루션이 전역인지 지역인지 알 수 없음.손실함수를 최소화 하는 방향으로 네트워크 파라미터 (웨이트-w, 편향-b) 를 조절하는 것]]></content>
+      <categories>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Loss Function]]></title>
+      <url>/2020/03/19/loss-function/</url>
+      <content type="text"><![CDATA[손실 함수지도 학습 알고리즘에 반드시 정의되어야 함목적, 비용, 에너지 함수 등이라고도 불림 - 에너지, 코스트 등 다양한 표현에 따라 영문 표기명이 달라짐알고리즘 학습 중 아직 얼마나 못하는지 표현성능 척도성능 측정 지표 - 정량적 평가 :: 비즈니스 목표와 연관이 높음학습의 수학적 의미argmin(오브젝티브 함수 &gt; loss function 이라고 표현 함 ) 이를 최소화 시키는 세타(min) 값을 찾는 것입력과 정답을 동시에 입력 받음세타는 학습 될 모든 파라미터를 모은 벡터값 : 네트워크 학습 시 수학적 모델을 두고 학습을 한 다는 것 : 모델 안에 학습 될 수 있는 다양한 파라미터가 있다는 의미 ::손실함수는 모델이 해당 모델이 얼마나 못하는지에 대한 지표 &gt; 낮을 수록 좋음손실 함수는 세타값에 의해서만 움직임 : x, y는 고정 - 세타값에만 의한 변화평균제곱오차 함수 MSE1/2 : 해당 식을 미분 시 제곱이 내려가 없어지기 때문에 관습적으로 사용한 것임오차가 커질 수록 손실함수가 빠르게 증가함 &gt; 선형 (직선) 함수일 경우 일정하게 증가함아웃라이너가 뭉게져 나타남 /… 뭐래e.g.하나의 값 &gt; 오차 :: 세타값 수정 ( gradient decent? ) &gt; 추정치 (y 틸다)를 변경해서 오차 계산을 확인 &gt; 종합적 판단이 가능평균절대오차 함수 MAE제곱이 아닌 절대값으로 표현함 &gt; 오차가 커져도 손실함수가 일정하게 증가하며, Robust with outliner : 좋은 추정을 해도 오차가 많이 발생 &gt; 굳이 이런 것까지 맞추어야 하는 건 아님// 통계적으로 중간 값 ( Median )과의 연관이 있음 -One Hot Encoding다중 클래스 분류 문제의 정답 표기 시 사용교차 엔트로피 오차 CEEyi &gt; 원핫 인코딩으로 - 정답인 항 하나만 살아남고 나머지는 소멸 &gt; 정답인 경우만 로그 … 만 살아남아 이걸 학습하게 됨실제로는 다른 항들 (0)도 영향을 줌  &gt; 분모에 덧셈이 되어 들어가기 때문]]></content>
+      <categories>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Tensorflow]]></title>
+      <url>/2020/03/17/tensorflow/</url>
+      <content type="text"><![CDATA[TensorFlow import tensorflow as tfPerceptron인체 내 신경세포의 논리게이트 화여러 신호를 입력 받아 하나의 신호로 변경 &gt; inputs각 가중치 변경 (시냅스 - 연결의 가중치)활성함수를 통한 논리적 변경 &gt; outputs  - 비선형 변환  벡터 내적 : y = sign(x^T w) - 행 백터의 열벡터화 * 행 벡터 &gt;사인 함수 - 입력의 사인이 플러스 ( 마이너스 )인지 확인이진 분류 문제Perceptron 동작편향 표현 - 1 : 전체적 출력이 얼마나 shift 된 지 알아보게 함학습률 - 부분 설명 다시 듣기활성함수Sign 함수의 문제결정경계 ( Decision bounday )와의 거리를 신경써야 함tahn 함수  입력값이 0에 가까울 수록 출력이 빠르게 변함  모든 점에서 미분 가능 : 그라디언트 디센트를 배울 때 중요함Sigmoid func1개의 입력0에서 1사이 값을 가짐 - 확률 표현이 가능함 ( Binary classification 에 많이 사용됨 - T일 확률과 F (1 - T)일 확률)딥러닝에서는 0 센터의 0~1 값을 갖는 함수로만 사용됨Softmax funcn개의 입력각 입력의 지수함수를 정규화 함 ( 총 합이 1이 되게끔 함 )e.g. 총 4가지 출력이 있을 때, 출력 0.2, 0.4, 0.1이 나왔다면 나머지는 자동으로 0.4가 됨ReLU func0보다 작은 값에 0 값을 강제함딥러닝에서 가장 많이 사용되는 활성 함수 - 미분값이 일정해서 학습이 잘 됨 (0 or 1의 값이 나옴)]]></content>
+      <categories>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Decision Tree]]></title>
+      <url>/2020/03/11/decision-tree/</url>
+      <content type="text"><![CDATA[Decision Tree장점 : 해석력 &gt; 모델의 정확성 이외에도 활용성 ( 메세지 ) :: 결과에 대한 풀이 (연속형 - 범주형 등의 형태에 대한 범용성 높음)단점 : 변동성 / 샘플에의 민감결과값 &gt; 반응변수 예측하는 형태로 나타남  범주형 변수 - 분류  연속형 변수 - 회귀 : 조건을 만족하는 샘플집단의 y의 평균값을 알려줌엔트로피  Entropy섞여있는 정도정의 1. -p(p - 1) + c정의2. -plog…Information gain활용한 변수로 인한 이득 // ig로 각 변수를 평가 (outlook / humidity)  &gt; 어떤 변수를 최상위 노드로 사용할지 결정함      4개 모두 yes 일 때 : 4/4 &gt; 로그가 0이 됨    2/5 &gt; -0.4log2 0.4 - 0.6log2 0.6  all : 9 / 14 개관측치를 많이 갖고 있음 &gt; 다수의 웨이트를 줌  ( e.g. 전체 14개 중 첫 번째 범주에 5/ 4/ 5 - 가중평균을 구해줌)섞여있음 ( 엔트로피 높음 ) &gt; 분류 진행 ( 엔트로피 낮춤 )Classification Treem번째 노드가 k 범주일 확률 : y가 k 범주 안에 존재하면 카운트 - reason을 어떻게 구하는지에 대한 결정ig가 최대화 되는 영역오분류율 : 전체 샘플 개수 내 상대 비율 - 오류율Rm결정 이후 (특정 변수를 어떤 기준으로 나눌 것인지) 결정된 Rm에 대해 pmk 중 가장 이 값이 커지는 k를 구함 &gt; y범주를 구할 것Regression Tree종속변수가 연속형 - 시각화 시 높이 == 예측값각각에 대해 특정 실수값을 줌  - cm (z 축) 값을 곱함임의로 영역을 나눔 &gt; measure 부분을 엔트로피나 gini index를 사용해 최소화되는 점을 찾음Cm &gt; 샘플의 평균값]]></content>
+      <categories>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[뉴욕 택시 데이터 수요예측]]></title>
+      <url>/2020/03/10/%EB%89%B4%EC%9A%95-%ED%83%9D%EC%8B%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%88%98%EC%9A%94%EC%98%88%EC%B8%A1/</url>
+      <content type="text"><![CDATA[NYC 택시 데이터 수요 예측BigQuery]]></content>
+      <categories>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Support Vector Machine]]></title>
+      <url>/2020/03/10/support-vector-machine/</url>
+      <content type="text"><![CDATA[Support Vector Machine정확한 분포를 찾을 수 없을 때 &gt; lda 를 적용하기 힘들 때 - 선형관계가 아닌 경우범주형일 때 - classifier  &gt; 보통 기본  핵심 - cost 문제 모든 자료를 고려 x 코스트에 영향을 끼치는 값들만 고려할 것 . 경계 부근 점들을 반영해 모델 코스트 계산  바운더리 근처 관측치만 고려 &gt; 예측 정확도 높음  c (에러의 합) 고려 필요 - c가 작으면 에러를 다수 범해도 괜찮음연속형 - regression &gt;  ?내적이 아니라 커널로 바꿀 것 ( 커널 : 두 값이 차이날 수록 값이 작아짐 - 가까울 수록 커지는 값)정규분포 exp 내부 값과 비슷함 &gt; 가우시안 커널One class SVM원 반지름의 최소화 &gt; 점이 반지름 안에 있어야 함에러 포함 시 c 값 삽입 (작을 수록 에러를 어느정도 허용)라그랑쥬 &gt; 커널 식으로 바꾸면 … 3차원 6차원으로 설정해 원이 아닌 경우를 만들 수 있음시그마 - 커질 수록 차이가 완화됨 &gt; 모형이 간단해짐 ( 민감한 반응 &gt; 작은 시그마 값)]]></content>
+      <categories>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Ml Study]]></title>
+      <url>/2020/03/09/ml-study/</url>
+      <content type="text"><![CDATA[Linear Discriminant Analysis데이터 분류 방법 : LDA가정  각 숫자 집단은 정규분포 형태 확률분포를 가짐  각 숫자 집단은 비슷한 형태의 공분산 구조를 가짐가정 시 우상향 타원 + 분산을 갖는 (공분산) 형태가 나옴 &gt; 1, 2, 3그룹 모두 비슷하게 갖고 있음검은 실선 &gt; 영역 분할 == LDA자룔 특정축으로 정사형을 만듦 &gt; 두 분포를 비교하고 분산 대비 평균 차이를 비교자료가 같음에도 축이 다르면 바운더리가 변경 &gt; 어떤 축에 정’사영’을 시킬 것인지 문제기본적으로 평균의 차이를 크게하는 곳에 두 개를 이은 벡터를 평행이동 시켜 정사형을 만듦 &gt; 평균 차이의 극대화 ( but 분산 대비 평균의 차이가 커야하지만, 각각의 분산이 크기 때문에 확실한 차이가 있는지 애매함)            왼 : 평균 차이 극대화 / 분산이 너무 큼  (분산 줄이는 법 &gt; 단축방향 ) &gt;      오 :  분산의 최소화 방향      LDA 모델 정의 및 추정확률분포 관점 : l보다 k에 속할 확률 &gt; log 부분이 커지면 됨 &gt; log파이k/파이l 도 커질 것임만약에 시그마 케이가 같을 때 == 간단하게 정리할 수 있음LDA 심화적 이해장점 :나이브 베이즈 : 설명변수 간 조건부 독립을 가정했음 &gt; 타원 형태는 무시되고 분석을 하게 됐었음공분산 구조가 조금 다르더라도 변화의 민감하지 않음단점 :공분산 구조가 다른 경우 &gt; QDAQDA 정의 및 이해y 샘플들이 각 공분산 구조가 상이한 상황에서도 사용할 수 있게 함비선형관계에서 유용하게 쓰임  lda qda 비 교공분산 구조를 다르게 가질 수 있는가의 차이 &gt; 추정해야하는 파라미터 수가 많아짐샘플이 충분치 않을 때는 lda 가 효율적임]]></content>
+      <categories>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[date & time handling in python]]></title>
+      <url>/python/2020/03/01/date-&-time_handling-with-python/</url>
+      <content type="text"><![CDATA[데이터 사이언스 스쿨datetime packageimport datetime  날짜 및 시간 == datetime  날짜 == data  시간 ==time  시간 ‘구간’ 정보 == timedeltaClassdatetimeAttributes  year  month  day  hour  minute  second  microsecondMethods  weekday() : 요일 반환 (0: 월 ~ 6:일)  strftime() : 문자열 반환  strptime() : 첫 번째 인수 - 날짜 및 시간, 두 번째 인수 - 문자열 해독 형식  date()  time()날짜 및 시간 지정 문자열  %Y : 앞 빈자리를 0으로 채움  %m   : 상동  %d  %H  %M  %S  %A : 영문 요일 문자열  %B : 영문 월 문자열dt = datetime.datetime.now()# datetime.datetime(2020, 03, 01, 1, 26, 55, 731039)dt.strftime("%A %d. %B %Y")# 'Sunday 01. March 2020'datetime.datetime.strptime('2020-03-01 20:45', "%Y-%m-%d %H:%M")dateutil packagestrptime() &gt; Use parse  in dateutilfrom dateutil.parser import parseparse('2020-03-01')# datetime.datetime(2020, 3, 01, 0, 0)parse('6/7/2016')# datetime.datetime(2016, 6, 07, 0, 0)# 미국식 timedelta Class날짜 혹은 시간의 간격을 구할 때 &gt; datetime.datetime 클래스 객체의 차이를 구함 &gt;  return datetime.timedeltaAttributes  days  seconds  microsecondsMethods  total_seconds() : All Attr turns to secondsdt1 = datetime.datetime(2016, 2, 19, 14)dt2 = datetime.datetime(2016, 1, 2, 13)td = dt1 - dt2td # datetime.timedelta(48, 3600)datetime.datetime 클래스 객체 + datetime.timedelta 클래스 객체를 더해 새로운 시간을 구할 수 있다t0 = datetime.datetime(2018, 9, 1, 13)d = datetime.timedelta(days=90, seconds=3600)t0 + d # datetime.datetime(2018, 11, 30, 14, 0)]]></content>
+      <categories>
+        
+          <category> Python </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> date </tag>
+        
+          <tag> time </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Time Series with python]]></title>
+      <url>/python/2020/03/01/Time-Series-Analysis/</url>
+      <content type="text"><![CDATA[시계열 데이터 분석독립변수 / 종속변수  +  시계열 데이터  정상 시계열          뚜렷한 추세 없음      시간 흐름에 따른 동일한 진폭        비정상 시계열          시간에 따른 데이터의 변화      추세와 시간대 존재      평균 수준이 시간대에 따라 다르다      가변적 분산      비정상 시계열일 경우 반드시 정상 시계열로의 변환 필요비정상 시계열의 정상화            분산이 일정하지 않은 경우              분산안정화변환 ( 로그, 제곱근, Box-cox 변환 시도)              추세를 가지는 경우          결정적 추세 &gt; 분해법 또는 추세항 모형에 포함      확률적 추세 ( Dickey-Fuller의 단위근 검정 ) &gt; 차분        계절성을 가지는 경우          결정적 계절 추세 &gt; 계절 추세항 모형에 포함      확률적 계절 추세 ( 계절형 단위근 검정 ) &gt; 계절차분      ARIMA  Auto Regression Intergrated with Moving Average  ARIMA(p, d, q) &gt; 모수 설정in Pandas  arima 모형은 반드시 series 형태를 전제함  데이터 타입을 float으로 변경]]></content>
+      <categories>
+        
+          <category> Python </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> TimeSeries </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Data Visualisation]]></title>
+      <url>/python/2020/02/24/DV/</url>
+      <content type="text"><![CDATA[데이터 시각화트랜드, 특이점, 패턴을 분석하기 위한 시각화  Comparision and Ranking  Part to Whole  Trend  Correlation  DistributionComparision and RankingColumn chart - vertical  (Bar chart-horizontal ): Comparision among different items 비교와 순위Dual Axis chart: plot data using two y-axes and a shared x-axisPareto chart : highlight the most importatnt among a set of factors (typically large)Part to wholePie chart *: static number and how categories represent part of a whole특정 포지션을 집중적으로 볼 수 있음TrendLine graph 추세: reveals trends or progress over time and can be used to show many different categories of dataCorrelation 연관성Scatter plot chart 산포도: will show the relationship between two different variables or it can reveal the distribution trendsBubble chart: variation of a scatter chart in which an additional data is represented in the size of the bubbles특정 지점의 크기를 달리해 보여줌 &gt; 연관관계 및 빈도수 시각화 가능 - BCG MatrixHeatmap: shows the relationship between two items and provides rating information, such as high to low or poor or excellentDistributionHistogram: Groups numeric data into bins, displaying the bins as segmented columns ( pareto is also part of histogram )Box plot: displays the five-number summary of a set of data. The five-number summary is the minimum, first quartile ( top 25% ), median, third quatile ( top 75% ), and maximum &gt; 단순 평균보다 분포도를 더 쉽게 알 수 있음Geo chart: made explore location based distributed data분포데이터를 지도상에 표기 ( 지역 사용자 등 )]]></content>
+      <categories>
+        
+          <category> Python </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> visualisation </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Seaborn Visualisation]]></title>
+      <url>/python/2020/02/11/Seaborn-visualisation/</url>
+      <content type="text"><![CDATA[Bar ChartDataFrame 형태로 반환데이터가 리스트 형태로 있음을 가정def make_df(col1, col2, sort, *args):    df_name = pd.concat([pd.Series(i) for i in args], axis=1)    df_name.columns = ['{}'.format(col1), '{}'.format(col2)]    if sort is False:        return df_name    return df_name.sort_values(by=('{}'.format(col1)), ascending=False)  리스트를 시리즈 형태로 만들어서 concat을 axis =1 로 맞추어 합쳤다.  데이터는 Numeric type 이기 때문에 배열 정렬을 할 수 있어서 기본이 True인 선택값으로 넣어줬다.Bar Chart with Seaborn데이터가 데이터프레임 형태로 있음을 가정def bar_plot(dataframe, font_size=11, grid=False):    plt.figure(figsize=(10, 10))    ax = sns.barplot(data=dataframe, x=dataframe.columns[1], y=dataframe.columns[0], palette='Blues')        plt.rcParams["font.size"] = font_size    plt.xlabel(dataframe.columns[1], fontsize=font_size+5)    plt.ylabel(dataframe.columns[0], fontsize=font_size+5)    if grid is True:        ax.grid(axis='y')        plot_value(ax, fontsize=font_size+1)    else:        plot_value(ax, fontsize=font_size+1)    return ax  들어온 데이터프레임은 sns.barplot으로 만들어준다. 여기서 x와 y는 df.columns[n]으로, 데이터프레임에서 특정 열을 뽑아 (시리즈) 지정해준다.  팔레트는 아무 색이나 넣어봤다  rcParams 으로 차트를 다양하게 만질 수 있다길래 폰트 사이즈를 바꿨다.    저렇게 말고 다르게 바꿀 수 있는 방법은 없나 고민을 하다가… 이미 바꿨는데 왜 또 대안을 찾나 싶어서 관뒀다.  그리드 선택 기본값 FalseMultiplt Bar Chartdata = pd.melt(tmp2, id_vars=Zs[0], var_name="Brands", value_name="Counts (%)")def multiple_bar_chart(data, ylim, ylabel_text="Count", font_size=11, figsize=(10,10)):    plt.figure(figsize=figsize)    mb = sns.barplot(x='labels', y='Counts (%)', hue='Brands', data=data, palette='PRGn_r')    sns.despine(fig=None, ax=None, top=False, right=False,           left=False, bottom=False, offset=None, trim=False)    plt.legend(loc='center left', bbox_to_anchor=(1,0.5), shadow=True, ncol=1, fontsize="large")    plt.xlabel('')    plt.ylabel(ylabel_text, fontsize=font_size+5)    plt.ylim(0, ylim)    plt.xticks(fontsize=font_size+3)    plt.yticks(fontsize=font_size+3)    plot_value(mb, fontsize=font_size+1)  들어오는 data는 melt 함수를 적용한 df다. melt 함수에서 var_name과 value_name을 지정해주고 그걸 y와 hue로 지정해줬는데,… 다른 방법을 사용하면 함수 재활용을 할 수 있을 것 같다. y와 hue를 column으로 불러준다느니 뭐나느니 하면서…  sns.despine은 barplot이 뚜껑이 휭 하길래 넣어줬더니 뚜껑이 만들어졌다. 정확히 이해를 못하고 집어 쳐넣은 거라 아직도 이해를 못했다.Display Values in Plotha와 va만 제대로 알고 있었어도 이렇게 개고생은 안 하는 건데 나는 바보 멍청이다.시간을 오래 끌게 만든 내 무지함이 원망스러웠다.def plot_value(ax, axis=0, fontsize=10):    if axis == 0:        for p in ax.patches:            x = p.get_x() + p.get_width() / 2            y = p.get_y() + p.get_height() * 1.01            value = int(p.get_height())            ax.text(x, y, value, ha="center", fontsize=fontsize)     elif axis == 1:        for p in ax.patches:            x = p.get_x() + p.get_width() * 1.01            y = p.get_y() + p.get_height() / 2            value = p.get_width()                        ha = 'left'            if x &lt; 0:                ha = 'right'                            plt.text(x, y, value, va='center', ha=ha, fontsize=fontsize)  axis=0일 때, 즉 세로형 그래프일 때는 음수값이 하나도 없었으니까 버무리고 넘어갈 수 있었다.          ax.patches로 막대기를 하나씩 끌어오고, 각 막대기가 갖고 있는 값을 p.get_sth()으로 가져온다. 가져올 수 있는 값은 4개로, left(x), bottom(y), width, height 이다.      x은 그래프 최상단의 값을 정중앙에 놓기 위해 막대기의 절반 값을 만들어주고, y는 그 값을 막대기와 값 사이의 여백을 주어 가독성을 높이기 위해 설정 해주었다. value 설정을 안 해주고 그냥 height 값을 집어넣으면 float 타입으로 반환 된다. 내 기준에 소수점은 안 예뻐서 int 값으로 때려박았다.        axis=1 == 가로형 그래프          ha와 va의 용법이 문제였다!!!! 우ㅇ아아아      Pandas from_records &amp; melt Function데이터 재구조화a, b값은 리스트def from_records(a, b, columns):    tmp = pd.DataFrame.from_records(        [('comments', a[0], a[1], a[2], a[3]), ('likes', b[0], b[1], b[2], b[3])], columns=columns)    return pd.melt(tmp, id_vars=columns[0], var_name="source", value_name="value_numbers")이것도 저 a[0]~ 이 부분을 어떻게 바꿀 수 있지 않을까 생각이 드는데 … ㅠㅠ 흠https://rfriend.tistory.com/tag/Python%20pandas%20melt%28%29%20함수이 블로그가 설명을 아주 기깔나게 잘 해주셔서 많이 참고했다.Seaborn catplotdef catplot(input_df, value=0.1, font_size=11):    sns.set_style("white")    a = sns.catplot(        x="value_numbers", y="source", hue="labels", data=input_df, kind="bar", orient='h', legend=False)    plt.xlim(-value, value)    plt.legend(loc='center left', bbox_to_anchor=(1,0.5), shadow=True, ncol=1)    sns.despine(fig=None, ax=None, top=False, right=False, left=False, bottom=False, offset=None, trim=False)    a.fig.set_size_inches(15,15)    a.set_xlabels('')    a.set_ylabels('')    plt.xticks(fontsize=font_size+3)    plt.yticks(fontsize=font_size+3)    plot_value(a.ax, axis=1, fontsize=font_size+1)Col 별로 x, y 데이터를 보여줄 수 있다.sns.catplot 내부에서 legend를 False 처리하고 바깥에서 matplotlib 으로 처리해줬다.참고 : https://stackoverflow.com/questions/38807895/seaborn-multiple-barplotsFrequency Distribution데이터가 csv 파일 형태로 있음을 가정def frequency_distribution(df_col, max_limit, fontsize=15):        mean = df_col.mean()    stddev = df_col.std()    number = df_col.shape[0]        f,ax1 = plt.subplots(figsize=(10, 10))    sns.distplot(df_col,kde=False,ax=ax1)    plt.xlim(-(max_limit*0.05), max_limit)    plt.xlabel(df_col.name, fontsize=fontsize)    plt.ylabel('Frequency', fontsize=fontsize)    ax2 = ax1.twinx()        inbox = "Normal\nMean = %0.2f\nStd. Dev. = %0.2f \nN = %s" %(mean, stddev, number)    textbox = offsetbox.AnchoredText(inbox, loc=1)    ax2.add_artist(textbox)    sns.distplot(df_col, hist=True, kde=False, fit=norm, ax=ax2)    ax2.yaxis.set_ticks([])고찰뭔가 더 좋은 방법이 있지 않을까 항상 고민을 하지만… 능력이 없어 고민으로 시간을 질질 끌다 결국 막을 내리기만 해 답답하기만 하다.빈도수 차트는 왜 선이 꾸깃꾸깃하게 나올까 미치겠다…다 하고 교수님 메일이 아니라 깃허브로 보냈고 교수님이 머지해 주시긴 하셨는데… 생각해보니 메일로 보냈어야 하나 싶다… ㅠㅠ아니 선이 왜 꾸깃꾸깃 하냐고 진짜 미치겠네]]></content>
+      <categories>
+        
+          <category> Python </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> visualisation </tag>
+        
+          <tag> Seaborn </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Regular Expression]]></title>
+      <url>/python/2020/02/09/regular-expression/</url>
+      <content type="text"><![CDATA[생활코딩 정규표현식문자 처리 작업  찾고자 하는 텍스트 삽입  case sensitive  ^ 첫 번째 - 시작 위치 지정      $ - 마지막 위치지정        \ -escape reserved word        . - matches any character        …… - any char with 6        \..\. - .(str) any .(str)        [] - brackets 특정 문자 - 원하는 문자 후보군        [ - ] - A range of char          [C-K] : choose C to K      [2-6] : choose 2 to 6      [A-Za-z0-9]            ^ in brackets - Specified chars will not be selected          [^C-Z] choose without C to Z      [^picture] - choose without ‘picture’            sub pattern    src : Monday Tuesday Friday                                                      (on              ues              rida)                                                                                      (Mon              Tues              Fri)day                                                                                      ..(id              esd              nd)ay                                                Quantifiers *          a*b - *앞 패턴의 등장 횟수 0 - ∞      a+b - 1 - ∞      a?B - 0 - 1              .* : 모든 텍스트      -A*- : - 앞에 A의 등장 횟수가  0 - ∞일 수 있음, 반드시 -는 A의 앞에 있어야 함      [-@]* : 문자 중 - or @ 를 선택하고, 이 한 글자에 대한 패턴을  0 - ∞ 개 찾음      \*+ : 뒷 문자를 단순 문자로 하고, 앞 *가  1 - ∞ 임을 선택      -@+- : 앞 뒤 반드시 -가 오고, @는 한 개 이상이어야 함      [^ ]+ : 공백이 아닌 것 한 개 이상 선택 / 공백 제외 모든 것 출력      -X?XX?X : - 뒤 X는 0 - 1개 오며 중간에 X가 필수로 있음, 이어 오는 X는 0 - 1개 오며, 뒤에 X가 필수로 있음      ]]></content>
+      <categories>
+        
+          <category> Python </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[conda 가상환경 jupyter - NoModuleError 오류]]></title>
+      <url>/python/2020/01/28/%EA%B0%80%EC%83%81%ED%99%98%EA%B2%BD-%EC%A3%BC%ED%94%BC%ED%84%B0-%EC%98%A4%EB%A5%98/</url>
+      <content type="text"><![CDATA[오류기실 멀쩡히 돌아가는 화면 보다 오류를 더 많이 본다! 하하where pymysql 을 하면 찾을 수 없다고 하면서… 설치하려니까 already install 를 보여줬다. 설치되어있는 패키지도 확인 했는데… 분명히 있는데…  재부팅  설치 확인  삭제 후 재설치모두 했는데 안 된다는 건… 역시 내 문제라는 이야기다.해결전제조건부터 잘못 되었다. 터미널에서 가상환경을 열고 ! 주피터를 켜면 ! 그게 가상환경과 주피터의 만남…✨이라는 조건을 넣고 들어가서 뭐든 안 됐던 거다.  $ python -m ipykernel install --user --name=envs'_name  python -m ipykernel install --user터미널 창에서 입력해준 후에… 주피터에서 새로 파일을 만들면! 짜잔1번 방법으로 하면 이렇게 나온다!첫 번째 해결책 커널 지우는 법jupyter kernelspec uninstall Kernel_name]]></content>
+      <categories>
+        
+          <category> Python </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> DB </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[1] Understanding of Database]]></title>
+      <url>/database/2020/01/28/5-Database-101/</url>
+      <content type="text"><![CDATA[SQL/DB(MySQL) 기본부터 파이썬/데이터분석 활용까지!Relational DataBase Management SystemCreate Read Update Deletetable - 표row, recod - 행 (데이터 자체)column - 열 (데이터 구조)####  pymysql.connect() 메소드를 사용하여 MySQL에 연결          호스트명, 포트, 로그인, 암호, 접속할 DB 등을 파라미터로 지정      주요 파라미터                  host : 접속할 mysql server 주소          port : 접속할 mysql server 의 포트 번호          user : mysql ID          passwd : mysql ID의 암호          db : 접속할 데이터베이스          charset=’utf8’ : mysql에서 select하여 데이타를 가져올 때 한글이 깨질 수 있으므로 연결 설정에 넣어줌                    db = pymysql.connect(host='localhost', port=3306, user='root', passwd='pwd', db='name', charset='utf8')]]></content>
+      <categories>
+        
+          <category> Database </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> DB </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[2] Principle of GIT - GIT from HELL]]></title>
+      <url>/git/2020/01/24/2-Git-Study/</url>
+      <content type="text"><![CDATA[지옥에서 온 GITGITincredibly COMPLEXVersion단위 &gt; 작업의 완결 상태 - 의미있는 변화 == 버전효용성  차이점 과거 시점 내용  과거로의 회귀Git stage areagit add 과정을 통해 commit 하고싶은 파일만 하게끔 함 : add 한 파일만이 commit 됨 - 선택적 commit이 가능함add 된 파일의 commit 대기 장소 … 대합실git diff( commit ) 버전 간의 소스코드 차이회귀resetgit reset 'commit id' --hard옵션은 hard, soft 등 존재해당 아이디가 가장 최신이 됨버려진 파일들은 어딘가에 남아 복구할 수 있음. 공유 이후의 reset Xrevertcommit을 취소하면서 새로운 버전을 만듦원리add 원리gistorypip install gistory설치 후 .git 폴더 진입 &gt; gistory &gt; 웹 브라우저에서 이미지 내 해당 주소로 진입index 내 파일이 add 한 오브젝트 (객체)git은 파일 저장 시 파일의 이름이 달라도 내용이 같으면 같은 오브젝트로 저장한다.Objects  파일 내용 함양 -  blob  어떤 디렉토리의 파일명과 그 파일내용-blob 을 담고있는 것 - tree  commitObject 파일명의 원리저장 파일은 SHA1로 해쉬값을 생성78981922613b2afb6025042ff6bd878ac1994e85 : 해쉬값가장 앞 2자리 78을 이름삼아 디렉토리 생성, 981922613b2afb6025042ff6bd878ac1994e85을 이름으로 파일에 내용을 저장commit 원리commit msg도 내용처럼 object 안에 포함됨:: Parent - 이전 commit이 누구인가?:: Tree - commit이 일어난 시점에의 작업 dir에 있는 파일 이름과 내용  - 각 커밋은 트리를 가지고 있어서 그 커밋이 만들어진 시점의 파일의 이름과 내용이 담겨있음 (해당 트리는 파일 이름과 내용이 링크가 되어있기 때문에,) 버전에 적혀있는 트리를 통해 버전이 만들어진 시점 » 프로젝트 폴더에 대한 상태를 알아냄 (aka snapshot)status 원리index 와 가장 최신 commit 내용 일치 == 현재 커밋할 것 없음  » 해쉬값의 변화로 인한 status 알림!이라고 짐작할 수 있음TBC]]></content>
+      <categories>
+        
+          <category> Git </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> git </tag>
+        
+          <tag> study </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[6] Selenium XPATH 이해하기]]></title>
+      <url>/web_scraping/selenium/2020/01/21/6-Selenium-Understanding-of-XPATH/</url>
+      <content type="text"><![CDATA[XML 특정 요소나 속성에 접근키 위한 경로 지정 언어      태그 및 속성 선택    crawling_data = soup.find('h1')crawling_data = soup.find(id='title')crawling_data = soup.find('p', class_='cssstyle') crawling_data = soup.find('p', attrs = {'align': 'center'})            CSS Selector    crawling_data = soup.select('html &gt; title')crawling_data = soup.select('div.article_view')crawling_data = soup.select('#harmonyContainer')crawling_data = soup.select('div#mArticle div#harmonyContainer')            XPath                  bs 미지원 / Selenium or PhantomJS 지원                    xpath 문법              # 문서 내 태그 검색title = driver.find_element_by_xpath("//title")   # 절대 경로title = driver.find_element_by_xpath("/html/head/title")   # html 태그 내 검색title = driver.find_element_by_xpath("/html//title")   # soup.find('h3', attrs = {'class' : 'tit_s'})title_content = driver.find_element_by_xpath("//h3[@class='tit_view']")      ]]></content>
+      <categories>
+        
+          <category> Web_Scraping </category>
+        
+          <category> Selenium </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> selenium </tag>
+        
+          <tag> web scraping </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[5] Selenium Practice]]></title>
+      <url>/web_scraping/selenium/2020/01/21/5-Selenium-practice/</url>
+      <content type="text"><![CDATA[네이버 기사 댓글 크롤링options.add_argument('headless')헤드리스 옵션을 넣을 때와 그렇지 않을 때 가져오는 데이터의 차이가 나타났다. 왜? 저 한 줄을 고작 주석처리 할 뿐이었는데 어떻게 고쳐야하는지 모르겠다.headless 일 때 가져오는 댓글의 수 겨우 10개. 없을 때는 내가 원하는 만큼 잘 가져온다. … 음… 도대체 왜?]]></content>
+      <categories>
+        
+          <category> Web_Scraping </category>
+        
+          <category> Selenium </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> selenium </tag>
+        
+          <tag> web scraping </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[5] Scrapy & Selenium wrap up!]]></title>
+      <url>/web_scraping/scrapy/2020/01/21/5-Scrapy-&-Selenium-warp-up/</url>
+      <content type="text"><![CDATA[정리  태그 및 속성으로 선택  CSS Selector 선택  XPATH 선택  데이터 후처리          파이썬 문자열 함수 / 정규표현식      다양한 크롤링 기술  Open API  로그인 필요한 웹페이지 크롤링          다양한 환경에서 가능 :      Selenium 브라우저 자체 제어      Headless Chrome      업무 자동화 기술  크롤링 데이터 기반          엑셀      구글 쉬트      풀스택과 데이터 과학 기본  데이터 수집  데이터 저장  데이터 분석  데이터 시각화 - 서비스 개발 (insight)]]></content>
+      <categories>
+        
+          <category> Web_Scraping </category>
+        
+          <category> Scrapy </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> scrapy </tag>
+        
+          <tag> web scraping </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[4] Scrapy Practices]]></title>
+      <url>/web_scraping/scrapy/2020/01/21/4-Scrapy-Understanding-of-Scrapy/</url>
+      <content type="text"><![CDATA[others  필드명 순서의 랜덤 : DB 안에 넣는 데이터라 크게 신경쓰지 않아도 됨. 그럼에도 불구하고 원하는 순서가 있다면 settings.py 안에 FEED_EXPORT_FIELDS = ['a', 'b', 'c']  선언  동시 크롤링 횟수 조정  settings.py 안에 #CONCURRENT_REQUESTS = n  주석 해제 후 숫자 변경 &gt; 단, 속도 저하데이터 후처리정규표현식import redef parse(self, response):  data = json.loads(response.body_as_unicode())  for item in data['items']:    print(re.sub('&lt;/S+&gt;', '', item['title']))JSON 데이터 크롤링 처리import jsondef parse(self, response):  data = json.loads(response.body_as_unicode())  for item in data['items']:    doc = Naveropenapiitem()    doc['title'] = item['title']    doc['link'] = item['link']loads()함수로 가져오면서 body_as_unicode()처리for문으로 json 데이터를 한 개씩 쪼개서 입력 가능Naver openapi - 요청변수for index in range(10):  yield scrapy.Request(url=url + words_var + '&amp;display=100&amp;start=' + str(index*100 + 1), headers=header_var)‘&amp;display=100&amp;start=’ + str(index*100 + 1)  처럼 작성 가능 »  0 &gt; 1부터 100개  1 &gt; 101부터 100개  2 &gt; 201부터 100개숙제&lt;b&gt;,\n, \t … 등의 태그 없애기]]></content>
+      <categories>
+        
+          <category> Web_Scraping </category>
+        
+          <category> Scrapy </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> scrapy </tag>
+        
+          <tag> web scraping </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[3] Scrapy OOP for Scrapy]]></title>
+      <url>/web_scraping/scrapy/2020/01/21/3-Scrapy-Object-Oriented-Programming/</url>
+      <content type="text"><![CDATA[Understanding of OOP for Scrapy  사물 설계도 - class  설계도 기반 사물1 객체 생성 - object  사물1 객체 기능 호출          attribute : 사물 1 객체의 변수      method : 사물 1 객체의 함수 (e.g. 사물1.method())      객체 생성객체이름 = 클래스이름()객체 기능 호출객체이름.method = 값  객체가 가진 값은 공유되지 않음.고찰인간 해부도는 똑같지만 마음과 생각은 모두 다르다고 생각해보자]]></content>
+      <categories>
+        
+          <category> Web_Scraping </category>
+        
+          <category> Scrapy </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> scrapy </tag>
+        
+          <tag> web scraping </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[4] Selenium Understanding of static web page]]></title>
+      <url>/web_scraping/selenium/2020/01/20/4-Selenium-understanding-of-static-web-page/</url>
+      <content type="text"><![CDATA[Ajax과 같은 동적 웹페이지 데이터 로딩“웹페이지 새로고침 X &gt; 특정 부분만 변경”특정 부분을 동적으로 가져오고, 해당 부분만 변경 시 그 부분만 변화 == 댓글 등웹브라우저에 전부 로딩 시킨 후 가져올 수 있음동적 데이터 특징-필요조건전체 html 파일 로딩과의 시간차 발생 &gt; 해당 데이터를 불러올 때까지 기다리는 함수(클래스, 객체) 필요 &amp;&amp; 줄여진 댓글창 ‘더보기’ &gt; 원하는 댓글 수보다 댓글이 없을 때 해야할 기능특정 태그 일정 시간 기다리기from selenium.webdriver.support.ui import WebDriverWaitfrom selenium.webdriver.support import expected_conditions as ECelement = WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.ID, "alex-area")) )(By.ID, “alex-area”) : ( 기다릴 객체, “객체 이름”)특정 태그 존재 여부 확인 기능from selenium.webdriver.common.by import By  By.CLASS_NAME: class name  By.CSS_SELECTOR: css selector  By.ID: id  By.NAME: name  By.TAG_NAME: tag namefrom selenium.common.exceptions import TimeoutExceptiontry:	element = WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.CSS_SELECTOR, "a")) )  more_button = driver.find_element_by_css_selector("a")   more_button.click()  count += 1  except TimeoutException:  loop = False키보드-마우스 동작 자동화 (ActionChains)actions = webdriver.ActionChains(driver) : 변수 선언 후 정적 데이터(버튼)를 갖고 있는 변수를 actions.click(var_name) 클릭 함수 내 인자값으로 삽입 &gt; actions.perform() 삽입이 반드시 필요함== webdriver.ActionChains(driver).click(var_name).perform()브라우저 내에서 pausefrom selenium.webdriver.support.ui import WebDriverWaitfrom selenium.common.exceptions import TimeoutExceptionTimeoutException은 WebDriverWait를 함수로 기다릴 때 일정 시간이 지났는데도 태그가 나타나지 않을 때 (예외 상황)]]></content>
+      <categories>
+        
+          <category> Web_Scraping </category>
+        
+          <category> Selenium </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> selenium </tag>
+        
+          <tag> web scraping </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[3] Selenium PhantomJS & Headless Chrome]]></title>
+      <url>/web_scraping/selenium/2020/01/20/3-Selenium-PhantomJS/</url>
+      <content type="text"><![CDATA[Phantom JS화면 없이 실행하는 프로그램 - Web testing &gt; 시간이 단축되지는 않기에 경우에 따라 선택적 사용이 필요  터미널 환경에서 동작하는 크롤러에게 권장  최신 셀레니움은 지원을 하지 않는 상태* 기존 부분 webdriver.Chrome('*') 만 변경아예 안 됨!Headless Chromeoptions.add_argument('headless'): PhantomJS와 유사한 기술로 크롬브라우저 기능으로 개발됨* 상동c_options = webdriver.ChromeOptions()c_options.add_argument('headless')driver = webdriver.Chrome(url, options=c_options)coptions.add_argument('window-size=1920x1080') : 웹 브라우저 사이즈 지정coptions.add_argument('disable-gpu') : 그래픽카드 사용 안 함coptions.add_argument('User-Agent: ~~') : 서버 요청 시 헤더 재 구성coptions.add_argument('lang=koKR') : 사용자 언어]]></content>
+      <categories>
+        
+          <category> Web_Scraping </category>
+        
+          <category> Selenium </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> selenium </tag>
+        
+          <tag> web scraping </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[2] Selenium 기본]]></title>
+      <url>/web_scraping/selenium/2020/01/19/2-Selenium-101/</url>
+      <content type="text"><![CDATA[Seleniumwith Chrome browserfrom selenium import webdriverfrom selenium.webdriver.common.keys import Keyschd = '경로/경로/'driver = webdriver.Chrome(chd)driver.get('url')get Returns using specific functionmain func      find_element_by_name('w') : 최초 발견한 name 으로 가져오기          find_elements_by_name('w') : 동일한 name을 리스트형으로 가져오기      find_elements_by_id      find_elements_by_tag_name      find_elements_by_class_name      find_elements_by_css_selector      find_elements_by_xpath            clear() : clear input txt        send_keys(kw) : send keyboard input          Keys.RETURN == enter      dir(Keys) : 키에 대응되는 이름 찾기            assert 로 driver.page_source에서 특정 키워드 확인    assert "No results found." not in driver.page_source        time.sleep() 일정시간 브라우저 내용 확인        driver.quit()  요소 내용  head : get_attribute(‘text’)          head_title = driver.find_element_by_css_selector('head &gt; title').get_attribute('text')        body : text          title = driver.find_element_by_css_selector('tag.class_name').text      ]]></content>
+      <categories>
+        
+          <category> Web_Scraping </category>
+        
+          <category> Selenium </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> selenium </tag>
+        
+          <tag> web scraping </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[1] Selenium 크롤링 기본]]></title>
+      <url>/web_scraping/selenium/2020/01/19/1-Selenium-with-scarpy-day1/</url>
+      <content type="text"><![CDATA[웹페이지 가져오기  requests.get('url')웹페이지 파싱하기  파싱 == 문자열 의미 분석  bs 라이브러리 사용          'BeautifulSoup('var', 'html.parser)'      데이터 추출  soup.find() 함수로 원하는 부분 지정  .get_text() 함수로 추출 부분 가져옴필요 데이터 추출 방법  태그와 속성으로 선택  .find('tag')  .find(id='tag')  .find('p', class='css.tag')  .find('p', attrs = {'align' : 'center'})  CSS Selector로 선택  .select('html &gt; title')  .select('div.article_view')  .select('#harmonyContainer')  .select('div#mArticle')브라우저  javascript 코드 이해 동반  브라우저를 통한 요청 &gt; 난이도 하향 가능]]></content>
+      <categories>
+        
+          <category> Web_Scraping </category>
+        
+          <category> Selenium </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> selenium </tag>
+        
+          <tag> web scraping </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[2] Scrapy web crawling issues and Scrapy structure ]]></title>
+      <url>/web_scraping/scrapy/2020/01/16/2-Scrapy-Issues-of-web-crawling/</url>
+      <content type="text"><![CDATA[웹 크롤링 이슈저작권법 허용  단순 링크  직접 링크 : 특정 게시물 링크저작권법 위반  프레임 링크 - 저작물 일부를 홈페이지 표시  임베드 링크 - 저작물 전체를 홈페이지 표시크롤링 데이터 임의적 사용은 괜찮지만, 어딘가에 게시할 때는 주의하여야 함.로봇 배제 표준 (robots.txt)크롤링 허용 확인 - 게시물에 대한 권한이 누구에게 있는가?유저와 운영자의 이해관계 차이 존재      모두 허용User-agent:Allow:        모두 차단User-agent:Disallow:        조합  User-agent: googlebot    # googlebot 로봇만 적용Disallow: /private/     # 이 디렉토리를 접근 차단한다.User-agent: googlebot-news  # googlebot-news 로봇만 적용Disallow: /         # 모든 디렉토리를 접근 차단한다.User-agent: *        # 모든 로봇 적용Disallow: /something/    # 이 디렉토리를 접근 차단한다.출처 : 위키/로봇 배제 표준  Scrapy 구조/spiders - 실제 크롤링 로직이 들어감items.py - 크롤링 대상 저장pipelines.py - 크롤링 결과를 DB 삽입 혹은 필터링 결정settings.py - 전체 프로젝트 설정 : 파이프라인 순서 결정, 로그 파일 지정 및 레벨 변경 등scrapy.cfg - 전체 프로젝트 배포 시 설정동작  items.py 정의  /spiders 안에 시작 url 지정 (start_requests - 특정 url에 대한 callback함수 지정 가능, start_urls - 스트링 리스트, ), 각 url에 대한 callback 함수 지정 (parse() - common)  callback 함수 정의selector를 이용해 데이터 선택 (xpath, css)  Pipeline을 통해 데이터 필터링 혹은 DB에 저장Spiders  크롤러 이름 지정          name        스타트 url 지정          start_requests :                  콜백 함수 지정 가능          사이트 로그인 시 사용                    start_urls :                  시작 주소를 리스트 형태로 추가                      parser 정의          def parser(self, response):      Selectorhtml 문서에 특정 노드 선택css vs xpath&gt;&gt;&gt; response.xpath('//title/text()')&gt;&gt;&gt; response.css('title::text')&gt;&gt;&gt; response.xpath('//base/@href').extract()&gt;&gt;&gt; response.css('base::attr(href)')&gt;&gt;&gt; response.xpath('//a[contains(@href, "image")]/@href')&gt;&gt;&gt; response.css('a[href*=image]::attr(href)').extract()&gt;&gt;&gt; response.xpath('//a[contains(@href. "image")]/img/@src').extract()&gt;&gt;&gt; response.scc('a[href*=image] img::attr(src)').extract()Pipeline데이터 크롤링 이후 특정 행동 수행  데이터 유효성 검사  중복 체크  DB 저장  필터링settings.py      파이프 클래스 및 순서 지정    ITEM_PIPELINES = {    ‘project_name.pipelines.CommunityPipline’ : 200,    } &gt; 숫자가 낮을 수록 선실행  Logging      settings.py                  LOG_FILE = ‘logfile.log’                    LOG_LEVEL = logging.DEBUG        설정파일에 파일명과 로그레벨을 통해 정의가 가능                  Log Level          logging.CRITICAL - for critical errors (highest severity)      logging.ERROR - for regular errors      logging.WARNING - for warning messages      logging.INFO - for informational messages      logging.DEBUG - for debugging messages (lowest severity)              LOG_LEVEL = logging.WARNING 이라고 설정하면 1~3까지가 지정됨      ]]></content>
+      <categories>
+        
+          <category> Web_Scraping </category>
+        
+          <category> Scrapy </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> scrapy </tag>
+        
+          <tag> web scraping </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[1] Scrapy 활용 ]]></title>
+      <url>/web_scraping/scrapy/2020/01/16/1-Scrapy-Understanding-of-web-circumstances/</url>
+      <content type="text"><![CDATA[웹 크롤러 Scrapy  파이프라인 지원 : 데이터 후처리 (필터링 등) 가능  로깅 정보 확인 가능  상대적으로 bs보다 간편함  안정적 크롤링 가능  시간 단축 &gt; 동시다발적 크롤링으로 인한 순서 변경  다양한 포맷으로 저장 가능Framework  함수와 코드 선작성  특성 함수의 위치, 사용, 작성을 지정  Beautiful Soup  parser의 역할이 강함  자동으로 유니코드로 변환해서 UTF-8 출력###Spider  이름 : 여러 가지 크롤러(spider)를 둘 수 있으므로, 각 이름을 지정  페이지 주소 : 크롤링 할 주소 지정scrapy genspider 'crawler_name' 'url'# Expected ResultCreated spider 'gmarket' using template 'basic' in module:  ecommerce.spiders.gmarket  items.py - 데이터를 들고올 때 클래스 형태로 만들 수 있음  pipelines.py - 데이터 수집 후 후처리 필터링 입력 진행  settings.py - 스크래피, 스파이더 설정 : 파이프라인 순서, 이름 등의 설정  spider/ - 스크랩 할 내용을 프로그래밍items.pyimport scrapyclass TutorialItem(scrapy.Item): # 상속 필수    title = scrapy.Field()    link = scrapy.Field()    desc = scrapy.Field()가져오려는 아이템 정의/spider/new_file.pyimport scrapyclass linkScrap(scrapy.Spider):    name = "dmoz" # 스파이더 이름 지정    domain = ["dmoztools.net"]    start_urls = [    'https://dmoztools.net/Computers/Programming/Languages/Python/Books/',    'https://dmoztools.net/Computers/Programming/Languages/Python/Resources/'    ] # 스크랩 할 url 지정    def parse(self, response):        for i in response.xpath('//div'):            title = i.xpath('div[3]/a/div/text()').extract()            link = i.xpath('div[3]/a/@href').extract()            desc = i.xpath('/div[3]/div/text()').extract()            print("*" * 10)            print(title, link, desc)i.xpath('/div[3]/div/text()').extract()  의 값은['\r\n\t\t\t\r\n                                    The primary goal of this book is to promote object-oriented design using Python and to illustrate the use of the emerging object-oriented design patterns.\r\nA secondary goal of the book is to present mathematical tools just in time. Analysis techniques and proofs are presented as needed and in the proper context.\r\n                                    ', '\r\n                                  ', '\r\n                                  ', '\r\n                                ', '\r\n                                  ', '\r\n                                  ', '\r\n                                ', 'Health']로 나오니 리스트 0번째 값 추출 후 strip()으로 내용만 추출… 하고싶었는데 빈칸이 출력됨in Terminal - shell&gt;&gt;&gt; scrapy shell 'url'In [4]: response.xpath('//title').extract()                                     Out[4]: ['&lt;title&gt;DMOZ - Computers: Programming: Languages: Python: Books&lt;/title&gt;']In [5]: response.xpath('//title')                                               Out[5]: [&lt;Selector xpath='//title' data='&lt;title&gt;DMOZ - Computers: Programming:...'&gt;]  In [6]: response.xpath('//title/text()').extract()                              Out[6]: ['DMOZ - Computers: Programming: Languages: Python: Books']In [11]: response.xpath('//title/text()').re('(\w+):')                          Out[11]: ['Computers', 'Programming', 'Languages', 'Python']문법 - 사용법response.css('head &gt; title').get() response.css('head &gt; title').getall() # listresponse.css('head &gt; title::text').get() # response.xpath('//div/ul/li/text()').get() # response.css('div.best-list li &gt; a::text').getall(정규표현식response.css('div.best-list li &gt; a::text')[1].re('(\w+)')response.xpath('//div[@class="best-list"]/ul/li/a/text()')[1].re('(\w+)')Pipelines - Filtering아이템이 생성될 때 파이프라인 함수를 한 번씩 거친다고 생가하면 됨!from scrapy.exceptions import DropItemclass NavernewsPipeline(object):def process_item(self, item, spider):print (item)if item['price'] &gt; 10000:return item else:raise DropItem("drop item having lower price than 10000")dd    def start_requests(self):        yield scrapy.Request(url='http://corners.gmarket.co.kr/Bestsellers', callback=self.parse)지정 url 크롤링 후 parse 함수를 call-back ( call-back 으로 부르는 함수는 반드시 response 보유 필수)문제      describtion이 전혀 나오지 않는다.    scrapy shell url 로 만질 때는 아주 잘 나오는데 막상 코드로 넣으면 빈 리스트만 반환한다.  미치겠다… 미치겠다 외 … 않되? 왜 안 되는지 정말 모르겠다… 짐작은 가는데… 내가 어떻게 만져야하는지 모르겠다… 빵 먹고싶다…    title:    //*[@id=”site-list-content”]/div[17]/div[3]/a/div    //*[@id=”site-list-content”]/div[18]/div[3]/a/div    desc:    //*[@id=”site-list-content”]/div[17]/div[3]/div/text()    //*[@id=”site-list-content”]/div[18]/div[3]/div/text()        쓰레기값 해결 문제    {"title": ["Data Structures and Algorithms with Object-Oriented Design Patterns in Python "], "link": ["http://www.brpreiss.com/books/opus7/html/book.html"], "desc": ["\r\n\t\t\t\r\n                                    The primary goal of this book is to promote object-oriented design using Python and to illustrate the use of the emerging object-oriented design patterns.\r\nA secondary goal of the book is to present mathematical tools just in time. Analysis techniques and proofs are presented as needed and in the proper context.\r\n                                    ", "\r\n                                  "]},{"title": [], "link": [], "desc": []},                 값이 정확히 나온 부분의 문제 : desc 리스트 [0]번째 값만 필요함 - 정규표현식을 써야 하는 건가? 근데 리스트 형태라서 strip만 되는 거 같은데…      빈 값 처리 - 뭐야!        를 해야한다…  문제 해결      i.xpath('/div[3]/div/text()').extract() &gt; i.xpath('div[3]/div/text()').extract()    하~ 진짜 슬래쉬 때문에 개고생 하다니…핳  고찰  나는 바보다  눈을 똑바로 뜨자  더 똑똑해지자  컴퓨터는 잘못 없다]]></content>
+      <categories>
+        
+          <category> Web_Scraping </category>
+        
+          <category> Scrapy </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> scrapy </tag>
+        
+          <tag> web scraping </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[3] Selenium을 사용한 기본 구글 크롤링]]></title>
+      <url>/web_scraping/beautifulsoup/2020/01/15/3-google-scraping-using-selenium-and-beautifulsoup/</url>
+      <content type="text"><![CDATA[Google Scraping using Selenium and BeautifulSoupfrom urllib.parse import quote_plusfrom bs4 import BeautifulSoupfrom selenium import webdriverbase_url = 'https://www.google.com/search?q='plus_url = input()url = base_url + quote_plus(plus_url)driver = webdriver.Chrome()driver.get(url)html = driver.page_sourcesoup = BeautifulSoup(html, 'html.parser')r = soup.select('.r')for i in r:    print(i.select_one('.LC20lb').text)    print(i.a.attrs['href'], end='\n\n') # a 태그 안에 있는 href 가져오기bs로만 구글 크롤링은 헤더가 있어야 함또한 가져온 결과에서는 클래스 이름이 없음 &gt; 결과는 있지만 클래스 이름이 달라지기 때문에 혼합 사용 권장]]></content>
+      <categories>
+        
+          <category> Web_Scraping </category>
+        
+          <category> BeautifulSoup </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> BeautifulSoup </tag>
+        
+          <tag> python </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[2] BeautifulSoup 네이버 블로그 검색결과 가져오기]]></title>
+      <url>/web_scraping/beautifulsoup/2020/01/15/2-pyautogui-image/</url>
+      <content type="text"><![CDATA[BeautifulSoup가장 기본 형식 - 검색어 고정 형태import urllib.requestfrom bs4 import BeautifulSoupurl = 'https://search.naver.com/search.naver?where=post&amp;sm=tab_jum&amp;query=python'html = urllib.request.urlopen(url).read() # Html 가져오기soup = BeautifulSoup(html, 'html.parser')title = soup.find_all(class_='sh_blog_title')for i in title:    print(i.attrs['title'])    print(i.attrs['href'], end='\n\n')검색어 변경 (part)base_url = 'https://search.naver.com/search.naver?where=post&amp;sm=tab_jum&amp;query='plus_url = input('검색어 입력')url = base_url + urllib.parse.quote_plus(plus_url)	urllib.parse.quote_plus()네이버 이미지 저장하기base_url = 'https://search.naver.com/search.naver?where=image&amp;sm=tab_jum&amp;query='plus_url = input('search')url = base_url + quote_plus(plus_url)html = urlopen(url).read()soup = BeautifulSoup(html, 'html.parser')img = soup.find_all(class_ = '_img')count = 1for i in img:    img_src = i['data-source']    with urlopen(img_src) as file:        with open('./photo/' + plus_url + str(count) + '.jpg', 'wb') as img_file: # 이미지기 때문에 binary            file_read_img =file.read()            img_file.write(file_read_img)    count += 1# 개발자 도구에서 보는 것과 실제 소스분석과 다를 수 있음.# 출력을 하면서 봐야 함.]]></content>
+      <categories>
+        
+          <category> Web_Scraping </category>
+        
+          <category> BeautifulSoup </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> BeautifulSoup </tag>
+        
+          <tag> python </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[1] pyautogui 기초사용법]]></title>
+      <url>/web_scraping/beautifulsoup/2020/01/15/1-pyauto/</url>
+      <content type="text"><![CDATA[py auto guias p설정 - 보안 및 개인 정보 보호 - 개인정보보호 - 손쉬운 사용 - 터미널 체크마우스와 키보드를 제어한다. &gt; 자동화 프로그램 ( 매크로 ) 생성 시 이용마우스 좌표를 먼저 알아야 함 : 해상도에 따른 위치p.position()# (x, y)p.moveTo(x, y(, time))# 절대적인 위치 변경p.moveRel(x, y(, time))# 상대적인 위치 변경Clickp.click() # 한 번p.click(clicks=2, interval=2) # 두 번 클릭, 클릭 사이에 2초 텀p.doubleClick()Keyboard Ctrl파일이 열리는 시간을 생각해서 typewrite 필수  ‘키’를 누를 때는 [대괄호] 내에 삽입time.sleep(1) # 1초 쉼p.typewrite('Hello') p.typewrite(['enter']) opencv-python위치가 변경되어도 선택할 수 있도록 함num7 = p.locateOnScreen('file.png')q = p.center(i)p.click(q) num7 = p.locateCenterOnScreen('file.png')스크린샷까지 자동화p.screenshot('name.png', region=(x, y, px, px))]]></content>
+      <categories>
+        
+          <category> Web_Scraping </category>
+        
+          <category> BeautifulSoup </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> pyautogui </tag>
+        
+          <tag> python </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[Error] No module named selenium in env]]></title>
+      <url>/web_scraping/beautifulsoup/2020/01/15/0-No-Module-named-error-in-envs/</url>
+      <content type="text"><![CDATA[ModuleNotFoundError: No module named ‘selenium’ - AtomModuleNotFoundError: No module named ‘bs4’ - Jupyter notebook저 상황일 때는 아무리 conda install pip  등 뭘 해줘도 소용이 없었다. 난! 설치를 했는데! 왜! 넌! 없다고 말 하니? ㅠ파이썬 버전이 2개나 깔려있으니까 (2.x / 3.x) 정확히 명시해주기로 했다.환경 : 맥북 카탈리나 10.15.2 - 콘다 가상환경 사용python3 -m pip install BeautifulSoup4문제 해결!]]></content>
+      <categories>
+        
+          <category> Web_Scraping </category>
+        
+          <category> BeautifulSoup </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> error </tag>
+        
+          <tag> selenium </tag>
+        
+          <tag> web scraping </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[사용자]]></title>
+      <url>/linux/2020/01/13/%EC%82%AC%EC%9A%A9%EC%9E%90/</url>
+      <content type="text"><![CDATA[다중사용자복잡도가 증가유닉스 계열 &gt; 다중사용자 시스템id, whoid &gt; uid=501(name) &gt; 본인who &gt; 시스템에 누가 접속했는지 보여줌관리자와 일반 사용자유닉스 계열 2가지 사용자      super (root) user        (normal) user  sudo ~  일시적 슈퍼유저의 권한으로 동작  &gt; 모든 유저가 sudo를 사용할 수는 없음구분법name@~$name &gt; 1. root - 관리자 2. name - 일반 유저symbol &gt; 1. # - 관리자 2. $ - 일반 유저사용자 추가sudo useradd -m name &gt; sudo passwd name &gt; enter pwd &gt; sudo usermod -a -G sudo name]]></content>
+      <categories>
+        
+          <category> Linux </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> inflearn </tag>
+        
+          <tag> Linux </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[프로세스 & 실행]]></title>
+      <url>/linux/2020/01/13/process-of-linux/</url>
+      <content type="text"><![CDATA[Daemon특성  항상 실행되고 있음  server 같은 프로그램  언제 클라이언트가 접속할지 모름 &gt; web server &gt; daemon, service라 지칭Service와 자동실행sudo service program start/stop데몬으로 사용되는, 서비스를 통해 켜고 끄는 프로그램은 start과 stop 2 개의 명령어를 필수적으로 갖고 있음 - /etc/rc3.dS02apache2 링크 ( 윈도우의 바로가기 )S : 부팅 시 자동 실행K : kill - 프로그램 실행 X숫자 : 우선순위Cron정기적으로 명령을 실행시켜주는 소프트웨어crontab -e# m h dom mon dow    command# minutes, hours, day of month, month, day of week, 명령어e.g. */1 * * * * date » date.log 2(Standard Error) &gt; &amp;1(Standard Output)Shell startup script쉘 시작 시 특정 명령어를 자동으로 실행하는 방법vi .~/zshrc  에 삽입단축어 만들기 : alias cmd = 'nick']]></content>
+      <categories>
+        
+          <category> Linux </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> inflearn </tag>
+        
+          <tag> Linux </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[IO Redirection - Shell & Script]]></title>
+      <url>/linux/2020/01/13/linux-tutorial-IO-Redirection/</url>
+      <content type="text"><![CDATA[Linux IO Redirectionoutput출력 방향을 바꾸어 반환시킴- redirections of standard outputls -l (1)&gt; result.txt : 출력 결과를 result.txt 파일에 넣음 / 1 == standard output, 2 == standard error프로그램 실행 상태 : 프로세스inputfile 내 포함되어 있는 걸 입력값을 줄 수 있음cat type.txt  : cat에 type을 인자로 Cmd line arg로 전달함cat &lt; type.txt  : Standard Input (표준 입력) 으로 들어감appendShell &amp; ScriptShell vs Kernel ( core )shell 에 명령어 입력 &gt; shell은 해석 후 kernel 에게 전달 &gt; hardware &gt; kernel &gt; shellbash vs zshell같은 부모를 갖고 있지만 zsh이 더 편리하다는 평가를 받고 있음Shell scriptchmod +x file &gt; -rw-r--r-- &gt; -rwxr-xr-x : x &gt; excutable]]></content>
+      <categories>
+        
+          <category> Linux </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> inflearn </tag>
+        
+          <tag> Linux </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[권한 permission]]></title>
+      <url>/linux/2020/01/13/linux-permission/</url>
+      <content type="text"><![CDATA[Permission제어 가능 대상 : user &gt; file and directory에 대한 Read and Write and ExcutePermission denied-rw-r–r–  1 park-eunbin staff    68 12 22 16:31 test.txt      -/rw-/r–/r– /        1/        park-eunbin staff  /        68 /        12 22 16:31/        test.txt    access modeType ( 파일 -, 디렉토리 d, 링크 ) / Owners Permission (rw &gt; Read, Write, X-excute)/ Groups Permission/ Other /  /  Owner Group /  -  생성일  대상 이름CHange MODechmod [options] mode[, mode] file1 [file2 ...]e.g.chmod o-r file.type : other 사용자의 Read 권한 삭제chmod o+r file.type : other 사용자의 Read 권한 부여chmod o+w file.typechmod u-r file.type : 소유자의 Read 권한 삭제Excute파일 실행 권한특정 프로그램(해석기, Parser)을 통해 실행하는 것 &gt; 제약 없음.e.g.chmod u+x file.type : user 실행 권한 부여Directoryr : 디렉토리 안 파일이나 디렉토리 열람 권한w : 디렉토리 내 파일 생성 및 삭제 권한chmod -R o+w dir하부 디렉토리 모두 변경Octal Modes1 - excite only 2 - write only, 4 - read onlychmod 111 file.typeClassReference, Classu, ownerg, groupo, othersa, alle.g.chmod a+w file : 모든 사용자에게 write 권한 부여chmod a=rwx file : 모든 사용자에게 r,w,x 권한 부여chmod a= file : 모든 권한 삭제]]></content>
+      <categories>
+        
+          <category> Linux </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> inflearn </tag>
+        
+          <tag> Linux </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Group - 파일과 디렉토리 공동 관리]]></title>
+      <url>/linux/2020/01/13/linux-group/</url>
+      <content type="text"><![CDATA[Groupfile 생성자 (유저) 외에 한 명 이상의 사용자에게 권한 부여/var 아래에 공용 directory 생성  sudo groupadd developer  sudo usermon -a -G group_name user_name  exit 후 재접속  sudo chown {-R} [user]{:group} file 형식으로 입력]]></content>
+      <categories>
+        
+          <category> Linux </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> inflearn </tag>
+        
+          <tag> Linux </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[디렉토리 구조와 파일 찾는 법]]></title>
+      <url>/linux/2020/01/13/linux-directory/</url>
+      <content type="text"><![CDATA[Directory 구조디렉토리 : 정리정돈의 수단, 데이터와 실행 프로그램 성격에 따라 정해진 규칙이 있음./bin - user binaries : 사용자 사용 명령어 위치/sbin - System binaries :  시스템 관리 목적이 있는 명령어 위치/etc - Configuration Files : 설정/var - Variable Files/tmp - Temporary Files/home - Home Directories/opt - Optional add-on Applications/usr - User Programs : 사용자 설치 프로그램은 /usr/bin 에 저장되고, 번들형식으로 사용자에게 제공되는 것들은 /bin에 저장됨locate &amp; findlocate는 Directory 가 아니라 DB 안에서 찾기 때문에 훨씬 빠른 반환이 가능함find 는 Directory를 뒤져 찾음. 다양한 사용법이 있음.whereis &amp; $PATHwhereis 프로그램which - locate a program file in the user’s path$PATH - 환경변수echo $PATH : path 변수에 담겨있는 데이터가 echo를 통해 출력됨.e.g. ls 입력 &gt; $PATH에 담겨있는 디렉토리를 검색해서, ls를 존재하는지 찾고 발견 시 실행하는 것]]></content>
+      <categories>
+        
+          <category> Linux </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> inflearn </tag>
+        
+          <tag> Linux </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[jekyll 이미지 오류 - not found]]></title>
+      <url>/git/2020/01/13/jekyll-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%98%A4%EB%A5%98/</url>
+      <content type="text"><![CDATA[문제  깃허브에 편하게 사진을 올리고 싶은 나.  드래그 앤 드롭으로 넣는 거 아니면 아무것도 하고싶지 않은 나.를 바탕으로… 이미지 오류가 계속 났었다. 분명히 내 컴푸터! 내 폴더! 안에 이미지를 갖다 쳐박아놨는데! 왜 에러라고 뜨는지… 30분은 헤맸다.해결  바보같은 나때문이었다.저 이미지주소는 내 컴퓨터 내에 이미지가 어디에 있는지를 알려주는 건데, 곰곰히 생각해보니 내 로컬주소가 아니라 맨날 커밋하는 그곳! 깃허브 내 주소를 적었어야 했다.드래그 앤 드롭 하면 이미지 주소가 이렇게 나온다.![img_name](/Users/park-eunbin/workspace/parkeb417.github.io/images/img_name.png)내 컴퓨터 안에서만 작성하고 볼 글이면 놔두어도 상관 없다. 서버에 올릴 글이기 때문에 로컬주소를 백날 작성해봐야 안 듣는다…. ㅜㅡ![img_name](/images/img_name.png)이렇게 고쳐야 한다! 깃헙 레포 내에서 들어가는 방법이라고 생각하면 된다.고찰  생각을 하고 살자  곰곰히 생각해보면 된다  컴퓨터 입장에서 생각하자  컴퓨터는 잘못 없다]]></content>
+      <categories>
+        
+          <category> Git </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> github </tag>
+        
+          <tag> blog </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Numpy 101]]></title>
+      <url>/python/2020/01/12/edwith-python-for-ML-chap3-numpy/</url>
+      <content type="text"><![CDATA[Numpy파이썬 과학 처리 패키지 - Numerical Python  반복문 없이 데이터 배열 처리 지원  C, C++, 포트란  Dymanic typing 불허Array creationndarraytype(test_array[0])numpy.float64 # 64는 크기파이썬 : 메모리 주소의 위치를 잡음. 리스트 안에 값이 아닌 메모리 주소 &gt; 복사 == 메모리주소 복사  from copy import deepcopy 로 해결넘파이 : 차례데로 데이터를 쌓음 &gt; 빠른 데이터 처리가 가능t = np.array([1,2,3,4], float)t.shape# Expected Result - Vector(4,) # 4 columnt2 = np.array([[1,2,3,4]], float)t2.shape# Expected Result - Matrix(1, 4) # 1 by 4 1 row 4 columns  shape : numpy array의 object의 dimension 구성을 반환함 &gt; 튜플타입 반환메트릭스 크기를 따라감  ndim - # of dimension  size - data의 개수 : scala 값이기 때문에 int로 반환  dtype : numpy array의 데이터 type을 반환함대부분 float32, 64 로 선언 - 메모리에 크기가 결정되기 때문에 신경써야 함Handling Shape: Array Shape 의 크리 변경ReshapeMatrix를 Vector로 펴야할 때* 데이터 사이즈 개수만 맞추면 됨np.array(test_matrix).reshape(2,2,2)np.array(test_matrix).reshape(-1, 2) # -1 : size를 기반으로 row 개수 선정 | row 의 개수는 정확하게 모르지만 컬럼을 2개로 할 때test = np.array(t).reshape(8,)# array([1,2,3,4,1,2,5,8])test.reshape([-1, 1])# array([[1],[2], ..., [8]])데이터 호출 시 y값을 가져올 때, 이 값이 보통 Vector형태로 뽑히는데, Sklearn에서는 Matrix 형태로 들어가야 하기 때문에flatten: 다차원 array를 1차원으로 변환딥러닝 초기모델 배울 때 nlist데이터셋을 쓰는데 ( 문자를 벡터형태를 사용 ), 28 by 28을 펴야할 때…Indexing &amp; slicingindexinga[0,0] == a[0][0]slicing            x:y:z      x : 시작, y : 끝 지점 바로 앞, z : step            데이터 일부분만 가져올 때 사용        List와 달리 행과 열 부분을 나눠서 slicing이 가능함 / [행, 열]        Matrix의 부분 집합을 추출할 때 유용함  Creation Functionarange: array 범위를 지정해 값의 list를 생성하는 명령어  floating point 로도 표기 가능np.arange(30)# array([0,1,2, ..., 29])np.arange(0, 5, 0.5).tolist()np.arange(30).reshape(-1,5) # 2차원 매트릭스 형태 생성ones, zeros and empty  np.zeros(shape, dtype, order)      ones, zeros &gt; 1 (0)으로 찬 ndarray 생성        empty - shape만 주어지고 비어있는 ndarray 생성 memory initialisation 이 되지 않음  np.zeros(shape=(10,), dtype=np.int8)np.zeros((2,5)) Something like: 기존 ndarray shape 크기만큼 1, 0 또는 empty array 반환identity: 단위행렬 (i 행렬) 생성eye: 대각선이 1인 생렬, k값의 시작 index 변경 가능np.eye(N=3, M=5, dtype=np.int8) # 3 by 5np.eye(3,5, k=2) # k == start index &gt; 첫 행의 3번째부터 시작diag: 대각선 값 추출matrix = np.arange(9).reshape(3,3)np.diag(matrix) # array([0, 4, 8])np.diag(matrix, k = 1 # k == start indexrandom sampling: 데이터 분포에 따른 sampling으로 array 생성np.random.uniform(0, 1, 10).reshape(2, 5) # 균등분포np.random.normal(0, 1, 10).reshape(2, 5) # 정규분포 operation functionssum: ndarray의 elementaxis: 모든 op function 을 실행할 때, 기준이 되는 dimension 축  [row] : axis = 0&gt; [column, row] : axis = 0, 1 &gt; [num, column, row] : axis = 0, 1, 2np.t_array.sum()np.t_array.sum(axis = 0)mean &amp; std: 평균과 표준편차 반환concatenate  vstack : 축 기준 합 &gt; 2차원 배열로 변환  hstack :array operationsoperations b/t arrays: Numpy는 array간의 기본적 사칙연산을 지원Dot producttranspose* broadcasting: Shape 이 다른 배열 간 연산을 지원하는 기능, 방식  scalar - vector (matrix) 외에도 vector - matrix 간 연산도 지원Numpy performancenumpy는 concat 시에 느려짐, List가 더 빠름ComparisonsAll and Any: Array의 데이터 전부(and) 또는 일부(or)가 조건에 만족 여부 반환      일종의 broadcasting ( scalar - numpy)    all : 모두 만족 시 True  / np.all(a &lt; 10)  any : 하나라도 만족 시 False / np.any(a &lt; 0)Logical_operations.logical_and(x &lt; 1, y &gt; 1), .logical_not(x), .logical_or(x, y)* np.where: 조건에 만족하는 인덱스 값을 반환  condition을 넣어 T,F 반환도 가능  정렬 기법이랑 함께 쓰면 유용함np.where(a &gt; 0, 3, 2) # True - 3, False - 2# array([3, 3, 2])np.where(a&gt;0) # index 값 반환(array([0, 1]),)* argmax &amp; argmin: return of max(min) of arguments’ index / np.argmax(a)  각 조건에 맞는 값을 찾을 때는 where 절을 사용하면 됨.  축을 넣어주면 축에서 최대, 최소값을 찾음 / np.argmax(a, axis = 1)boolean &amp; fancy indexboolean index      numpy는 배열 특정 조건에 따른 값을 배열 형태로 추출 가능함        Comparision operation 함수 사용 가능    조건이 True 인 index element 만 추출  where 절과 함께 사용 시 유용  데이터 셋에서 조건에 만족하는 값만 찾을 때 &gt; 조건을 변수에 할당 &gt; .astype(np.int) 로 1, 0 변환test_array = np.array([1, 4, 0, 2, 3, 8, 9, 7], float)test_array &gt; 3# array([False,  True, False, False, False,  True,  True,  True], dtype=bool)test_array[test_array &gt; 3] # array([ 4.,  8.,  9.,  7.])condition = test_array &lt; 3 test_array[condition] # array([ 1.,  0.,  2.])fancy index: numpy는 array를 index value로 사용해서 값을 추출하는 방법  인덱스에 해당하는 값을 추출함  a[b] 보다 a.take(b) 를 권장 - 명확함a = np.array([[1, 4], [9, 16]], float)b = np.array([0, 0, 1, 1, 0], int)c = np.array([0, 1, 1, 1, 1], int)a[b,c] # b를 row index, c를 column index로 변환하여 표시함# array([  1.,   4.,  16.,  16.,   4.])a = np.array([[1, 4], [9, 16]], float)a[b]# array([[  1.,   4.],#       [  1.,   4.],#       [  9.,  16.],#       [  9.,  16.],#       [  1.,   4.]])numpy data i/oloadtxt &amp; savetxt: Text type의 데이터를 읽고, 저장하는 기능numpy object - npy: 파이썬 객체 저장방식인 pickle 형태로 저장 - binary 파일 형태]]></content>
+      <categories>
+        
+          <category> Python </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> ML </tag>
+        
+          <tag> Python </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[머신러닝을 위한 Python 03]]></title>
+      <url>/python/2020/01/11/edwith-ML-overview/</url>
+      <content type="text"><![CDATA[Scala는 이탤릭체, vector는 소문자 볼드, MATRIX는 대문자 볼드기존 데이터를 알고리즘을 사용해 모델을 만들고, 새 데이터에 모델을 적용해 예측하는 것 : 핵심은 알고리즘과 모델y = ax + b 꼴의 선 ? x = ‘보고싶어요’ y = 총 관객 수 &gt; a, b를 알아내는 것Key concepts모델 : 예측을 위한 수학 공식, 함수, condition rule처럼 조건일 수도 있음알고리즘 : 모델을 만들기 위한 과정Y에 영향을 주는 X의 값은 하나인가?Feature - 독립변수데이터 특징을 나타내는 변수 : input 변수데이터 테이블 상에서 컬럼을 의미엑스와 와이를 갖고 있는 상황에서 베타를 알게하는 것Feature Vector전체 데이터 셋에서 0번째를 표현한 수식선형대수의 표기법을 사용 &gt;list=w^t x=list &gt;로 표현해 y의 예측치를 찾아낼 수 있을 것임]]></content>
+      <categories>
+        
+          <category> Python </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> ML </tag>
+        
+          <tag> Python </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Pandas 101]]></title>
+      <url>/python/2020/01/10/Pandas-101/</url>
+      <content type="text"><![CDATA[Pandas 101astype(type)loc[[행], [열]] - 라벨 값을 기반으로 행 데이터 읽기e.g. ) data_frame.loc[data_frame[‘Invoice Number’].str.startswith(‘920-‘), :]iloc[[행], [열]] - 인덱스 값을 기반으로 단일 행을 선택해 열 헤더 행으로 사용할 수 있게 함.ix[] &gt; loc 과 같으나 경고 메세지 반환’:’ &gt; 모든 행.columns - 열 출력e.g.) data_frame.columns = data_frame.iloc[0].index - 행 출력.contains() - 특정 문자열 포함 요소 탐색e.g.) data_frame[‘Supplier Name’].str.contains(‘Z’)).isin() - 특정 값의 포함 여부를 확인 후 boolean 타입으로 반환.startswith('') - 특정 문자열로 시작되는 요소 탐색.endswith('') -  특정 문자열로 끝나는 요소 탐색.reindex()drop() - 제거read_csv(header = None, names = list_V)concat(axis=0)- 0 = 수평 / 1 = 수직으로 합침  merge() &gt; pandas.merge(DataFrame1, DataFrame2, on='key', how='inner')  Numpy &gt; numpy.concatenate([array1, array2], axis=1)  numpy.hstack((array1, array2))  numpy.c[array1, array2]Data FrameSeries를 모아 만든 Data Table == 기본 2차원각 열마다 고유의 데이터 타입을 가질 수 있음구조적 데이터 구조에 대한 분석 &gt; 가장 적합한 data object 각 row instance, tuple 마다 인덱스가 있고, 각 컬럼별로도 인덱스값이 있음Nested Dictpop = {'Nevada' : {2001:2.4, 2002:2.9}, 'Ohio' : {2000 : 1.5, 2001 : 1.7, 2002 : 3.6}}pd.DataFrame(pop)Selection  df.name - Series  df['name'][:3] -  column name with index num  df['name'][[0, 5, 10]] - return values more than 1 index  df[df['name' &gt; 25]] -  return values more than 25 in dataframe  df[:3] - return 0, 1, 2 rows by row  df[['col1', 'col2']][:2] - return 2 rows only in col1, col2  df[['col1', 'col2']].iloc[:10] - return 0 to 10 rows only in col1, col2  df.index = list(range(0, df.shape[0])) - re indexingDrop  df.drop(1) - drop row that index num 1  df.drop([0,1,3,6]) - drop rows after multiple index  df.drop('col_name', axis=1) # same as del df['col_name']Basic Operation in DataFrameSeries operationnumpy랑 비슷index 기준으로 연산을 수행 &gt; 겹치는 index 가 없는 경우 NaN 반환넘파이는 사이즈가 같지 않으면 error / 시리즈는 에러는 없지만 리스트 인덱스를 기준으로 더해주면서 없을 경우 nan  df1.add(df2, fill_value=0) - add df2 to df1Series + DataFramedata는 column 이름을 기준으로 broadcasting이 일어남축을 변경해서 ( 세로 &gt; 가로 ) 더해주면, s2의 index (원래 column) 값과 df의 index 값을 기준으로 broadcasting이 일어남Lambda, Map, Applylambda 함수한 줄로 함수를 표현하는 익명함수lambda argument : expressionmap 함수함수와 sequence형 데이터를 인자로 받아 각 lmn 마다 입력받은 함수를 적용해 list 반환일반적으로 함수를 lambda 형태로 표현ex = [1,2,3,4,5]f = lambda x, y: x + ylist(map(f, ex, ex))#list(map(lambda x: x+x, ex))Map for SeriesPandas의 Series type 데이터에도 map 함수 사용 가능function 대신 dict, sequence형 자료 등으로 대체 가능s1 = Series(np.arange(10))s1.map(lambda x: x**2)# output0     01     12     43     94    165    256    367    498    649    81dtype: int64  z = {1 : 'a', 2 : 'b', 3 : 'c'}s1.map(z)# output0    NaN1      a2      b3      c4    NaN5    NaN6    NaN7    NaN8    NaN9    NaNdtype: object  # e.g. 1df['sex_code'] = df.sex.map({'male' : 0, 'female' : 1}) # e.g. 2df['height_categories'] = df.height.map(lambda x : '대' if x &gt; 70 else '소')Apply for dataframemap과 달리 series 전체 - column 전체에 해당 함수 적용 - map 은 각 lmn마다 lambda를 적용시키는 경우라면입력값이 series 데이터로 입력받아 handling 가능각 컬럼별로 반환 - 통계 자료 뽑을 때 유용함요약 정보를 보기 위한 data frame 형태로도 사용이 가능f = lambda x : x.max() - x.min()df_info.apply(f) # f == 시리즈 데이터 전체가 들어감. 데이터 전체의 최대 최소를 구해진 후 반환이 됨def f(x):    return Series([x.min(), x.max(), x.mean()], index=['min', 'max', 'mean']) # 두 행을 새로 생성해서 전체 데이터를 집어 넣어 min, max 찾기df_info.apply(f)Applymap for dataFrame  Series 단위가 아닌 lmn 단위 전체에 함수를 적용  Series 단위에 apply를 적용시킬 때와 같은 효과          applymap, apply : DF 단위 내에서      map : Series 단위 내에서      f = lambda x : -xdf_info.applymap(f).head(5)Built-in FunctionsdescribeNumeric type 데이터 요약 정보UniqueSeries data의 유일한 값을 list로 반환데이터 라벨링-라벨인코더가 가능해짐 dict(enumerate(df['column_name'].unique()))value = list(map(int, np.array(list(enumerate(df['race'].unique())))[:, 0].tolist()))key = np.array(list(enumerate(df['race'].unique())), dtype=str)[:, 1].tolist()value, key#output([0, 1, 2, 3], ['white', 'other', 'hispanic', 'black'])df.race.replace(to_replace=key, value=value, inplace=True)Sum기본적인 column 또는 row 값 연산 지원sub, mean, min, max, count, median, mad, var 등등      df.sum(axis=0) # column sum    sum by column name        df.sum(axis=1) # row sum  isnull값이 존재하지 않으면 null인 값의 합 ( 결측치 ) - 개수 등column 또는 row 값의 NaN(null) 값의 index 반환df.isnull().sum(0) # sum의 파라미터 : 1 - 행 별로 0 - 열 별로sort valuecolumn 값을 기준으로 데이터 sorting  df.sort_values(['age', 'earn'],ascending=False) # sort by age &gt; earn  df.sort_values(by='age', ascending = False)cumsth  cumsum점점 증가함 : 1번째 줄 + 2번째 줄.. 2+3… 3+4… 증가해서 표현 주식이나 시간에 순서에 따른 거래량 표현 등을 할 때 유용히 사용  cummaxCorrelation &amp; Covariance상관계수와 공분산을 구하는 함수corr, cov, corrwith  df.age.corr(df.earn) 나이와 소득간의 상관관계  df.corrwith(df.earn)소득과 연관관계가 많은 것  df.corr() 전체 간의 상관관계  df.age[df.age &lt; 50].corr(df.earn)55세 이하일 때 소득과 나이의 상관관계  df.age[(df.age &lt; 45) &amp; (df.age &gt; 25)].corr(df.earn) 나이 대가 증가함에 따라 소득도 증가함을 알 수 있음  df.corrwith(df.earn)특정 데이터만 볼 수 있음  df.sex.value_counts(sort=False)성별 별 데이터Errors      modulenotfounderror no module named 'pandas'    가상환경을 열어서 pandas 설치하고 지웠다가 다시 설치하고 컴퓨터 재부팅하고 막… 오만가지 난리를 펼치다가… 터미널 창에서 which python3 입력해서 나오는 주소를 py 파일 라인 1에 붙여넣고 실행하니 오류 해결!    #! /Users/park-eunbin/miniconda3/envs/IP/bin/python3        b’Skipping line 13: expected 5 fields, saw 7\n’ -&gt;data_frame = pd.read_csv(input_file, error_bad_lines=False, warn_bad_lines=False) 로 해결  pandas .ix[] Message.ix is deprecated. Please use.loc for label based indexing or.iloc for positional indexing  delimiter =',' 오류 &gt; 해결 못함… 왜? 왜 $1,600.60을 제대로 못걸러내냐]]></content>
+      <categories>
+        
+          <category> Python </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> python </tag>
+        
+          <tag> pandas </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[Git] Git Study용 공부 주소]]></title>
+      <url>/git/2020/01/05/git-%EC%B0%B8%EA%B3%A0-%EC%A3%BC%EC%86%8C/</url>
+      <content type="text"><![CDATA[https://backlog.com/git-tutorial/kr/stepup/stepup2_6.html]]></content>
+      <categories>
+        
+          <category> Git </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> git </tag>
+        
+          <tag> study </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Liquid Exception 에러]]></title>
+      <url>/git/2020/01/05/github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%98%A4%EB%A5%98/</url>
+      <content type="text"><![CDATA[Liquid Exception: Liquid error (~): Internal Error: Invalid UTF-8 included in /_layoust/default.html난 진짜 잘못한게 없다고 생각했는데…. 자꾸 에러가 떴고… 내부적 문제라고 얘기하는데 … 내부적문제 == 내 잘못 ^^의 공식… 나는 잘못한게 없는데 컴퓨터가 이상해! 하면서 껐다가 켜보기도 하고… 구글을 진짜 엄청 뒤졌는데 진짜 내잘못이었다 ^^컴푸터야 미안해~하핳css파일 주석처리를 제대로 안 해줘서 생긴 거지같은 일이었다….오늘의 교훈 : 컴퓨터는 잘못 없다.]]></content>
+      <categories>
+        
+          <category> Git </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> github </tag>
+        
+          <tag> blog </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Linux Command Line Tools - 검색]]></title>
+      <url>/linux/2020/01/03/LinuxCommandTools_2/</url>
+      <content type="text"><![CDATA[find이름이나 속성 등의 조건에 맞는 파일을 찾아 명령 수행find [OPTION] path EXPR자주 사용되는 옵션조건  -name # 이름 검색, 가장 많이 사용  -regex # regex에 매치로 검색  -empty # 빈 디렉토리 혹은 빈 파일 검색  -size # 사이즈 검색 (M, G 표기 가능)          -N # 이하      +N # 이상        -perm # 퍼미션 검색          mode # 정확히 일치하는 파일      +mode # 모든 flag가 포함된 파일      /mode # 어떤 flag라도 포함된 파일        -type # 파일 타입 검색          d # directory      p # named pipe      f # regular file      l # softdrink      s # socket      액션  -delete # 파일 삭제  -ls # ls -dils 명령 수행  -print # 파일 이름 출력  -printf # 파일 이름을 포맷에 맞게 출력  -exec # 주어진 명령 수행  -execdir # 해당 디렉토리로 이동하여 명령 실행  -ok # 사용자 확인 후 exec  -okdir # 사용자 확인 후 실행 execdire.g.  find . -name “*.py” # 현재 디렉토리에서 py 파일 찾기  find . -regextype egrep -regex ‘.*hash.*.py$’ # $ 파일의 끝을 명시함. hash 앞뒤로 글이 있는 py 파일  find . -empty  find . -type                              find . -perm 0644          wc -l                          find . -perm /u+x  # owner 실행권한이 포함된 파일을 출력 / find: -perm: /u+x: illegal mode string        find . -perm /001 -ls # -perm: /001: illegal mode string    find . -name -exec {} \;  find . -name -execdir {} \;  find . -name -ok rm -f {} \; # 안전하게 파일 삭제 가능grep파일 내용 중 원하는 내용 찾기grep [OPTION] PATTERN [FILE…]자주 사용되는 옵션  -r # recursive  -i # ignore case  -v # invert match # 패턴과 매치가 되지 않는 걸 찾음  -q # quiet mode # 성공.실패만 판단하고 싶을 때e.g.  grep PATTERN *.py # py 파일에 PATTERN 이 포함된 걸 찾아라                              grep PATTERN *.py          awk -F: ‘{print $1}’          sort -u # 패턴이 들어있는 파일 검색 후 awk 명령어로 파일 이름 분류 후 sort로 unique 한 것만 출력                      echo $? # 최근에 실행된 명령어, 함수, 스크립트 자식의 종료 상태 / 0 = 성공  grep “\&lt;for\&gt;” *.py # 단어단위 검색aproposman page 이름과 설명 검색자주 사용되는 옵션  -s, –sections=LIST, –section=LIST # ㅌ탐색할 섹션을 으로 구분하여 입력  1 : 일반적 툴  2 : 시스템 콜  3 : 라이브러리 함수  7 : Overview 등의 개념e.g.  apropos print  apropos pthread  apropos pthread -s 7  apropos ‘^sem_’  apropos ‘.*’  apropos ‘.*’ -s 5:6:7locate파일 위치를 보여줌단, updateddb가 저장해놓은 DB파일 내에서 검색하므로 누락 파일 존재 가능updateddb : os 레벨에서 정기적으로 업데이트 함어떤 파일이든 찾아서 보임locate [OPTION]… PATTERN자주 사용되는 옵션  -i, –ignore-case  -l, -limit, -n LIMIT  –regexe.g.  locate main.c -n 10 #which실행 파일의 위치를 알려줌 &gt; 일반적인 파일은 불가능e.g.  which ls  which chmod  which ls strace chmod  which ifconfig]]></content>
+      <categories>
+        
+          <category> Linux </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> CLI </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Claasical Cryptography]]></title>
+      <url>/computer_security/2020/01/02/classical-cryptography/</url>
+      <content type="text"><![CDATA[Caesar Cryptography : 순서를 조절&gt; Replace a letter into the next of the next - We can express the Caesar encryption algorithm into an equation  Easy to break 2. Only 25 keys 3. Vulnerable to brute force attack encryption E(k(밀어낼 자릿수-형문), p-키) … x,y,z 는 보통 나눈 후 나머지를 차용 e.g. 3을 더한다음에 26으로 나눈 나머지… 복호화 D(키, 사이퍼텍스트) 쓸 수 있는 키의 경우의 수가 25개 &gt; 쉽게 깨짐Single letter substitution ( 전형적인 암호문 )  Replace a letter to another  26! keys are possible .. &gt; Calculate the frequency of a letter각 글자가 나온 빈도수를 계산 &gt; E, T가 가장 많이 사용됨 &gt; P, Z가 높은 확률로 e, t많이 나오는 패턴을 분석해 단어를 조합 (the … ) 키가 무조건 많다고 해서 안전한 것은 아님.Playfair- Multiple-letter encryption ( Create 5x5 matrix based on a given keyword )Vernam ( 지금도 쓰이는 방식 )- Use key streamsxor - 0111  &gt; A O+ B O+ B = A … xor이 두 번 되면 제자리로 돌아옴​    1010————​     1101아이번째 키 O+ 아이번째 플레인 텍스트 = 암호화E (k, p) = ki O+ pi각각에 대해 xorOne time pad      Use a key stream that is perfectly random without any repetition        One Time Pad provides prefect security        Impractical              The size of a key stream should be the same as that of its message      원타임패드~ &gt; 버남 + 부가 조건 &gt; 키 스트림 = 플레인 텍스트원타임 패드의 조건 = 일회용… + 완벽한 랜덤 … 퍼펙트 시큐리티라는게 도달하기 힘든 뉴스 &gt; 활용성 저하Rail fenceTranspositionRotor Machine : 현대 컴퓨터로 넘어가기 전에 쓰인 가장 대표적이고 독특한 암호- The Enigma machine : Consists of multiple (3) cylinders &gt; 26^3 = 17,576 substitutionsSymmetric Cryptographyplaintext - original messageciphertext - coded message cipher - algorithm for transforming plaintext to ciphertext 알고리즘 자체key - info used in cipher known only to sender/receiver 암복호화 할 때encipher (encrypt) - converting plaintext to ciphertext 플 &gt; 암decipher (decrypt) - recovering ciphertext from plaintext cryptography - study of encryption principles/methods 암호학cryptanalysis (codebreaking) - study of principles/ methods of deciphering ciphertext without knowing keycryptology - field of both cryptography and cryptanalysisSymmetric Cipher Model대칭 : 가운데를 기준으로 잘라 봤을 때 키가 똑같음.대칭 : 키 두개가 대칭이다 &gt; 암호화 할 때랑, 복화하할 때랑K의 키가 같으면 대칭키라고 함. 원래 당연시 여겨졌는데, 이게 꼭 두개가 같을 필요가 없다는 말이 생기고는 다양한 기술이 나옴Requirements  two requirements for secure use of symmetric encryption:  a strong encryption algorithm  a secret key known only to sender / receiver mathematically have:Y = E(K, X)X = D(K, Y)- assume encryption algorithm is known implies a secure channel to distribute keyCryptographyNumber of keys 1. Single Key 2. Two Key ( Private and Public )싱글키 : 우리가 알고있는 대칭키암호, 암호화 복호화가 같아서 하나만 쓰이는 것.더블키 : 퍼블릭 크립토지만, 암복호화 키가 다름. 이걸로만 암호화하면 이걸로만 복호화할 수 있고…요즘 디지털서명, 공인인증서에 사용됨Plain text processing 1. Block 2. Stream블럭 : 하나의 묶음 일종의 양동이. 대부분이 블럭 암호화. 용도 : 고정된 데이터 ( 하드디스크, 영화파일, 이메일 _) - 실시간성에서는 안 좋음. 딜레이 발생스트림 : 흘러가는 것. 단순하지만 블럭 암호가 발전되어 있고 대중화되어 있음. ( 넷플릭스, 실시간 주고받는 경우 실시간으로 데이터가 생길 때마다 암호화 해야 함. )Cryptanalysis- objective to recover key not just message- general approaches: 1. cryptanalytic attack 2. brute-force attackHow secure?Perfectly secure - Unconditionally secureComputationally secure - 비용자체가 (시간 돈 등) 정보 자체의 가치보다 암호문깨는 비용이 더 듦  The cost of breaking the cipher exceeds the value of information  The time required to break the cipher exceeds the lifetime of informationBrute Force Search ( Or brute force attack )  always possible to simply try every key  most basic attack, proportional to key size ( 상대적인 경우 )  assume either know / recognise plaintextFeistel Cipher Structure&gt; based on concept of invertible product cipher  partitions input block into two halves  process through multiple rounds which perform a substitution on left data halfbased on round function of right half &amp; subkey then have permutation swapping halvesblock size: 128 bitskey size: 128 bitsnumber of rounds: 16 subkey generation algorithmRound function fast software en/decryption장점 : 암호문 생성 이후 복호화 할 때 거꾸로 하면 됨.&gt; 구조는 똑같이 사용하면서 키만 거꾸로 넣으면 됨.F(k, R)만 복잡하게 만들면 됨. 서브키를 16개 만듦 F박스 함수를 지저분하게 만들면 됨Symmetric Block Cipher Algorithms - 이름 / 특성 / 나오게 된 이유  DES (Data Encryption Standard) - 미국 니스트 (표준평가원 등) adopted in 1977 by NBS (now NIST) as FIPS PUB 46encrypts 64-bit data using 56-bit key대부분의 암호들이 블럭을 64로 하면 키도 64로 하는데 des 는 56을 사용함has widespread use / considerable controversy over its security 1) Feistel cipher structure 2) 56-bit key3) Block cipher4) 16 rounds 5) S-Box for non-linearity &gt; 완전하게 만드는 방법 &gt; 키 사이즈 늘리기 … 트리플 des 나옴      3DES (Triple DES) &gt; 트리플은 중간에 암호화 복호화를 한 번 거침공학적 해결 방법 : 암호화를 세 번 하는데 중간에 복호화를 함. 일반적으로 암호기법을 칩에다 만들어 침으로 가는 경우가 많음. 그래서 회로로 넣어놓음. 가끔가다가 des를 쓰고싶을 때 키 값을 같은 걸로 줌 &gt; 트리플 디를 쓴 것 처럼 세 번 커짐. 회로를 두 개를 만드느니.. 하나만 만들어서 비용절감을 이룸        AES (Advanced Encryption Standard) - 가장 많이 쓰임 has 128/192/256 bit keys, 128 bit data &gt; an iterative rather than feistel cipher : processes data as block of 4 columns of 4 bytes operates on entire data block in every round 키 사이즈가 여러가지 &gt; 라운드를 16번 돌면 128, 16+8이면 192… 사용자가 원하는 만큼 … 모든 데이터가 256비트가 필요한 건 아니기 때문에. 무조건 안전하게 만드는 게 아니라 계산적 안정을 줌    Designed to be …-1 resistant against known attack-2 speed and code compactness on many CPUs-3 design simplicityinitial XOR key material &amp; incomplete last round with fast XOR &amp; table lookup implementation  구조는 똑같고 돌 때마다 새로운 키가 있어서 변화를 많이 시킴. 페이스탈처럼 단순하지는 않지만 여러번 돌리는 구조는 같음. 라운드를 많이 돌리고 그 때마다 새로운 키를 넣고… 많이 시도하면서 계속 어그러트려서 암호를 만듦. 많이 어그러트리려면 키 사이즈가 늘어나야하고…브루텔 기법을 더이상 사용할 수 없음.암호화를 해야한다고 하면 거의 256으로 함. CPU에 보통 이제 박혀있음 너무 많이 쓰기 때문에]]></content>
+      <categories>
+        
+          <category> Computer_Security </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> cryptography </tag>
+        
+          <tag> security </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Modern Cryptography]]></title>
+      <url>/computer_security/2020/01/02/Modern-cryptography/</url>
+      <content type="text"><![CDATA[현대 암호 : 컴퓨터가 암호화하고, 데이터가 2진수이며 이것이 암호화 된다Public-key Cryptography  probably most significant advance in the 3000 year history of cryptography  uses two keys – a public &amp; a private key  asymmetric since parties are not equal  uses clever application of number theoretic concepts to function  complements rather than replaces private key crypto2개의 키, 암호화 할 때 대칭암호 씨멘틱 암호였는데, 이것은 암호키가 2개. 동시에 생겨남.완벽하게 페어, 맞물림. 다른 페어가 존재할 수 없음&gt; 한꺼번에 만들어지기 때문에. 두 개의 키가 특이하게 하나로 암호화, 복호화가 가능. ?가장 중요한 특성!! 동시생성, 하나로 암호화 하면 하나로만 복호화가 가능함이게 가능해진 후로 할 수 있는 일이 많아짐 : 두 개가 생겨서 나누면? 두 개를 다 갖고 있을 필요가 없음.특징 중 하나가 a를 갖고 a’를 유추할 수 없음 짐작 불가능. 키를 내놓으면 모든사람에게 보여주고 알려주기 때문에 공개키라고 부름. 그래서 퍼블릭! 나머지 하나는 공개하지 않고 소장 &gt; 개인, 비밀키비밀키는 보통 개인키라고 부름. 공개와 개인키가 있는데, 공개키는 모두가 알고 개인키는 나만 앎. 공개키로 암호화를 해서 암호화 한다. 이 암호화 된 건. a’만 풀 수 있음. 퍼블릭키로 암호화 해서 보내기만 하면 a’만 볼 수 있기 때문에 더욱 쉬어짐key distribution – how to have secure communications in general without having to trust a KDC with your keydigital signatures – how to verify a message comes intact from the claimed sender :&gt; 프라이빗 키의 암호화            플레인 텍스트 암호화 (상대방 키를 알고 있다는 의미에서 ) 밥이 앨리스한테 보내는데, 앨리스의 퍼블릭 키로 보냄 &gt; 표기할 때는 y = E(k, x) » X = D(k, y)             k가 같으니까 대칭키      앨리스한테 보낼 때 Y = 아무나 알고 있음 E(PUa, x) » X = D(PRa, Y) - 앨리스만 알고 있음a public-key, which may be known by anybody, and can be used to encrypt messages, and verify signaturesa related private-key, known only to the recipient, used to decrypt messages, and sign ( create ) signatures&gt; those who encrypt messages or verify signatures cannot decrypt messages or create signatures모든 사람은 내가 공개한 공개키를 보고 나에게 보내면 됨.!! 인터넷은 암호화통신을 해야하는데, 몇 억명 유저 키를 관리할 수는 없음. 이런 문제를 해결함. 거꾸로 공개키로 암호화하면 내가 안전히 받을 수 있음. 개인키로 암호화하면 퍼블릭 키로 풀 수 있음 &gt; 개인키를 암호화하면 공개키가 있는 아무나가 풀 수 있음. 모두 풀어볼 수 있음.대신 이 것은 개인키로는 나만 암호화 할 수 있기에 받은 사람 입장에서는 공개키로 풀 수 있기 때문에 … ? 이 메세지는 확실한 개인키 (수신인)를 나타내는 효과가 있다 » 디지털 서명!?!? 신뢰?신경써야 하는 것 &gt; 공개키가 있는데,,, 내 건지 어떻게 아는지? 공개키를 무언가 뒤집어 씌울 수도 있는데?&gt; 누군가 이게 나의 공개키인지 확인을 해주어야 하는데,, 공개키마다 믿을 수 있는 사람을 확인해주자 해서제3자.. 확인을 해줌. 공인인증서….내 퍼블릭 키가 인증을 공공적으로 확인을 받음 국민은행이 이것을 보증합니다 해서 누구한테 들이밀어도 공개키를 뒤져봐도 신뢰 가능퍼블릭키 문제점 : 느림,, 보통 대칭키보다 1000배 느리고 연산량과 전기가 많이 듦. 좋긴 한데 많이 쓰면 안 좋음데이터 자체 암호화가 아니라,, AES, DES (빠르고 효율적이고 안전, 키를 따로따로가 문제) 키를 랜덤으로 만든다음 키만 퍼블릭키로 암호화 해서 보내면 상대방은 안전하게 받을 수 있음. 만들어서 주었기 때문에 둘만 알 고 있음 &gt; AES, DES 로 풀면 됨 !! 연산이 많아도 상관은 없음 : 데이터 양이 많으면 무조건 대칭키!!키 분배 과정은 처음에 AES, DES로 암호화 해야하기 대문에 필요함RSA - 수학적 특성 사용- to encrypt a message M the sender: obtains public key of recipient PU={e,n}computes: C = Me mod n, where 0≤M&lt;n- to decrypt the ciphertext C the owner: uses their private key PR={d,n}computes: M = Cd mod nnote that the message M must be smaller than the modulus n (block if needed)publish their public encryption key: PU={e,n} keep secret private decryption key: PR={d,n}안정성이 보장되는 이유 : 소인수분해가 거의 불가능하기 때문에 유추 불가능암호화 : 메세지이긴 하지만 2진수인 알파벳 한 개 (ex, M) 에 e승을 하고 mod n 를 곱함 = C » 암호문복호화 &gt; C^d * mod n== (M^e) d = M^ed mod n프라이빗 키로 먼저 암호화 했을 때 (M^d)e == M^de mod n == M^@(n)+1 mod n = M* RSA ExampleSelect primes: p=17 &amp; q=11Calculate n = pq =17 x 11=187Calculate ø(n)=(p–1)(q-1)=16x10=160Select e: gcd(e,160)=1; choose e=7Determine d: de=1 mod 160 and d &lt; 160 Value is d=23 since 23x7=161= 10x160+1Publish public key PU={7,187}Keep secret private key PR={23,187} a&gt; asample RSA encryption/decryption is:given message M = 88 (nb. 88&lt;187)encryption: C = 887 mod 187 = 11decryption: M = 1123 mod 187 = 88Diffie-Hellman Key Exchange  First public-key type scheme proposed / practical method for public exchange of a secret key      used in a number of commercial products  a public-key distribution scheme  cannot be used to exchange an arbitrary messagerather it can establish a common keyknown only to the two participantsvalue of key depends on the participants (and their private and public key information)- based on exponentiation in a finite (Galois) field (modulo a prime or a polynomial) - easy- security relies on the difficulty of computing discrete logarithms (similar to factoring) – hard all users agree on global parameters:large prime integer or polynomial qa being a primitive root mod q •each user (eg. A) generates their keychooses a secret key (number): X &lt; qcompute their public key: YA = a^xa mod qeach user makes public that key Ya            Alice      Bob                  G      G              Xa      Xb              g^Xa mod n      g^Xb mod n              (g^Xb)^Xa      (g^Xa)^Xb      shared session key for users A &amp; B is KAB:&gt; if Alice and Bob subsequently communicate, they will have the same key as before, unless they choose new public - keyMan-in-the-Middle Attack공격에 취약함 : 중간자 공격앨리스랑 밥 사이에 서있음. 중간에서 통신을 끊음 &gt; 중간자만의 Xc를 만들어서 앨리스의 g^Xa를 끊고, 나의 g^Xc를 보냄, 반대도 마찬가지            결과는 (g^Xc)^Xa      (g^Xc)^Xb가 되기 때문에 중간에 낀 사람은 양쪽 모두와 통신을 할 수 있지만 서로는 전혀 모름.      일반적으로는 몇 가지 기능을 넣어서 서로를 확인할 수 있게 함퍼블릭 키 : 키 익스체인지 - 동등한 정보를 나눠가질 때 &gt; 맨인더미들 어택이랑 연결됨Digital Signature E(PrivateR, H)have looked at message authentication &gt; but does not address issues of lack of trustdigital signatures provide the ability to:- verify author, date &amp; time of signature- authenticate message contents- be verified by third parties to resolve disputeshence include authentication function with additional capabilities]]></content>
+      <categories>
+        
+          <category> Computer_Security </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> cryptography </tag>
+        
+          <tag> security </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Security Requirements, Attacks and Model for network security]]></title>
+      <url>/computer_security/2020/01/02/Model-for-network-security/</url>
+      <content type="text"><![CDATA[Security Requirements TriadCONFIDENTIALLITY : Preserving authorized restrictions on information access and disclosure, including means for protecting personal privacy and proprietary information. &gt; 기밀성 - 무언가를 보이고 싶지 않을 때 (가장 대표적인 형태)INTEGRITY : Guarding against information modifications or destruction, including ensuring information non-repudiation and authenticity&gt; 무결성 - 정보가 허가없이 변경이 되지 않았다는 것.e.g ) 10만원을 송금할 때 누군가 100만원으로 고칠 수 없음 &gt; 무결성이 깨짐**AVALIABILITY** :Ensuring timely and reliable access to and use of information &gt; 가용성 - 사용자가 사용하려할 때 사용할 수 있는가?e.g ) 수강신청, 등의 서버 다운 &gt; 해당 서비스를 받지 못하는 상황== 아무리 보안이 지켜지더라도 사용하지 못하면 의미 없음3가지가 모두 지켜져야 하는 건 아니고 용도에 따라 달라짐. 공고를 냈을 때는 무결성 가용성만,,,Security attacks, mechanisms &amp; services\1. Security Attack  - Any action that compromises the security of information\2. Security Mechanism- A process / device that is designed to detect, prevent or Security Service recover from a security attack.\3. Security Service- A service intended to counter security attacks, typically by implementing one or more mechanisms.Passive attacks \1. 릴리즈 - 내가 공격을 수행하지만 참여하지 않음.공격이 수행되고 있지만 특별히 가담하고 있는 것은 아님.내가 중간에서 끼어들지 않는 것.대표적인 것 : 도청… 바비 앨리스 통신 중 중간에서 내용을 읽음 - 도청은 중간에 가로막거나 끊지 않음&gt; 패시브 어택 가장 대표적 형태\2. 교통량, 통화량 분석 - 트래픽 애널리시스 :교통량이 얼마나 되느냐를 분석. 통신 중 내용을 읽을 수 있으면도청, but 통신이 진행중이라는 것, 양을 분석하는 것. !!트래픽은 일반적으로 암호화가 되어 있어서 내용은 모르지만지나가는 데이터의 용량을 보고 언어정도는 분석ex ) 예전에 911 이후에 아프가니스탄 침공할 때… 침공할까 날짜기 궁금했는데 미국방부 앞에 앉아서 지나가는 피자 트럭의 갯수를 셈.저녁에 피자 트럭이.. 갑자기 피자 트럭이 60~70대로 늘어난다면 ? 그만큼 많은 사람들의 야근 &gt; 무언가 할 일이 있다는 의미….. »&gt; 트래픽 아날 .. 간접적으로라도 분석이 가능Active attacks\1. 매스커레이드 :: 타인인 척 하는 것\2. 리플레이 어택 :: 리플레이 ! 재시작 &gt; 한 번 메세지가 가면, 중간자가 갖고 있다가 다시발신자에게 보냄; 전통적으로 문제가 되고 잘 통하는 공격. // 밥이 앨리스한테 만 원을 보낸다, 메세지를 중간에 갖고있다가 그 메세지를 10분 후에 또 보내고 또 보내고…그럼 밥이 앨리스한테 계속 보내는 셈이 됨. 밥이 앨리스한테 보내는 메세지를 그대로 가져왔기 때문에 서명, 비밀 정보를 그대로 갖고 있음. 완벽히 정리된 정확한 정보임.인증받을 수 있는 정보 함양 &gt; 다시 보내니까 받는 입장에서는 구분 불가 &gt;&gt; 막을 수 있는 방법. \1. 시간을 적어 놓음 (서버 시간을 조정으로 혼란 가중)\2. 보내는 메세지마다 순서를 매긴다.\3. 모디피케이션 - 메세지를 받아서 변경하는 것 \4. 가용성 - 내가 사용하고 싶을 때 쓰는 것.:: 가용성 공격 - 서비스 거부 공격**::(Denial Of Service) 도스 공격이라고 부름&gt; 분산해서 공격하면 디도스    (Distributed Dinial Of Service)요즘은 양이 많아지는 추세막을 수 있는 방법 » 막기가 힘듦. 가게가 문을 열었는데 손님을 받긴 받았는데 저쪽에서 가짜 요청을 막 보냈는데 진짜와 가짜 요청을 구분해 내기가 힘듦.Model for network security인포메이션 채널 (인터넷) , 어포넌트 (변조, 날조 등 채널)메세지에 무언가 변화를 주어 메세지를 암호화 해서 보낸다. 씨크릿 인포메이션 : 암호화시 쓰는 키 - 무언가 변조를 하는데 서로 알고 있는 걸로 변화를 줌 &gt; 안전한 메세지로 변경. »특이한 것 : 써드 파티 제3자 - 신뢰할 수 있는 제3자의 도움을 받을 수 있음. 제3자를 통해 수발신자가 통신할 수 있음. 씨크릿 인포메이션에 무얼 집어넣느냐에 따라 달라짐.. 트리플 DES… 신뢰할 수 있는 제3자가 비밀]]></content>
+      <categories>
+        
+          <category> Computer_Security </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> cryptography </tag>
+        
+          <tag> security </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[머신러닝을 위한 Python 02]]></title>
+      <url>/python/2020/01/02/edwith-python-for-ML/</url>
+      <content type="text"><![CDATA[News Categorisitaion숫자를 벡터로 좌표평면상에 올릴 수 있도록 바꾸어주어야 함.파이썬으로 얘기하면 lmn 이 많은 벡터를 만들고 벡터끼리의 거리를 만들면 됨.문자 &gt; 숫자 &gt; VectorOne hot Encoding (Bag of Words) 기본적 문서에 대한 벡터 표현하나의 단어를 벡터로 인식하기 위해서는 벡터 스페이스를 만듦벡터 스페이스 : 각 글자들이 어떤 인덱스에 포함되는지 정의한 공간단어별로 인덱스를 부여해 문장에 단어가 몇 개인지 표현유사성 판별Euclidian distance피타고라스 정리, 두 점 사이의 직선 거리cosine distance두 점 사이의 각도, 데이터셋이 클 수록 잘 나오는 경향 존재더 많이 사용됨파이썬 폴더끼리 연결 :os.path.join &gt; 윈도우즈는 역슬래쉬, 리눅스나 맥은 슬래쉬라서 … 오에스에 맞추어 조인을 해줌os.sep &gt; os에 따른 구분 기호 (\, /)corpus = 텍스트 워드로 인덱스를 만들어 줌 / 문서의 수 * 단어의 수 = 총 매트릭스의 크기하나의 문서에 대한 벡터값 단어 수와 같음.47라인 : 텍스트에서 단어를 뽑고, 단어를 전처리와 똑같은 방식으로 get_cleaned_text함수를 적용 : corpus 딕트 안에 키값을 사용해 이 값의 인덱스를 가져오는 것 == 전처리 방식이 동일해야 함. &gt; corpus[get_cleaned_text(word)] turned to number // 결과값 : 3509 - 첫 번째 문서의 첫 번째 단어가 corpus dict 에 있는 3509 인덱스 값의 문자라는 뜻word_number_list = [[corpus[get_cleaned_text(word)] for word in words] for words in text]48라인 : 매트릭스 생성.[[0 for _ in range(len(corpus))] for x in range(len(text))]0을 text의 길이 (=80)에 corpus의 길이 (4032)만큼 2차원 배열로 생성for의 _(언더바) &gt; 사용하지 않겠다는 의미X_vector = [[0 for _ in range(len(corpus))] for x in range(len(text))]*50 ~ 53 line 이후 미리 만들었던 word number list (3509,,, 등등)에서 각각의 인덱스에 해당하는 값들을 1씩 올려주면 됨 **    for i, text in enumerate(word_number_list):        for word_number in text:            X_vector[i][word_number] += 1    return X_vector전체 corpus 인덱스 번호 별로 어떤 단어가 몇 개 있는지 리스트 형태로 확인 가능비교방법import mathdef get_cosine_similarity(v1,v2):    "compute cosine similarity of v1 to v2: (v1 dot v2)/{||v1||*||v2||)"    sumxx, sumxy, sumyy = 0, 0, 0    for i in range(len(v1)):        x = v1[i]; y = v2[i]        sumxx += x*x        sumyy += y*y        sumxy += x*y    return sumxy/math.sqrt(sumxx*sumyy)첫 번째 문서와 두 번째 문서의 유사도를 보여줌비교 결과def get_similarity_score(X_vector, source):    source_vector = X_vector[source]    similarity_list = []    for target_vector in X_vector:        similarity_list.append(            get_cosine_similarity(source_vector, target_vector))    return similarity_listdef get_top_n_similarity_news(similarity_score, n):    import operator    x = {i:v for i, v in enumerate(similarity_score)}    sorted_x = sorted(x.items(), key=operator.itemgetter(1))    return list(reversed(sorted_x))[1:n+1]source : 찾고자 하는 문서similarity_score : 80개의 문서들이 비교 대상 문서와 얼마나 비슷한지 값이 저장됨. (0.6441510… )similarity_list : 1 개의 문서와 80개의 문서를 비교한 후에 저장되었음각 문서 번호들마다 얼마나 근접한지 값을 보여줄 것임.get_top_n_similarity_news  : 키값으로 정렬해서 밸류값 중 가장 큰 값의 인덱스 값을 같이 반환해주는 함 / 가장 유사한 값 10개]]></content>
+      <categories>
+        
+          <category> Python </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> ML </tag>
+        
+          <tag> Python </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Linux Command Line Tools - 텍스트 처리]]></title>
+      <url>/linux/2019/12/30/LinuxCommandTools_1/</url>
+      <content type="text"><![CDATA[head문서 내용 앞 부분 출력파라미터를 주지 않으면 앞 10줄 출력자주 사용되는 옵션  -c, –bytes  # num byte만 출력  -n, –lines  # num line 만 출력e.g.  head ‘file.type’  head -n ‘num’ ‘file.type’                              cat ‘file.type’          head -n ‘num’                    tail문서 내용 뒷 부분 출력파라미터를 주지 않으면 끝 10줄 출력자주 사용되는 옵션  -c, –bytes = [+]NUM # print num byte  -n, –lines = [+]NUM # print num line                              -f, –follow[={name          desc}] # 추가되는 내용 대기하다가, 추가 내용은 append 후 출력                      -F # truncate &gt; Re-Open &gt; Follow ( using log rotate file )) # 파일이 지워졌다가 생겨도 따라감e.g.      +5 = 5번째 줄 부터 끝까지 출력    tail -n ‘num’ ‘file.type’ # 뒤에서 ‘num’번째 줄 출력                              cat ‘file.type’          tail -n ‘num’ # 상동                    WC (Word Count)line/word/byte count 출력라인의 수가 특정 목적을 가진 정보 수가 되는 경우자주 사용되는 옵션  -l # 라인수만 출력e.g.  wc ‘file.type’ == wc -clmw ‘file.type’  # line	word	byte count	‘file.type’  wc *.py # 폴더 내 py파일 모두 확인  wc -l ‘file.type’ # line 수                              wc -l ‘file.type’          awk ‘{print $1}’                    nl파일 내용을 라인 넘버와 함께 출력코드 첨부 후 설명할 때 유용함 ?자주 사용되는 옵션  -ba # 모든 라인 넘버링  -v N # 시작 라인 넘버를 N으로 지정  -s # 라인 넘버 출력 후 출력할 separator 지정e.g.                              nl ‘file.type’ == cat ‘file.type’          nl                      nl -ba ‘file.type’  nl -ba -s “:\t” ‘file.type’sort맥은 모르겠다파일 내용 정렬 후 출력자주 사용되는 옵션  위치 지정          -k, –key=KEYDEF # key에 의한 정렬, 어떤 컬럼을 기준으로 정렬할 건지 /                  숫자 한 개만 작성하면 그 부분부터 끝까지          한 개의 열만 하려면 쉼표로 구분해 같은 숫자 넣어주기          n 번째 우선순위 지정 &gt; -k 5,5 -k 2,2                                                                      e.g. ls -al                  sort -k 5 -n                                                                        -t, –field-separator # 필드 구분자 (기본값 = 공백), 하나의 기준으로 컬럼을 나누어줌        정렬 기준 (sort ‘file’ -x)          -f, –ignore-case      -g, –general-numeric-sort      -n, –numeric-sort # 123보다 91이 먼저 나오게 됨      -r, –reverse # 내림차순 정렬      -u, –unique # 중복 삭제        옵션          –debug #어디 기준으로 정렬했는지 가시화      e.g.                              cat ‘file.type’          sort                                                  cat ‘file..type’          sort -t’구분자’ -k ‘정렬키-행’ -n                                                  cat ‘file..type’          sort -t’구분자’ -k ‘정렬키-행’ -n -debug                    uniq중복 내용 제거 후 출력연달아 중복인 부분만 삭제 » sort 명령어랑 같이 사용자주 사용되는 옵션  -d, –repeated # 중복된 내용만 출력  -u, –unique # 중복되지 않은 내용만 출력  -i, –ignore-case # 대소문자 무시e.g.                              cat ‘file.type’          uniq          nl -ba # 중복된 내용만 코드 번호를 붙여서 출력                                                  sort ‘file.type’          uniq          nl -ba                                                  grep “search” file          awk -F: ‘‘{print $1}’          uniq                    cut컬럼 잘라내기자주 사용되는 옵션  -b, –bytes=LIST # byte 선택  -c, –characters=LIST # character 선택  -f, –fields=LIST # 필드(컬럼) 선택  -d, –delimiter=DELIM # tab 대신 사용할 구분자 지정탭이 아닌 다른 구분자로 지정되어있는 경우 반드시 입력  –complement # 선택 반전  –output-delimiter=STRING # 출력시 사용할 구분자 지정e.g.                              head ‘file.type’          cut -d: -f 1, 7 –output-delimiter=”&gt;” # 딜리미터 변경                                                  ls -al          head          cut -b 1 #각 줄의 첫 글자만 나옴                                                  ls -al          head          cut -b 2-4 # rwx.. 등 권한을 볼 수 있음                                                  ls -al          head          cut -b -10 # 처음부터 10바이트까지                                                  ls -al          head          cut -b 11- # 11부터 끝 바이트까지                    tr (translate)내용 변환문서 특수 캐릭터 삭제 시에 자주 사용tr [OPTION] … SET 1 [SET 2]자주 사용되는 옵션  -c, -C, –complement  -d, –delete  SET          CHAR1 - CHAR2 # char1부터 char2까지 (a to z)      [:alnum:] # 문자 + 숫자      [:alpha:] # 문자      [:blank:] # 공백      [:space:] # 공백 + newline      [:digit:] / [:xdigit:] # 10진수 숫자 / 16진수 숫자      [:lower:] / [:upper:]      e.g.  tr -d SET1 # set1에 맞는 부분 삭제 후 지워지지 않는 것들 출력                              cat ‘file.type’          tr ‘:’ ‘%’                                                  head ‘file.type’          tr [:lower:] [:upper:] # 출력될 모든 소문자를 대문자로 변경                    sedstream editor파일 내용을 출력 전에 옵션대로 편집 후 출력자주 사용되는 옵션  {RANGE}p # range 내 라인 출력  {RANGE}d # range 내 라인 삭제  /SEARCHPATTERN/p # SEARCHPATTERN과 매치되는 라인 출력  /SEARCHPATTERN/d # SEARCHPATTERN과 매치되는 라인 삭제  s/REGEX/REPLACE # REGEX 매치 부분을 REPLACE로 교체 -substitute  -n # 기본 출력 부분 제외 - 보통 print 시 많이 사용  ’/,+num p’  # 상대적으로 몇 번째 줄까지 출력 할 건지e.g.                              head ‘file.type’          sed ‘2,5p’ # head 부분 출력 + 라인 사이에 sed 옵션이 들어가게 됨                                                  head ‘file.type’          sed -n ‘2,5p’ # 기본 출력 부분 제외                                                  head ‘file.type’          sed ‘1,5d’                                                  cat ‘file.type’          sed -n ‘/kwarg/p’                                                  cat ‘file.type’          sed ‘s/:/$/g’ # g 옵션 : 한 라인에 매치되는 모든 부분을 변경                                                  cat ‘file.type’          sed -n ‘/kwarg/,10p’ # 검색 문자에서 10번째까지 출력                                                  cat ‘file.type’          sed -n ‘/kwarg/,+2p’ # 검색 문자부터 2번째 줄을 더 출력                    awk유틸리티라기 보다는 텍스트 처리 script languagesyntax : awk options ‘selection _criteria {action }’ input-file파일 내용을 처리하는 거기에 input_file 이 필요하지만, 파이프를 통해 호출하는 경우는 input_file 없음자주 사용되는 옵션  -F # Field separator 지정주요 내장 변수  $1, $2, $3 # Nth field. wc할 때 awk field separator를 공백으로 해서 $1, $2…  NR # number of records  NF # number of fields  FS # field separator (default ‘white space’)  RS # record separator (default ‘new line’)  OFS # Output Field Separator  ORS # Output Record Separatore.g.                              wc ‘file.type’          awk ‘{print $1}’ # 첫 번째 부분 출력                                                  head ‘file.type’          awk -Fs ‘{print $1}’                                                  head ‘file.type’          awk -Fs ‘/kwarg/ {print}’ # 검색 후 라인 전체 출력                                                  head ‘file.type’          awk -Fs ‘/kwarg/ {print NR, $1 }’  # 검색 인자가 몇 번째 라인인지 출력                                                  head ‘file.type’          awk -Fs ‘{print NR “==&gt;” $1 }’                                                  head ‘file.type’          awk -Fs ‘{print NR “==&gt;” $1, NF }’ # 필드가 몇 개인지 알려줌, 언어라서 loop 도 돌 수 있음.                    사담우분투 영상에서 ls -al | sort -k 5 는 숫자로 인식하지 않아서 -n을 붙여줘야 했는데, 맥은 아닌가보다…]]></content>
+      <categories>
+        
+          <category> Linux </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> CLI </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[머신러닝을 위한 Python 01]]></title>
+      <url>/python/2019/12/24/python-for-ml/</url>
+      <content type="text"><![CDATA[1) Pythonic Code  파이썬 스타일의 코딩 기법  파이썬 특유 문법을 활용해 효율적 코드 표현  고급 코드를 작성할 수록 더 많이 요구됨Split &amp; JoinSplit: String Type 의 값을 나누어 List 형태로 반환.split()  괄호 안 기준으로 문자열을 나눔Join: String List 를 합쳐 하나의 String으로 반환할 때 사용''.join(var)List Comprehension  기존 List를 사용해 간단히 다른 List를 만드는 기법  포함되는, 포괄적인 List 라는 의미로 사용  파이썬에서 가장 많이 사용되는 기법 중 하나  for + append 보다 빠른 속도One Dimentional[i+j for i in case_1 for j in case_2]Two Dimentional[[i+j for i in case_1] for j in case_2]Enumerate &amp; ZipEnumerate: List element 추출 시 번호를 붙여 반환enumerate(var)Zip: 두 개의 list 값을 병렬 추출for i, (a, b) in enumerate(zip(list_a, list_b))Lambda &amp; MapReduceLambda: 함수 이름 없이 함수처럼 사용할 수 있는 익명함수, python3 부터 권장하지는 않으나 여전히 많이 쓰임f = lambda x, y: x + yMap Function: Sequence 자료형 각 element에 동일한 function을 적용  if filter 사용 가능  두 개 이상의 list 에도 적용 가능  python3 부터 iteration 생성 시 list를 붙여주어야 list 사용 가능  실행시점의 값을 생성, 메모리 효율적ex = [1,2,3,4,5]f = lambda x: x ** 2 print(list(map(f, ex)))print(list(map(f, ex)))Reduce Function: map과 달리 list에 똑같은 함수를 적용해서 통합from functools import reduceAsterisk *: 단순 곱셈, 제곱 연산, 가변 인자 활용 등 다양하게 사용됨unpacking a container  tuple, dict 등 자료형 내부 값을 unpacking  합수 입력값, zip 등을 유용하게 사용 가능Collections: List, Tuple, Dict에 대한 Python Built-in 확장 자료 구조(모듈)deque  Stack과 Queue를 지원하는 모듈  List에 비해 효율적인 자료 저장 방식from collections import deque#1deque_list = deque()for i in range(5):    deque_list.append(i)#2deque_list.appendleft(10)  rotate, reverse 등 Linked List의 특정을 지원  기존 list 형태 함수 모두 지원deque_list.rotate(2)deque_list.extend([5, 6, 7])print(deque(reversed(deque_list)))  기존 list보다 효율적인 자료구조 제공  효율적 메모리 구조로 처리 속도 향상Ordered Dict  데이터를 입력한 순서대로 dict를 반환  dict type의 값을, value 또는 key 값으로 정렬할 때 사용 가능for k, v in OrderedDict(sorted(d.items(), key=lambda t: t[0])).items():default Dict  dict type의 값에 기본 값을 지정해 신규값 생성 시 사용하는 방법from collections import defaultdictd = defaultdict(object) # Default Dict 생성d = defaultdict(lambda: 0) # default값 == 0      하나의 지문에 각 단어가 몇 개나 있는지 세고 싶을 경우 ?        Text-mining 접근법 - Vector Space Model  from collections import OrderedDictword_count = defaultdict(object) # Default dictionary를 생성word_count = defaultdict(lambda: 0) # Default 값을 0으로 설정for word in text:  word_count[word] += 1for i, v in OrderedDict(sorted(word_count.items(), key=lambda t: t[1],reverse=True)).items():    print(i, v)Counter: Sequence Type의 data element 의 갯수를 dict 형태로 반환  Dict type, keyword parameter 등도 모두 처리 가능from collections import Counterc = Counter()c = Counter('gallahad') # 각 알파벳이 몇 번 들어가있는지 확인c = Counter({'red' : 4, 'blue':2})c = Counter(reds=4, blue=2)  set 연산 지원c = Counter(a=4, b=2)d = Counter(a=1, b=2)c.subtract(d) # c - dprint(c + d)print(c &amp; d)print(c | d)  word counter 기능 제공named tuple  tuple 형태로 data 구조체를 저장하는 방법  저장되는 data variable을 사전에 지정해서 저장]]></content>
+      <categories>
+        
+          <category> Python </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> python </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[1] Git Study]]></title>
+      <url>/git/2019/12/18/1-Git-Study/</url>
+      <content type="text"><![CDATA[Git  가장 대중적인 코드 관리 도구  목적 : 이력관리 (버전관리)  특징 : ‘분산’ 버전관리Git Settinggit config --global user.name "name"git config --global user.email "email"git init # After make a folderGit Statusgit statusgit add 'file.type'git commit 'file.type' -m "Your Message"# git commit -m "Your Message" when you need all file commitsStaged File : Files requiring constant observation Commited File : Save current condition in Git Repo  git status  Version Control, Source Code Management  When appears ‘Untracked file’. It means Git doesn’t know that file  git add  1st alert ‘Changes to be commit’. It means Your file is in Staged Area  2nd alert ‘Changes not staged for commit’. It means You’ve got modified file on Tracked file, But not in Staged Area (Not Staged condition)  git commit  Source Control is Available since data was committed in Git Repository  Enter when you want to SAVEGit ignoregit mv file.rft file.gitignoreWhen you’ve got files you want to ignore, make a txt file and change file extention .rtf(.txt etc) to .gittgnore.Git log - 기록press ‘q’ when escapecommit a4d380ce1cf6e8866f0f1d07cfaa804083476e0cAuthor: Name &lt;your@email.com&gt;Date:   Wed Dec 11 100:00:00 2019 +0000commit : Hash Code of your file Author : Author name &lt;Author’s email&gt; Date : Committed dategit log’s 4 command linegit log --statusgit log --pretty=onelinegit log --pretty=format : "%h - %an, %ar : %s"git log --pretty=format : "%h - %an, %ar : %s" --graphGit checkoutNot a recommanded way git checkout 'hash[:6]' Keep returning purpose in mindBranchgit branch # Expected Result with green font colour : * mastergit branch 'name'git checkout 'name' # Expectewhen you checking out to master, files you made with another branch name will disappearMergegit merge name # branch name in the master branchgitk - History with graphgitkPushgit push -u origin master Branch called master push to Remote server called originRemoteCreate New Repository on terminal line git remote add origin https://www.github.com/~/~ remote Total command line of remote repository add Plus origin the name, the first https://~ same as HTMLRemote Command Linegit remote #Expected Result : origin git remote -v git remote add origin git remote add name git remote rm name # DeleteCommit in Git Remote servergit add namegit commit name -m "Message"git push origin masterRemote server to Local  Clone - Get everything  Pull - Merge same branch  Fetch - Only get changed things(1) Fork &amp; Pull RequestFork🍴 - 타인의 Repo를 나의 github repo로 옮김 Pull Request - Fork로 가져온 타인의 코드 수정 후 반영을 요청함git pull address master # Easiest waygit fetch origin master # bring Latest version &amp; can get another branchgit merget origin master(2) Permissionpermission Setting : 작업 권한을 공동 작업자에게 위임 github 내 setting 에서 추가유튜브 Git - Teamlab 강의]]></content>
+      <categories>
+        
+          <category> Git </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> git </tag>
+        
+          <tag> study </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[Error] os.rename() No such file or directory 오류]]></title>
+      <url>/python/2019/12/17/os.rename()-%EC%97%90%EB%9F%AC/</url>
+      <content type="text"><![CDATA[오류 1.FileNotFoundError: [Errno 2] No such file or directory: ‘원 파일명’ -&gt; ‘변경하려는 파일명’파일-동영상 이름을 일괄적으로 바꿔줘야 해서 만들었다.파일명 전부 동일하게 앞부분만 지워주면 됐으므로 47번째 글자 이후부터 출력되게 해서… rename() 으로 바꿔주고자 했는데…자꾸 파일이 없다고 오류가 떴다.아이클라우드 문자인가 하고 동영상을 전부 내려받았는데도 없대…구글신께 여쭈어본 결과… 나를 stackoverflow로 인도해주셨다…문제는 listdir는 경로를 제외한 파일명만 반환하기 때문이었다. os.path.join()를 사용해 path를 삽입함으로 문제를 끝냈다.import osp = "/Users/xxx/Desktop/init/video/Machine_Learning"files = os.listdir(p)for i in files:    new = i[47:]    os.rename(os.path.join(p, i), os.path.join(p, new))오류 2.IsADirectoryError: [Errno 21] Is a directory: ‘/Users/xxx/Desktop/init/video/Operations_Research/.DS_Store’ -&gt; ‘/Users/xxx/Desktop/init/video/Operations_Research/’바꾼 건 주소밖에 없다. 그런데도 전혀 다른 문제가 발생했다. 일단 저 DS_Store 파일이 문제인 거 같은데… 난 쟤를 모른다. 그래서 무시하고 진행해보기로 했다.import osp = '/Users/xxx/Desktop/init/video/Operations_Research'files = os.listdir(p)for i in files:    try:        new = i[28:]        os.rename(os.path.join(p, i), os.path.join(p, new))    except:        pass… 굿쨥 아주 잘 됐다.내가 만든 이 코드의 단점은, 바꾸려는 파일명을 28자 이후부터 출력되게 만들었기 때문에 이미 바뀐 파일명들까지 포함된다는 거다.이미 이름이 바뀐 파일들과 바꾸어야 할 파일들이 같이 있을 경우, 전자의 파일도 영향을 받기 때문에 파일명이 아예 없어지는 대참사가… 일어날 수도 있다는 점? 다른 방법도 많다. 근데 난 그냥 이렇게 했다.왜냐하면… 그냥 ?]]></content>
+      <categories>
+        
+          <category> Python </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> python </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Atom Editor 설정 (패키지 확장)]]></title>
+      <url>/python/2019/12/16/atom-%EC%84%A4%EC%A0%95/</url>
+      <content type="text"><![CDATA[1년에 한 번씩 컴퓨터를 포맷하다보니 어디엔가 작성해야 할 것 같긴 하고.. 혹여 누군가 제 글을 보고 도움이 되었으면 합니다.1.script ( Cmd + i )아톰 내 프로그램 실행2. hydrogen ( Cmd + Enter )jupyter notebook 이랑 연동 / jupyter 커널로 한 줄이나 block 처리 된 코드 실행 …최고실행 전에 터미널 창에서 명령어 입력. 그 후로 아톰 에디터 내 사용 가능.python -m pip install ipykernelpython -m ipykernel install --user3. atom-beautify ( Ctrl + Option + B )자동 줄 맞춤4. autocomplete-python ( 자동 )자동완성 기능5. highlight-selected ( 더블클릭 )선택 단어와 동일 단어를 하이라이트 해준다 … 최고6. platformio-ide-terminal ( Ctrl + ` )터미널 창을 아톰 내에서 열 수 있도록 합니다.]]></content>
+      <categories>
+        
+          <category> Python </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> atom </tag>
+        
+          <tag> atom_editor </tag>
+        
+          <tag> package </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[Error] git push 오류]]></title>
+      <url>/git/2019/12/15/git-push-%EC%98%A4%EB%A5%98/</url>
+      <content type="text"><![CDATA[깃 푸쉬를 했는데 오류가 떴다. 이제 오류를 봐도 아무렇지 않다. 멀쩡한 화면보다 오류를 더 자주 만나기 때문에…뭐든 구글신께 여쭈어보면 된다. 사실 영어를 볼 때가 가장 가슴 졸인다. 제발 어떤 천사 한국인이 이에 대한 글을 썼기를 바라면서…git push origin master 를 쓰고 오류가 났다. 오류의 내용은 이렇다.error: failed to push some refs to ~hint: Updates were rejected because the tip of your current branch is behindhint: its remote counterpart. Integrate the remote changes (e.g.hint: 'git pull ...') before pushing again.hint: See the 'Note about fast-forwards' in 'git push --help' for details.git push -f origin master로 강제 푸쉬를 준 이후로는 다시 원래대로 push 명령어를 주었더니 잘 알아들었다.]]></content>
+      <categories>
+        
+          <category> Git </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> git </tag>
+        
+          <tag> push </tag>
+        
+          <tag> error </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Malware]]></title>
+      <url>/computer_security/2019/10/01/Malware/</url>
+      <content type="text"><![CDATA[Malware유형악성 소프트웨어– 호스트 프로그램을 필요로 하는 것• 바이러스 • 논리폭탄 • 백도어– 호스트를 필요로 하지 않는 것•웜 • 좀비스스로 복제할 수 있는 악성소프트웨어– 트리거에 의해 활성화되는 프로그램 • 논리폭탄• 백도어 • 좀비 프로그램  • 스스로 복제 불가한 악성소프트웨어– 독립적인 프로그램으로서 실행– 자신의 복제를 만들어 전파• 바이러스 • 웜백도어• 백도어(back door)–  트랩도어(trap door)라고도 함–  프로그램으로 들어가는 비밀 입구–  이 코드는 어떤 특별한 일련의 입력을 인식하거나, 특정 사용 자 ID나 발생할 가능성이 매우 희박한 일련의 사건에 의해 구동되면 시작한다• 유지후크(maintenance hook)–  통상적 보안접속 절차 없이 접근허락 받음–  프로그래머는 프로그램 디버그나 검사를 위해 백도어를 상당 기간 합법적으로 사용논리폭탄- 논리폭탄(logicbomb)합법적 프로그램 안에 내장된 코드로서 특정 조건이 맞게 되면 ‘터지게(작동을 개시하게)’ 만 들어진 논리- 논리폭탄의 뇌관1 어떤 특정 파일이 없어지는 순간 2 특정 요일 3 특정 날짜 4 응용 프로그램을 구동하는 특정 사용자일단 논리폭탄의 작용– 데이터나 전체 파일 수정 – 파일 삭제- 팀로이드(TimLloyd)사건트로이 목마  트로이 목마(trojan horse)란 감춰진 코드를 갖 고 있는 프로그램이나 명령 프로시저로 작동이 되 면 원하지 않거나 해가 되는 기능을 수행트로이 목마의 3가지 모델\1. 원 프로그램의 기능을 계속해서 수행 :   – 추가적으로 별개의 악성 활동을 수행\2. 원 프로그램의 기능을 계속해서 수행– 기능을 수정해서 악성 활동을 하게 한다    • 패스워드 수집 로그인 프로그램 트로이 목마 버전​    • 프로세스 염탐 프로그램 트로이 목마 버전\3. 원 프로그램의 기능을 완전히 대체하는 악성 기능 수행다중-위협 악성 소프트웨어• 다분할(multipartite) 바이러스– 여러 방법으로 감염– 다중 유형 파일이 감염되므로 바이러스 박멸을 위해 감염된 모든 사이트 치료 필요• 혼합 공격(blended attack)  – 다중 방법으로 감염시키거나 전송해서 감염속도와 공격의 강도를 극대화–  다중 유형 맬웨어를 포함한 패키지  –  혼합 공격의 예 &gt; 님다(Nimda) 공격 – 웜, 바이러스, 모바일 코드의 특성을 모두 가짐  전자메일, 윈도우 공유, 웹 서버, 웹 클라이언트로 배포좀비  인터넷에 연결된 다른 컴퓨터를 몰래 장악하고 그 컴퓨터를 기반으로 공격을 수행 하는 프로그램  타깃 웹 사이트를 대상으로 한 서비스거부 공격 에 이용바이러스 속성 - 악성코드는 발전하면서 하나의 이름으로 규정되기 어려운 형태가 많아짐  다른 프로그램을 변형시켜 ‘감염(infect)’시키는 프로그램  변형된 형태의 바이러스 : 원래 프로그램에 루틴을 주입해서 바이러스 프로그램 복제 제작활동 절차 &gt;바이러스 : 자기 자신에서 주변 프로그램들을 보고 자신을 복제해 집어 넣고 실행될 수 있도록 하는 형태일반 바이러스는 자기가 보통 바이러스라고 얘기할 때는.. 컴퓨터 바깥으로 못나감.. ssd, hdd 안에서 내부적으로만 활동하면서 퍼지는 것컴퓨터 바이러스 3개 부분• 감염 메커니즘(Infection mechanism):– 바이러스가 퍼지는 수단 : 원래 프로그램에 자기를 집어넣는 형태     &gt; 일반적으로 바이러스에 걸린 파일은 일반 파일보다 크기가 큼  – 자신을 복제  – 감염 벡터(infection vector)라고도 함  트리거(Trigger):  – 페이로드 활성화나 전달 시기를 정하는 사건이나 조건 / 활성화 조건  페이로드(Payload): –  바이러스가 자기 자신을 퍼뜨리는 일 외에 하는 일 / 바이러스를 실행시키는 그 파트–  페이로드는 피해를 줄 수 있고 심각한 피해를 끼치지 않을 수 도 있지만 분명히 그 활동을 알 수 있다.바이러스 유형 - 들어가서 활동  목표별 바이러스 유형      부트 섹터 감염자 : 마스터 부트 레코드 감염 후 시스템 부팅 시 퍼짐        파일 감염자 : 운영체계나 쉘이 실행 가능하다고 여기는 파일 감염        매크로 바이러스 : 응용 프로그램으로 나타낼 수 있는 매크로 코드를 가진 파일 감염              플랫폼과 무관하게 작동      문서만 감염시키고 코드 실행부분은 미감염      쉽게 퍼짐      시스템 프로그램보다는 사용자 문서를 감염      ** 은닉 전략에 따른 바이러스 유형 : 흐름  암호화 된 바이러스 : 변형엔진(mutation engine) - 사용될 때마다 변한다  스텔스 바이러스 : 압축을 이용해서 감염되지 않은 프로그램의 길이와 감염된 프로그램의 길이 동일  폴리모픽 바이러스 : 복제 과정에서 기능적으로는 동일하지만 비트패턴에서는 명확하게 다른 변형 ** 옮겨다닐 때마다 바이러스의 모양 변화 : 안티 바이러스로 인해 발생  메타모픽 바이러스안티 바이러스 방법            1 : 탐지      2 : 식별      3 : 제거      바이러스 인식 변화前 : 나쁜 바이러스를 빨리 찾아서 없애자 … &gt; 바이러스의 변화로 (수의 증가, 모양 변경 ) 거의 불가능해짐現 : 운영체제 시스템을 단단히 만들자 … &gt; 백신을 통해서 해결 거의 불가능안티바이러스 소프트웨어 4세대제1세대: 단순 스캐너 ( simple scanners )제2세대: 발견 스캐너 ( heuristic scanners )&gt; 백신 ( 안티 바이러스 ) 얘네는 바이러스가 생긴 패턴, 시그니처, 서명의 특징을 데이터베이스파일이 하나 들어오면 데이터베이스와 비교&gt; 패턴을 읽고 매칭 : 바이러스 백신 프로그램이 오래 걸리는 이유제3세대: 활동 트랩 ( activity traps )&gt; 컴퓨터 프록램을 만들어놓고 바이러스에 취약한 척 해서 바이러스 유인 후 패턴과 시그니처 학습제4세대: 풍부한 기능을 갖춘 방어 ( full-featured protection )고도 안티바이러스 기술  유전적 복호화(GD: genetic decryption) : 폴리모픽 바이러스가 포함된 파일이 실행될 때 GD 스캐너 통과  디지털 면역 시스템(digital immune system) : &gt; 알약 v3,,등 바이러스가 아닌데 바이러스인줄 알고 삭제하는 경우도 존재행동차단 소프트웨어 : 샌드박스웜 - 바이러스의 업그레이드 버전  웜은 자신을 복제하여 네트워크 연결을 통해서 컴퓨터에서 컴퓨터로 그 복제본 전송 &gt; 자동 해킹  취약한 프로그램을 통해 다른 컴퓨터에 도착하게 되면 웜은 복제를 시작하고 다시 확산시키기 시작  전자메일 바이러스는 시스템에서 시스템으로 자신을 확산시키기 때문에 웜(worm)의 성격을 어느 정도 보유웜 확산 모델호스트수가 지수적으로 증가 - 감염 속도가 줄어든다 &gt; 확산 증가는 거의 선형적 • 감염 비율 높음– 공격 속도는 종료단계  감염학 전염병 모델과 웜 확산 모델이 일치  웜이 대상으로 삼고 있는 컴퓨터에 취약점이 있느냐가 중요네트워크-기반 웜 방어  두가지유형– 진입 모니터(Ingress monitors): – 진출 모니터(Egress monitors):** 제로-데이 익스플로잇(zero-day exploit)웜이랑은 상관 없고 익스플로잇은 공격코드임제로데이라고 하는 건 취약점이 알려지고 하루가 지나면, 데이 원 / 원데이 / 데이 투 데이쓰리…제로데이는 해킹 가능한게 알려지지 않은 것제로데이 취약점 : 취약점이 아무에게도 알려지지 않고 해커만 알고 있는 취약점을 이렇게 부름&gt; 파급효과에 따라 시장에 팔림. 해커가 보통 프로그램에서 취약점을 찾음 &gt; 찾아서 취약점을 갖고\1. 해킹해서 이익을 취함\2. 보안회사에 팔아 넘김2-1 양성적 보안회사에서 사는 것 ( 구글:돈주고 삼 )2-2 제로데이 암시장에 팖 ( 2-1보다는 많이 받음 )분산서비스거부 공격서비스 거부 공격 DoS attack ( Denial of Service ) &gt; 분산 서비스 거부 공격 ( Distributed DoS )&gt; 초과 트래픽의 경로를 차단해 쉽게 막을 수 있음 DoS &gt; 좀비 컴퓨터 이용&gt; 기존 인프라 ( 컴퓨터 )로 공격을 하게 함 &gt; 경로 차단 불가능 + 좀비의 수뇌부 추적 어려움분산 SYN 홍수 ( 플러드 ) 공격 - 직접 공격스스로 열심히 만들어 전송데이터 전송 자원 소모 공격 - 간접 공격 반사호스트를 이용해 트래픽을 크게 만들어 목표 라우터에 전송 &gt; 공격자 찾기가 거의 불가능DDoS 공격의 다른 분류방법\1. 직접 DDoS 공격(direct DDoS attack)  공격자는 인터넷상에 분산되어 있는 수많은 사이트에 좀비 소프트웨어 설치  2단계 좀비 시스템– DDoS 공격은 마스터 좀비와 종속 좀비로 구성  두좀비는 악성코드에 감염  공격자가 마스터 좀비를 조정하여 동작시키면 이어서 종속 좀비가 동작  2단계 좀비를 사용하면 공격의 발신지를 추적하기가 더 어렵고 공격자 활동 공간이 넓어짐\2. 반사 DDoS 공격(reflector DDoS attack)  하나의 호스트 계층을 추가한다  종속좀비는 IP패킷의 헤더에 목표 시스템의 IP주소를 발신지 IP 주소로 하는 패킷을 만들어 응답 요청  이패킷은 감염 되지 않은 호스트인 반사 호스트 전송  반사 호스트는 발신지 IP 주소를 확인하고 목표시스템으로 응답 패킷 전송  반사기 DDoS 공격– 직접 DDoS공격에 비하여 더 많은 호스트를 감염 – 더 많은 트래픽을 유발시킬 수 있으므로 더 위협적 – 공격이 넓게 분산되어 있는 감염되지 않은 호스로부터 들어오기 때문에 공격을 추적하고 패킷을 필터링 해서 제거하는 것이 더 어렵다DDoS 대응책• 공격 예방 및 선취(공격 이전):• 공격 탐지 및 필터링(공격 중):• 공격 근원지 역추적 및 확인 (공격 중 및 공격 후):• CloudFlare 방식• 분산화 공격에 대응하는 서버 분산화&gt; 사이트 접속 시 접속 국가에 인접한 서버와 매칭]]></content>
+      <categories>
+        
+          <category> Computer_Security </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> Malware </tag>
+        
+          <tag> security </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[PKI, Auth]]></title>
+      <url>/computer_security/2019/10/01/PKI-auth/</url>
+      <content type="text"><![CDATA[PKIKey distribution via key distribution center호스트 입장에서는 키를 한 개만 갖고있으면 됨 &gt;네트워크 시큐리티 모델과 매우매우 흡사함 신뢰 가능한 써드파티 시스템과 키분배센터와 비슷요즘은 퍼블릭키로 함 / 중간 키분배센터가 사라져도 됨 » 가장 큰 문제 : 신뢰가능한 퍼블릭키 분배 문제Key Management and DistributionPublic directory : should be maintained in a trusted party종이 혹은 디렉토리 온라인 서비스를 만들어서 공개Public key certificatePublic key certificate  Exchange public keys without trusted third parties : : 퍼블릭키를 써드파티를 거치지 않고 신뢰Certificate  A public keyAn ID  A signature by a trusted entities​     Government, financial organization •Ex) X.509X.509 Certificates : 국가 간 인증서 표준issued by a Certification Authority (CA), containing:version V (1, 2, or 3)   serial number SN (unique within CA) identifying certificatesignature algorithm identifier AIissuer X.500 name CA)period of validity TA (from - to dates)Subject X.500 name A ( name of owner )Subject public-key info Ap ( algorithm, parameters, key )issuer unique identifier (v2+)subject unique identifier (v2+)extension fields (v3)signature (of hash of all fields in certificate)notation CA«A» denotes certificate for A signed by CA믿을 수 있는 퍼블릭키를 알려주는 게 목적Obtaining a Certificate      any user with access to CA can get any certificate from it        only the CA can modify a certificate        because cannot be forged, certificates can be placed in a public directory        if both users share a common CA then they are assumed to know its public key        otherwise CA’s must form a hierarchy        use certificates linking members of hierarchy to validate other CA’s              each CA has certificates for clients (forward) and parent (backward)        enable verification of any certificate from one CA by users of all other CAs in hierarchyCertificate Revocationcertificates have a period of validity may need to revoke before expiry, eg:user’s private key is compromiseduser is no longer certified by this CACA’s certificate is compromisedCA’s maintain list of revoked certificates : the Certificate Revocation List (CRL)users should check certificates with CA’s CRLAUTH*Authentication and FIDO*Authenticationthe act of confirming the truth of an attribute of a single piece of data (a datum) claimed true by an entity.ApproachesSomething you know : 지식Something you have : 소유Something you are : 특성Authentication FactorsApproachesSomething you know: Knowledge factorspassword, PIN (Personal Identification Number)Something you have: Ownership factorsID card, Security token, Smart phones •Something you are: Inherence factorsfingerprint, DNA, signature, face, …Something you know : 가장 많이 만나는 형태 . 로그인 절차 또한 인증Knowledge based authenticationPasswordUser has a secret password  System checks password to authentication userSomething you haveUses a hardware device that a user holdsOTP dongle : One Time Password 인터넷 보안 카드 &gt; 소유 기반열쇠도 소유 기반이라고 볼 수 있음Something you areBiometric authentication : Finger-print, IRIS, DNA, Face생체 인증과 핀테크인터넷 결제 및 모바일 결제의 미사용 이유정보유출 및 보안의 우려 —&gt; 생체인증의 필요성 대두생체 인증개인의 고유한 생체적 (biological) 특성을 이용지문, 홍채, 망막, 정맥, 손금, 목소리, 얼굴, 걸음거리, …인증으로 방식으로써의 강점안전성: 복제, 도용, 위변조가 어렵다. | 편이성: 가장 사용하기 편리한 인증 방법지문인식사용자의 지문을 확인하여 인증지문을 채취할 수 있어야 하기 때문에 모바일 디바이스와 같 은 별도의 기기를 필요로 한다.현재 지문인식을 적용하고 있는 핀테크 결제 서비스 : Apple pay • 삼성페이ECG (심전도)심장 박동의 패턴을 이용 : 심전도 측정을 위한 특수 장비가 필요나이미 (Nymi) : 심장 박동을 기반으로한 웨어러블 디바이스얼굴인식얼굴인식을 이용한 서비스인증 서비스 : 얼굴 정보를 인식하여 사용자를 확인 인증얼굴 검출(탐지) 서비스 : (촬영된 영상에서) 얼굴을 찾아낸다.생체인증의 고려사항미리 습득된 정보와 실제 데이터의 구분이 가능해야 한다.            3d프린터를 이용한 지문 불법 복사      얼굴 촬영이미지를 이용한 불법 얼굴 인증      “Liveness check”가 필요실제 살아있는 사람의 정보인지를 확인 / 예) 지문 채취 기기에서 실제 사람의 손가락인지의 여부를 판별 한다.Two-factor authenticationTwo factors are required for authentication -&gt; Multifactor authenticatione.g., password + smart phone, fingerprint + PIN각 인증 방법은 조금씩 문제가 있음.지식 : 패스워드 노출 가능성 존재&gt; 패스워드 노출이 된지 잘 모르는 경우,TATD time of attack - time of detection소유 : 노출이 되었을 때 빨리 알 수 있음, 나의 부주의로 인해 정보 노출 가능성 존재특성 : 인증 정보 한 번이라도 누출 시 변경이 아예 불가능일반적으로 2~3개 섞는 보안 방식을 사용 2FA factor auth~FIDOPublic-key Cryptography  probably most significant advance in the 3000 year history of cryptography  uses two keys – a public &amp; a private key asymmetric since parties are not equal  uses clever application of number theoretic concepts to function  complements rather than replaces private key cryptoUAF, U2F  UAF ( Universal Authentication ) : Biometric Auth / 서버 입장에서는 뭐로 인식하든 신경쓸 필요 없음 퍼블릭키와 프라이빗키로 구성되어 있음. 상대에게 퍼블릭 키를 쓸 거라고 등록해 놓고서 나는 서명만 해서 보내면 됨. 내가 프라이빗키로 서명을 어떻게 할가요… 를 정한 것- Generalize biometric Auth- Decouples user identification and client  U2F : Two-factor auth- Two-factor auth : 인증은 유저 클라이언트에서 끝남- PIN or Password - + USB key- + BluetoothTrade offsSecurity vs. Usability vs. Cost보안이 좋아지면 쓰기 불편해지고 안전하면서 쓰기 편하면 비용이 비싸고… 세 가지를 모두 만족시키긴 어렵다! 하날 얻기 위해 나머질 희생해야 하는게 보안의 큰 문제]]></content>
+      <categories>
+        
+          <category> Computer_Security </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> PKI </tag>
+        
+          <tag> security </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Message Authentication and Op Mode]]></title>
+      <url>/computer_security/2019/09/30/Message-Auth-and-OpMode/</url>
+      <content type="text"><![CDATA[  송신자 확인 / 검증 목적 &gt; 보낸이를 확인하기 위해서 2. 메세지의 무결성MACm=F(Kab, M)Message not alteredThe alleged sender confirmedThe proper sequence of messages assuredSimilar to encryptionNIST recommends the use of DESOne difference: authentication algorithm need not be reversible, less vulnerable메세지 저네를 암호화하는게 아니라 메세지에 대한 조금한 해쉬함수를 만들어서 전송 확인할 때도 해쉬값만 확인Hash Functioncondenses arbitrary message to fixed size &gt; No secret key neededusually assume hash function is public, hash used to detect changes to message통조림 : 데이터가 들어가면 고정된 크기가 생성 &gt; 무엇을 넣던 간 동일한 산출값      해쉬함수란 ?        퍼블릭키로 복호화 할 때… 퍼블릭키에 대한 신뢰성 문제?  one-way property : computationally infeasible to find data mapping to specific hash데이터 입력-해쉬값 출력 / 원본은 찾기 힘들어야 한다는 이론. 항상 정해진 값 산출로 일방향은 쉬운데 역방향은 불가능collision-free property : computationally infeasible to find two data to same hash충돌 &gt; 정해진 해쉬값 32글자 해쉬값이 나오게 되어 있다. 운 좋게 같은 해쉬값이 나올 수 있다 입력은 무한 출력은 유한함 . 똑같은 해쉬값을 찾고자 입력 데이터를 만들기는 만들기는 굉장히 힘듦간단한 특성으로 어디서는 가능함 / 연산이 간단하다고 말하는데, 역으로는 안 됨 &gt; 안전한 특성과 간단한 연산 &gt; 전기를 덜 먹음 &gt; 작은 곳에서도 실행이 가능함 … 가장 간단한 기기에도 들어갈 수 있는 해쉬함수Secure Hash Algorithm - 대표적인 해쉬 함수키사이즈가 없음 키가 들어가지 않아서 얼마자리 크기의 해쉬 함수를 만들어내는가?            sha-224 : 해쉬값 크기      숫자가 클 수록 컬리젼이 덜 발생함      &gt; 역으로 찾을 수 없지는 않지만, 숫자가 커질 수록 경우의 수가 늘어나서 같은 경우를 찾기 힘들어짐&gt; 유한의 범위가 증가  Designed for compatibility with increased security provided by the AES cipher            Keyed Hash Functions as MAC      KeyedHash = Hash(Key      Message)      &gt; led to development of HMAC - 전기들어가는 건 웬만하면 다 할 수 있음H(M) &gt; h / M, M’ 비교 하지 말고 &gt; 해쉬함수로 돌려서 결과물이 같은지 다른지 확인 H(M) =?= H(M’) &gt;h =?= h’ 굳이 100기가 …파일을 확인하지 않아도 32바이트 해쉬값을 찾으면 됨메세지말고 다른 걸 붙이고 싶어했음 &gt; 키드해쉬값            H(K(키값)             M(메세지값 )) 그냥 키에 메세지를 붙이고 키와 메세지 전체를 해쉬로 돌림      메세지를 받았을 때, 키를 알아야 하는데 키를 아는 사람만 만들 수 있는 해쉬 키를 모르는 상황에서는 해쉬값을 만들 수 없음 &gt; 메세지 인증 : 메세지 무결성 / 상대 퍼블릭키로 풀린다는 점에서 송신자를 확인할 수 있는 것** HMAC  use, without modifications, hash functions  use and handle keys in a simple way.  allow for easy replaceability of embedded hash function  preserve original performance of hash function without significant degradation  have well understood cryptographic analysis of authentication mechanism strengthModes of Operations - 암호학의 연장선 ( 동작 모드 : 대칭키 암호는 동작모드까지 언급 필수)block ciphers encrypt fixed size blocks  eg. DES encrypts 64-bit blocks with 56-bit keyneed some way to en/decrypt arbitrary amounts of data in practiseNIST SP 800-38A defines 5 modeshave block and stream modesto cover a wide variety of applicationscan be used with any block cipher  Electronic Codebook Mode (ECB) message is broken into independent blocks which are encrypted each block is a value which is substituted, like a codebook, hence name each block is encoded independently of the other blocks   Ci = E(K, Pi) uses: secure transmission of single values   message repetitions may show in ciphertext if aligned with message block  particularly with data such as graphics   or with messages that change very little, which become a code-book analysis problem weakness is due to the encrypted message blocks being independentmain use is sending a few blocks of data문제 : 패턴이 보임 기본적으로 실루엣이 보임 잘라서 암호화하기 때문에 des8 aes 16 // 8바이트 8글자 그림은 1~2바이트가 점 1개 데이터가 너무 많아서 데이터의 윤곽이 보이는 문제같은 패턴의 반복이 나오면 그게 보임. 일종의 모드라고는 하는데 모드가 아니고 아무것도 없는 상태라고 봄  Cipher Block Chaining Mode (CBC) : 앞 블럭 값을 XOR로 입혀서 재암호화 하는 것* 같은 값을 암호화 해도 앞의 메세지에 따라 달라짐 message is broken into blockslinked together in encryption operation each previous cipher blocks is chained with current plaintext block, hence name use Initial Vector (IV) to start process   Ci = E(K, Pi ⨁ Ci-1)C0 = IV uses: bulk data encryption, authentication피원과 피투가 똑같을 때 실질적으로 암호화 될 때는 피원은 아이브이, 피투는 씨원값의 엑스오알… 암호화가 되니까 계속 같은 값이더라도 앞에서 들어오는 값이 달라지기 때문에 실질적 암호값은 달라짐계속 같은 값이라도 계속 뒷 암호화에 영향을 주니까 … 다시 말하자면 피원부터 피5까지 다 똑같다고 하더라도,, 값이 계속 바뀜  Cipher Feedback Mode (CFB) message is treated as a stream of bits added to the output of the block cipher result is feed back for next stage (hence name)standard allows any number of bit (1,8, 64 or 128 etc) to be fed back   denoted CFB-1, CFB-8, CFB-64, CFB-128 etc most efficient to use all bits in block (64 or 128) Ci = Pi ⨁ E(K, Ci-1) C0 = IV uses: stream data encryption, authentication문제 &gt; 중간에 하나씩 만들어서 통신으로 보낼 때,데이터는 전송될 때 손실되는 경우가 심함 비올 때 특히 데이터가 많이 날아감.. 전파가 물에 약함 통과를 못함 신호가 가다가 깨지고 등등 한두 개 보내는 게 아니라 만개 십만 개니까… 중간 다섯 번째가 데이터가 손실 되었을 때 ,,, 그럼 복호화 할 대 계속 앞에 게 있어야 함… 5,6이 없으면 그 뒤로 계속 못풂 … 일단 뒤에 걸 다 기다리고 있다가 깨진 부분이 올 때까지 기다려야 함**Advantages and Limitations of CFB **appropriate when data arrives in bits/bytes most common stream modeLimitation: need to stall while doing block encryption after every n-bitsnote that the block cipher is used in encryption errors propagate for several blocks after the error플레인 택스트를 작게 만들고… 씨비씨처럼 아브이로 시작 암호화된 값을 자르고 그걸 다시 암호씨원을 갖고 위로 올려서 집어 넣음 암호화 결과가 작기 때문에 쉬프트 레지스터에 넣음데이터가 있으면 쉬프트 시킴 /여기서는 레프트. 한 칸 왼쪽으로 밂.원래 있던 값이 들어가는 건 CBC와 비슷  Counter Mode (CTR) a “new” mode, though proposed early on similar to OFB bur encrypts counter value rather than any feedback valuemust have a different key &amp; counter value for every plaintext block (never reused) Oi = E(K, i) Ci = Pi ⨁ Oiuses: high-speed network encryptionsAdvantages and Limitations of CTRefficiency  can do parallel encryptions in h/w or s/wcan preprocess in advance of needgood for bursty high speed linksrandom access to encrypted data blocks provable security (good as other modes)but must ensure never reuse key/counter values, otherwise could break (cf OFB)10초후 어떤 데이터가 발생할지 모름. 근데 씨티알은 먼저 계산할 수 있음 점선 안 박스 &gt; 플레인 텍스트를 암호화하는게 아니니까 / 데이터가 올 때마다 게산할 필요가 없어짐 // 통신 측면에서 유리해짐블럭 사이퍼는 데이터가 어느정도 쌓였을 때 … 양동이 단위로 복호화 /. 스트림은 바로바로블럭과 스트림의 차이가 애매해지긴 했음 블럭이 작고… 8, 16바이트가 어느정도 된다고 생각했는데 지금은 작고.. 기본적 데이터가 너무너무 커졌음. 예전엔 의미가 있었음.]]></content>
+      <categories>
+        
+          <category> Computer_Security </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> auth </tag>
+        
+          <tag> security </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[6] MySQL - Example of Command line]]></title>
+      <url>/database/2019/04/15/6-example/</url>
+      <content type="text"><![CDATA[Book 테이블에서 모든 도서의 이름과 가격을 검색하시오.SELECT bookname, price FROM Book;Book 테이블에서 모든 도서의 가격과 이름을 검색하시오.SELECT price, bookname FROM Book;Book 테이블에서 모든 도서의 도서번호, 도서이름, 출판사, 가격을 검색하려면?SELECT bookid, bookname, publisher, price FROM Book;테이블의 모든 속성을 보이려면SELECT * FROM Book;Book 테이블에서 도서 테이블에 있는 모든 출판사를 검색하려면?SELECT publisher FROM Book;중복된 데이터를 제거하여 한 번씩만 출력하려면? SELECT DISTINCT publisher FROM Book;Book 테이블에서 가격이 10,000원 이상 20,000 이하인 도서를 검색하려면?SELECT * FROM Book WHERE price BETWEEN 10000 AND 20000AND를 이용하여 변경SELECT * FROM Book WHERE price &gt;= 10000 AND price &lt;= 20000;Book 테이블에서 출판사가 ‘굿스포츠’ 혹은 ‘대한미디어’인 도서를 검색하려면?SELECT * FROM Book WHERE publisher IN (‘굿스포츠’, ‘대한미디어’)출판사가 ‘굿스포츠’ 혹은 ‘대한미디어’가 아닌 도서를 검색하려면?SELECT * FROM Book WHERE publisher NOT IN (‘굿스포츠’, ‘대한미디어’)STUDENT 테이블에서 나이(AGE)가 30 이상인 학생 출력하기SELECT * FROM STUDENT WHERE AGE &gt;= 30STUDENT 테이블에서 10번 과정 소속 학생 출력하기SELECT * FROM STUDENT WHERE COU_ID=10STUDENT 테이블에서 이름이 김준형인 학생을 출력하기SELECT * FROM STUDENT WHERE STU_NAME=’김준형’STUDENT 테이블에서 나이가 21에서 29 사이인 학생을 검색SELECT * FROM STUDENT WHERE AGE &gt;= 21 AND AGE &lt;= 29STUDENT 테이블에서 나이가 21에서 29 사이인 학생 출력SELECT * FROM STUDENT WHERE AGE BETWEEN 21 AND 29STUDENT 테이블에서 나이가 21이거나 27이거나 28인 학생만 검색SELECT * FROM STUDENT WHERE AGE=21 OR AGE=27 OR AGE=28STUDENT 테이블에서 나이가 21이거나 27이거나 28인 학생 출력SELECT * FROM STUDENT WHERE AGE IN (21, 27, 28)Book 테이블에서 도서이름에 ‘축구’가 포함된 책이름과 출판사를 검색하려면?SELECT bookname, publisher FROM Book WHERE bookname LIKE ‘%축구%’;도서이름의 왼쪽 두 번째 위치에 ‘구’라는 문자열을 갖는 도서를 검색하려면?SELECT * FROM Book WHERE bookname LIKE ‘_구%’;Book 테이블에서 축구에 관한 도서 중 가격이 20,000원 이상인 도서를 검색하려면?SELECT * FROM Book WHERE bookname LIKE ‘%축구%’ AND price &gt;= 20000;출판사가 ‘굿스포츠’ 혹은 ‘대한미디어’인 도서를 검색하려면?SELECT * FROM Book WHERE publisher=’굿스포츠’ OR publisher=’대한미디어’;성이 ‘김’인 학생을 출력SELECT * FROM STUDENT WHERE STU_NAME LIKE ‘김%’이름의 두 번째 글자가 ‘봉’이고 그 뒤는 무엇이든 관계없는 사원 출력SELECT * FROM STUDENT WHERE STU_NAME LIKE ‘_봉%’이름과 과정번호와 이메일 출력SELECT STU_NAME, COU_ID, STU_EMAIL FROM STUDENTSTUDENT 테이블에서 이메일이 NULL인 학생은SELECT * FROM STUDENT WHERE STU_EMAIL=NULLSELECT * FROM STUDENT WHERE STU_EMAIL IS NULL이메일이 NULL이 아닌 학생 출력SELECT * FROM STUDENT WHERE STU_EMAIL IS NOT NULLBook 테이블에서 도서를 이름순으로 정렬하려면?SELECT * FROM Book ORDER BY bookname (ASC);도서를 가격순으로 정렬하고, 가격이 같으면 이름순으로 정렬SELECT * FROM Book ORDER BY price, bookname;도서를 가격의 내림차순으로 정렬하고 만약 가격이 같다면 출판사의 오름 차순으 로 정렬하려면?SELECT * FROM Book ORDER BY price DESC, publisher ASC;나이를 기준으로 오름차순으로 정렬하여 출력SELECT * FROM STUDENT ORDER BY AGE ASC나이가 많은 사람부터 적은 사람 순으로 순차적으로 출력SELECT * FROM STUDENT ORDER BY AGE DESC고객이 주문한 도서의 총 판매액을 구하려면?SELECT SUM(saleprice) FROM Orders;고객이 주문한 도서의 총 판매액을 총매출로 구하려면?SELECT SUM(saleprice) AS 총매출 FROM Orders;2번 김연아 고객이 주문한 도서의 총 판매액을 총매출로 구하려면?SELECT SUM(saleprice) AS 총매출 FROM Orders WHERE custid=2;고객이 주문한 도서의 총 판매액, 평균값, 최저가, 최고가를 구하려면?SELECT SUM(saleprice) AS Total,​	AVG(saleprice) AS Average,​	MIN(saleprice) AS Minimum,​	MAX(saleprice) AS MaximumFROM Orders;서점의 도서 판매 건수를 구하려면?SELECT COUNT(*) FROM Orders;학생들의 나이 총합 출력SELECT SUM(AGE) AS [나이 총합] FROM STUDENT학생들의 나이 평균 출력SELECT AVG(AGE) AS [나이 총합] FROM STUDENT고객별로 주문한 도서의 총 수량과 총 판매액을 구하려면?SELECT custid, COUNT(*) AS 도서수량, SUM(saleprice) AS 총액 FROM Orders GROUP BY custid;가격이 8,000원 이상인 도서를 두 권 이상 구매한 고객에 대하여 고객별 주문 도 서의 총 수량을 구해 보세요.SELECT custid, COUNT(*) AS 도서수량 FROM Orders WHERE saleprice &gt;= 8000GROUP BY custid HAVING count(*) &gt;= 2;소속 과정별 평균 나이를 과정 번호와 함께 출력SELECT COU_ID, AVG(AGE) AS [평균 나이] FROM STUDENT GROUP BY COU_ID과정별 평균 나이가 25세 이상인 과정의 번호와 평균 나이 구하기SELECT COU_ID, AVG(AGE) AS [평균 나이] FROM STUDENT GROUP BY COU_ID HAVING AVG(AGE) &gt;= 25Customer 와 Orders 테이블을 합치려면?SELECT * FROM Customer, Orders;고객과 고객의 주문에 관한 데이터를 모두 보려면?SELECT * FROM Customer, Orders WHERE Customer.custid =Orders.custid;고객과 고객의 주문에 관한 데이터를 모두 고객번호 순으로 정렬하려면?SELECT * FROM Customer, Orders WHERE Customer.custid = Orders.custid ORDER BY Customer.custid;고객의 이름과 고객이 주문한 도서의 판매가격을 검색하려면?SELECT name, saleprice FROM Customer, Orders WHERE Customer.custid =Orders.custid;고객별로 주문한 모든 도서의 총 판매액과 고객이름을 구하려면?SELECT name, SUM(saleprice) FROM Customer, Orders WHERE Customer.custid = Orders.custid GROUP BY Customer.name고객별로 주문한 모든 도서의 총 판매액을 구하고, 고객별로 정렬하려면?SELECT name, SUM(saleprice) FROM Customer, Orders WHERE Customer.custid = Orders.custid GROUP BY Customer.name ORDER BY Customer.name;고객의 이름과 고객이 주문한 도서의 이름을 구하려면?SELECT Customer.name, book.bookname FROM Customer, Orders, BookWHERE Customer.custid =Orders.custid AND Orders.bookid =Book.bookid;가격이 20,000원인 도서를 주문한 고객의 이름과 도서의 이름을 구하려면?SELECT Customer.name, book.bookname FROM Customer, Orders, Book WHERE Customer.custid =Orders.custid​	AND Orders.bookid =Book.bookid AND Book.price =20000;도서를 구매하지 않은 고객을 포함하여 고객의 이름과 고객이 주문한 도서의 판매 가격을 구하려면?SELECT Customer.name, Orders.saleprice FROM Customer LEFT OUTER JOIN OrdersON Customer.custid =Orders.custid;도서가격이 가장 비싼 도서의 이름은?SELECT bookname FROM Book WHERE price = ( SELECT MAX(price) FROM Book) ;도서를 구매한 적이 있는 고객의 이름을 검색하려면?SELECT name FROM Customer WHERE custid IN (SELECT custid FROM Orders);대한미디어에서 출판한 도서를 구매한 고객의 이름을 알려면?SELECT name FROM Customer WHERE custid IN (SELECT custid FROM Orders WHERE bookid IN (SELECT bookid FROM Book WHERE publisher=’대한미디어’));도서를 주문하지 않은 고객의 이름을 검색하려면?SELECT name FROM Customer EXCEPT SELECT name FROM Customer WHERE custid IN (SELECT custid FROM Orders);주문이 있는 고객의 이름과 주소를 검색하려면?SELECT name, address FROM Customer WHERE EXISTS (SELECT * FROM OrdersWHERE Customer.custid = Orders.custid);25세 이상인 학생들로 구성된 과정의 학생 정보 출력SELECT STU_NAME, age, COU_ID FROM STUDENTWHERE COU_ID IN ( SELECT DISTINCT COU_ID FROM STUDENT WHERE age&gt;=25 )스포츠 의학은 한솔의학서적에서 출간했으며 가격은 90,000원이다. Book 테이블에 새로운 도서 ‘스포츠 의학’을 삽입하려면?INSERT INTO Book(bookid, bookname, publisher, price) VALUES (11, ‘스포츠 의학’, ‘한솔의학서적’, 90000);스포츠 의학은 한솔의학서적에서 출간했으며 가격은 미정이다. Book 테이블에 새로운 도서 ‘스포츠 의학’을 삽입하려면?INSERT INTO Book(bookid, bookname, publisher) VALUES (12, ‘스포츠 의학’, ‘한솔의학서적’);Customer 테이블에서 고객번호가 5인 고객의 주소를 ‘대한민국 부산’으로 변경하려면?UPDATE Customer SET address=’대한민국 부산’ WHERE custid=5;Customer 테이블에서 박세리 고객의 주소를 김연아 고객의 주소로 변경하려면?UPDATE Customer SET address = (SELECT address FROM Customer WHERE name=’김연아’)WHERE name=’박세리’;과정 번호가 10번인 학생의 과정 번호를 30번으로 수정UPDATE STUDENT SET COU_ID=30 WHERE COU_ID=10Customer 테이블에서 고객번호가 5인 고객을 삭제하려면?DELETE FROM Customer WHERE custid=5;모든 고객을 삭제하시오.DELETE FROM Customer;30번 과정 소속 학생을 삭제DELETE [FROM] STUDENT WHERE COU_ID=30영화 ( 영화번호, 제목, 장르번호, 제작년도, 제작사 )영화 테이블 전체를 검색하시오.SELECT * FROM 영화모든 영화제목과 제작사를 검색하시오. SELECT 제목, 제작사 FROM 영화제작년도가 2010년 이후인 영화제목을 검색하시오. SELECT 제목 FROM 영화 WHERE 제작년도 &gt;= 2010제작년도가 2000년 부터 2019년 사이인 영화제목과 제작년도를 검색하시오.SELECT 제목, 제작년도 FROM 영화 WHERE 제작년도 &gt;= 2000 AND 제작년도 &lt;= 2019“하늘” 단어가 포함된 영화제목을 검색하시오.SELECT * FROM 영화 WHERE 제목 LIKE ‘%하늘%’모든 영화제목을 제작년도 순으로 검색하시오. SELECT * FROM 영화 ORDER BY 제작년도모든 영화제목을 제작년도 순으로 검색. 단 제작년도가 같으면 영화제목 순으로 검색하시오.SELECT * FROM 영화 ORDER BY 제작년도, 제목———영화장르 ( 장르번호, 장르명)영화 ( 영화번호, 제목, 장르번호, 제작년도, 제작사)영화제목, 장르명, 제작사를 select 하시오.SELECT 제목, 장르명, 제작사 FROM 영화, 영화장르장르번호별 영화의 건수를 select 하시오.SELECT 장르번호, COUNT(*) AS 영화건수 FROM 영화 GROUP BY 장르번호장르명별 영화의 건수를 select 하시오.SELECT 장르명, COUNT(*) AS 영화건수 FROM 영화, 영화장르 GROUP BY 장르명2개 이상의 영화를 만든 제작사를 select 하시오.SELECT 제작사, COUNT() FROM 영화 GROUP BY 제작사 HAVING COUNT() &gt;= 2가장 최근에 만들어진 영화 제목과 제작년도를 select 하시오.SELECT 제목, 제작년도 FROM 영화 WHERE 제작년도 = (SELECT MAX( 제작년도 ) FROM 영화 )———영화장르 ( 장르번호, 장르명)영화 ( 영화번호, 제목, 장르번호, 제작년도, 제작사)영화장르 테이블에 3개의 장르 정보를 insert 하시오. INSERT INTO 영화장르 VALUES (1, ‘sf’)영화 테이블에 5개의 영화정보를 insert 하시오. INSERT INTO 영화 VALUES (1, ‘룰루랄라’, 01, 2019, ‘신기루’)영화 테이블에서 1번째 영화의 제작년도를 변경하시오. UPDATE 영화 SET 제작년도 = ‘2019’ WHERE 영화번호 = 101영화 테이블에서 2번째 영화의 장르번호를 변경하시오. 변경이 안된다면 이유를 설명하시오UPDATE 영화 SET 장르번호 = 21 WHERE 영화번호 =101영화 테이블에서 영화장르의 장르번호를 외래키로 사용하고 있어서 변경 불가능영화장르 테이블에서 1번째 장르를 삭제하시오. 삭제가 안된다면 이유를 설명하시오DELETE FROM 영화장르 WHERE 장르번호 = 01영화장르의 장르번호를 영화테이블에서 데이터를 사용하고 있어서 변경 불가능]]></content>
+      <categories>
+        
+          <category> Database </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> DB </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[4] Database 관계대수와 관계해수]]></title>
+      <url>/database/2019/04/15/4/</url>
+      <content type="text"><![CDATA[CH5 관계 대수와 관계 해수01 관계 대수: 원하는 데이터를 얻기 위해서 어떻게 질의를 수행할 것인지 일련의 연산을 순서대로 명시해야 하는 절차적 언어  관계 대수는 관계 해석과 기능과 능력 면에서 동등하다.      관계 대수로 표현한 식은 관계 해석으로 표현할 수 있다. ( 역 성립 )    사용자가 요청한 데이터를 정보화 ~= 산술 연산자와 유사대수 : 수 대신 문자를 사용해 문제를 쉽게 하고, 수학적 법칙을 간단 명확하게 표현관계 대수 : 데이터베이스에 저장된 데이터를 문자와 사용한 연산을 통해 요청한 데이터를 정보화하여 얻을 수 있는데 그 원리가 산술 연산자와 유사함순수 관계 연산자  셀렉트 (SELECT, σ)릴레이션에서 주어진 조건에 만족하는 튜플을 선택하는 연산자수평적 (가로)으로 절단하여 그 일부를 가지고 구성한 것 = 수평 연산σ (R)σ점수&gt;80(학생)  &gt; 학생 릴레이션에서 80점 초과 학생만 찾을 때셀렉트 연산자 : 하나의 입력 릴레이션에 적용되므로 단항 연산자이며, 한 릴레이션에서 조건을 만족하는 튜플의 부분 집합을 생성조건 : 프레디키드(predicate) &gt; 일반적으로 릴레이션의 임의의 어트리뷰트와 성수, 비교 연산자, 부울 연산자를 포함할 수 있다.  프로젝트 (PROJECT, π)릴레이션에서 어트리뷰트 리스트에 제시된 어트리뷰트만을 추출하는 연산자릴레이션의 열(세로)에 해당하는 어트리뷰트를 추출하는 것 = 수직 연산π(R)π이름, 전공 (학생) &gt; 학생 릴레이션에서 이름과 성적 추출결과 : 릴레이션의 카디날리티는 입력 릴의 카디날리티와 같고 차수는 항상 원 릴의 차수보다 작거나 같다  조인 (JOIN, ▷◁)공통 속성을 중심으로 두 개의 릴레이션을 하나로 합쳐서 새 릴레이션을 만듦종류 : 세타 조인, 동등 조인, 자연 조인, 외부 조인, 세미 조인                              세타 조인과 동등 조인                    세타 조인 : 선택연산의 비교 연산자가 = , &lt; , &gt; 등이 사용되는 연산동등 조인 : 세타 조인 중 비교 연산자가 =인 조인이고 표기 형식 ▷◁을 사용R ▷◁ 키 속성r = 키 속성s S학생 ▷◁ 학번=학번 성적중복되지 않은 값은 결과에 포함되지 않음 + 불필요한 중복이 있음                              자연 조인 동등 조인 결과로 얻어진 불필요한 중복되는 어트리뷰트를 한 개 제외한 조인 R ▷◁ S 학생 ▷◁N 성적 조인 연산자들 중에서 가장 자주 사용 중복되지 않을 때는 삭제된다.                                            외부 조인 상대 릴레이션에서 대응되는 튜플을 갖지 못한 튜플이나 조인 어트리뷰트에 널 값이 들어 있는 튜플들을 다루기 위해서 조인 연산을 확장한 조인 릴레이션에 관련된 튜플이 없으면 결과 릴레이션에서 어트리뷰트를 널 값으로 채운다.                                                                왼쪽 외부 조인 R의 모든 튜플들을 결과에 포함, S에 관련 튜플이 없으면 결과 릴레이션에서 릴레이션 S의 어트리뷰트들은 널 값으로 채운다.                                                                                                  오른쪽 외부 조인 S의 모든 튜플을 결과에 포함, R에 관련 튜플이 없으면 결과 릴레이션에서 R의 어트리뷰트는 널 값으로 채운다.                                                                                                  완전 외부 조인 R과 S의 모든 튜플을 결과에 포함시키고, 상대 릴레이션에 관련된 튜플이 없으면 결과 릴레이션에서 상대 릴레이션의 어트리뷰트는 널 값으로 채운다.                                            디비전 (DIVISION, ÷)X ⊃ Y인 2개의 릴레이션에서 R(X)와 S(Y)가 있을 때, R의 속성이 S의 속성값을 모두 가진 튜플에서 S가 가진 속성을 제외한 속성만을 구하는 연산R [속성r ÷ 속성s] S속성 r,s는 동일 속성값을 가지는 속성이어야 한다.일반 집합 연산자      합집합 (UNION, ⋃)    R 또는 S에 있거나 R과 S 모두에 속한 튜플로 이루어진 릴레이션                            R ⋃ S = {t          t ∈ R ∨ t ∈ S}                      중복된 튜플 제외 후 결과 릴레이션의 차수는 R 또는 S의 차수와 같디.    결과 릴레이션의 어트리뷰트의 이름과 같거나 S 어트리뷰트의 이름이 같아야 한다        교집합 (INTERSECT, ∩)    R과 S 모두에 속한 튜플로 이루어진 릴레이션, 공통 정보 이외는 삭제                            R ∩ S = {t          t ∈ R ∧ t ∈ S}                                              결과 릴레이션의 차수는 R 또는 S와 같으며, 카디날리티          R ∩ S          는 릴레이션 R이나 S의 카디날리티보다 크지 않다.                          차집합 (DIFFERENCE, -)    R에는 속하지만 S에는 속하지 않는 튜플로 이루어진 릴레이션                            R - S = {t          t ∈ R ∧ t ∉ S}                      겹치지 않는 튜플만 잔여        카티션 프로덕트 연산자 (CARTESIAN PRODUCT, ✕)    차수가 n + m이고, 카디날리티가 i*j이고, 어트리뷰트가 (A1, A2, … An, B1, B2, … Bm)이며, R과 S의 튜플들의 모든 가능한 조합으로 이루어진 릴레이션                            R x S = {r ∙ s          r ∈ R ∧ s ∈ S}                          외부 합집합    합병 가능한 두 개의 릴레이션에 대해서만 적용    외부 합집합 U+는 완전하게 합병 가능하지 않은 두 릴레이션을 합집합으로 만드는 것    합병 가능하지 않은 어트리뷰트에 해당하는 값이 없는 튜플 = 널 값  ]]></content>
+      <categories>
+        
+          <category> Database </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> DB </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[3] Database 데이터 종속성과 정규화]]></title>
+      <url>/database/2019/04/15/3/</url>
+      <content type="text"><![CDATA[데이터 종속성과 정규화01 정규화의 의미정규화  자료 저장 공간을 최소화하고 데이터베이스 내의 데이터가 불일치 되는 위험을 최소화  갱신 이상이 생기지 않도록 하기 위해 불필요한 데이터가 중복 저장되지 않도록 방지  잘못된 릴레이션 스키마를 보다 더 작은 속성의 세트로 나누어 갱신 이상이 발생하지 않는 바람직한 릴레이션 스키마로 만들어 가는 과정  반복적인 자료를 제거하여 데이터의 중복을 감소시킴으로써 중복으로 인한 여러 가지 이상현상을 제거데이터베이스 스키마가 잘못 설계된 경우      100번 학생이 전자계산기구조와 운영체제라는 두 과목을 신청하였기에 이 학생의 이름은 두 번 저장되는 문제점 발생        중복된 데이터의 저장으로 인해 저장 공간이 낭비된다는 문제점 이외에도 중복되어 저장된 데 이터 때문에 릴레이션의 수정, 삽입, 삭제와 같은 조작을 할 때 여러 가지 곤란한 이상(anomaly) 현상이 생김  목적  어떤 관계라도 데이터베이스 내에서 표현이 가능하도록 만드는 것  관계에서 바람직하지 않은 삽입, 삭제, 갱신 이상이 발생하지 않도록 하는 것  새로운 형태의 데이터가 삽입될 때 관계를 재구성할 필요성을 줄이는 것      보다 간단한 관계 연산에 기초하여 검색을 보다 효율적으로 하는 것    이상현상 (Anomaly)  수정 이상          중복 데이터 중에서 일부만 갱신되어 정보의 모순이 발생하는 것      중복 튜플 중 일부 튜플의 속성값만 변경시킴으로써 정보의 모순성이 발생하는 것          삽입 이상            불필요한 정보를 함께 저장하지 않고는 어떤 정보를 저장하는 것이 불가능하기에 원하지 않는 정보를 강제로 삽입해야 하는 것        삭제 이상            유용한 정보를 함께 삭제하지 않고는 어떤 정보를 삭제하는 것이 불가능한 것      한 튜플이 삭제됨으로써 유지되어야 할 정보까지도 삭제되는 연쇄 삭제현상으로 정보 손실 발생\      02 함수종속임의 튜플에서 X의 값이 Y의 값을 함수적으로 결정한다면, Y가 X에 종속되었다고 한다 ( X → Y )  결정자 : 주어진 릴레이션에서 다른 속성 또는 속성의 집합을 고유하게 결정하는 하나 이상의 속성수강 릴레이션에서 결정자는?함수 종속의 성질            완전 함수 종속      ​	주어진 릴레이션 R에서 속성 B가 복합 속성 A에 함수적으로 종속하면서​	속성 A의 어떤 진부분 집합에도 함수적으로 종속하지 않는 것​	속성 B가 속성 A에 완전하게 함수적으로 종속한다고 표현            부분 함수 종속      속성 B가 복합 속성 A 전체가 아닌 일부에 의해 함수적으로 종속할 수 있는 속성이 존재할 때03 정규화 과정&gt; 차수가 높을 수록 데이터베이스의 무결성을 저해할 수 있는 논리적 모순 존재 가능성 하락&gt; 중복 데이터 존재 가능성 하락제1정규형: 어떤 릴레이션 R에 속한 모든 도메인이 원잣값만으로만 구성  반복 집합이 있는 비정규 릴레이션 &gt; 반복 집합 제거 &gt; 모든 속성값이 원잣값으로 구성된 제1정규형 릴레이션  더이상 분해될 수 없는 원잣값으로만 구성된 릴레이션  규칙에 위배된다면 비정규 릴레이션에 해당제1정규형에 만족하는 릴레이션  어떤 릴레이션 R에 속한 모든 도메인이 원자값  릴레이션의 속성값이 반복 집단이 없는, 더이상 분해될 수 없는 원자값으로만 구성반복 집합이 있는 비정규 릴레이션* 반복 집한은 한 개의 기본키 값에 대해 두 개 이상의 값을 가질 수 있는 속성제2정규형: 어떤 릴레이션 R이 제1정규형이고, 키에 속하지 않는 속성 모두가 키에 완전 함수 종목으로 구성      모든 속성값이 원잣값으로 구성된 제1정규형 릴레이션 &gt; 부분함수의 종속성 제거          &gt; 제1정규형이면서 키가 아닌 모든 속성이 키에 완전함수적으로 종속        부분 함수 종속성 : 여러가지 갱신 이상이 발생  ​	&gt; 갱인 이상이 발생하지 않도록 부분 함수적 종속성 제거 후 속성 모두가 기본키에 완전 함수 종속  하나의 릴레이션에 서로 다른 정보 기록으로 발생 &gt; 이행적 함수 종속성 제거 후 직접적으로 함수적 종속  릴레이션을 분해 후 표현 &gt; 중복 감소 및 갱신 이상 빈도수 감소무손실 분해* 자연 조인할 때 아무 정보 손실 없이 원래의 릴레이션으로 복귀된다면, 2NF로 두 개의 릴레이션으로 분해제3정규형: 어떤 릴레이션 R이 2NF고, 모든 속성이 기보니에 이행적 함수 종속이 아닐 때      이행적 함수 종속을 제거 - 키에 대해서 직접적으로 함수 종목        이행적 함수 종속성 : 속성 A, B, C가 주어졌을 때 A→B와 B→C의 함수적 종속성이 존재하면  ( A→B^B→C ) 속성 C가 이행적으로 A에 종속한다 ( A→C )              이행적 함수 종속으로 인한 갱신 이상      ​	1. 수정 이상 - 정보의 모순성 발생  2. 삽입 이상 - 임시 삽입 모순  3. 갱신 이상 - 연쇄 삭제 현상 * 모든 속성값이 원잣값으로 종속된 제2정규형 릴레이션 &gt; 이행적 함수 종속 제거 &gt; 키에 대해서 직접적으로 함수 종속하는 제3정규형 릴레이션보이스 / 코드 정규형: 릴레이션 R이 제3정규형을 만족하고, 모든 결정자가 후보키일 때      키에 대해서 직접적 함수 종속인 제3정규형 릴레이션 &gt; 후보키가 아닌 결정자를 제거                  &gt; 모든 결정자가 후보키로 구성된 BCNF 릴레이션        BCNF에 속한 모든 릴레이션은 제3정규형에 속함 ( 역은 성립 불가능 )              결정자가 후보키가 아닌 릴레이션에서의 갱신 이상      ​	1. 수정 이상 - 정보의 모순성 발생  2. 삽입 이상 - 임시 삽입 모순  3. 갱신 이상 - 연쇄 삭제 현상  키가 아니면서 결정자 역할을 하는 속성 제거  키가 아니면서 결정자 역할을 하는 속성과 그 결정자에 함수적으로 종속하는 속성을 하나의 릴레이션에 넣는다.  이 릴레이션에서 결정자는 기본키가 된다  기존 릴레이션에 결정자를 남겨 기본키의 구성요소가 되도록 한다  이 결정자는 새 릴레이션에 대한 외래키 역할도 한다]]></content>
+      <categories>
+        
+          <category> Database </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> DB </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[2] Database 관계 데이터 모델과 관계 무결성 제약조건  ]]></title>
+      <url>/database/2019/04/15/2/</url>
+      <content type="text"><![CDATA[관계 데이터 모델과 관계 무결성 제약조건01 관계형 데이터베이스의 구조릴레이션 = 테이블: 정보를 구분하여 저장하는 기본 단위&gt; 표의 형태로 표현 ( 실질적 데이터 저장 &gt; 테이블 )&gt; 릴레이션 스키마와 릴레이션 인스턴스의 합&gt; 동일한 데이터베이스 내에서 같은 이름의 릴레이션 존재 불가능&gt;현실 시계의 어떤 엔티티 표현속성 = 열: 가장 작은 논리적 단위 - 파일 구조상 데이터 항목 / 데이터 필드&gt; 구체적인 정보 항목             &gt; 엔티티의 특성 기술&gt; 관리 할 필요가 이는 속성만 선택하여 릴레이션에 포함&gt; 같은 이름의 속성 존재 불가능&gt; 속성의 개수 : 차수 ( Degree )속성(어트리뷰트) = 열 = 필드 / 속성의 개수 = 차수튜플 = 행: 속성의 모임 - 레코드와 같은 의미&gt; 엔티티에 속한 구성원 개개의 정보 표현&gt; 카디날리티 : 릴레이션을 구성하는 튜플의 수 = 행의 갯수 / 튜플 = 행 = 레코드 / 튜플의 개수 = 카디날리티도메인: 각 속성이 취할 수 있는 같은 타입의 원자값의 집합&gt; 데이터 타입에 해당      &gt; 동일 도메인 여러 속성에서 사용 가능&gt; 릴레이션에 저장되는 데이터값들이 본래 의도했던 값들만 저장되게 한다&gt; 실제 속성값을 나타낼 때 그 값의 합법 여부를 시스템이 검사릴레이션 스키마와 인스턴스릴레이션 스키마 : 릴레이션 내포​	&gt; 릴레이션 이름과 일정수의 속성의 집합​	&gt; 릴레이션의 논리적 구조 정의 : 릴레이션 이름과 속성의 집합릴레이션 인스턴스 : 릴레이션 외포​	&gt; 어느 한 시점에서 릴레이션에 포함되어 있는 튜플의 집합​	&gt; 릴레이션에 포함되어 있는 내용 또는 상태로 튜플 전체를 의미02 릴레이션의 특징속성 간의 순서      릴레이션을 구성하는 속성 간 순서는 중요하지 않다    속성의 순서를 바꾼다고 다른 릴레이션이 되지는 않는다. &gt; 속성 이름에 의해 참조되기 때문  속성 순서를 정해놓는 것이 좋으며 상용 dbms는 속성이 순서를 가짐상이한 튜플      한 릴레이션에 포함된 튜플은 모두 다르다    어떤 튜플도 정확하게 동일한 값을 갖지 않는다  튜플을 유일하게 식별하기 위해 고유값을 저장하는 속성이 적어도 한 개 있어야 한다튜플의 순서      릴레이션에 포함된 튜플의 순서는 중요하지 않다        릴레이션의 포함된 튜플의 순서는 무의미  릴레이션 변동성 - 튜플의 삽입, 삭제 등의 잡업으로 릴레이션은 시간에 따라 변함속성 명칭과 값 - 유일한 식별을 위해 명칭은 유일해야 하며, 속성 구성 값은 동일할 수 있다튜플의 속성 - 속성은 원잣값만을 저장해야 한다.  속성은 여러 개의 값을 리스트나 집합 형태로 저장 불가능  하나 속성이 두 값을 갖게 되면 릴레이션 추가 후 이를 참조03 키의 개념 및 종류이상( Anomaly ) 현상 - 데이터가 중복 저장되면 릴레이션 조작 시 예상치 못한 곤란한 현상 발생키 - 튜플을 유일하게 식별하기 위한 고유한 값을 저장하는 속성 혹은 속성의 집합수퍼키( Super Key ) - 튜플을 유일하게 식별하기 위해 사용하는 하나 혹은 그 이상의 속성 집합  문제점 : 튜플 고유 구별을 위해 꼭 필요하지 않은 속성을 포함  한 릴레이션을 구성하는 속성들 중 각 튜플을 유일하게 식별할 수 있는 하나 또는 그 이상의 속성의 집합  유일성 개념 포함후보키 ( Candidate Key ) - 최소한의 속성으로 구성된 유일성을 갖는 속성의 집합  후보키 지정 시 후보키 속성값만을 비교하면 되는 장점  릴레이션 구성 속성 중 각 튜플을 유일하게 식별할 수 있는 최소한의 속성의 집합  유일성과 최소성 개념 포함  수퍼키와 공통점 : 릴레이션에 있는 가 튜플을 고유하게 식별할 수 있어야 한다  수퍼키와 차이점 : 최소한의 속성으로 구성된 유일성을 갖는 속성의 집합기본키 ( Primary Key ) - 후보키 중 튜플을 식별하는데 기준으로 사용하는 키  하나의 릴레이션에서 후보키가 하나뿐일 때 그 후보키를 기본키로 사용  두 개 이상 존재 시 릴레이션 특성을 고려해 이들 중 하나를 선택  Null 값 저장 불가능  기본키로 정의된 속성에는 동일 값이 중복 저장 불가능  모든 릴레이션에는 적어도 하나의 기본키 ( 후보키 )가 존재  여러 후보키 중 하나를 선택하여 튜플을 식별하는데 기준으로 사용하는 키대체키 ( Alternate Key ) - 후보키가 둘 이상일 때 기본키로 선택되지 않은 나머지 후보키  보조키라고도 함복합키  하나의 칼럼이 후보키 역할을 하지 못함  두 개 이상의 칼럼이 합쳐져야 후보키의 역할을 하는 경우외래키 ( Foreign Key ) - 상호 관련 테이블 사이에서 데이터의 일관성을 보장해주는 수단  어떤 릴레이션의 기본키를 참조하는 속성 또는 속성의 집합  외래키 속성은 참조하는 릴레이션의 기본키와 동일한 도메인을 가져야 함  두 테이블 간 데이터 불일치로 발생하는 이상현상 방지 &gt; 데이터 사이 참조 관계 설정  A 릴레이션과 참조하고 있는 B릴레이션의 기본키와 같은 속성을 A에서 찾아 이를 외래키로 지정  외래키로 지정되면 참조 테이블에서 사용 중인 기본키를 삭제, 변경 불가능  기본키에 없는 값은 외래키 값으로 입력 불가능자체 릴레이션을 참조하는 외래키             기본키 구성요소가 되는 외래키04 무결성 제약조건개체 무결성: 개체가 결점이 없음  무결한 개체 = 데이터베이스에 저장, 관리될 때 본질적으로 서로 구별 가능  식별 가능한 상태에 있게 되면 개체 부결성이 보장된 상태  릴레이션 식별자의 역할 = 기본키  기본키 구성 속성은 null / 중복값 불가능  기본키 값이 널 값을 갖게 된다면 튜플을 유일하게 식별할 수 없음  튜플 유일 식별 불가능은 서로 구별할 수 없는 개체가 존재하게 된다는 의미 &gt; 개체 무결성 위배  기본키의 유일 식별성을 잃지 않도록 하기 위해 중복되는 값을 갖으면 안 됨  특정 개체가 무결성을 유지하도록 하기 위해서 릴레이션을 생성하는 데이터 정의문 에서 어떤 속성이 릴레이션의 기본키인지를 알려주어야 함&gt; 개체 무결정 제약조건 : 기본키는 NULL 이나 중복 값을 가질 수 없다참조 무결성: 릴레이션 간 적용되는 제약조건  외래키 값은 null이거나 참조 릴레이션의 기본키 값과 동일해야 함  릴레이션 모델에서는 두 개체 간의 관계를 외래키 혹은 릴레이션으로 표현  릴레이션은 참조할 수 없는 외래키 값을 가질 수 없음&gt; 참조 무결성 제약조건 : 외래키는 참조할 수 없는 값을 가질 수 없다.참조 무결성 제약 조건 유지  두 테이블 간 외래키에 의한 참조 관계에 있고 두 테이블 간 데이터 불일치가 발생하는 상황이 될 때  DBMS는 제한, 연쇄, 널 값으로 대체와 같은 조취를 취할 수 있다A 테이블 첫 번째 튜플을 삭제하려 할 때제한은 삭제하려는 튜플의 부서 번호 값을 사원 테이블에서 가지고 있는 튜플이 있으므로 삭제 연산 거절연쇄는 삭제된 부서 번호 값을 갖는 사원 테이블의 튜플도 함께 삭제널 값으로 대체는 삭제 연산을 수행한 뒤 삭제된 부서 번호 값을 갖는 사원 테이블의 튜플에서 부서 번호를 널 값으로 대체]]></content>
+      <categories>
+        
+          <category> Database </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> DB </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[[1] Database 데이터 모델]]></title>
+      <url>/database/2019/04/15/1-Database-Study-in-school/</url>
+      <content type="text"><![CDATA[데이터 모델01 데이터 모델의 개요정보화 시스템 구축 : 현실 세계에서 일어나는 사건들을 전산화현실 세계를 개념화, 단순화하여 가시적으로 표현데이터 모델링 : 체계적으로 표현하고 문서화하는 기법 - 정보시스템의 중심을 데이터 관점에서 접근\1. 어떤 데이터가 존재하는지   2. 업무에서 필요로 하는 정보가 무엇인지 분석 &gt; 모델링 자체가 업무를 분석 : 프로젝트 참여한 모든 사람은 모델링에 참여하거나 내용 이해 필수데이터 모델 : 현실 세계를 단순화, 추상화하여 체계적으로 데이터의 구조를 표현 &gt; 그래픽적 구현      주 목적              업무 정보를 구성하는데 기초가 되는 정보를 일정한 표기법으로 표현함으로써 정보 시스템 구축 대상이 되는 업무 내용을 정확하게 분석하는 것이다.      분석된 모델을 가지고 실제 데이터베이스를 생성하여 개발 및 데이터 관리에 사용하기 위한 것이다.      &gt;&gt; 새로운 시스템이나 개선 시스템 개발의 기초를 제공하며 조직 내 구성원 간의 의사소통의 수단데이터 모델의 구성요소  구조 (S : Structure)데이터의 정적 성질, 데이터베이스에서 표현될 대상으로써의 엔티티 타임과 이들 간의 관계를 명세  연산 (O : Operation)데이터의 동적 성질, 엔티티 인스턴스에 적용 가능한 연산에 대한 명세엔티티 인스턴스를 처리하는 작업에 대한 명세 &gt; 데이터 조작 기법  제약조건 (C : Constraint)데이터가 무결하도록 하기 위해 사용 - 데이터를 조작하는데 있어 한계를 규정짓는 것엔티티, 관계, 속성  업무가 관여하는 어떤 것 (Entity)사람이 생각하는 개념이나 정보단위같은 현실 세계의 대상체유 / 무형의 정보 &gt; 서로 연관된 몇 개의 속성으로 구성  업무가 관여하는 어떤 것 간의 관계 (Relation)데이터의 가장 작은 논리적 단위, 하나의 엔티티는 한 개 이상으 속성으로 구성  어떤 것이 가지는 성격 (Attribute)엔티티와 엔티티 혹은 엔티티와 속성 간의 연관성&gt; 자연계에 존재하는 모든 유형의 정보를 세 가지 관점으로 접근하여 모델링개념적 데이터 모델과 논리적 데이터 모델      개념적 데이터 모델    ( 개체 관계 모델 - E-R 모델 ) » 정보 모델링  엔티티를 인간이 이해할 수 있는 정보구조로 표현하는 과정현실 세계에서 존재하는 데이터를 엔티티와 엔티티 내의 공통된 속성과 엔티티들 사이의 관계를 정의하는 추상화 과정엔티티를 추상화 시킨 엔티티 타임 : 해당 타입에 속하는 엔티티들의 공통적이 특성을 나타내는 속성      논리적 데이터 모델          데이터 모델링      컴퓨터가 이해할 수 있도록 변환필드로 기술된 데이터 타입과 이 테이터 타입 간의 관계를 이용하여 현실세계를 표현하는 방법\1. 관계 데이터 모델   2. 계층 데이터 모델  3. 네트워크 데이터 모델02 개념적 데이터 모델  목적 : 현실 세계를 추상화하는 과정으로 업무적인 관점에서 접근하고 분석하는 단계E-R 다이어그램 : 엔티티와 이들 간의 관계를 알기 쉽게 도형을 사용해 표현엔티티와 엔티티 타입엔티티 타입 : 독립적으로 전재하면서 고유하게 식별 가능한 실세계의 엔티티 (실체 / 추상)​	    엔티티들은 엔티티 타입으로 분류엔티티의 집합 : 동일한 속성을 가진 엔티티의 모임 ( 엔티티 인스턴스의 집합 ).엔티티 : 엔티티 타입을 구성하는 원소, 다른 모든 것과 구분되는 유/무형의 것 &gt; 업무 수행을 위해 알아야 할 대상속성속성 : 엔티티의 성질, 분류, 수량, 상태, 특성을 구체적으로 나타내는 세부 항목속성값 : 엔티티의 특성이나 상태가 현실화된 값속성 유형  단순 속성과 복합 속성단순 속성 : 더이상 작은 구성원소로 분해할 수 없는 속성복합 속성 : 몇 개의 기본적 단순 속성으로 분해할 수 있는 속성  단일 값 속성과 다중 값 속성단일 값 속성 : 각 엔티티에 대해 하나의 값만 갖는 것다중 값 속성 : 한 엔티티에 대해 여러 값을 갖는 것  유도 속성과 저장 속성유도 속성 : 속성 값이 다른 속성이나 엔티티가 갖고 있는 값으로부터 유도되어 결정되는 경우저장 속성 : 유도 속성을 생성하는 데 사용된 속성  널 속성널 값을 갖는 속성                    속성값이 엔티티에 해당하지 않는 경우                    속성값을 알 수 없는 경우                    값이 존재하지만 값이 누락된 경우                    값이 존재하는지 알 수 없어 모르는 경우            관계타입: 엔티티 사이의 연관성을 표 현하는 개념 &gt; 동사구로 관계 정의 / 엔티티 집합 사이의 대응-사상을 의미관계 집합 : 한 관계 타입에 속하는 모든 관계 인스턴스  관계 유형카디날리티 : 관계에 참여하는 하나의 엔티티에 대해 다른 엔티티가 몇 개 참여하는지 나타내는 것&gt; 관계 대응 엔티티 수 : 하나의 관계에 실제 참여 가능한 인스턴스의 수(1) 일대일  (2) 일대다  (3) 다대다  카디날리티 비율의 최소값과 최대값어떤 관계 타입에 참여하는 각 엔티티 타입에 대해min은 이 엔티티 타입 내의 각 엔티티는 적어도 min번 관계에 참여함을 의미한다.min = 0은 어떤 엔티티가 반드시 관계에 참여해야 할 필요는 없음을 의미한다max는 이 엔티티 타입 내의 각 엔티티는 최대한 max번 관계에 참여함을 의미한다.max = *는 어떤 엔티티가 관계에 임의의 수 만큼 참여할 수 있음을 의미한다.(표)엔티티의 키키 속성 : 엔티티 인스턴스를 유일하게 식별하는 데 사용 : 중복 값을 갖지 않는 속성&gt; 타 엔티티와 구별할 수 있는 속성이며 키를 속성에 및줄을 그어 표현한다. (그림)강한 엔티티 타입과 약한 엔티티 타입강한 엔티티 타입 ( 정규 엔티티 타입 ) : 고유 엔티티들을 식별할 수 있는 엔티티 타입강한 엔티티 = 독립 / 부모 엔티티약한 엔티티 타입 : 자기 자신만의 속성만으로는 키를 명세할 수 없는 엔티티약한 엔티티 = 종속 / 자식 엔티티소유 엔티티 타입 ( 식별 엔티티 타입 ) : 소유엔타에 의해야만 약한 엔티티 타입이 식별 가능구별자 ( 부분키 ) : 약한 엔티티 타입을 구별하기 위해 사용되는 이름은 단독으로 엔티티를 구분할 수 없음구별자는 강한 엔티티와 연관된 약한 엔티티 집합 내에서만 서로 구별 가능이중링크 : 부양가족 엔티티가 전체참여를 하고 있다는 것​	&gt; 약한 엔티티를 강한 엔티티에 연관시켜 엔티티를 유일하게 식별하게 하는 것ISA 관계상위 엔티티와 하위 엔티티 간의 관계같은 속성을 갖는 여러 엔티티를 하나의 상위 엔티티로 결합할 수 있으며, 특정 엔티티는 서로 구별되는 여러 하위 엔티티로 나눌 수 있다.03 논리적 데이터 모델 ( 데이터 모델링 ): 개념적 모델링 과정에서 얻은 개념적 구조를 컴퓨터 환경에 맞도록 변환하는 과정  목적 : 정확한 업무 분석을 통한 자료의 흐름을 분석 후 실체와 속성의 관계를 구조적으로 설계계층 데이터 모델데이터를 저장하는 단위( Entity )의 구조가 상하종속적인 관계로 구성 /일대다 ( 1 : N ) 대응 관계만 존재 &gt; 레코드 삭제 시 연쇄삭제레코드의 집합 : 세그먼트 ( 부모 / 자식 세그먼트 )레코드 타입 ( 논리적 구조 ) : 트리 형태로 표현 &gt; 엔티티가 트리를 구성하는 노드 역할장점 : 데이터 액세스 속도가 빠르고 데이터 사용량을 쉽게 예측할 수 있다단점 : 데이터 구조가 상하 종속적인 관계로 구성 &gt; 변화하는 프로세서 수용 불가능      관계의 유형    - 속성 관계 : 세그먼트 (엔티티)를 구성하는 속성들의 관계    - 엔티티 관계 : 엔티티와 엔티티 간의 관계를 링크로 표시  네트워크 데이터 모델그래프를 이용해 데이터 논리구조를 표현다대다 ( N : M ) 대응 관계를 만족하는 구조 &gt; 오너와 멤버 관계로 표현레코드 타입 : 도형적으로 표현 ( 그래프 형태 ) &gt; 망 데이터 모델단점 : 구성과 설계가 복잠함 / 계층형 데이터베이스 관리 시스템의 단점이었던 데이터 종속성 또한 해결 불가관계 데이터 모델: 계층 모델과 망 모델의 복잡한 구조를 단순화일대일, 일대다, 다대다 관계를 자유로이 표현 가능장점 : 변화하는 업무 프로세스를 쉽게 적용 가능 &gt; 유지 보수의 용이, 생산성 향상 및 응용프로그램 개발 용이​      간결성, 보기 편리하고 구조가 간단하여 설계 및 관리가 편리, 다른 데이터베이스로의 변환이 편리단점 : 많은 자원이 필요하기에 시스템 부하가 상대적으로 빈번함]]></content>
+      <categories>
+        
+          <category> Database </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> DB </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+</search>

@@ -1,0 +1,1060 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="cryptography,security," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="빈둥빈둥 공부블로그" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="현대 암호 : 컴퓨터가 암호화하고, 데이터가 2진수이며 이것이 암호화 된다">
+<meta name="keywords" content="cryptography, security">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Modern Cryptography">
+<meta property="og:url" content="http://localhost:4000/computer_security/2020/01/02/Modern-cryptography/">
+<meta property="og:site_name" content="빈둥빈둥 공부블로그">
+<meta property="og:description" content="현대 암호 : 컴퓨터가 암호화하고, 데이터가 2진수이며 이것이 암호화 된다">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://k.kakaocdn.net/dn/bcmhGR/btqAOdd01dA/kfhZ6ArDwfjK7lVSZ76Kt1/img.png">
+<meta property="og:image" content="https://k.kakaocdn.net/dn/N44He/btqARW2t4YF/KkfEZgRF8wU1eWuO2wGfmk/img.png">
+<meta property="og:image" content="https://k.kakaocdn.net/dn/bkxvY1/btqARwQudYv/xaCjv6BKviL3aZ7WtCQqKk/img.png">
+<meta property="og:image" content="https://k.kakaocdn.net/dn/cd2p5b/btqAOIY9MI7/RMsxM1WmpgMSQIPExU9SqK/img.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Modern Cryptography">
+<meta name="twitter:description" content="현대 암호 : 컴퓨터가 암호화하고, 데이터가 2진수이며 이것이 암호화 된다">
+<meta name="twitter:image" content="https://k.kakaocdn.net/dn/bcmhGR/btqAOdd01dA/kfhZ6ArDwfjK7lVSZ76Kt1/img.png">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/"/>
+
+
+
+
+
+  <title>Modern Cryptography | 빈둥빈둥 공부블로그</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">빈둥빈둥 공부블로그</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">All about STUDY!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+<div id="posts" class="posts-expand">
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/computer_security/2020/01/02/Modern-cryptography/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eunbin Park">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="빈둥빈둥 공부블로그">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            Modern Cryptography
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-02T00:00:00+09:00">
+                2020-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Computer_Security" itemprop="url" rel="index">
+                    <span itemprop="name">Computer_Security</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/computer_security/2020/01/02/Modern-cryptography/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="/computer_security/2020/01/02/Modern-cryptography/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <p>현대 암호 : 컴퓨터가 암호화하고, 데이터가 2진수이며 이것이 암호화 된다</p>
+
+<p><strong>Public-key Cryptography</strong></p>
+
+<ul>
+  <li>probably most significant advance in the 3000 year history of cryptography</li>
+  <li>uses two keys – a public &amp; a private key</li>
+  <li><strong>asymmetric</strong> since parties are not equal</li>
+  <li>uses clever application of number theoretic concepts to function</li>
+  <li>complements rather than replaces private key crypto</li>
+</ul>
+
+<p>2개의 키, 암호화 할 때 대칭암호 씨멘틱 암호였는데, 이것은 암호키가 2개. 동시에 생겨남.</p>
+
+<p>완벽하게 페어, 맞물림. 다른 페어가 존재할 수 없음</p>
+
+<p>&gt; 한꺼번에 만들어지기 때문에. 두 개의 키가 특이하게 하나로 암호화, 복호화가 가능. ?</p>
+
+<p>가장 중요한 특성!! 동시생성, 하나로 암호화 하면 하나로만 복호화가 가능함</p>
+
+<p>이게 가능해진 후로 할 수 있는 일이 많아짐 : 두 개가 생겨서 나누면? 두 개를 다 갖고 있을 필요가 없음.</p>
+
+<p>특징 중 하나가 a를 갖고 a’를 유추할 수 없음 짐작 불가능. 키를 내놓으면 모든사람에게 보여주고 알려주기 때문에 공개키라고 부름. 그래서 퍼블릭! 나머지 하나는 공개하지 않고 소장 &gt; 개인, 비밀키</p>
+
+<p>비밀키는 보통 개인키라고 부름. 공개와 개인키가 있는데, 공개키는 모두가 알고 개인키는 나만 앎. 공개키로 암호화를 해서 암호화 한다. 이 암호화 된 건. a’만 풀 수 있음. 퍼블릭키로 암호화 해서 보내기만 하면 a’만 볼 수 있기 때문에 더욱 쉬어짐</p>
+
+<p><strong>key distribution</strong> – how to have secure communications in general without having to trust a KDC with your key</p>
+
+<p><strong>digital signatures</strong> – how to verify a message comes intact from the claimed sender :</p>
+
+<p>&gt; 프라이빗 키의 암호화</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>플레인 텍스트 암호화 (상대방 키를 알고 있다는 의미에서 ) 밥이 앨리스한테 보내는데, 앨리스의 퍼블릭 키로 보냄 &gt; 표기할 때는 y = E(k, x) » X = D(k, y)</td>
+      <td> </td>
+      <td>k가 같으니까 대칭키</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>앨리스한테 보낼 때 Y = 아무나 알고 있음 E(PUa, x) » X = D(PRa, Y) - 앨리스만 알고 있음</p>
+
+<p><strong>a public-key,</strong> which may be known by anybody, and can be used to encrypt messages, and verify signatures</p>
+
+<p><strong>a related private-key,</strong> known only to the recipient, used to decrypt messages, and sign ( create ) signatures</p>
+
+<p>&gt; those who encrypt messages or verify signatures cannot decrypt messages or create signatures</p>
+
+<p>모든 사람은 내가 공개한 공개키를 보고 나에게 보내면 됨.!! 인터넷은 암호화통신을 해야하는데, 몇 억명 유저 키를 관리할 수는 없음. 이런 문제를 해결함. 거꾸로 공개키로 암호화하면 내가 안전히 받을 수 있음. 개인키로 암호화하면 퍼블릭 키로 풀 수 있음 &gt; 개인키를 암호화하면 공개키가 있는 아무나가 풀 수 있음. 모두 풀어볼 수 있음.</p>
+
+<p>대신 이 것은 개인키로는 나만 암호화 할 수 있기에 받은 사람 입장에서는 공개키로 풀 수 있기 때문에 … ? 이 메세지는 확실한 개인키 (수신인)를 나타내는 효과가 있다 » 디지털 서명!?!? 신뢰?</p>
+
+<p><img src="https://k.kakaocdn.net/dn/bcmhGR/btqAOdd01dA/kfhZ6ArDwfjK7lVSZ76Kt1/img.png" alt="img" /></p>
+
+<p>신경써야 하는 것 &gt; 공개키가 있는데,,, 내 건지 어떻게 아는지? 공개키를 무언가 뒤집어 씌울 수도 있는데?</p>
+
+<p>&gt; 누군가 이게 나의 공개키인지 확인을 해주어야 하는데,, 공개키마다 믿을 수 있는 사람을 확인해주자 해서</p>
+
+<p>제3자.. 확인을 해줌. 공인인증서….</p>
+
+<p>내 퍼블릭 키가 인증을 공공적으로 확인을 받음 국민은행이 이것을 보증합니다 해서 누구한테 들이밀어도 공개키를 뒤져봐도 신뢰 가능</p>
+
+<p>퍼블릭키 문제점 : 느림,, 보통 대칭키보다 1000배 느리고 연산량과 전기가 많이 듦. 좋긴 한데 많이 쓰면 안 좋음</p>
+
+<p>데이터 자체 암호화가 아니라,, AES, DES (빠르고 효율적이고 안전, 키를 따로따로가 문제) 키를 랜덤으로 만든다음 키만 퍼블릭키로 암호화 해서 보내면 상대방은 안전하게 받을 수 있음. 만들어서 주었기 때문에 둘만 알 고 있음 &gt; AES, DES 로 풀면 됨 !! 연산이 많아도 상관은 없음 : 데이터 양이 많으면 무조건 대칭키!!</p>
+
+<p>키 분배 과정은 처음에 AES, DES로 암호화 해야하기 대문에 필요함</p>
+
+<p><strong>RSA</strong> - 수학적 특성 사용</p>
+
+<p>- to encrypt a message M the sender: obtains public key of recipient PU={e,n}</p>
+
+<p>computes: C = Me mod n, where 0≤M&lt;n</p>
+
+<p>- to decrypt the ciphertext C the owner: uses their private key PR={d,n}</p>
+
+<p>computes: M = Cd mod n</p>
+
+<p>note that the message M must be smaller than the modulus n (block if needed)</p>
+
+<p>publish their public encryption key: PU={e,n} 
+keep secret private decryption key: PR={d,n}</p>
+
+<p>안정성이 보장되는 이유 : 소인수분해가 거의 불가능하기 때문에 유추 불가능</p>
+
+<p>암호화 : 메세지이긴 하지만 2진수인 알파벳 한 개 (ex, M) 에 e승을 하고 mod n 를 곱함 = C » 암호문</p>
+
+<p>복호화 &gt; C^d * mod n== (M^e) d = M^ed mod n</p>
+
+<p>프라이빗 키로 먼저 암호화 했을 때 (M^d)e == M^de mod n == M^@(n)+1 mod n = M</p>
+
+<p>* <strong>RSA Example</strong></p>
+
+<p>Select primes: p=17 &amp; q=11</p>
+
+<p>Calculate n = pq =17 x 11=187</p>
+
+<p>Calculate ø(n)=(p–1)(q-1)=16x10=160</p>
+
+<p>Select e: gcd(e,160)=1; choose e=7</p>
+
+<p>Determine d: de=1 mod 160 and d &lt; 160 Value is d=23 since 23x7=161= 10x160+1</p>
+
+<p>Publish public key PU={7,187}
+Keep secret private key PR={23,187} a</p>
+
+<p>&gt; asample RSA encryption/decryption is:</p>
+
+<p>given message M = 88 (nb. 88&lt;187)</p>
+
+<p>encryption: C = 887 mod 187 = 11</p>
+
+<p>decryption: M = 1123 mod 187 = 88</p>
+
+<p><strong>Diffie-Hellman Key Exchange</strong></p>
+
+<p><img src="https://k.kakaocdn.net/dn/N44He/btqARW2t4YF/KkfEZgRF8wU1eWuO2wGfmk/img.png" alt="img" /></p>
+
+<dl>
+  <dt>First public-key type scheme proposed / practical method for public exchange of a secret key</dt>
+  <dd>
+    <p>used in a number of commercial products</p>
+  </dd>
+</dl>
+
+<p>a public-key distribution scheme
+  cannot be used to exchange an arbitrary message</p>
+
+<p>rather it can establish a common key</p>
+
+<p>known only to the two participants</p>
+
+<p>value of key depends on the participants (and their private and public key information)</p>
+
+<p>- based on exponentiation in a finite (Galois) field (modulo a prime or a polynomial) - easy</p>
+
+<p>- security relies on the difficulty of computing discrete logarithms (similar to factoring) – hard all users agree on global parameters:</p>
+
+<p>large prime integer or polynomial q</p>
+
+<p>a being a primitive root mod q •</p>
+
+<p>each user (eg. A) generates their key</p>
+
+<p>chooses a secret key (number): X &lt; q</p>
+
+<p>compute their public key: YA = a^xa mod q</p>
+
+<p>each user makes public that key Ya</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Alice</th>
+      <th>Bob</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>G</td>
+      <td>G</td>
+    </tr>
+    <tr>
+      <td>Xa</td>
+      <td>Xb</td>
+    </tr>
+    <tr>
+      <td>g^Xa mod n</td>
+      <td>g^Xb mod n</td>
+    </tr>
+    <tr>
+      <td>(g^Xb)^Xa</td>
+      <td>(g^Xa)^Xb</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>shared session key for users A &amp; B is KAB:</p>
+
+<p>&gt; if Alice and Bob subsequently communicate, they will have the same key as before, unless they choose new public - key</p>
+
+<p><strong>Man-in-the-Middle Attack</strong></p>
+
+<p>공격에 취약함 : 중간자 공격</p>
+
+<p>앨리스랑 밥 사이에 서있음. 중간에서 통신을 끊음 &gt; 중간자만의 Xc를 만들어서 앨리스의 g^Xa를 끊고, 나의 g^Xc를 보냄, 반대도 마찬가지</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>결과는 (g^Xc)^Xa</td>
+      <td>(g^Xc)^Xb가 되기 때문에 중간에 낀 사람은 양쪽 모두와 통신을 할 수 있지만 서로는 전혀 모름.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>일반적으로는 몇 가지 기능을 넣어서 서로를 확인할 수 있게 함</p>
+
+<p>퍼블릭 키 : 키 익스체인지 - 동등한 정보를 나눠가질 때 &gt; 맨인더미들 어택이랑 연결됨</p>
+
+<p><strong>Digital Signature</strong> E(PrivateR, H)</p>
+
+<p>have looked at message authentication &gt; but does not address issues of lack of trust</p>
+
+<p>digital signatures provide the ability to:</p>
+
+<p>- verify author, date &amp; time of signature</p>
+
+<p>- authenticate message contents</p>
+
+<p>- be verified by third parties to resolve disputes</p>
+
+<p>hence include authentication function with additional capabilities</p>
+
+<p><img src="https://k.kakaocdn.net/dn/bkxvY1/btqARwQudYv/xaCjv6BKviL3aZ7WtCQqKk/img.png" alt="img" /></p>
+
+<p><img src="https://k.kakaocdn.net/dn/cd2p5b/btqAOIY9MI7/RMsxM1WmpgMSQIPExU9SqK/img.png" alt="img" /></p>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            
+            <a href="/tag/#/cryptography" rel="tag"># cryptography</a>
+          
+            
+            <a href="/tag/#/security" rel="tag"># security</a>
+          
+        </div>
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/computer_security/2020/01/02/classical-cryptography/" rel="next" title="Claasical Cryptography">
+                <i class="fa fa-chevron-left"></i> Claasical Cryptography
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/computer_security/2020/01/02/Model-for-network-security/" rel="prev" title="Security Requirements, Attacks and Model for network security">
+                Security Requirements, Attacks and Model for network security <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/images/avatar.gif"
+               alt="Eunbin Park" />
+          <p class="site-author-name" itemprop="name">Eunbin Park</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eunbin Park</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://jekyllrb.com">Jekyll</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      
+      <script type="text/javascript">
+          var disqus_config = function () {
+              this.page.url = 'http://localhost:4000/computer_security/2020/01/02/Modern-cryptography/';
+              this.page.identifier = '/computer_security/2020/01/02/Modern-cryptography/';
+              this.page.title = 'Modern Cryptography';
+          };
+          var d = document, s = d.createElement('script');
+          s.src = 'https://.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', '' + +new Date());
+          (d.head || d.body).appendChild(s);
+      </script>
+      
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
