@@ -2,6 +2,141 @@
 <search>
   
     <entry>
+      <title><![CDATA[Ch08.]]></title>
+      <url>/linear_algebra/2021/01/12/ch8/</url>
+      <content type="text"><![CDATA[dd]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Ch07.]]></title>
+      <url>/linear_algebra/2021/01/12/ch7/</url>
+      <content type="text"><![CDATA[dd]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Ch06.]]></title>
+      <url>/linear_algebra/2021/01/12/ch6/</url>
+      <content type="text"><![CDATA[dd]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Ch05.]]></title>
+      <url>/linear_algebra/2021/01/12/ch5/</url>
+      <content type="text"><![CDATA[dd]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Ch04. The Matrix Equation Ax=b]]></title>
+      <url>/linear_algebra/2021/01/12/ch4-The-Matrix-Equation-Ax=b/</url>
+      <content type="text"><![CDATA[\(A\mathbf{x}\) : Product of A and xThe linear combination of the columns of \(A\) using the corresponding entries in \(\mathbf{X} \mbox{ as weights}\) → x 벡터 엔트리가 가중치📖 Theorem 3.\(A\) is \(m \times n\) matrix, with columns \(a_1, \cdots, a_n   \mathbf{b} \mbox{ is in }\mathbb{R}^m\)  Matrix Equation : \(A\mathbf{x} = \mathbf{b}\)  Vector Equation : \(x_1\mathbf{a_1} + x_2\mathbf{a_2} + \cdots + x_p\mathbf{a_p} = \mathbb{b}\)  Augmented Matrix  : \(\left[ \mathbf{a_1}, \mathbf{a_2}, \cdots, \mathbf{a_n} \mathbf{b}\right]\)Have the same solution set!📖 Theorem 4.The followings are all true of all false:  For each b in R^m, Ax = b  has a solution  Each b in R^m is a linear combination of the columns of A  The columns of A spanR^m  A has a pivot position in every row📖 Theorem 5.If A is an m x n matrix, u and v are vectors in R^m,  And c is a scalar, then;  A(u + v) = Au + Av;A(cu) = c(Au)]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Ch03. Vector Equations]]></title>
+      <url>/linear_algebra/2021/01/12/ch3-Vector-Equations/</url>
+      <content type="text"><![CDATA[Vectors in \(\mathbb{R}^2\) → 실수 2차원 공간 \(\mathbf{u} = \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right], \mathbf{v} = \left[\begin{matrix}0.2 \\ 0.3 \\\end{matrix}\right], \mathbf{u} = \left[\begin{matrix}w_1 \\ w_2 \\\end{matrix}\right]\)\(\vec{u} = (3, -1), \vec{v} = (0.2, 0.3), \vec{w} = (w_1, w_2)\)\[(w_1, w_2) \ne \left[ w_1, w_2\right]\]Scalar Multiplication백터 네 모든 값에 스칼라 값을 곱해준다\(c = 5, \mathbf{u} =  \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right]\) 일 때,\(c\mathbf{u} = 5 \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right] =  \left[\begin{matrix}5\cdot3 \\ 5\cdot(-1) \\\end{matrix}\right] =  \left[\begin{matrix}15 \\ -5 \\\end{matrix}\right]\)Vectors in \(\mathbb{R}^n\)\(c\mathbf{u} = \left[\begin{matrix}u_1 \\ u_2 \\ \cdots \\ u_n\end{matrix}\right]   \\\mathbf{u} = (u_1, u_2, \cdots, u_n)\)Algebraic Properties of \(\mathbb{R}^n\)\(\mathbf{u, v, w} \mbox{ are } \mathbb{R}^n \mbox{ and } c d \mbox{ are scalar}\)  u + v = v + u  (u + v) + w = u + (v + w)  u + 0 = 0 + u = u  u + (-u) = -u + u = 0  c(u + v) = cu + cv  (c + d)u = cu + du  c(du) = (cd)u  1u = uLinear CombinationsLinear combination of \(\mathbf{v_1, v_2, \cdots, v_p} \mbox{ is } \mathbb{R}^n     \mbox{with weights } c_1, c_2, \cdots, c_p \mbox{ is scalar}\)y = \(c_1\mathbf{v_1} + c_2\mathbf{v_2} + \cdots + c_p\mathbf{v_p}\)A vector equation \(x_1\mathbf{a_1}+x_2\mathbf{a_2}+\cdots+x_n\mathbf{a_n} = \mathbf{b}\)has the same solution set as the linear system whose augmented matrix is  \(\left[\mathbf{a_1} \mathbf{a_2} \cdots \mathbf{a_n} \mathbf{b}\right]\)→ 각 벡터를 집어넣은 Augmented Matrix 와 동일한 해를 지닌다.Span{\(\mathbf{v}\)}is the collection of all vectors that can be written in the form \(c_1\mathbf{v_1} + c_2\mathbf{v_2} + \cdots + c_p\mathbf{v_p}\)]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Ch02. Row Reduction and Echelon Forms]]></title>
+      <url>/linear_algebra/2021/01/12/ch2-Row-Reduction-and-Echelon-Forms/</url>
+      <content type="text"><![CDATA[A leading Entry of row : the LEFTMOST nonzero entry.Echelon Form  All nonzero rows are above any rows of all zeros  Each leading entry of a row is in column to the right of the leading entry of the row above it  The leading entry in each nonzero row is 1  Each leading 1 is the only nonzero entry in its column\[1 → \left[\begin{matrix}\bullet &amp; * &amp; * &amp; * \\0 &amp; \bullet &amp; * &amp; * \\0 &amp; 0 &amp; 0 &amp; 0 \\0 &amp; 0 &amp; 0 &amp; 0 \\\end{matrix}\right]          2 → \left[\begin{matrix}\bullet &amp; * &amp; * &amp; * \\0 &amp; \bullet &amp; * &amp; * \\0 &amp; 0 &amp; \bullet &amp; * \\0 &amp; 0 &amp; 0 &amp; \bullet \\\end{matrix}\right]\]📖 Theorem 1. Uniqueness of the Reduced Echelon FormEach matrix is row equivalent to one and only one reduced echelon matrixRow Reduction Algorithm  Begin with the leftmost nonzero column  Select a nonzero entry in the pivot column as a pivot. If necessary, Interchange rows to move this entry into the pivot position.  Row replacement to create zeros in all positions below the pivot.  Apply steps 1-3 to the sub matrix that remain. The combination of steps 1-4 is called forward phase echelon form  Beginning with the rightmost polio and working upward and to the left, created zeros above each pivot. If a pivot is not 1, make it 1 by a scaling operation.          Called backward phase reduced echelon form      Solution of linear systems\(\left[\begin{matrix}1 &amp; 0 &amp; -5 &amp; 1 \\0 &amp; 1 &amp; 1 &amp; 4 \\0 &amp; 0 &amp; 0 &amp; 0 \\\end{matrix}\right]\) 일 때,\(x_1 - 5x_3 = 1 \\x_2 + x_3 = 4 \\0 = 0 \\\left[\begin{matrix}6 \\3 \\1 \\\end{matrix}\right]\left[\begin{matrix}-9 \\6 \\-2 \\\end{matrix}\right]  \cdots\) 해가 무한대가 되며,  General Solution 은 아래와 같다.\(\begin{cases}x_1 = 1 + 5x_3 &amp; \mbox{basic / leading  variables} \\x_2 = 4 - x_3 &amp; \mbox{basic / leading variables} \\x_3 \mbox{ is free} &amp; \mbox{free variable}\end{cases}\)📖 Theorem 2. Existence and Uniqueness TheoremA linear system is consistent if and only if the rightmost column of the augmented matrix is not a pivot column - that is, if and only if and echelon form of the augmented matrix has no row of the forms.  \(\left[ \begin{matrix} 0 &amp; \cdots &amp;  0 &amp; b \end{matrix} \right]\) with \(b\) is nonzero.  If a linear system is consistent, then the solution set contains either (i) a unique solution, when there are no free variables, or (ii) infinitely many solutions, when there is at least one free variables.]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Ch01. Linear Equations in Linear Algebra]]></title>
+      <url>/linear_algebra/2021/01/12/ch1-Linear-Equations-in-Linear-Algebra/</url>
+      <content type="text"><![CDATA[A system of linear equations : A collection of one or more linear equations Solution Set : The Set of all possible solutions of the linear system	→ Two linear systems are called equivalent if they have the same solution set.A system of linear equations has either  No Solution ( INCONSISTENT )  Exactly one Solution ( CONSISTENT )  Infinitely Many Solutions ( CONSISTENT )Matrix Notation  3 rows x 3 columns =&gt; Coefficient Matrix ( 3 \(\times\) 3 ) : 계수 행렬  3 rows x 4 columns =&gt; Augmented Matrix ( 4 x 3 ) : 확대 행렬          첨가 행렬은 계수 행렬과 상수항들의 행렬을 맞붙여 얻는 행렬      Augmented Matrix\(A = \left[\begin{matrix}1 &amp; 2 &amp; 3 \\4 &amp; 7 &amp; 4 \\1 &amp; 6 &amp; 8 \\\end{matrix}\right] , B = \left[\begin{matrix}1 \\4 \\1 \\\end{matrix}\right]\)가 있을 때, Augmented Matrix 는\(\left[\begin{matrix}1 &amp; 2 &amp; 3  &amp; 1\\4 &amp; 7 &amp; 4 &amp; 4 \\1 &amp; 6 &amp; 8 &amp; 1 \\\end{matrix}\right]\)이다.Elementary row operations  Replacement  Interchange  ScalingTwo matrices are Row Equivalent If there is a sequence of elementary row operations that transforms one matrix into the other.If the augmented matrices of the linear systems are row equivalent, then the two systems have the same solution set.]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[THEOREMs]]></title>
+      <url>/linear_algebra/2021/01/12/Theorems/</url>
+      <content type="text"><![CDATA[📖 Theorem 1.Uniqueness of the Reduced Echelon FormEach matrix is row equivalent to one and only one reduced echelon matrix📖 Theorem 2.📖 Theorem 3.\(A\) is \(m \times n\) matrix, with columns \(a_1, \cdots, a_n   \mathbf{b} \mbox{ is in }\mathbb{R}^m\)  Matrix Equation : \(A\mathbf{x} = \mathbf{b}\)  Vector Equation : \(x_1\mathbf{a_1} + x_2\mathbf{a_2} + \cdots + x_p\mathbf{a_p} = \mathbb{b}\)  Augmented Matrix  : \(\left[ \mathbf{a_1}, \mathbf{a_2}, \cdots, \mathbf{a_n} \mathbf{b}\right]\)Have the same solution set!📖 Theorem 4.The followings are all true of all false:  For each b in R^m, Ax = b  has a solution  Each b in R^m is a linear combination of the columns of A  The columns of A spanR^m  A has a pivot position in every row📖 Theorem 5.If A is an m x n matrix, u and v are vectors in R^m,  And c is a scalar, then;  A(u + v) = Au + Av;A(cu) = c(Au)]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
       <title><![CDATA[신경망 구조]]></title>
       <url>/ml/dl/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0/</url>
       <content type="text"><![CDATA[기본단위 : 뉴런 -&gt; 조합해 복잡한 구조를 이룸perceptron노드는 뉴런의 연산을 표현 &gt; 들어온 입력에 대한 가중치를 곱해 더해준 다음 &gt; 액티베이션 펑션을 적용시킴두 계층 사이 모든 뉴런 연결 -&gt; 전결합계층 : 뉴럴 네트워크의 가장 기본이며, Dense Layer 라고도 칭함뉴런 각 개를 하나의 백터로 묶어줌 :: 백터 내적을 묶어주면 Weight * x 로 표현이 가능함얕은 신경망은닉 Activation function으로 시그모이드 / 탄젠트를 주로 사용출력 &gt; Linear / Soft / Sigmoid ( Binary )심층 신경망5개 이상의 은닉 계층이 있는 경우 sigmoid 대신 탄젠트 / relu 가 자주 사용됨최적화 이론분석적 방법수식을 알고 있을 때 &gt; 미분해서 0이 된다는 것 : 기울기 0 -&gt; 2차 미분 해서 0보다 크면 아래로 볼록한 모양여기 다시 들어 보기수치적 방법함수 형태와 수식을 모를 때Gradient Method전역 솔루션 : 전체에서 단 하나 -&gt; 전체에서 가장 작은 값지역 솔루션 : 여러 개 일 수 있고, 좁은 지역에서 봤을 때 솔루션이 되는 부분하나의 솔루션이 전역인지 지역인지 알 수 없음.손실함수를 최소화 하는 방향으로 네트워크 파라미터 (웨이트-w, 편향-b) 를 조절하는 것]]></content>
@@ -665,141 +800,6 @@
           <tag> ML </tag>
         
           <tag> Python </tag>
-        
-      </tags>
-      <tags></tags>
-    </entry>
-  
-    <entry>
-      <title><![CDATA[Ch08.]]></title>
-      <url>/linear_algebra/2020/01/12/ch8/</url>
-      <content type="text"><![CDATA[dd]]></content>
-      <categories>
-        
-          <category> Linear_Algebra </category>
-        
-      </categories>
-      <tags>
-        
-      </tags>
-      <tags></tags>
-    </entry>
-  
-    <entry>
-      <title><![CDATA[Ch07.]]></title>
-      <url>/linear_algebra/2020/01/12/ch7/</url>
-      <content type="text"><![CDATA[dd]]></content>
-      <categories>
-        
-          <category> Linear_Algebra </category>
-        
-      </categories>
-      <tags>
-        
-      </tags>
-      <tags></tags>
-    </entry>
-  
-    <entry>
-      <title><![CDATA[Ch06.]]></title>
-      <url>/linear_algebra/2020/01/12/ch6/</url>
-      <content type="text"><![CDATA[dd]]></content>
-      <categories>
-        
-          <category> Linear_Algebra </category>
-        
-      </categories>
-      <tags>
-        
-      </tags>
-      <tags></tags>
-    </entry>
-  
-    <entry>
-      <title><![CDATA[Ch05.]]></title>
-      <url>/linear_algebra/2020/01/12/ch5/</url>
-      <content type="text"><![CDATA[dd]]></content>
-      <categories>
-        
-          <category> Linear_Algebra </category>
-        
-      </categories>
-      <tags>
-        
-      </tags>
-      <tags></tags>
-    </entry>
-  
-    <entry>
-      <title><![CDATA[Ch04. The Matrix Equation Ax=b]]></title>
-      <url>/linear_algebra/2020/01/12/ch4-The-Matrix-Equation-Ax=b/</url>
-      <content type="text"><![CDATA[\(A\mathbf{x}\) : Product of A and xThe linear combination of the columns of \(A\) using the corresponding entries in \(\mathbf{X} \mbox{ as weights}\) → x 벡터 엔트리가 가중치📖 Theorem 3.\(A\) is \(m \times n\) matrix, with columns \(a_1, \cdots, a_n   \mathbf{b} \mbox{ is in }\mathbb{R}^m\)  Matrix Equation : \(A\mathbf{x} = \mathbf{b}\)  Vector Equation : \(x_1\mathbf{a_1} + x_2\mathbf{a_2} + \cdots + x_p\mathbf{a_p} = \mathbb{b}\)  Augmented Matrix  : \(\left[ \mathbf{a_1}, \mathbf{a_2}, \cdots, \mathbf{a_n} \mathbf{b}\right]\)Have the same solution set!📖 Theorem 4.The followings are all true of all false:  For each b in R^m, Ax = b  has a solution  Each b in R^m is a linear combination of the columns of A  The columns of A spanR^m  A has a pivot position in every row📖 Theorem 5.If A is an m x n matrix, u and v are vectors in R^m,  And c is a scalar, then;  A(u + v) = Au + Av;A(cu) = c(Au)]]></content>
-      <categories>
-        
-          <category> Linear_Algebra </category>
-        
-      </categories>
-      <tags>
-        
-      </tags>
-      <tags></tags>
-    </entry>
-  
-    <entry>
-      <title><![CDATA[Ch03. Vector Equations]]></title>
-      <url>/linear_algebra/2020/01/12/ch3-Vector-Equations/</url>
-      <content type="text"><![CDATA[Vectors in \(\mathbb{R}^2\) → 실수 2차원 공간 \(\mathbf{u} = \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right], \mathbf{v} = \left[\begin{matrix}0.2 \\ 0.3 \\\end{matrix}\right], \mathbf{u} = \left[\begin{matrix}w_1 \\ w_2 \\\end{matrix}\right]\)\(\vec{u} = (3, -1), \vec{v} = (0.2, 0.3), \vec{w} = (w_1, w_2)\)\[(w_1, w_2) \ne \left[ w_1, w_2\right]\]Scalar Multiplication백터 네 모든 값에 스칼라 값을 곱해준다\(c = 5, \mathbf{u} =  \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right]\) 일 때,\(c\mathbf{u} = 5 \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right] =  \left[\begin{matrix}5\cdot3 \\ 5\cdot(-1) \\\end{matrix}\right] =  \left[\begin{matrix}15 \\ -5 \\\end{matrix}\right]\)Vectors in \(\mathbb{R}^n\)\(c\mathbf{u} = \left[\begin{matrix}u_1 \\ u_2 \\ \cdots \\ u_n\end{matrix}\right]   \\\mathbf{u} = (u_1, u_2, \cdots, u_n)\)Algebraic Properties of \(\mathbb{R}^n\)\(\mathbf{u, v, w} \mbox{ are } \mathbb{R}^n \mbox{ and } c d \mbox{ are scalar}\)  u + v = v + u  (u + v) + w = u + (v + w)  u + 0 = 0 + u = u  u + (-u) = -u + u = 0  c(u + v) = cu + cv  (c + d)u = cu + du  c(du) = (cd)u  1u = uLinear CombinationsLinear combination of \(\mathbf{v_1, v_2, \cdots, v_p} \mbox{ is } \mathbb{R}^n     \mbox{with weights } c_1, c_2, \cdots, c_p \mbox{ is scalar}\)y = \(c_1\mathbf{v_1} + c_2\mathbf{v_2} + \cdots + c_p\mathbf{v_p}\)A vector equation \(x_1\mathbf{a_1}+x_2\mathbf{a_2}+\cdots+x_n\mathbf{a_n} = \mathbf{b}\)has the same solution set as the linear system whose augmented matrix is  \(\left[\mathbf{a_1} \mathbf{a_2} \cdots \mathbf{a_n} \mathbf{b}\right]\)→ 각 벡터를 집어넣은 Augmented Matrix 와 동일한 해를 지닌다.Span{\(\mathbf{v}\)}is the collection of all vectors that can be written in the form \(c_1\mathbf{v_1} + c_2\mathbf{v_2} + \cdots + c_p\mathbf{v_p}\)]]></content>
-      <categories>
-        
-          <category> Linear_Algebra </category>
-        
-      </categories>
-      <tags>
-        
-      </tags>
-      <tags></tags>
-    </entry>
-  
-    <entry>
-      <title><![CDATA[Ch02. Row Reduction and Echelon Forms]]></title>
-      <url>/linear_algebra/2020/01/12/ch2-Row-Reduction-and-Echelon-Forms/</url>
-      <content type="text"><![CDATA[A leading Entry of row : the LEFTMOST nonzero entry.Echelon Form  All nonzero rows are above any rows of all zeros  Each leading entry of a row is in column to the right of the leading entry of the row above it  The leading entry in each nonzero row is 1  Each leading 1 is the only nonzero entry in its column\[1 → \left[\begin{matrix}\bullet &amp; * &amp; * &amp; * \\0 &amp; \bullet &amp; * &amp; * \\0 &amp; 0 &amp; 0 &amp; 0 \\0 &amp; 0 &amp; 0 &amp; 0 \\\end{matrix}\right]          2 → \left[\begin{matrix}\bullet &amp; * &amp; * &amp; * \\0 &amp; \bullet &amp; * &amp; * \\0 &amp; 0 &amp; \bullet &amp; * \\0 &amp; 0 &amp; 0 &amp; \bullet \\\end{matrix}\right]\]📖 Theorem 1. Uniqueness of the Reduced Echelon FormEach matrix is row equivalent to one and only one reduced echelon matrixRow Reduction Algorithm  Begin with the leftmost nonzero column  Select a nonzero entry in the pivot column as a pivot. If necessary, Interchange rows to move this entry into the pivot position.  Row replacement to create zeros in all positions below the pivot.  Apply steps 1-3 to the sub matrix that remain. The combination of steps 1-4 is called forward phase echelon form  Beginning with the rightmost polio and working upward and to the left, created zeros above each pivot. If a pivot is not 1, make it 1 by a scaling operation.          Called backward phase reduced echelon form      Solution of linear systems\(\left[\begin{matrix}1 &amp; 0 &amp; -5 &amp; 1 \\0 &amp; 1 &amp; 1 &amp; 4 \\0 &amp; 0 &amp; 0 &amp; 0 \\\end{matrix}\right]\) 일 때,\(x_1 - 5x_3 = 1 \\x_2 + x_3 = 4 \\0 = 0 \\\left[\begin{matrix}6 \\3 \\1 \\\end{matrix}\right]\left[\begin{matrix}-9 \\6 \\-2 \\\end{matrix}\right]  \cdots\) 해가 무한대가 되며,  General Solution 은 아래와 같다.\(\begin{cases}x_1 = 1 + 5x_3 &amp; \mbox{basic / leading  variables} \\x_2 = 4 - x_3 &amp; \mbox{basic / leading variables} \\x_3 \mbox{ is free} &amp; \mbox{free variable}\end{cases}\)📖 Theorem 2. Existence and Uniqueness TheoremA linear system is consistent if and only if the rightmost column of the augmented matrix is not a pivot column - that is, if and only if and echelon form of the augmented matrix has no row of the forms.  \(\left[ \begin{matrix} 0 &amp; \cdots &amp;  0 &amp; b \end{matrix} \right]\) with \(b\) is nonzero.  If a linear system is consistent, then the solution set contains either (i) a unique solution, when there are no free variables, or (ii) infinitely many solutions, when there is at least one free variables.]]></content>
-      <categories>
-        
-          <category> Linear_Algebra </category>
-        
-      </categories>
-      <tags>
-        
-      </tags>
-      <tags></tags>
-    </entry>
-  
-    <entry>
-      <title><![CDATA[Ch01. Linear Equations in Linear Algebra]]></title>
-      <url>/linear_algebra/2020/01/12/ch1-Linear-Equations-in-Linear-Algebra/</url>
-      <content type="text"><![CDATA[A system of linear equations : A collection of one or more linear equations Solution Set : The Set of all possible solutions of the linear system	→ Two linear systems are called equivalent if they have the same solution set.A system of linear equations has either  No Solution ( INCONSISTENT )  Exactly one Solution ( CONSISTENT )  Infinitely Many Solutions ( CONSISTENT )Matrix Notation  3 rows x 3 columns =&gt; Coefficient Matrix ( 3 \(\times\) 3 ) : 계수 행렬  3 rows x 4 columns =&gt; Augmented Matrix ( 4 x 3 ) : 확대 행렬          첨가 행렬은 계수 행렬과 상수항들의 행렬을 맞붙여 얻는 행렬      Augmented Matrix\(A = \left[\begin{matrix}1 &amp; 2 &amp; 3 \\4 &amp; 7 &amp; 4 \\1 &amp; 6 &amp; 8 \\\end{matrix}\right] , B = \left[\begin{matrix}1 \\4 \\1 \\\end{matrix}\right]\)가 있을 때, Augmented Matrix 는\(\left[\begin{matrix}1 &amp; 2 &amp; 3  &amp; 1\\4 &amp; 7 &amp; 4 &amp; 4 \\1 &amp; 6 &amp; 8 &amp; 1 \\\end{matrix}\right]\)이다.Elementary row operations  Replacement  Interchange  ScalingTwo matrices are Row Equivalent If there is a sequence of elementary row operations that transforms one matrix into the other.If the augmented matrices of the linear systems are row equivalent, then the two systems have the same solution set.]]></content>
-      <categories>
-        
-          <category> Linear_Algebra </category>
-        
-      </categories>
-      <tags>
-        
-      </tags>
-      <tags></tags>
-    </entry>
-  
-    <entry>
-      <title><![CDATA[THEOREMs]]></title>
-      <url>/linear_algebra/2020/01/12/Theorems/</url>
-      <content type="text"><![CDATA[Uniqueness of the Reduced Echelon FormEach matrix is row equivalent to one and only one reduced echelon matrix]]></content>
-      <categories>
-        
-          <category> Linear_Algebra </category>
-        
-      </categories>
-      <tags>
         
       </tags>
       <tags></tags>

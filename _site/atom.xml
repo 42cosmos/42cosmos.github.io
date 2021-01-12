@@ -1,4 +1,229 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-13T00:47:30+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">빈둥빈둥 공부블로그</title><author><name>Eunbin Park</name></author><entry><title type="html">신경망 구조</title><link href="http://localhost:4000/ml/dl/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0/" rel="alternate" type="text/html" title="신경망 구조" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/ml/dl/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0</id><content type="html" xml:base="http://localhost:4000/ml/dl/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0/">&lt;p&gt;기본단위 : 뉴런 -&amp;gt; 조합해 복잡한 구조를 이룸&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-13T01:00:02+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">빈둥빈둥 공부블로그</title><author><name>Eunbin Park</name></author><entry><title type="html">Ch05.</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch5/" rel="alternate" type="text/html" title="Ch05." /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch5</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch5/">&lt;p&gt;dd&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">dd</summary></entry><entry><title type="html">Ch04. The Matrix Equation Ax=b</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch4-The-Matrix-Equation-Ax=b/" rel="alternate" type="text/html" title="Ch04. The Matrix Equation Ax=b" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch4-The-Matrix-Equation-Ax=b</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch4-The-Matrix-Equation-Ax=b/">&lt;h3 id=&quot;amathbfx--product-of-a-and-x&quot;&gt;\(A\mathbf{x}\) : Product of A and x&lt;/h3&gt;
+&lt;p&gt;The linear combination of the columns of \(A\) using the corresponding entries in \(\mathbf{X} \mbox{ as weights}\) → x 벡터 엔트리가 가중치&lt;/p&gt;
+
+&lt;h3 id=&quot;-theorem-3&quot;&gt;📖 Theorem 3.&lt;/h3&gt;
+&lt;p&gt;\(A\) is \(m \times n\) matrix, with columns \(a_1, \cdots, a_n   \mathbf{b} \mbox{ is in }\mathbb{R}^m\)&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Matrix Equation : \(A\mathbf{x} = \mathbf{b}\)&lt;/li&gt;
+  &lt;li&gt;Vector Equation : \(x_1\mathbf{a_1} + x_2\mathbf{a_2} + \cdots + x_p\mathbf{a_p} = \mathbb{b}\)&lt;/li&gt;
+  &lt;li&gt;Augmented Matrix  : \(\left[ \mathbf{a_1}, \mathbf{a_2}, \cdots, \mathbf{a_n} \mathbf{b}\right]\)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Have the same solution set!&lt;/p&gt;
+
+&lt;h3 id=&quot;-theorem-4&quot;&gt;📖 Theorem 4.&lt;/h3&gt;
+&lt;p&gt;The followings are all true of all false:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;For each b in R^m, Ax = b  has a solution&lt;/li&gt;
+  &lt;li&gt;Each b in R^m is a linear combination of the columns of A&lt;/li&gt;
+  &lt;li&gt;The columns of A spanR^m&lt;/li&gt;
+  &lt;li&gt;A has a pivot position in every row&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;-theorem-5&quot;&gt;📖 Theorem 5.&lt;/h3&gt;
+&lt;p&gt;If A is an m x n matrix, u and v are vectors in R^m,  And c is a scalar, then;  &lt;br /&gt;
+A(u + v) = Au + Av;&lt;br /&gt;
+A(cu) = c(Au)&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">\(A\mathbf{x}\) : Product of A and x The linear combination of the columns of \(A\) using the corresponding entries in \(\mathbf{X} \mbox{ as weights}\) → x 벡터 엔트리가 가중치</summary></entry><entry><title type="html">Ch03. Vector Equations</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch3-Vector-Equations/" rel="alternate" type="text/html" title="Ch03. Vector Equations" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch3-Vector-Equations</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch3-Vector-Equations/">&lt;p&gt;Vectors in \(\mathbb{R}^2\) → 실수 2차원 공간 &lt;br /&gt;
+\(\mathbf{u} = \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right], \mathbf{v} = \left[\begin{matrix}0.2 \\ 0.3 \\\end{matrix}\right], \mathbf{u} = \left[\begin{matrix}w_1 \\ w_2 \\\end{matrix}\right]\)&lt;br /&gt;
+\(\vec{u} = (3, -1), \vec{v} = (0.2, 0.3), \vec{w} = (w_1, w_2)\)&lt;/p&gt;
+
+\[(w_1, w_2) \ne \left[ w_1, w_2\right]\]
+
+&lt;h3 id=&quot;scalar-multiplication&quot;&gt;Scalar Multiplication&lt;/h3&gt;
+&lt;p&gt;백터 네 모든 값에 스칼라 값을 곱해준다&lt;br /&gt;
+\(c = 5, \mathbf{u} =  \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right]\) 일 때,&lt;br /&gt;
+\(c\mathbf{u} = 5 \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right] =  \left[\begin{matrix}5\cdot3 \\ 5\cdot(-1) \\\end{matrix}\right] =  \left[\begin{matrix}15 \\ -5 \\\end{matrix}\right]\)&lt;/p&gt;
+
+&lt;h3 id=&quot;vectors-in-mathbbrn&quot;&gt;Vectors in \(\mathbb{R}^n\)&lt;/h3&gt;
+&lt;p&gt;\(c\mathbf{u} = \left[\begin{matrix}u_1 \\ u_2 \\ \cdots \\ u_n\end{matrix}\right]   \\
+\mathbf{u} = (u_1, u_2, \cdots, u_n)\)&lt;/p&gt;
+
+&lt;h3 id=&quot;algebraic-properties-of-mathbbrn&quot;&gt;Algebraic Properties of \(\mathbb{R}^n\)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;\(\mathbf{u, v, w} \mbox{ are } \mathbb{R}^n \mbox{ and } c d \mbox{ are scalar}\)&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;u + v = v + u&lt;/li&gt;
+  &lt;li&gt;(u + v) + w = u + (v + w)&lt;/li&gt;
+  &lt;li&gt;u + 0 = 0 + u = u&lt;/li&gt;
+  &lt;li&gt;u + (-u) = -u + u = 0&lt;/li&gt;
+  &lt;li&gt;c(u + v) = cu + cv&lt;/li&gt;
+  &lt;li&gt;(c + d)u = cu + du&lt;/li&gt;
+  &lt;li&gt;c(du) = (cd)u&lt;/li&gt;
+  &lt;li&gt;1u = u&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;linear-combinations&quot;&gt;Linear Combinations&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Linear combination of \(\mathbf{v_1, v_2, \cdots, v_p} \mbox{ is } \mathbb{R}^n     
+\mbox{with weights } c_1, c_2, \cdots, c_p \mbox{ is scalar}\)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;y = \(c_1\mathbf{v_1} + c_2\mathbf{v_2} + \cdots + c_p\mathbf{v_p}\)&lt;/p&gt;
+
+&lt;p&gt;A vector equation &lt;br /&gt;
+\(x_1\mathbf{a_1}+x_2\mathbf{a_2}+\cdots+x_n\mathbf{a_n} = \mathbf{b}\)&lt;br /&gt;
+has the &lt;strong&gt;same solution&lt;/strong&gt; set as the linear system whose &lt;strong&gt;augmented matrix&lt;/strong&gt; is  &lt;br /&gt;
+\(\left[\mathbf{a_1} \mathbf{a_2} \cdots \mathbf{a_n} \mathbf{b}\right]\)&lt;/p&gt;
+
+&lt;p&gt;→ 각 벡터를 집어넣은 Augmented Matrix 와 동일한 해를 지닌다.&lt;/p&gt;
+
+&lt;h3 id=&quot;spanmathbfv&quot;&gt;Span{\(\mathbf{v}\)}&lt;/h3&gt;
+&lt;p&gt;is the collection of all vectors that can be written in the form&lt;br /&gt;
+ \(c_1\mathbf{v_1} + c_2\mathbf{v_2} + \cdots + c_p\mathbf{v_p}\)&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">Vectors in \(\mathbb{R}^2\) → 실수 2차원 공간 \(\mathbf{u} = \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right], \mathbf{v} = \left[\begin{matrix}0.2 \\ 0.3 \\\end{matrix}\right], \mathbf{u} = \left[\begin{matrix}w_1 \\ w_2 \\\end{matrix}\right]\) \(\vec{u} = (3, -1), \vec{v} = (0.2, 0.3), \vec{w} = (w_1, w_2)\)</summary></entry><entry><title type="html">Ch02. Row Reduction and Echelon Forms</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch2-Row-Reduction-and-Echelon-Forms/" rel="alternate" type="text/html" title="Ch02. Row Reduction and Echelon Forms" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch2-Row-Reduction-and-Echelon-Forms</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch2-Row-Reduction-and-Echelon-Forms/">&lt;p&gt;&lt;strong&gt;A leading Entry of row&lt;/strong&gt; : the LEFTMOST nonzero entry.&lt;/p&gt;
+&lt;h3 id=&quot;echelon-form&quot;&gt;Echelon Form&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;All nonzero rows are above any rows of all zeros&lt;/li&gt;
+  &lt;li&gt;Each leading entry of a row is in column to the right of the leading entry of the row above it&lt;/li&gt;
+  &lt;li&gt;The leading entry in each nonzero row is 1&lt;/li&gt;
+  &lt;li&gt;Each leading 1 is the only nonzero entry in its column&lt;/li&gt;
+&lt;/ol&gt;
+
+\[1 → \left[
+\begin{matrix}
+\bullet &amp;amp; * &amp;amp; * &amp;amp; * \\
+0 &amp;amp; \bullet &amp;amp; * &amp;amp; * \\
+0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+\end{matrix}
+\right]        
+  2 → \left[
+\begin{matrix}
+\bullet &amp;amp; * &amp;amp; * &amp;amp; * \\
+0 &amp;amp; \bullet &amp;amp; * &amp;amp; * \\
+0 &amp;amp; 0 &amp;amp; \bullet &amp;amp; * \\
+0 &amp;amp; 0 &amp;amp; 0 &amp;amp; \bullet \\
+\end{matrix}
+\right]\]
+
+&lt;h4 id=&quot;-theorem-1-uniqueness-of-the-reduced-echelon-form&quot;&gt;📖 Theorem 1. Uniqueness of the Reduced Echelon Form&lt;/h4&gt;
+&lt;p&gt;Each matrix is row equivalent to one and only one reduced echelon matrix&lt;/p&gt;
+
+&lt;h3 id=&quot;row-reduction-algorithm&quot;&gt;Row Reduction Algorithm&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Begin with the leftmost nonzero column&lt;/li&gt;
+  &lt;li&gt;Select a nonzero entry in the pivot column as a pivot. If necessary, Interchange rows to move this entry into the pivot position.&lt;/li&gt;
+  &lt;li&gt;Row replacement to create zeros in all positions below the pivot.&lt;/li&gt;
+  &lt;li&gt;Apply steps 1-3 to the sub matrix that remain. The combination of steps 1-4 is called forward phase echelon form&lt;/li&gt;
+  &lt;li&gt;Beginning with the rightmost polio and working upward and to the left, created zeros above each pivot. If a pivot is not 1, make it 1 by a scaling operation.
+    &lt;ul&gt;
+      &lt;li&gt;Called backward phase reduced echelon form&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;solution-of-linear-systems&quot;&gt;Solution of linear systems&lt;/h3&gt;
+&lt;p&gt;\(\left[
+\begin{matrix}
+1 &amp;amp; 0 &amp;amp; -5 &amp;amp; 1 \\
+0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 4 \\
+0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+\end{matrix}
+\right]\) &lt;br /&gt;
+일 때,&lt;br /&gt;
+\(x_1 - 5x_3 = 1 \\
+x_2 + x_3 = 4 \\
+0 = 0 \\
+\left[
+\begin{matrix}
+6 \\3 \\1 \\
+\end{matrix}
+\right]
+\left[
+\begin{matrix}
+-9 \\
+6 \\
+-2 \\
+\end{matrix}
+\right]  \cdots\) &lt;br /&gt;
+해가 무한대가 되며,  General Solution 은 아래와 같다.&lt;br /&gt;
+\(\begin{cases}
+x_1 = 1 + 5x_3 &amp;amp; \mbox{basic / leading  variables} \\
+x_2 = 4 - x_3 &amp;amp; \mbox{basic / leading variables} \\
+x_3 \mbox{ is free} &amp;amp; \mbox{free variable}
+\end{cases}\)&lt;/p&gt;
+
+&lt;h4 id=&quot;-theorem-2-existence-and-uniqueness-theorem&quot;&gt;📖 Theorem 2. Existence and Uniqueness Theorem&lt;/h4&gt;
+&lt;p&gt;A linear system is consistent if and only if the rightmost column of the augmented matrix is not a pivot column - that is, if and only if and echelon form of the augmented matrix has no row of the forms.  &lt;br /&gt;
+\(\left[ \begin{matrix} 0 &amp;amp; \cdots &amp;amp;  0 &amp;amp; b \end{matrix} \right]\) with \(b\) is nonzero.  &lt;br /&gt;
+If a linear system is consistent, then the solution set contains either (i) a unique solution, when there are no free variables, or (ii) infinitely many solutions, when there is at least one free variables.&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">A leading Entry of row : the LEFTMOST nonzero entry. Echelon Form All nonzero rows are above any rows of all zeros Each leading entry of a row is in column to the right of the leading entry of the row above it The leading entry in each nonzero row is 1 Each leading 1 is the only nonzero entry in its column</summary></entry><entry><title type="html">Ch01. Linear Equations in Linear Algebra</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch1-Linear-Equations-in-Linear-Algebra/" rel="alternate" type="text/html" title="Ch01. Linear Equations in Linear Algebra" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch1-Linear-Equations-in-Linear-Algebra</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch1-Linear-Equations-in-Linear-Algebra/">&lt;p&gt;&lt;strong&gt;A system of linear equations&lt;/strong&gt; : A collection of one or more linear equations &lt;br /&gt;
+&lt;strong&gt;Solution Set&lt;/strong&gt; : The Set of all possible solutions of the linear system&lt;br /&gt;
+	→ Two linear systems are called &lt;strong&gt;equivalent&lt;/strong&gt; if they have the same solution set.&lt;/p&gt;
+
+&lt;p&gt;A system of linear equations has either&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;No Solution ( &lt;strong&gt;INCONSISTENT&lt;/strong&gt; )&lt;/li&gt;
+  &lt;li&gt;Exactly one Solution ( &lt;strong&gt;CONSISTENT&lt;/strong&gt; )&lt;/li&gt;
+  &lt;li&gt;Infinitely Many Solutions ( &lt;strong&gt;CONSISTENT&lt;/strong&gt; )&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;matrix-notation&quot;&gt;Matrix Notation&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;3 rows x 3 columns =&amp;gt; Coefficient Matrix ( 3 \(\times\) 3 ) : 계수 행렬&lt;/li&gt;
+  &lt;li&gt;3 rows x 4 columns =&amp;gt; Augmented Matrix ( 4 x 3 ) : 확대 행렬
+    &lt;ul&gt;
+      &lt;li&gt;첨가 행렬은 계수 행렬과 상수항들의 행렬을 맞붙여 얻는 행렬&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;augmented-matrix&quot;&gt;Augmented Matrix&lt;/h3&gt;
+&lt;p&gt;\(A = \left[
+\begin{matrix}
+1 &amp;amp; 2 &amp;amp; 3 \\
+4 &amp;amp; 7 &amp;amp; 4 \\
+1 &amp;amp; 6 &amp;amp; 8 \\
+\end{matrix}
+\right] , B = \left[
+\begin{matrix}
+1 \\
+4 \\
+1 \\
+\end{matrix}
+\right]\)
+가 있을 때, Augmented Matrix 는
+\(\left[
+\begin{matrix}
+1 &amp;amp; 2 &amp;amp; 3  &amp;amp; 1\\
+4 &amp;amp; 7 &amp;amp; 4 &amp;amp; 4 \\
+1 &amp;amp; 6 &amp;amp; 8 &amp;amp; 1 \\
+\end{matrix}
+\right]\)
+이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;elementary-row-operations&quot;&gt;Elementary row operations&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Replacement&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Interchange&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Scaling&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Two matrices are &lt;strong&gt;Row Equivalent&lt;/strong&gt; If there is a sequence of elementary row operations that transforms one matrix into the other.&lt;br /&gt;
+If the &lt;strong&gt;augmented&lt;/strong&gt; matrices of the linear systems are &lt;strong&gt;row equivalent&lt;/strong&gt;, then the two systems have the &lt;strong&gt;same solution set&lt;/strong&gt;.&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">A system of linear equations : A collection of one or more linear equations Solution Set : The Set of all possible solutions of the linear system → Two linear systems are called equivalent if they have the same solution set.</summary></entry><entry><title type="html">THEOREMs</title><link href="http://localhost:4000/linear_algebra/2021/01/12/Theorems/" rel="alternate" type="text/html" title="THEOREMs" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/Theorems</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/Theorems/">&lt;h2 id=&quot;-theorem-1&quot;&gt;📖 Theorem 1.&lt;/h2&gt;
+&lt;p&gt;Uniqueness of the Reduced Echelon Form
+Each matrix is row equivalent to one and only one reduced echelon matrix&lt;/p&gt;
+
+&lt;h2 id=&quot;-theorem-2&quot;&gt;📖 Theorem 2.&lt;/h2&gt;
+
+&lt;h2 id=&quot;-theorem-3&quot;&gt;📖 Theorem 3.&lt;/h2&gt;
+&lt;p&gt;\(A\) is \(m \times n\) matrix, with columns \(a_1, \cdots, a_n   \mathbf{b} \mbox{ is in }\mathbb{R}^m\)&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Matrix Equation : \(A\mathbf{x} = \mathbf{b}\)&lt;/li&gt;
+  &lt;li&gt;Vector Equation : \(x_1\mathbf{a_1} + x_2\mathbf{a_2} + \cdots + x_p\mathbf{a_p} = \mathbb{b}\)&lt;/li&gt;
+  &lt;li&gt;Augmented Matrix  : \(\left[ \mathbf{a_1}, \mathbf{a_2}, \cdots, \mathbf{a_n} \mathbf{b}\right]\)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Have the same solution set!&lt;/p&gt;
+
+&lt;h2 id=&quot;-theorem-4&quot;&gt;📖 Theorem 4.&lt;/h2&gt;
+&lt;p&gt;The followings are all true of all false:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;For each b in R^m, Ax = b  has a solution&lt;/li&gt;
+  &lt;li&gt;Each b in R^m is a linear combination of the columns of A&lt;/li&gt;
+  &lt;li&gt;The columns of A spanR^m&lt;/li&gt;
+  &lt;li&gt;A has a pivot position in every row&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;-theorem-5&quot;&gt;📖 Theorem 5.&lt;/h2&gt;
+&lt;p&gt;If A is an m x n matrix, u and v are vectors in R^m,  And c is a scalar, then;  &lt;br /&gt;
+A(u + v) = Au + Av;&lt;br /&gt;
+A(cu) = c(Au)&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">📖 Theorem 1. Uniqueness of the Reduced Echelon Form Each matrix is row equivalent to one and only one reduced echelon matrix</summary></entry><entry><title type="html">Ch07.</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch7/" rel="alternate" type="text/html" title="Ch07." /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch7</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch7/">&lt;p&gt;dd&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">dd</summary></entry><entry><title type="html">Ch06.</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch6/" rel="alternate" type="text/html" title="Ch06." /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch6</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch6/">&lt;p&gt;dd&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">dd</summary></entry><entry><title type="html">Ch08.</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch8/" rel="alternate" type="text/html" title="Ch08." /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch8</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch8/">&lt;p&gt;dd&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">dd</summary></entry><entry><title type="html">신경망 구조</title><link href="http://localhost:4000/ml/dl/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0/" rel="alternate" type="text/html" title="신경망 구조" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/ml/dl/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0</id><content type="html" xml:base="http://localhost:4000/ml/dl/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0/">&lt;p&gt;기본단위 : 뉴런 -&amp;gt; 조합해 복잡한 구조를 이룸&lt;/p&gt;
 
 &lt;p&gt;perceptron
 노드는 뉴런의 연산을 표현 &amp;gt; 들어온 입력에 대한 가중치를 곱해 더해준 다음 &amp;gt; 액티베이션 펑션을 적용시킴&lt;/p&gt;
@@ -37,672 +262,4 @@ sigmoid 대신 탄젠트 / relu 가 자주 사용됨&lt;/p&gt;
 
 &lt;p&gt;하나의 솔루션이 전역인지 지역인지 알 수 없음.&lt;/p&gt;
 
-&lt;p&gt;손실함수를 최소화 하는 방향으로 네트워크 파라미터 (웨이트-w, 편향-b) 를 조절하는 것&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="ML/DL" /><summary type="html">기본단위 : 뉴런 -&amp;gt; 조합해 복잡한 구조를 이룸</summary></entry><entry><title type="html">Loss Function</title><link href="http://localhost:4000/ml/dl/2020/03/19/loss-function/" rel="alternate" type="text/html" title="Loss Function" /><published>2020-03-19T00:00:00+09:00</published><updated>2020-03-19T00:00:00+09:00</updated><id>http://localhost:4000/ml/dl/2020/03/19/loss-function</id><content type="html" xml:base="http://localhost:4000/ml/dl/2020/03/19/loss-function/">&lt;p&gt;지도 학습 알고리즘에 반드시 정의되어야 함
-목적, 비용, 에너지 함수 등이라고도 불림 - 에너지, 코스트 등 다양한 표현에 따라 영문 표기명이 달라짐&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;알고리즘 학습 중 아직 얼마나 못하는지 표현&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;성능-척도&quot;&gt;성능 척도&lt;/h2&gt;
-
-&lt;p&gt;성능 측정 지표 - 정량적 평가 :: 비즈니스 목표와 연관이 높음&lt;/p&gt;
-
-&lt;h3 id=&quot;학습의-수학적-의미&quot;&gt;학습의 수학적 의미&lt;/h3&gt;
-
-&lt;p&gt;argmin(오브젝티브 함수 &amp;gt; loss function 이라고 표현 함 ) 이를 최소화 시키는 세타(min) 값을 찾는 것&lt;/p&gt;
-
-&lt;p&gt;입력과 정답을 동시에 입력 받음&lt;/p&gt;
-
-&lt;p&gt;세타는 학습 될 모든 파라미터를 모은 벡터값 : 네트워크 학습 시 수학적 모델을 두고 학습을 한 다는 것 : 모델 안에 학습 될 수 있는 다양한 파라미터가 있다는 의미 ::&lt;/p&gt;
-
-&lt;p&gt;손실함수는 모델이 해당 모델이 얼마나 못하는지에 대한 지표 &amp;gt; 낮을 수록 좋음&lt;/p&gt;
-
-&lt;p&gt;손실 함수는 세타값에 의해서만 움직임 : x, y는 고정 - 세타값에만 의한 변화&lt;/p&gt;
-
-&lt;h3 id=&quot;평균제곱오차-함수-mse&quot;&gt;평균제곱오차 함수 MSE&lt;/h3&gt;
-
-&lt;p&gt;1/2 : 해당 식을 미분 시 제곱이 내려가 없어지기 때문에 관습적으로 사용한 것임&lt;/p&gt;
-
-&lt;p&gt;오차가 커질 수록 손실함수가 빠르게 증가함 &amp;gt; 선형 (직선) 함수일 경우 일정하게 증가함&lt;/p&gt;
-
-&lt;p&gt;아웃라이너가 뭉게져 나타남 /… 뭐래&lt;/p&gt;
-
-&lt;h4 id=&quot;eg&quot;&gt;e.g.&lt;/h4&gt;
-
-&lt;p&gt;하나의 값 &amp;gt; 오차 :: 세타값 수정 ( gradient decent? ) &amp;gt; 추정치 (y 틸다)를 변경해서 오차 계산을 확인 &amp;gt; 종합적 판단이 가능&lt;/p&gt;
-
-&lt;h3 id=&quot;평균절대오차-함수-mae&quot;&gt;평균절대오차 함수 MAE&lt;/h3&gt;
-
-&lt;p&gt;제곱이 아닌 절대값으로 표현함 &amp;gt; 오차가 커져도 손실함수가 일정하게 증가하며&lt;/p&gt;
-
-&lt;p&gt;, Robust with outliner : 좋은 추정을 해도 오차가 많이 발생 &amp;gt; 굳이 이런 것까지 맞추어야 하는 건 아님&lt;/p&gt;
-
-&lt;p&gt;// 통계적으로 중간 값 ( Median )과의 연관이 있음 -&lt;/p&gt;
-
-&lt;h3 id=&quot;one-hot-encoding&quot;&gt;One Hot Encoding&lt;/h3&gt;
-
-&lt;p&gt;다중 클래스 분류 문제의 정답 표기 시 사용&lt;/p&gt;
-
-&lt;h3 id=&quot;교차-엔트로피-오차-cee&quot;&gt;교차 엔트로피 오차 CEE&lt;/h3&gt;
-
-&lt;p&gt;yi &amp;gt; 원핫 인코딩으로 - 정답인 항 하나만 살아남고 나머지는 소멸 &amp;gt; 정답인 경우만 로그 … 만 살아남아 이걸 학습하게 됨&lt;/p&gt;
-
-&lt;p&gt;실제로는 다른 항들 (0)도 영향을 줌  &amp;gt; 분모에 덧셈이 되어 들어가기 때문&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="ML/DL" /><summary type="html">지도 학습 알고리즘에 반드시 정의되어야 함 목적, 비용, 에너지 함수 등이라고도 불림 - 에너지, 코스트 등 다양한 표현에 따라 영문 표기명이 달라짐</summary></entry><entry><title type="html">tensorflow</title><link href="http://localhost:4000/ml/dl/2020/03/17/tensorflow/" rel="alternate" type="text/html" title="tensorflow" /><published>2020-03-17T00:00:00+09:00</published><updated>2020-03-17T00:00:00+09:00</updated><id>http://localhost:4000/ml/dl/2020/03/17/tensorflow</id><content type="html" xml:base="http://localhost:4000/ml/dl/2020/03/17/tensorflow/">&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; import tensorflow as tf&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;perceptron&quot;&gt;Perceptron&lt;/h3&gt;
-
-&lt;p&gt;인체 내 신경세포의 논리게이트 화&lt;/p&gt;
-
-&lt;p&gt;여러 신호를 입력 받아 하나의 신호로 변경 &amp;gt; inputs&lt;/p&gt;
-
-&lt;p&gt;각 가중치 변경 (시냅스 - 연결의 가중치)&lt;/p&gt;
-
-&lt;p&gt;활성함수를 통한 논리적 변경 &amp;gt; outputs  - 비선형 변환&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;벡터 내적 : y = sign(x^T w) - 행 백터의 열벡터화 * 행 벡터 &amp;gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;사인 함수 - 입력의 사인이 플러스 ( 마이너스 )인지 확인&lt;/p&gt;
-
-&lt;h3 id=&quot;이진-분류-문제&quot;&gt;이진 분류 문제&lt;/h3&gt;
-
-&lt;h4 id=&quot;perceptron-동작&quot;&gt;Perceptron 동작&lt;/h4&gt;
-
-&lt;p&gt;편향 표현 - 1 : 전체적 출력이 얼마나 shift 된 지 알아보게 함&lt;/p&gt;
-
-&lt;p&gt;학습률 - 부분 설명 다시 듣기&lt;/p&gt;
-
-&lt;h3 id=&quot;활성함수&quot;&gt;활성함수&lt;/h3&gt;
-
-&lt;h4 id=&quot;sign-함수의-문제&quot;&gt;Sign 함수의 문제&lt;/h4&gt;
-
-&lt;p&gt;결정경계 ( Decision bounday )와의 거리를 신경써야 함&lt;/p&gt;
-
-&lt;h4 id=&quot;tahn-함수&quot;&gt;tahn 함수&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;입력값이 0에 가까울 수록 출력이 빠르게 변함&lt;/li&gt;
-  &lt;li&gt;모든 점에서 미분 가능 : 그라디언트 디센트를 배울 때 중요함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;sigmoid-func&quot;&gt;Sigmoid func&lt;/h4&gt;
-
-&lt;p&gt;1개의 입력&lt;/p&gt;
-
-&lt;p&gt;0에서 1사이 값을 가짐 - 확률 표현이 가능함 ( Binary classification 에 많이 사용됨 - T일 확률과 F (1 - T)일 확률)&lt;/p&gt;
-
-&lt;p&gt;딥러닝에서는 0 센터의 0~1 값을 갖는 함수로만 사용됨&lt;/p&gt;
-
-&lt;h4 id=&quot;softmax-func&quot;&gt;Softmax func&lt;/h4&gt;
-
-&lt;p&gt;n개의 입력&lt;br /&gt;
-각 입력의 지수함수를 정규화 함 ( 총 합이 1이 되게끔 함 )&lt;br /&gt;
-e.g. 총 4가지 출력이 있을 때, 출력 0.2, 0.4, 0.1이 나왔다면 나머지는 자동으로 0.4가 됨&lt;/p&gt;
-
-&lt;h4 id=&quot;relu-func&quot;&gt;ReLU func&lt;/h4&gt;
-
-&lt;p&gt;0보다 작은 값에 0 값을 강제함&lt;br /&gt;
-딥러닝에서 가장 많이 사용되는 활성 함수 - 미분값이 일정해서 학습이 잘 됨 (0 or 1의 값이 나옴)&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="ML/DL" /><summary type="html">import tensorflow as tf</summary></entry><entry><title type="html">Decision Tree</title><link href="http://localhost:4000/ml/dl/2020/03/11/decision-tree/" rel="alternate" type="text/html" title="Decision Tree" /><published>2020-03-11T00:00:00+09:00</published><updated>2020-03-11T00:00:00+09:00</updated><id>http://localhost:4000/ml/dl/2020/03/11/decision-tree</id><content type="html" xml:base="http://localhost:4000/ml/dl/2020/03/11/decision-tree/">&lt;p&gt;장점 : 해석력 &amp;gt; 모델의 정확성 이외에도 활용성 ( 메세지 ) :: 결과에 대한 풀이 (연속형 - 범주형 등의 형태에 대한 범용성 높음)&lt;/p&gt;
-
-&lt;p&gt;단점 : 변동성 / 샘플에의 민감&lt;/p&gt;
-
-&lt;p&gt;결과값 &amp;gt; 반응변수 예측하는 형태로 나타남&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;범주형 변수 - 분류&lt;/li&gt;
-  &lt;li&gt;연속형 변수 - 회귀 : 조건을 만족하는 샘플집단의 y의 평균값을 알려줌&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;엔트로피--entropy&quot;&gt;엔트로피  Entropy&lt;/h3&gt;
-
-&lt;p&gt;섞여있는 정도&lt;/p&gt;
-
-&lt;p&gt;정의 1. -p(p - 1) + c&lt;/p&gt;
-
-&lt;p&gt;정의2. -plog…&lt;/p&gt;
-
-&lt;h3 id=&quot;information-gain&quot;&gt;Information gain&lt;/h3&gt;
-
-&lt;p&gt;활용한 변수로 인한 이득 // ig로 각 변수를 평가 (outlook / humidity)  &amp;gt; 어떤 변수를 최상위 노드로 사용할지 결정함&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;4개 모두 yes 일 때 : 4/4 &amp;gt; 로그가 0이 됨&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;2/5 &amp;gt; -0.4log2 0.4 - 0.6log2 0.6&lt;/li&gt;
-  &lt;li&gt;all : 9 / 14 개&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;관측치를 많이 갖고 있음 &amp;gt; 다수의 웨이트를 줌  ( e.g. 전체 14개 중 첫 번째 범주에 5/ 4/ 5 - 가중평균을 구해줌)&lt;/p&gt;
-
-&lt;p&gt;섞여있음 ( 엔트로피 높음 ) &amp;gt; 분류 진행 ( 엔트로피 낮춤 )&lt;/p&gt;
-
-&lt;h2 id=&quot;classification-tree&quot;&gt;Classification Tree&lt;/h2&gt;
-
-&lt;p&gt;m번째 노드가 k 범주일 확률 : y가 k 범주 안에 존재하면 카운트 - reason을 어떻게 구하는지에 대한 결정&lt;/p&gt;
-
-&lt;p&gt;ig가 최대화 되는 영역&lt;/p&gt;
-
-&lt;p&gt;오분류율 : 전체 샘플 개수 내 상대 비율 - 오류율&lt;/p&gt;
-
-&lt;p&gt;Rm결정 이후 (특정 변수를 어떤 기준으로 나눌 것인지) 결정된 Rm에 대해 pmk 중 가장 이 값이 커지는 k를 구함 &amp;gt; y범주를 구할 것&lt;/p&gt;
-
-&lt;h2 id=&quot;regression-tree&quot;&gt;Regression Tree&lt;/h2&gt;
-
-&lt;p&gt;종속변수가 연속형 - 시각화 시 높이 == 예측값&lt;/p&gt;
-
-&lt;p&gt;각각에 대해 특정 실수값을 줌  - cm (z 축) 값을 곱함&lt;/p&gt;
-
-&lt;p&gt;임의로 영역을 나눔 &amp;gt; measure 부분을 엔트로피나 gini index를 사용해 최소화되는 점을 찾음&lt;/p&gt;
-
-&lt;p&gt;Cm &amp;gt; 샘플의 평균값&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="ML/DL" /><summary type="html">장점 : 해석력 &amp;gt; 모델의 정확성 이외에도 활용성 ( 메세지 ) :: 결과에 대한 풀이 (연속형 - 범주형 등의 형태에 대한 범용성 높음)</summary></entry><entry><title type="html">SVM</title><link href="http://localhost:4000/ml/dl/2020/03/10/support-vector-machine/" rel="alternate" type="text/html" title="SVM" /><published>2020-03-10T00:00:00+09:00</published><updated>2020-03-10T00:00:00+09:00</updated><id>http://localhost:4000/ml/dl/2020/03/10/support-vector-machine</id><content type="html" xml:base="http://localhost:4000/ml/dl/2020/03/10/support-vector-machine/">&lt;p&gt;정확한 분포를 찾을 수 없을 때 &amp;gt; lda 를 적용하기 힘들 때 - 선형관계가 아닌 경우&lt;/p&gt;
-
-&lt;p&gt;범주형일 때 - classifier  &amp;gt; 보통 기본&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;핵심 - cost 문제 모든 자료를 고려 x 코스트에 영향을 끼치는 값들만 고려할 것 . 경계 부근 점들을 반영해 모델 코스트 계산&lt;/li&gt;
-  &lt;li&gt;바운더리 근처 관측치만 고려 &amp;gt; 예측 정확도 높음&lt;/li&gt;
-  &lt;li&gt;c (에러의 합) 고려 필요 - c가 작으면 에러를 다수 범해도 괜찮음&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;연속형 - regression &amp;gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;내적이 아니라 커널로 바꿀 것 ( 커널 : 두 값이 차이날 수록 값이 작아짐 - 가까울 수록 커지는 값)&lt;/p&gt;
-
-&lt;p&gt;정규분포 exp 내부 값과 비슷함 &amp;gt; 가우시안 커널&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;one-class-svm&quot;&gt;One class SVM&lt;/h3&gt;
-
-&lt;p&gt;원 반지름의 최소화 &amp;gt; 점이 반지름 안에 있어야 함&lt;/p&gt;
-
-&lt;p&gt;에러 포함 시 c 값 삽입 (작을 수록 에러를 어느정도 허용)&lt;/p&gt;
-
-&lt;p&gt;라그랑쥬 &amp;gt; 커널 식으로 바꾸면 … 3차원 6차원으로 설정해 원이 아닌 경우를 만들 수 있음&lt;/p&gt;
-
-&lt;p&gt;시그마 - 커질 수록 차이가 완화됨 &amp;gt; 모형이 간단해짐 ( 민감한 반응 &amp;gt; 작은 시그마 값)&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="ML/DL" /><summary type="html">정확한 분포를 찾을 수 없을 때 &amp;gt; lda 를 적용하기 힘들 때 - 선형관계가 아닌 경우</summary></entry><entry><title type="html">Linear Discriminant Analysis</title><link href="http://localhost:4000/ml/dl/2020/03/09/ml-study/" rel="alternate" type="text/html" title="Linear Discriminant Analysis" /><published>2020-03-09T00:00:00+09:00</published><updated>2020-03-09T00:00:00+09:00</updated><id>http://localhost:4000/ml/dl/2020/03/09/ml-study</id><content type="html" xml:base="http://localhost:4000/ml/dl/2020/03/09/ml-study/">&lt;p&gt;데이터 분류 방법 : LDA&lt;/p&gt;
-
-&lt;h3 id=&quot;가정&quot;&gt;가정&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;각 숫자 집단은 정규분포 형태 확률분포를 가짐&lt;/li&gt;
-  &lt;li&gt;각 숫자 집단은 비슷한 형태의 공분산 구조를 가짐&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;가정 시 우상향 타원 + 분산을 갖는 (공분산) 형태가 나옴 &amp;gt; 1, 2, 3그룹 모두 비슷하게 갖고 있음&lt;/p&gt;
-
-&lt;p&gt;검은 실선 &amp;gt; 영역 분할 == LDA&lt;/p&gt;
-
-&lt;p&gt;자룔 특정축으로 정사형을 만듦 &amp;gt; 두 분포를 비교하고 분산 대비 평균 차이를 비교&lt;/p&gt;
-
-&lt;p&gt;자료가 같음에도 축이 다르면 바운더리가 변경 &amp;gt; &lt;strong&gt;어떤 축에 정’사영’을 시킬 것인지 문제&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;기본적으로 평균의 차이를 크게하는 곳에 두 개를 이은 벡터를 평행이동 시켜 정사형을 만듦 &amp;gt; 평균 차이의 극대화 ( but 분산 대비 평균의 차이가 커야하지만, 각각의 분산이 크기 때문에 확실한 차이가 있는지 애매함)&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;왼 : 평균 차이 극대화 / 분산이 너무 큼  (분산 줄이는 법 &amp;gt; 단축방향 ) &amp;gt;&lt;/td&gt;
-      &lt;td&gt;오 :  분산의 최소화 방향&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;lda-모델-정의-및-추정&quot;&gt;LDA 모델 정의 및 추정&lt;/h3&gt;
-
-&lt;p&gt;확률분포 관점 : l보다 k에 속할 확률 &amp;gt; log 부분이 커지면 됨 &amp;gt; log파이k/파이l 도 커질 것임&lt;/p&gt;
-
-&lt;p&gt;만약에 시그마 케이가 같을 때 == 간단하게 정리할 수 있음&lt;/p&gt;
-
-&lt;h3 id=&quot;lda-심화적-이해&quot;&gt;LDA 심화적 이해&lt;/h3&gt;
-
-&lt;p&gt;장점 :&lt;/p&gt;
-
-&lt;p&gt;나이브 베이즈 : 설명변수 간 조건부 독립을 가정했음 &amp;gt; 타원 형태는 무시되고 분석을 하게 됐었음&lt;/p&gt;
-
-&lt;p&gt;공분산 구조가 조금 다르더라도 변화의 민감하지 않음&lt;/p&gt;
-
-&lt;p&gt;단점 :&lt;/p&gt;
-
-&lt;p&gt;공분산 구조가 다른 경우 &amp;gt; QDA&lt;/p&gt;
-
-&lt;h4 id=&quot;qda-정의-및-이해&quot;&gt;QDA 정의 및 이해&lt;/h4&gt;
-
-&lt;p&gt;y 샘플들이 각 공분산 구조가 상이한 상황에서도 사용할 수 있게 함&lt;/p&gt;
-
-&lt;p&gt;비선형관계에서 유용하게 쓰임&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;lda qda 비 교&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;공분산 구조를 다르게 가질 수 있는가의 차이 &amp;gt; 추정해야하는 파라미터 수가 많아짐&lt;/p&gt;
-
-&lt;p&gt;샘플이 충분치 않을 때는 lda 가 효율적임&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="ML/DL" /><summary type="html">데이터 분류 방법 : LDA</summary></entry><entry><title type="html">date &amp;amp; time handling in python</title><link href="http://localhost:4000/python/2020/03/01/date-&-time_handling-with-python/" rel="alternate" type="text/html" title="date &amp;amp; time handling in python" /><published>2020-03-01T00:00:00+09:00</published><updated>2020-03-01T00:00:00+09:00</updated><id>http://localhost:4000/python/2020/03/01/date-&amp;-time_handling-with-python</id><content type="html" xml:base="http://localhost:4000/python/2020/03/01/date-&amp;-time_handling-with-python/">&lt;p&gt;&lt;a href=&quot;https://datascienceschool.net/view-notebook/465066ac92ef4da3b0aba32f76d9750a/&quot;&gt;데이터 사이언스 스쿨&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;datetime-package&quot;&gt;datetime package&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;import datetime&lt;/code&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;날짜 및 시간 == &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;datetime&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;날짜 == &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;data&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;시간 ==&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;time&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;시간 ‘구간’ 정보 == &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;timedelta&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&quot;class&quot;&gt;Class&lt;/h4&gt;
-
-&lt;h4 id=&quot;datetime&quot;&gt;datetime&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Attributes&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;year&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;month&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;day&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hour&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minute&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;second&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;microsecond&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Methods&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;weekday()&lt;/code&gt; : 요일 반환 (0: 월 ~ 6:일)&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;strftime()&lt;/code&gt; : 문자열 반환&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;strptime()&lt;/code&gt; : 첫 번째 인수 - 날짜 및 시간, 두 번째 인수 - 문자열 해독 형식&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;date()&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;time()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;날짜 및 시간 지정 문자열&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%Y&lt;/code&gt; : 앞 빈자리를 0으로 채움&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%m  &lt;/code&gt; : 상동&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%d&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%H&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%M&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%S&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%A&lt;/code&gt; : 영문 요일 문자열&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%B&lt;/code&gt; : 영문 월 문자열&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;dt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# datetime.datetime(2020, 03, 01, 1, 26, 55, 731039)
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strftime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%A %d. %B %Y&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# 'Sunday 01. March 2020'
-&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strptime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'2020-03-01 20:45'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;%Y-%m-%d %H:%M&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;dateutil-package&quot;&gt;dateutil package&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;strptime()&lt;/code&gt; &amp;gt; Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parse&lt;/code&gt;  in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dateutil&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;dateutil.parser&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parse&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'2020-03-01'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# datetime.datetime(2020, 3, 01, 0, 0)
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'6/7/2016'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# datetime.datetime(2016, 6, 07, 0, 0)
-# 미국식 
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;timedelta-class&quot;&gt;timedelta Class&lt;/h4&gt;
-
-&lt;p&gt;날짜 혹은 시간의 간격을 구할 때 &amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;datetime.datetime&lt;/code&gt; 클래스 객체의 차이를 구함 &amp;gt;  return &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;datetime.timedelta&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Attributes&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;days&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seconds&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;microseconds&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Methods&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;total_seconds()&lt;/code&gt; : All Attr turns to seconds&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;dt1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;19&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;dt2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;td&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dt1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dt2&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;td&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# datetime.timedelta(48, 3600)
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;datetime.datetime&lt;/code&gt; 클래스 객체 + &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;datetime.timedelta&lt;/code&gt; 클래스 객체를 더해 새로운 시간을 구할 수 있다&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;t0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2018&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timedelta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;days&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;90&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seconds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;t0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# datetime.datetime(2018, 11, 30, 14, 0)
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Eunbin Park</name></author><category term="Python" /><category term="date" /><category term="time" /><summary type="html">데이터 사이언스 스쿨</summary></entry><entry><title type="html">Time Series with python</title><link href="http://localhost:4000/python/2020/03/01/Time-Series-Analysis/" rel="alternate" type="text/html" title="Time Series with python" /><published>2020-03-01T00:00:00+09:00</published><updated>2020-03-01T00:00:00+09:00</updated><id>http://localhost:4000/python/2020/03/01/Time-Series-Analysis</id><content type="html" xml:base="http://localhost:4000/python/2020/03/01/Time-Series-Analysis/">&lt;h3 id=&quot;시계열-데이터-분석&quot;&gt;시계열 데이터 분석&lt;/h3&gt;
-
-&lt;p&gt;독립변수 / 종속변수  +  &lt;strong&gt;시계열 데이터&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;정상 시계열
-    &lt;ul&gt;
-      &lt;li&gt;뚜렷한 추세 없음&lt;/li&gt;
-      &lt;li&gt;시간 흐름에 따른 동일한 진폭&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;비정상 시계열
-    &lt;ul&gt;
-      &lt;li&gt;시간에 따른 데이터의 변화&lt;/li&gt;
-      &lt;li&gt;추세와 시간대 존재&lt;/li&gt;
-      &lt;li&gt;평균 수준이 시간대에 따라 다르다&lt;/li&gt;
-      &lt;li&gt;가변적 분산&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;비정상 시계열일 경우 반드시 정상 시계열로의 변환 필요&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;비정상-시계열의-정상화&quot;&gt;비정상 시계열의 정상화&lt;/h4&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;dl&gt;
-      &lt;dt&gt;분산이 일정하지 않은 경우&lt;/dt&gt;
-      &lt;dd&gt;
-        &lt;p&gt;분산안정화변환 ( 로그, 제곱근, Box-cox 변환 시도)&lt;/p&gt;
-      &lt;/dd&gt;
-    &lt;/dl&gt;
-  &lt;/li&gt;
-  &lt;li&gt;추세를 가지는 경우
-    &lt;ul&gt;
-      &lt;li&gt;결정적 추세 &amp;gt; 분해법 또는 추세항 모형에 포함&lt;/li&gt;
-      &lt;li&gt;확률적 추세 ( Dickey-Fuller의 단위근 검정 ) &amp;gt; 차분&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;계절성을 가지는 경우
-    &lt;ul&gt;
-      &lt;li&gt;결정적 계절 추세 &amp;gt; 계절 추세항 모형에 포함&lt;/li&gt;
-      &lt;li&gt;확률적 계절 추세 ( 계절형 단위근 검정 ) &amp;gt; 계절차분&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&quot;arima&quot;&gt;ARIMA&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;A&lt;/strong&gt;uto &lt;strong&gt;R&lt;/strong&gt;egression &lt;strong&gt;I&lt;/strong&gt;ntergrated with &lt;strong&gt;M&lt;/strong&gt;oving &lt;strong&gt;A&lt;/strong&gt;verage&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;ARIMA(p, d, q) &amp;gt; 모수 설정&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&quot;in-pandas&quot;&gt;in Pandas&lt;/h4&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;arima 모형은 반드시 series 형태를 전제함&lt;/li&gt;
-  &lt;li&gt;데이터 타입을 float으로 변경&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Eunbin Park</name></author><category term="Python" /><category term="TimeSeries" /><summary type="html">시계열 데이터 분석</summary></entry><entry><title type="html">Data Visualisation</title><link href="http://localhost:4000/python/2020/02/24/DV/" rel="alternate" type="text/html" title="Data Visualisation" /><published>2020-02-24T00:00:00+09:00</published><updated>2020-02-24T00:00:00+09:00</updated><id>http://localhost:4000/python/2020/02/24/DV</id><content type="html" xml:base="http://localhost:4000/python/2020/02/24/DV/">&lt;h3 id=&quot;데이터-시각화&quot;&gt;데이터 시각화&lt;/h3&gt;
-
-&lt;p&gt;트랜드, 특이점, 패턴을 분석하기 위한 시각화&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Comparision and Ranking&lt;/li&gt;
-  &lt;li&gt;Part to Whole&lt;/li&gt;
-  &lt;li&gt;Trend&lt;/li&gt;
-  &lt;li&gt;Correlation&lt;/li&gt;
-  &lt;li&gt;Distribution&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;comparision-and-ranking&quot;&gt;Comparision and Ranking&lt;/h3&gt;
-
-&lt;h4 id=&quot;column-chart---vertical--bar-chart-horizontal-&quot;&gt;Column chart - vertical  (Bar chart-horizontal )&lt;/h4&gt;
-
-&lt;p&gt;: Comparision among different items 비교와 순위&lt;/p&gt;
-
-&lt;h4 id=&quot;dual-axis-chart&quot;&gt;Dual Axis chart&lt;/h4&gt;
-
-&lt;p&gt;: plot data using two y-axes and a shared x-axis&lt;/p&gt;
-
-&lt;p&gt;Pareto chart : highlight the most importatnt among a set of factors (typically large)&lt;/p&gt;
-
-&lt;h3 id=&quot;part-to-whole&quot;&gt;Part to whole&lt;/h3&gt;
-
-&lt;h4 id=&quot;pie-chart-&quot;&gt;Pie chart *&lt;/h4&gt;
-
-&lt;p&gt;: static number and how categories represent part of a whole&lt;/p&gt;
-
-&lt;p&gt;특정 포지션을 집중적으로 볼 수 있음&lt;/p&gt;
-
-&lt;h3 id=&quot;trend&quot;&gt;Trend&lt;/h3&gt;
-
-&lt;h4 id=&quot;line-graph-추세&quot;&gt;Line graph 추세&lt;/h4&gt;
-
-&lt;p&gt;: reveals trends or progress over time and can be used to show many different categories of data&lt;/p&gt;
-
-&lt;h3 id=&quot;correlation-연관성&quot;&gt;Correlation 연관성&lt;/h3&gt;
-
-&lt;h4 id=&quot;scatter-plot-chart-산포도&quot;&gt;Scatter plot chart 산포도&lt;/h4&gt;
-
-&lt;p&gt;: will show the relationship between two different variables or it can reveal the distribution trends&lt;/p&gt;
-
-&lt;h4 id=&quot;bubble-chart&quot;&gt;Bubble chart&lt;/h4&gt;
-
-&lt;p&gt;: variation of a scatter chart in which an additional data is represented in the size of the bubbles&lt;/p&gt;
-
-&lt;p&gt;특정 지점의 크기를 달리해 보여줌 &amp;gt; 연관관계 및 빈도수 시각화 가능 - BCG Matrix&lt;/p&gt;
-
-&lt;h4 id=&quot;heatmap&quot;&gt;Heatmap&lt;/h4&gt;
-
-&lt;p&gt;: shows the relationship between two items and provides rating information, such as high to low or poor or excellent&lt;/p&gt;
-
-&lt;h3 id=&quot;distribution&quot;&gt;Distribution&lt;/h3&gt;
-
-&lt;h4 id=&quot;histogram&quot;&gt;Histogram&lt;/h4&gt;
-
-&lt;p&gt;: Groups numeric data into bins, displaying the bins as segmented columns ( pareto is also part of histogram )&lt;/p&gt;
-
-&lt;h4 id=&quot;box-plot&quot;&gt;Box plot&lt;/h4&gt;
-
-&lt;p&gt;: displays the five-number summary of a set of data. The five-number summary is the minimum, first quartile ( top 25% ), median, third quatile ( top 75% ), and maximum &amp;gt; 단순 평균보다 분포도를 더 쉽게 알 수 있음&lt;/p&gt;
-
-&lt;h4 id=&quot;geo-chart&quot;&gt;Geo chart&lt;/h4&gt;
-
-&lt;p&gt;: made explore location based distributed data&lt;/p&gt;
-
-&lt;p&gt;분포데이터를 지도상에 표기 ( 지역 사용자 등 )&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Python" /><category term="visualisation" /><summary type="html">데이터 시각화</summary></entry><entry><title type="html">Seaborn Visualisation</title><link href="http://localhost:4000/python/2020/02/11/Seaborn-visualisation/" rel="alternate" type="text/html" title="Seaborn Visualisation" /><published>2020-02-11T00:00:00+09:00</published><updated>2020-02-11T00:00:00+09:00</updated><id>http://localhost:4000/python/2020/02/11/Seaborn-visualisation</id><content type="html" xml:base="http://localhost:4000/python/2020/02/11/Seaborn-visualisation/">&lt;h3 id=&quot;bar-chart&quot;&gt;Bar Chart&lt;/h3&gt;
-
-&lt;h4 id=&quot;dataframe-형태로-반환&quot;&gt;DataFrame 형태로 반환&lt;/h4&gt;
-
-&lt;p&gt;&lt;em&gt;데이터가 리스트 형태로 있음을 가정&lt;/em&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;make_df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;df_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;concat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Series&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;df_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'{}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'{}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df_name&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort_values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;by&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'{}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ascending&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;리스트를 시리즈 형태로 만들어서 concat을 axis =1 로 맞추어 합쳤다.&lt;/li&gt;
-  &lt;li&gt;데이터는 Numeric type 이기 때문에 배열 정렬을 할 수 있어서 기본이 True인 선택값으로 넣어줬다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&quot;bar-chart-with-seaborn&quot;&gt;Bar Chart with Seaborn&lt;/h4&gt;
-
-&lt;p&gt;&lt;em&gt;데이터가 데이터프레임 형태로 있음을 가정&lt;/em&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bar_plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;font_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;barplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;palette&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Blues'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rcParams&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;font.size&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;font_size&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;font_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;font_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'y'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;plot_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;font_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;plot_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;font_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;들어온 데이터프레임은 sns.barplot으로 만들어준다. 여기서 x와 y는 df.columns[n]으로, 데이터프레임에서 특정 열을 뽑아 (시리즈) 지정해준다.&lt;/li&gt;
-  &lt;li&gt;팔레트는 아무 색이나 넣어봤다&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://financedata.github.io/posts/faq_matplotlib_default_chart_size.html&quot;&gt;rcParams&lt;/a&gt; 으로 차트를 다양하게 만질 수 있다길래 폰트 사이즈를 바꿨다. &lt;br /&gt;
-   저렇게 말고 다르게 바꿀 수 있는 방법은 없나 고민을 하다가… 이미 바꿨는데 왜 또 대안을 찾나 싶어서 관뒀다.&lt;/li&gt;
-  &lt;li&gt;그리드 선택 기본값 False&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&quot;multiplt-bar-chart&quot;&gt;Multiplt Bar Chart&lt;/h4&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;melt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tmp2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id_vars&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Zs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var_name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Brands&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value_name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Counts (%)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;multiple_bar_chart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ylim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ylabel_text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;font_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;mb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;barplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'labels'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Counts (%)'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Brands'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;palette&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'PRGn_r'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;sns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;despine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-           &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bottom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;offset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;trim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;legend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'center left'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bbox_to_anchor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shadow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ncol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;large&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylabel_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;font_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ylim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xticks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;font_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yticks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;font_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;plot_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;font_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;들어오는 data는 melt 함수를 적용한 df다. melt 함수에서 var_name과 value_name을 지정해주고 그걸 y와 hue로 지정해줬는데,… 다른 방법을 사용하면 함수 재활용을 할 수 있을 것 같다. y와 hue를 column으로 불러준다느니 뭐나느니 하면서…&lt;/li&gt;
-  &lt;li&gt;sns.despine은 barplot이 뚜껑이 휭 하길래 넣어줬더니 뚜껑이 만들어졌다. 정확히 이해를 못하고 집어 쳐넣은 거라 아직도 이해를 못했다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;display-values-in-plot&quot;&gt;Display Values in Plot&lt;/h3&gt;
-
-&lt;p&gt;ha와 va만 제대로 알고 있었어도 이렇게 개고생은 안 하는 건데 나는 바보 멍청이다.&lt;/p&gt;
-
-&lt;p&gt;시간을 오래 끌게 만든 내 무지함이 원망스러웠다.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;plot_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;patches&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.01&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ha&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;center&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
-
-    &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;patches&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.01&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-            
-            &lt;span class=&quot;n&quot;&gt;ha&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'left'&lt;/span&gt;
-
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;ha&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'right'&lt;/span&gt;
-                
-            &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;va&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'center'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ha&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ha&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;axis=0일 때, 즉 세로형 그래프일 때는 음수값이 하나도 없었으니까 버무리고 넘어갈 수 있었다.
-    &lt;ol&gt;
-      &lt;li&gt;&lt;a href=&quot;https://dailyheumsi.tistory.com/98&quot;&gt;ax.patches&lt;/a&gt;로 막대기를 하나씩 끌어오고, 각 막대기가 갖고 있는 값을 p.get_sth()으로 가져온다. 가져올 수 있는 값은 4개로, left(x), bottom(y), width, height 이다.&lt;/li&gt;
-      &lt;li&gt;x은 그래프 최상단의 값을 정중앙에 놓기 위해 막대기의 절반 값을 만들어주고, y는 그 값을 막대기와 값 사이의 여백을 주어 가독성을 높이기 위해 설정 해주었다. value 설정을 안 해주고 그냥 height 값을 집어넣으면 float 타입으로 반환 된다. 내 기준에 소수점은 안 예뻐서 int 값으로 때려박았다.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;axis=1 == 가로형 그래프
-    &lt;ol&gt;
-      &lt;li&gt;ha와 va의 용법이 문제였다!!!! 우ㅇ아아아&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;pandas-from_records--melt-function&quot;&gt;Pandas from_records &amp;amp; melt Function&lt;/h3&gt;
-
-&lt;p&gt;데이터 재구조화&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;a, b값은 리스트&lt;/em&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;from_records&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DataFrame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_records&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'comments'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'likes'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;melt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id_vars&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var_name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;source&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value_name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;value_numbers&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이것도 저 a[0]~ 이 부분을 어떻게 바꿀 수 있지 않을까 생각이 드는데 … ㅠㅠ 흠&lt;/p&gt;
-
-&lt;p&gt;https://rfriend.tistory.com/tag/Python%20pandas%20melt%28%29%20함수&lt;/p&gt;
-
-&lt;p&gt;이 블로그가 설명을 아주 기깔나게 잘 해주셔서 많이 참고했다.&lt;/p&gt;
-
-&lt;h3 id=&quot;seaborn-catplot&quot;&gt;Seaborn catplot&lt;/h3&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;catplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;input_df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;font_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;sns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;white&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;catplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;value_numbers&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;source&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;labels&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;input_df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kind&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bar&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;orient&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'h'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;legend&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;legend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'center left'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bbox_to_anchor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shadow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ncol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;sns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;despine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bottom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;offset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;trim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_size_inches&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_xlabels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_ylabels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xticks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;font_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yticks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;font_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;plot_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;font_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Col 별로 x, y 데이터를 보여줄 수 있다.&lt;/p&gt;
-
-&lt;p&gt;sns.catplot 내부에서 legend를 False 처리하고 바깥에서 matplotlib 으로 처리해줬다.&lt;/p&gt;
-
-&lt;p&gt;참고 : https://stackoverflow.com/questions/38807895/seaborn-multiple-barplots&lt;/p&gt;
-
-&lt;h3 id=&quot;frequency-distribution&quot;&gt;Frequency Distribution&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;데이터가 csv 파일 형태로 있음을 가정&lt;/em&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;frequency_distribution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max_limit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df_col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;stddev&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df_col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df_col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subplots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;sns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;distplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kde&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_limit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.05&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max_limit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Frequency'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fontsize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;ax2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ax1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;twinx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;inbox&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Normal&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Mean = %0.2f&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Std. Dev. = %0.2f &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;N = %s&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stddev&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;textbox&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;offsetbox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AnchoredText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inbox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;ax2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_artist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;textbox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;sns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;distplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hist&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kde&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;ax2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yaxis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_ticks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;고찰&quot;&gt;고찰&lt;/h3&gt;
-
-&lt;p&gt;뭔가 더 좋은 방법이 있지 않을까 항상 고민을 하지만… 능력이 없어 고민으로 시간을 질질 끌다 결국 막을 내리기만 해 답답하기만 하다.&lt;/p&gt;
-
-&lt;p&gt;빈도수 차트는 왜 선이 꾸깃꾸깃하게 나올까 미치겠다…&lt;/p&gt;
-
-&lt;p&gt;다 하고 교수님 메일이 아니라 깃허브로 보냈고 교수님이 머지해 주시긴 하셨는데… 생각해보니 메일로 보냈어야 하나 싶다… ㅠㅠ아니 선이 왜 꾸깃꾸깃 하냐고 진짜 미치겠네&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Python" /><category term="visualisation" /><category term="Seaborn" /><summary type="html">Bar Chart</summary></entry></feed>
+&lt;p&gt;손실함수를 최소화 하는 방향으로 네트워크 파라미터 (웨이트-w, 편향-b) 를 조절하는 것&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="ML/DL" /><summary type="html">기본단위 : 뉴런 -&amp;gt; 조합해 복잡한 구조를 이룸</summary></entry></feed>

@@ -1,4 +1,5 @@
 ---
+layout: post
 categories: Linear_Algebra
 title: Ch03. Vector Equations
 ---

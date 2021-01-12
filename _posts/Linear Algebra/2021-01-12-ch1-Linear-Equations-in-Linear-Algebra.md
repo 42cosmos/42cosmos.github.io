@@ -1,4 +1,5 @@
 ---
+layout: post
 categories: Linear_Algebra
 title: Ch01. Linear Equations in Linear Algebra
 ---

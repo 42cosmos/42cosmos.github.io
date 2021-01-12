@@ -1,4 +1,5 @@
 ---
+layout: post
 categories: Linear_Algebra
 title: Ch02. Row Reduction and Echelon Forms
 ---
