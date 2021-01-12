@@ -1,24 +1,31 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en-us">
 
-{% include head.html %}
+  {% include head.html %}
 
-<body>
+  <body>
 
-  {% include analytics.html %}
+    {% include sidebar.html %}
 
-  <div class='js-off-canvas-container c-off-canvas-container'>
-    {% include header.html %}
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
+            <small>{{ site.tagline }}</small>
+          </h3>
+        </div>
+      </div>
 
-    {{ content }}
+      <div class="container content">
+        {{ content }}
+      </div>
+    </div>
 
-    {% include footer.html %}
-  </div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
-  <script src="{{ '/js/jquery-3.1.1.min.js' | prepend: site.baseurl }}"> </script>
-  <script src="{{ '/js/evil-icons.min.js' | prepend: site.baseurl }}">   </script>
-  <script src="{{ '/js/jquery.fitvids.js' | prepend: site.baseurl }}">   </script>
-  <script src="{{ '/js/app.js' | prepend: site.baseurl }}">              </script>
-</body>
-
+    <script src='{{ site.baseurl }}/public/js/script.js'></script>
+  </body>
 </html>
