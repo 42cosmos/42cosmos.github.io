@@ -2,10 +2,12 @@
 <search>
   
     <entry>
-      <title><![CDATA[신경망 구조]]></title>
-      <url>/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0/</url>
-      <content type="text"><![CDATA[신경망 구조기본단위 : 뉴런 -&gt; 조합해 복잡한 구조를 이룸perceptron노드는 뉴런의 연산을 표현 &gt; 들어온 입력에 대한 가중치를 곱해 더해준 다음 &gt; 액티베이션 펑션을 적용시킴두 계층 사이 모든 뉴런 연결 -&gt; 전결합계층 : 뉴럴 네트워크의 가장 기본이며, Dense Layer 라고도 칭함뉴런 각 개를 하나의 백터로 묶어줌 :: 백터 내적을 묶어주면 Weight * x 로 표현이 가능함얕은 신경망은닉 Activation function으로 시그모이드 / 탄젠트를 주로 사용출력 &gt; Linear / Soft / Sigmoin ( Binary )심층 신경망5개 이상의 은닉 계층이 있는 경우sigmoid 대신 탄젠트 / relu 가 자주 사용됨최적화 이론분석적 방법수식을 알고 있을 때 &gt; 미분해서 0이 된다는 것 : 기울기 0 -&gt; 2차 미분 해서 0보다 크면 아래로 볼록한 모양여기 다시 들어 보기수치적 방법함수 형태와 수식을 모를 때Gradient Method전역 솔루션 : 전체에서 단 하나 -&gt; 전체에서 가장 작은 값지역 솔루션 : 여러 개 일 수 있고, 좁은 지역에서 봤을 때 솔루션이 되는 부분하나의 솔루션이 전역인지 지역인지 알 수 없음.손실함수를 최소화 하는 방향으로 네트워크 파라미터 (웨이트-w, 편향-b) 를 조절하는 것]]></content>
+      <title><![CDATA[신경망 구조]]></title>
+      <url>/ml/dl/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0/</url>
+      <content type="text"><![CDATA[기본단위 : 뉴런 -&gt; 조합해 복잡한 구조를 이룸perceptron노드는 뉴런의 연산을 표현 &gt; 들어온 입력에 대한 가중치를 곱해 더해준 다음 &gt; 액티베이션 펑션을 적용시킴두 계층 사이 모든 뉴런 연결 -&gt; 전결합계층 : 뉴럴 네트워크의 가장 기본이며, Dense Layer 라고도 칭함뉴런 각 개를 하나의 백터로 묶어줌 :: 백터 내적을 묶어주면 Weight * x 로 표현이 가능함얕은 신경망은닉 Activation function으로 시그모이드 / 탄젠트를 주로 사용출력 &gt; Linear / Soft / Sigmoid ( Binary )심층 신경망5개 이상의 은닉 계층이 있는 경우 sigmoid 대신 탄젠트 / relu 가 자주 사용됨최적화 이론분석적 방법수식을 알고 있을 때 &gt; 미분해서 0이 된다는 것 : 기울기 0 -&gt; 2차 미분 해서 0보다 크면 아래로 볼록한 모양여기 다시 들어 보기수치적 방법함수 형태와 수식을 모를 때Gradient Method전역 솔루션 : 전체에서 단 하나 -&gt; 전체에서 가장 작은 값지역 솔루션 : 여러 개 일 수 있고, 좁은 지역에서 봤을 때 솔루션이 되는 부분하나의 솔루션이 전역인지 지역인지 알 수 없음.손실함수를 최소화 하는 방향으로 네트워크 파라미터 (웨이트-w, 편향-b) 를 조절하는 것]]></content>
       <categories>
+        
+          <category> ML/DL </category>
         
       </categories>
       <tags>
@@ -16,9 +18,11 @@
   
     <entry>
       <title><![CDATA[Loss Function]]></title>
-      <url>/2020/03/19/loss-function/</url>
-      <content type="text"><![CDATA[손실 함수지도 학습 알고리즘에 반드시 정의되어야 함목적, 비용, 에너지 함수 등이라고도 불림 - 에너지, 코스트 등 다양한 표현에 따라 영문 표기명이 달라짐알고리즘 학습 중 아직 얼마나 못하는지 표현성능 척도성능 측정 지표 - 정량적 평가 :: 비즈니스 목표와 연관이 높음학습의 수학적 의미argmin(오브젝티브 함수 &gt; loss function 이라고 표현 함 ) 이를 최소화 시키는 세타(min) 값을 찾는 것입력과 정답을 동시에 입력 받음세타는 학습 될 모든 파라미터를 모은 벡터값 : 네트워크 학습 시 수학적 모델을 두고 학습을 한 다는 것 : 모델 안에 학습 될 수 있는 다양한 파라미터가 있다는 의미 ::손실함수는 모델이 해당 모델이 얼마나 못하는지에 대한 지표 &gt; 낮을 수록 좋음손실 함수는 세타값에 의해서만 움직임 : x, y는 고정 - 세타값에만 의한 변화평균제곱오차 함수 MSE1/2 : 해당 식을 미분 시 제곱이 내려가 없어지기 때문에 관습적으로 사용한 것임오차가 커질 수록 손실함수가 빠르게 증가함 &gt; 선형 (직선) 함수일 경우 일정하게 증가함아웃라이너가 뭉게져 나타남 /… 뭐래e.g.하나의 값 &gt; 오차 :: 세타값 수정 ( gradient decent? ) &gt; 추정치 (y 틸다)를 변경해서 오차 계산을 확인 &gt; 종합적 판단이 가능평균절대오차 함수 MAE제곱이 아닌 절대값으로 표현함 &gt; 오차가 커져도 손실함수가 일정하게 증가하며, Robust with outliner : 좋은 추정을 해도 오차가 많이 발생 &gt; 굳이 이런 것까지 맞추어야 하는 건 아님// 통계적으로 중간 값 ( Median )과의 연관이 있음 -One Hot Encoding다중 클래스 분류 문제의 정답 표기 시 사용교차 엔트로피 오차 CEEyi &gt; 원핫 인코딩으로 - 정답인 항 하나만 살아남고 나머지는 소멸 &gt; 정답인 경우만 로그 … 만 살아남아 이걸 학습하게 됨실제로는 다른 항들 (0)도 영향을 줌  &gt; 분모에 덧셈이 되어 들어가기 때문]]></content>
+      <url>/ml/dl/2020/03/19/loss-function/</url>
+      <content type="text"><![CDATA[지도 학습 알고리즘에 반드시 정의되어야 함목적, 비용, 에너지 함수 등이라고도 불림 - 에너지, 코스트 등 다양한 표현에 따라 영문 표기명이 달라짐알고리즘 학습 중 아직 얼마나 못하는지 표현성능 척도성능 측정 지표 - 정량적 평가 :: 비즈니스 목표와 연관이 높음학습의 수학적 의미argmin(오브젝티브 함수 &gt; loss function 이라고 표현 함 ) 이를 최소화 시키는 세타(min) 값을 찾는 것입력과 정답을 동시에 입력 받음세타는 학습 될 모든 파라미터를 모은 벡터값 : 네트워크 학습 시 수학적 모델을 두고 학습을 한 다는 것 : 모델 안에 학습 될 수 있는 다양한 파라미터가 있다는 의미 ::손실함수는 모델이 해당 모델이 얼마나 못하는지에 대한 지표 &gt; 낮을 수록 좋음손실 함수는 세타값에 의해서만 움직임 : x, y는 고정 - 세타값에만 의한 변화평균제곱오차 함수 MSE1/2 : 해당 식을 미분 시 제곱이 내려가 없어지기 때문에 관습적으로 사용한 것임오차가 커질 수록 손실함수가 빠르게 증가함 &gt; 선형 (직선) 함수일 경우 일정하게 증가함아웃라이너가 뭉게져 나타남 /… 뭐래e.g.하나의 값 &gt; 오차 :: 세타값 수정 ( gradient decent? ) &gt; 추정치 (y 틸다)를 변경해서 오차 계산을 확인 &gt; 종합적 판단이 가능평균절대오차 함수 MAE제곱이 아닌 절대값으로 표현함 &gt; 오차가 커져도 손실함수가 일정하게 증가하며, Robust with outliner : 좋은 추정을 해도 오차가 많이 발생 &gt; 굳이 이런 것까지 맞추어야 하는 건 아님// 통계적으로 중간 값 ( Median )과의 연관이 있음 -One Hot Encoding다중 클래스 분류 문제의 정답 표기 시 사용교차 엔트로피 오차 CEEyi &gt; 원핫 인코딩으로 - 정답인 항 하나만 살아남고 나머지는 소멸 &gt; 정답인 경우만 로그 … 만 살아남아 이걸 학습하게 됨실제로는 다른 항들 (0)도 영향을 줌  &gt; 분모에 덧셈이 되어 들어가기 때문]]></content>
       <categories>
+        
+          <category> ML/DL </category>
         
       </categories>
       <tags>
@@ -28,10 +32,12 @@
     </entry>
   
     <entry>
-      <title><![CDATA[Tensorflow]]></title>
-      <url>/2020/03/17/tensorflow/</url>
-      <content type="text"><![CDATA[TensorFlow import tensorflow as tfPerceptron인체 내 신경세포의 논리게이트 화여러 신호를 입력 받아 하나의 신호로 변경 &gt; inputs각 가중치 변경 (시냅스 - 연결의 가중치)활성함수를 통한 논리적 변경 &gt; outputs  - 비선형 변환  벡터 내적 : y = sign(x^T w) - 행 백터의 열벡터화 * 행 벡터 &gt;사인 함수 - 입력의 사인이 플러스 ( 마이너스 )인지 확인이진 분류 문제Perceptron 동작편향 표현 - 1 : 전체적 출력이 얼마나 shift 된 지 알아보게 함학습률 - 부분 설명 다시 듣기활성함수Sign 함수의 문제결정경계 ( Decision bounday )와의 거리를 신경써야 함tahn 함수  입력값이 0에 가까울 수록 출력이 빠르게 변함  모든 점에서 미분 가능 : 그라디언트 디센트를 배울 때 중요함Sigmoid func1개의 입력0에서 1사이 값을 가짐 - 확률 표현이 가능함 ( Binary classification 에 많이 사용됨 - T일 확률과 F (1 - T)일 확률)딥러닝에서는 0 센터의 0~1 값을 갖는 함수로만 사용됨Softmax funcn개의 입력각 입력의 지수함수를 정규화 함 ( 총 합이 1이 되게끔 함 )e.g. 총 4가지 출력이 있을 때, 출력 0.2, 0.4, 0.1이 나왔다면 나머지는 자동으로 0.4가 됨ReLU func0보다 작은 값에 0 값을 강제함딥러닝에서 가장 많이 사용되는 활성 함수 - 미분값이 일정해서 학습이 잘 됨 (0 or 1의 값이 나옴)]]></content>
+      <title><![CDATA[tensorflow]]></title>
+      <url>/ml/dl/2020/03/17/tensorflow/</url>
+      <content type="text"><![CDATA[ import tensorflow as tfPerceptron인체 내 신경세포의 논리게이트 화여러 신호를 입력 받아 하나의 신호로 변경 &gt; inputs각 가중치 변경 (시냅스 - 연결의 가중치)활성함수를 통한 논리적 변경 &gt; outputs  - 비선형 변환  벡터 내적 : y = sign(x^T w) - 행 백터의 열벡터화 * 행 벡터 &gt;사인 함수 - 입력의 사인이 플러스 ( 마이너스 )인지 확인이진 분류 문제Perceptron 동작편향 표현 - 1 : 전체적 출력이 얼마나 shift 된 지 알아보게 함학습률 - 부분 설명 다시 듣기활성함수Sign 함수의 문제결정경계 ( Decision bounday )와의 거리를 신경써야 함tahn 함수  입력값이 0에 가까울 수록 출력이 빠르게 변함  모든 점에서 미분 가능 : 그라디언트 디센트를 배울 때 중요함Sigmoid func1개의 입력0에서 1사이 값을 가짐 - 확률 표현이 가능함 ( Binary classification 에 많이 사용됨 - T일 확률과 F (1 - T)일 확률)딥러닝에서는 0 센터의 0~1 값을 갖는 함수로만 사용됨Softmax funcn개의 입력각 입력의 지수함수를 정규화 함 ( 총 합이 1이 되게끔 함 )e.g. 총 4가지 출력이 있을 때, 출력 0.2, 0.4, 0.1이 나왔다면 나머지는 자동으로 0.4가 됨ReLU func0보다 작은 값에 0 값을 강제함딥러닝에서 가장 많이 사용되는 활성 함수 - 미분값이 일정해서 학습이 잘 됨 (0 or 1의 값이 나옴)]]></content>
       <categories>
+        
+          <category> ML/DL </category>
         
       </categories>
       <tags>
@@ -42,9 +48,11 @@
   
     <entry>
       <title><![CDATA[Decision Tree]]></title>
-      <url>/2020/03/11/decision-tree/</url>
-      <content type="text"><![CDATA[Decision Tree장점 : 해석력 &gt; 모델의 정확성 이외에도 활용성 ( 메세지 ) :: 결과에 대한 풀이 (연속형 - 범주형 등의 형태에 대한 범용성 높음)단점 : 변동성 / 샘플에의 민감결과값 &gt; 반응변수 예측하는 형태로 나타남  범주형 변수 - 분류  연속형 변수 - 회귀 : 조건을 만족하는 샘플집단의 y의 평균값을 알려줌엔트로피  Entropy섞여있는 정도정의 1. -p(p - 1) + c정의2. -plog…Information gain활용한 변수로 인한 이득 // ig로 각 변수를 평가 (outlook / humidity)  &gt; 어떤 변수를 최상위 노드로 사용할지 결정함      4개 모두 yes 일 때 : 4/4 &gt; 로그가 0이 됨    2/5 &gt; -0.4log2 0.4 - 0.6log2 0.6  all : 9 / 14 개관측치를 많이 갖고 있음 &gt; 다수의 웨이트를 줌  ( e.g. 전체 14개 중 첫 번째 범주에 5/ 4/ 5 - 가중평균을 구해줌)섞여있음 ( 엔트로피 높음 ) &gt; 분류 진행 ( 엔트로피 낮춤 )Classification Treem번째 노드가 k 범주일 확률 : y가 k 범주 안에 존재하면 카운트 - reason을 어떻게 구하는지에 대한 결정ig가 최대화 되는 영역오분류율 : 전체 샘플 개수 내 상대 비율 - 오류율Rm결정 이후 (특정 변수를 어떤 기준으로 나눌 것인지) 결정된 Rm에 대해 pmk 중 가장 이 값이 커지는 k를 구함 &gt; y범주를 구할 것Regression Tree종속변수가 연속형 - 시각화 시 높이 == 예측값각각에 대해 특정 실수값을 줌  - cm (z 축) 값을 곱함임의로 영역을 나눔 &gt; measure 부분을 엔트로피나 gini index를 사용해 최소화되는 점을 찾음Cm &gt; 샘플의 평균값]]></content>
+      <url>/ml/dl/2020/03/11/decision-tree/</url>
+      <content type="text"><![CDATA[장점 : 해석력 &gt; 모델의 정확성 이외에도 활용성 ( 메세지 ) :: 결과에 대한 풀이 (연속형 - 범주형 등의 형태에 대한 범용성 높음)단점 : 변동성 / 샘플에의 민감결과값 &gt; 반응변수 예측하는 형태로 나타남  범주형 변수 - 분류  연속형 변수 - 회귀 : 조건을 만족하는 샘플집단의 y의 평균값을 알려줌엔트로피  Entropy섞여있는 정도정의 1. -p(p - 1) + c정의2. -plog…Information gain활용한 변수로 인한 이득 // ig로 각 변수를 평가 (outlook / humidity)  &gt; 어떤 변수를 최상위 노드로 사용할지 결정함      4개 모두 yes 일 때 : 4/4 &gt; 로그가 0이 됨    2/5 &gt; -0.4log2 0.4 - 0.6log2 0.6  all : 9 / 14 개관측치를 많이 갖고 있음 &gt; 다수의 웨이트를 줌  ( e.g. 전체 14개 중 첫 번째 범주에 5/ 4/ 5 - 가중평균을 구해줌)섞여있음 ( 엔트로피 높음 ) &gt; 분류 진행 ( 엔트로피 낮춤 )Classification Treem번째 노드가 k 범주일 확률 : y가 k 범주 안에 존재하면 카운트 - reason을 어떻게 구하는지에 대한 결정ig가 최대화 되는 영역오분류율 : 전체 샘플 개수 내 상대 비율 - 오류율Rm결정 이후 (특정 변수를 어떤 기준으로 나눌 것인지) 결정된 Rm에 대해 pmk 중 가장 이 값이 커지는 k를 구함 &gt; y범주를 구할 것Regression Tree종속변수가 연속형 - 시각화 시 높이 == 예측값각각에 대해 특정 실수값을 줌  - cm (z 축) 값을 곱함임의로 영역을 나눔 &gt; measure 부분을 엔트로피나 gini index를 사용해 최소화되는 점을 찾음Cm &gt; 샘플의 평균값]]></content>
       <categories>
+        
+          <category> ML/DL </category>
         
       </categories>
       <tags>
@@ -54,10 +62,12 @@
     </entry>
   
     <entry>
-      <title><![CDATA[뉴욕 택시 데이터 수요예측]]></title>
-      <url>/2020/03/10/%EB%89%B4%EC%9A%95-%ED%83%9D%EC%8B%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%88%98%EC%9A%94%EC%98%88%EC%B8%A1/</url>
-      <content type="text"><![CDATA[NYC 택시 데이터 수요 예측BigQuery]]></content>
+      <title><![CDATA[SVM]]></title>
+      <url>/ml/dl/2020/03/10/support-vector-machine/</url>
+      <content type="text"><![CDATA[정확한 분포를 찾을 수 없을 때 &gt; lda 를 적용하기 힘들 때 - 선형관계가 아닌 경우범주형일 때 - classifier  &gt; 보통 기본  핵심 - cost 문제 모든 자료를 고려 x 코스트에 영향을 끼치는 값들만 고려할 것 . 경계 부근 점들을 반영해 모델 코스트 계산  바운더리 근처 관측치만 고려 &gt; 예측 정확도 높음  c (에러의 합) 고려 필요 - c가 작으면 에러를 다수 범해도 괜찮음연속형 - regression &gt;  ?내적이 아니라 커널로 바꿀 것 ( 커널 : 두 값이 차이날 수록 값이 작아짐 - 가까울 수록 커지는 값)정규분포 exp 내부 값과 비슷함 &gt; 가우시안 커널One class SVM원 반지름의 최소화 &gt; 점이 반지름 안에 있어야 함에러 포함 시 c 값 삽입 (작을 수록 에러를 어느정도 허용)라그랑쥬 &gt; 커널 식으로 바꾸면 … 3차원 6차원으로 설정해 원이 아닌 경우를 만들 수 있음시그마 - 커질 수록 차이가 완화됨 &gt; 모형이 간단해짐 ( 민감한 반응 &gt; 작은 시그마 값)]]></content>
       <categories>
+        
+          <category> ML/DL </category>
         
       </categories>
       <tags>
@@ -67,23 +77,12 @@
     </entry>
   
     <entry>
-      <title><![CDATA[Support Vector Machine]]></title>
-      <url>/2020/03/10/support-vector-machine/</url>
-      <content type="text"><![CDATA[Support Vector Machine정확한 분포를 찾을 수 없을 때 &gt; lda 를 적용하기 힘들 때 - 선형관계가 아닌 경우범주형일 때 - classifier  &gt; 보통 기본  핵심 - cost 문제 모든 자료를 고려 x 코스트에 영향을 끼치는 값들만 고려할 것 . 경계 부근 점들을 반영해 모델 코스트 계산  바운더리 근처 관측치만 고려 &gt; 예측 정확도 높음  c (에러의 합) 고려 필요 - c가 작으면 에러를 다수 범해도 괜찮음연속형 - regression &gt;  ?내적이 아니라 커널로 바꿀 것 ( 커널 : 두 값이 차이날 수록 값이 작아짐 - 가까울 수록 커지는 값)정규분포 exp 내부 값과 비슷함 &gt; 가우시안 커널One class SVM원 반지름의 최소화 &gt; 점이 반지름 안에 있어야 함에러 포함 시 c 값 삽입 (작을 수록 에러를 어느정도 허용)라그랑쥬 &gt; 커널 식으로 바꾸면 … 3차원 6차원으로 설정해 원이 아닌 경우를 만들 수 있음시그마 - 커질 수록 차이가 완화됨 &gt; 모형이 간단해짐 ( 민감한 반응 &gt; 작은 시그마 값)]]></content>
+      <title><![CDATA[Linear Discriminant Analysis]]></title>
+      <url>/ml/dl/2020/03/09/ml-study/</url>
+      <content type="text"><![CDATA[데이터 분류 방법 : LDA가정  각 숫자 집단은 정규분포 형태 확률분포를 가짐  각 숫자 집단은 비슷한 형태의 공분산 구조를 가짐가정 시 우상향 타원 + 분산을 갖는 (공분산) 형태가 나옴 &gt; 1, 2, 3그룹 모두 비슷하게 갖고 있음검은 실선 &gt; 영역 분할 == LDA자룔 특정축으로 정사형을 만듦 &gt; 두 분포를 비교하고 분산 대비 평균 차이를 비교자료가 같음에도 축이 다르면 바운더리가 변경 &gt; 어떤 축에 정’사영’을 시킬 것인지 문제기본적으로 평균의 차이를 크게하는 곳에 두 개를 이은 벡터를 평행이동 시켜 정사형을 만듦 &gt; 평균 차이의 극대화 ( but 분산 대비 평균의 차이가 커야하지만, 각각의 분산이 크기 때문에 확실한 차이가 있는지 애매함)            왼 : 평균 차이 극대화 / 분산이 너무 큼  (분산 줄이는 법 &gt; 단축방향 ) &gt;      오 :  분산의 최소화 방향      LDA 모델 정의 및 추정확률분포 관점 : l보다 k에 속할 확률 &gt; log 부분이 커지면 됨 &gt; log파이k/파이l 도 커질 것임만약에 시그마 케이가 같을 때 == 간단하게 정리할 수 있음LDA 심화적 이해장점 :나이브 베이즈 : 설명변수 간 조건부 독립을 가정했음 &gt; 타원 형태는 무시되고 분석을 하게 됐었음공분산 구조가 조금 다르더라도 변화의 민감하지 않음단점 :공분산 구조가 다른 경우 &gt; QDAQDA 정의 및 이해y 샘플들이 각 공분산 구조가 상이한 상황에서도 사용할 수 있게 함비선형관계에서 유용하게 쓰임  lda qda 비 교공분산 구조를 다르게 가질 수 있는가의 차이 &gt; 추정해야하는 파라미터 수가 많아짐샘플이 충분치 않을 때는 lda 가 효율적임]]></content>
       <categories>
         
-      </categories>
-      <tags>
-        
-      </tags>
-      <tags></tags>
-    </entry>
-  
-    <entry>
-      <title><![CDATA[Ml Study]]></title>
-      <url>/2020/03/09/ml-study/</url>
-      <content type="text"><![CDATA[Linear Discriminant Analysis데이터 분류 방법 : LDA가정  각 숫자 집단은 정규분포 형태 확률분포를 가짐  각 숫자 집단은 비슷한 형태의 공분산 구조를 가짐가정 시 우상향 타원 + 분산을 갖는 (공분산) 형태가 나옴 &gt; 1, 2, 3그룹 모두 비슷하게 갖고 있음검은 실선 &gt; 영역 분할 == LDA자룔 특정축으로 정사형을 만듦 &gt; 두 분포를 비교하고 분산 대비 평균 차이를 비교자료가 같음에도 축이 다르면 바운더리가 변경 &gt; 어떤 축에 정’사영’을 시킬 것인지 문제기본적으로 평균의 차이를 크게하는 곳에 두 개를 이은 벡터를 평행이동 시켜 정사형을 만듦 &gt; 평균 차이의 극대화 ( but 분산 대비 평균의 차이가 커야하지만, 각각의 분산이 크기 때문에 확실한 차이가 있는지 애매함)            왼 : 평균 차이 극대화 / 분산이 너무 큼  (분산 줄이는 법 &gt; 단축방향 ) &gt;      오 :  분산의 최소화 방향      LDA 모델 정의 및 추정확률분포 관점 : l보다 k에 속할 확률 &gt; log 부분이 커지면 됨 &gt; log파이k/파이l 도 커질 것임만약에 시그마 케이가 같을 때 == 간단하게 정리할 수 있음LDA 심화적 이해장점 :나이브 베이즈 : 설명변수 간 조건부 독립을 가정했음 &gt; 타원 형태는 무시되고 분석을 하게 됐었음공분산 구조가 조금 다르더라도 변화의 민감하지 않음단점 :공분산 구조가 다른 경우 &gt; QDAQDA 정의 및 이해y 샘플들이 각 공분산 구조가 상이한 상황에서도 사용할 수 있게 함비선형관계에서 유용하게 쓰임  lda qda 비 교공분산 구조를 다르게 가질 수 있는가의 차이 &gt; 추정해야하는 파라미터 수가 많아짐샘플이 충분치 않을 때는 lda 가 효율적임]]></content>
-      <categories>
+          <category> ML/DL </category>
         
       </categories>
       <tags>
@@ -233,15 +232,13 @@
     </entry>
   
     <entry>
-      <title><![CDATA[[6] Selenium XPATH 이해하기]]></title>
-      <url>/web_scraping/selenium/2020/01/21/6-Selenium-Understanding-of-XPATH/</url>
+      <title><![CDATA[Selenium [6] XPATH 이해하기]]></title>
+      <url>/web_scraping/2020/01/21/6-Selenium-Understanding-of-XPATH/</url>
       <content type="text"><![CDATA[XML 특정 요소나 속성에 접근키 위한 경로 지정 언어      태그 및 속성 선택    crawling_data = soup.find('h1')crawling_data = soup.find(id='title')crawling_data = soup.find('p', class_='cssstyle') crawling_data = soup.find('p', attrs = {'align': 'center'})            CSS Selector    crawling_data = soup.select('html &gt; title')crawling_data = soup.select('div.article_view')crawling_data = soup.select('#harmonyContainer')crawling_data = soup.select('div#mArticle div#harmonyContainer')            XPath                  bs 미지원 / Selenium or PhantomJS 지원                    xpath 문법              # 문서 내 태그 검색title = driver.find_element_by_xpath("//title")   # 절대 경로title = driver.find_element_by_xpath("/html/head/title")   # html 태그 내 검색title = driver.find_element_by_xpath("/html//title")   # soup.find('h3', attrs = {'class' : 'tit_s'})title_content = driver.find_element_by_xpath("//h3[@class='tit_view']")      ]]></content>
       <categories>
         
           <category> Web_Scraping </category>
         
-          <category> Selenium </category>
-        
       </categories>
       <tags>
         
@@ -254,15 +251,13 @@
     </entry>
   
     <entry>
-      <title><![CDATA[[5] Selenium Practice]]></title>
-      <url>/web_scraping/selenium/2020/01/21/5-Selenium-practice/</url>
+      <title><![CDATA[Selenium [5] Practice]]></title>
+      <url>/web_scraping/2020/01/21/5-Selenium-practice/</url>
       <content type="text"><![CDATA[네이버 기사 댓글 크롤링options.add_argument('headless')헤드리스 옵션을 넣을 때와 그렇지 않을 때 가져오는 데이터의 차이가 나타났다. 왜? 저 한 줄을 고작 주석처리 할 뿐이었는데 어떻게 고쳐야하는지 모르겠다.headless 일 때 가져오는 댓글의 수 겨우 10개. 없을 때는 내가 원하는 만큼 잘 가져온다. … 음… 도대체 왜?]]></content>
       <categories>
         
           <category> Web_Scraping </category>
         
-          <category> Selenium </category>
-        
       </categories>
       <tags>
         
@@ -275,15 +270,13 @@
     </entry>
   
     <entry>
-      <title><![CDATA[[5] Scrapy & Selenium wrap up!]]></title>
-      <url>/web_scraping/scrapy/2020/01/21/5-Scrapy-&-Selenium-warp-up/</url>
+      <title><![CDATA[Scrapy [5] Scrapy with Selenium wrap up!]]></title>
+      <url>/web_scraping/2020/01/21/5-Scrapy-&-Selenium-warp-up/</url>
       <content type="text"><![CDATA[정리  태그 및 속성으로 선택  CSS Selector 선택  XPATH 선택  데이터 후처리          파이썬 문자열 함수 / 정규표현식      다양한 크롤링 기술  Open API  로그인 필요한 웹페이지 크롤링          다양한 환경에서 가능 :      Selenium 브라우저 자체 제어      Headless Chrome      업무 자동화 기술  크롤링 데이터 기반          엑셀      구글 쉬트      풀스택과 데이터 과학 기본  데이터 수집  데이터 저장  데이터 분석  데이터 시각화 - 서비스 개발 (insight)]]></content>
       <categories>
         
           <category> Web_Scraping </category>
         
-          <category> Scrapy </category>
-        
       </categories>
       <tags>
         
@@ -296,15 +289,13 @@
     </entry>
   
     <entry>
-      <title><![CDATA[[4] Scrapy Practices]]></title>
-      <url>/web_scraping/scrapy/2020/01/21/4-Scrapy-Understanding-of-Scrapy/</url>
+      <title><![CDATA[Scrapy [4] Practices]]></title>
+      <url>/web_scraping/2020/01/21/4-Scrapy-Understanding-of-Scrapy/</url>
       <content type="text"><![CDATA[others  필드명 순서의 랜덤 : DB 안에 넣는 데이터라 크게 신경쓰지 않아도 됨. 그럼에도 불구하고 원하는 순서가 있다면 settings.py 안에 FEED_EXPORT_FIELDS = ['a', 'b', 'c']  선언  동시 크롤링 횟수 조정  settings.py 안에 #CONCURRENT_REQUESTS = n  주석 해제 후 숫자 변경 &gt; 단, 속도 저하데이터 후처리정규표현식import redef parse(self, response):  data = json.loads(response.body_as_unicode())  for item in data['items']:    print(re.sub('&lt;/S+&gt;', '', item['title']))JSON 데이터 크롤링 처리import jsondef parse(self, response):  data = json.loads(response.body_as_unicode())  for item in data['items']:    doc = Naveropenapiitem()    doc['title'] = item['title']    doc['link'] = item['link']loads()함수로 가져오면서 body_as_unicode()처리for문으로 json 데이터를 한 개씩 쪼개서 입력 가능Naver openapi - 요청변수for index in range(10):  yield scrapy.Request(url=url + words_var + '&amp;display=100&amp;start=' + str(index*100 + 1), headers=header_var)‘&amp;display=100&amp;start=’ + str(index*100 + 1)  처럼 작성 가능 »  0 &gt; 1부터 100개  1 &gt; 101부터 100개  2 &gt; 201부터 100개숙제&lt;b&gt;,\n, \t … 등의 태그 없애기]]></content>
       <categories>
         
           <category> Web_Scraping </category>
         
-          <category> Scrapy </category>
-        
       </categories>
       <tags>
         
@@ -317,15 +308,13 @@
     </entry>
   
     <entry>
-      <title><![CDATA[[3] Scrapy OOP for Scrapy]]></title>
-      <url>/web_scraping/scrapy/2020/01/21/3-Scrapy-Object-Oriented-Programming/</url>
+      <title><![CDATA[Scrapy [3] OOP for Scrapy]]></title>
+      <url>/web_scraping/2020/01/21/3-Scrapy-Object-Oriented-Programming/</url>
       <content type="text"><![CDATA[Understanding of OOP for Scrapy  사물 설계도 - class  설계도 기반 사물1 객체 생성 - object  사물1 객체 기능 호출          attribute : 사물 1 객체의 변수      method : 사물 1 객체의 함수 (e.g. 사물1.method())      객체 생성객체이름 = 클래스이름()객체 기능 호출객체이름.method = 값  객체가 가진 값은 공유되지 않음.고찰인간 해부도는 똑같지만 마음과 생각은 모두 다르다고 생각해보자]]></content>
       <categories>
         
           <category> Web_Scraping </category>
         
-          <category> Scrapy </category>
-        
       </categories>
       <tags>
         
@@ -338,15 +327,13 @@
     </entry>
   
     <entry>
-      <title><![CDATA[[4] Selenium Understanding of static web page]]></title>
-      <url>/web_scraping/selenium/2020/01/20/4-Selenium-understanding-of-static-web-page/</url>
+      <title><![CDATA[Selenium [4] Understanding of static web page]]></title>
+      <url>/web_scraping/2020/01/20/4-Selenium-understanding-of-static-web-page/</url>
       <content type="text"><![CDATA[Ajax과 같은 동적 웹페이지 데이터 로딩“웹페이지 새로고침 X &gt; 특정 부분만 변경”특정 부분을 동적으로 가져오고, 해당 부분만 변경 시 그 부분만 변화 == 댓글 등웹브라우저에 전부 로딩 시킨 후 가져올 수 있음동적 데이터 특징-필요조건전체 html 파일 로딩과의 시간차 발생 &gt; 해당 데이터를 불러올 때까지 기다리는 함수(클래스, 객체) 필요 &amp;&amp; 줄여진 댓글창 ‘더보기’ &gt; 원하는 댓글 수보다 댓글이 없을 때 해야할 기능특정 태그 일정 시간 기다리기from selenium.webdriver.support.ui import WebDriverWaitfrom selenium.webdriver.support import expected_conditions as ECelement = WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.ID, "alex-area")) )(By.ID, “alex-area”) : ( 기다릴 객체, “객체 이름”)특정 태그 존재 여부 확인 기능from selenium.webdriver.common.by import By  By.CLASS_NAME: class name  By.CSS_SELECTOR: css selector  By.ID: id  By.NAME: name  By.TAG_NAME: tag namefrom selenium.common.exceptions import TimeoutExceptiontry:	element = WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.CSS_SELECTOR, "a")) )  more_button = driver.find_element_by_css_selector("a")   more_button.click()  count += 1  except TimeoutException:  loop = False키보드-마우스 동작 자동화 (ActionChains)actions = webdriver.ActionChains(driver) : 변수 선언 후 정적 데이터(버튼)를 갖고 있는 변수를 actions.click(var_name) 클릭 함수 내 인자값으로 삽입 &gt; actions.perform() 삽입이 반드시 필요함== webdriver.ActionChains(driver).click(var_name).perform()브라우저 내에서 pausefrom selenium.webdriver.support.ui import WebDriverWaitfrom selenium.common.exceptions import TimeoutExceptionTimeoutException은 WebDriverWait를 함수로 기다릴 때 일정 시간이 지났는데도 태그가 나타나지 않을 때 (예외 상황)]]></content>
       <categories>
         
           <category> Web_Scraping </category>
         
-          <category> Selenium </category>
-        
       </categories>
       <tags>
         
@@ -359,15 +346,13 @@
     </entry>
   
     <entry>
-      <title><![CDATA[[3] Selenium PhantomJS & Headless Chrome]]></title>
-      <url>/web_scraping/selenium/2020/01/20/3-Selenium-PhantomJS/</url>
+      <title><![CDATA[Selenium [3] PhantomJS & Headless Chrome]]></title>
+      <url>/web_scraping/2020/01/20/3-Selenium-PhantomJS/</url>
       <content type="text"><![CDATA[Phantom JS화면 없이 실행하는 프로그램 - Web testing &gt; 시간이 단축되지는 않기에 경우에 따라 선택적 사용이 필요  터미널 환경에서 동작하는 크롤러에게 권장  최신 셀레니움은 지원을 하지 않는 상태* 기존 부분 webdriver.Chrome('*') 만 변경아예 안 됨!Headless Chromeoptions.add_argument('headless'): PhantomJS와 유사한 기술로 크롬브라우저 기능으로 개발됨* 상동c_options = webdriver.ChromeOptions()c_options.add_argument('headless')driver = webdriver.Chrome(url, options=c_options)coptions.add_argument('window-size=1920x1080') : 웹 브라우저 사이즈 지정coptions.add_argument('disable-gpu') : 그래픽카드 사용 안 함coptions.add_argument('User-Agent: ~~') : 서버 요청 시 헤더 재 구성coptions.add_argument('lang=koKR') : 사용자 언어]]></content>
       <categories>
         
           <category> Web_Scraping </category>
         
-          <category> Selenium </category>
-        
       </categories>
       <tags>
         
@@ -380,15 +365,13 @@
     </entry>
   
     <entry>
-      <title><![CDATA[[2] Selenium 기본]]></title>
-      <url>/web_scraping/selenium/2020/01/19/2-Selenium-101/</url>
+      <title><![CDATA[Selenium [2] Basic grammars]]></title>
+      <url>/web_scraping/2020/01/19/2-Selenium-101/</url>
       <content type="text"><![CDATA[Seleniumwith Chrome browserfrom selenium import webdriverfrom selenium.webdriver.common.keys import Keyschd = '경로/경로/'driver = webdriver.Chrome(chd)driver.get('url')get Returns using specific functionmain func      find_element_by_name('w') : 최초 발견한 name 으로 가져오기          find_elements_by_name('w') : 동일한 name을 리스트형으로 가져오기      find_elements_by_id      find_elements_by_tag_name      find_elements_by_class_name      find_elements_by_css_selector      find_elements_by_xpath            clear() : clear input txt        send_keys(kw) : send keyboard input          Keys.RETURN == enter      dir(Keys) : 키에 대응되는 이름 찾기            assert 로 driver.page_source에서 특정 키워드 확인    assert "No results found." not in driver.page_source        time.sleep() 일정시간 브라우저 내용 확인        driver.quit()  요소 내용  head : get_attribute(‘text’)          head_title = driver.find_element_by_css_selector('head &gt; title').get_attribute('text')        body : text          title = driver.find_element_by_css_selector('tag.class_name').text      ]]></content>
       <categories>
         
           <category> Web_Scraping </category>
         
-          <category> Selenium </category>
-        
       </categories>
       <tags>
         
@@ -401,15 +384,13 @@
     </entry>
   
     <entry>
-      <title><![CDATA[[1] Selenium 크롤링 기본]]></title>
-      <url>/web_scraping/selenium/2020/01/19/1-Selenium-with-scarpy-day1/</url>
+      <title><![CDATA[Selenium [1] 크롤링 기본]]></title>
+      <url>/web_scraping/2020/01/19/1-Selenium-with-scarpy-day1/</url>
       <content type="text"><![CDATA[웹페이지 가져오기  requests.get('url')웹페이지 파싱하기  파싱 == 문자열 의미 분석  bs 라이브러리 사용          'BeautifulSoup('var', 'html.parser)'      데이터 추출  soup.find() 함수로 원하는 부분 지정  .get_text() 함수로 추출 부분 가져옴필요 데이터 추출 방법  태그와 속성으로 선택  .find('tag')  .find(id='tag')  .find('p', class='css.tag')  .find('p', attrs = {'align' : 'center'})  CSS Selector로 선택  .select('html &gt; title')  .select('div.article_view')  .select('#harmonyContainer')  .select('div#mArticle')브라우저  javascript 코드 이해 동반  브라우저를 통한 요청 &gt; 난이도 하향 가능]]></content>
       <categories>
         
           <category> Web_Scraping </category>
         
-          <category> Selenium </category>
-        
       </categories>
       <tags>
         
@@ -422,15 +403,13 @@
     </entry>
   
     <entry>
-      <title><![CDATA[[2] Scrapy web crawling issues and Scrapy structure ]]></title>
-      <url>/web_scraping/scrapy/2020/01/16/2-Scrapy-Issues-of-web-crawling/</url>
+      <title><![CDATA[Scrapy [2] web crawling issues and Scrapy structure ]]></title>
+      <url>/web_scraping/2020/01/16/2-Scrapy-Issues-of-web-crawling/</url>
       <content type="text"><![CDATA[웹 크롤링 이슈저작권법 허용  단순 링크  직접 링크 : 특정 게시물 링크저작권법 위반  프레임 링크 - 저작물 일부를 홈페이지 표시  임베드 링크 - 저작물 전체를 홈페이지 표시크롤링 데이터 임의적 사용은 괜찮지만, 어딘가에 게시할 때는 주의하여야 함.로봇 배제 표준 (robots.txt)크롤링 허용 확인 - 게시물에 대한 권한이 누구에게 있는가?유저와 운영자의 이해관계 차이 존재      모두 허용User-agent:Allow:        모두 차단User-agent:Disallow:        조합  User-agent: googlebot    # googlebot 로봇만 적용Disallow: /private/     # 이 디렉토리를 접근 차단한다.User-agent: googlebot-news  # googlebot-news 로봇만 적용Disallow: /         # 모든 디렉토리를 접근 차단한다.User-agent: *        # 모든 로봇 적용Disallow: /something/    # 이 디렉토리를 접근 차단한다.출처 : 위키/로봇 배제 표준  Scrapy 구조/spiders - 실제 크롤링 로직이 들어감items.py - 크롤링 대상 저장pipelines.py - 크롤링 결과를 DB 삽입 혹은 필터링 결정settings.py - 전체 프로젝트 설정 : 파이프라인 순서 결정, 로그 파일 지정 및 레벨 변경 등scrapy.cfg - 전체 프로젝트 배포 시 설정동작  items.py 정의  /spiders 안에 시작 url 지정 (start_requests - 특정 url에 대한 callback함수 지정 가능, start_urls - 스트링 리스트, ), 각 url에 대한 callback 함수 지정 (parse() - common)  callback 함수 정의selector를 이용해 데이터 선택 (xpath, css)  Pipeline을 통해 데이터 필터링 혹은 DB에 저장Spiders  크롤러 이름 지정          name        스타트 url 지정          start_requests :                  콜백 함수 지정 가능          사이트 로그인 시 사용                    start_urls :                  시작 주소를 리스트 형태로 추가                      parser 정의          def parser(self, response):      Selectorhtml 문서에 특정 노드 선택css vs xpath&gt;&gt;&gt; response.xpath('//title/text()')&gt;&gt;&gt; response.css('title::text')&gt;&gt;&gt; response.xpath('//base/@href').extract()&gt;&gt;&gt; response.css('base::attr(href)')&gt;&gt;&gt; response.xpath('//a[contains(@href, "image")]/@href')&gt;&gt;&gt; response.css('a[href*=image]::attr(href)').extract()&gt;&gt;&gt; response.xpath('//a[contains(@href. "image")]/img/@src').extract()&gt;&gt;&gt; response.scc('a[href*=image] img::attr(src)').extract()Pipeline데이터 크롤링 이후 특정 행동 수행  데이터 유효성 검사  중복 체크  DB 저장  필터링settings.py      파이프 클래스 및 순서 지정    ITEM_PIPELINES = {    ‘project_name.pipelines.CommunityPipline’ : 200,    } &gt; 숫자가 낮을 수록 선실행  Logging      settings.py                  LOG_FILE = ‘logfile.log’                    LOG_LEVEL = logging.DEBUG        설정파일에 파일명과 로그레벨을 통해 정의가 가능                  Log Level          logging.CRITICAL - for critical errors (highest severity)      logging.ERROR - for regular errors      logging.WARNING - for warning messages      logging.INFO - for informational messages      logging.DEBUG - for debugging messages (lowest severity)              LOG_LEVEL = logging.WARNING 이라고 설정하면 1~3까지가 지정됨      ]]></content>
       <categories>
         
           <category> Web_Scraping </category>
         
-          <category> Scrapy </category>
-        
       </categories>
       <tags>
         
@@ -443,15 +422,13 @@
     </entry>
   
     <entry>
-      <title><![CDATA[[1] Scrapy 활용 ]]></title>
-      <url>/web_scraping/scrapy/2020/01/16/1-Scrapy-Understanding-of-web-circumstances/</url>
+      <title><![CDATA[Scrapy [1] 활용]]></title>
+      <url>/web_scraping/2020/01/16/1-Scrapy-Understanding-of-web-circumstances/</url>
       <content type="text"><![CDATA[웹 크롤러 Scrapy  파이프라인 지원 : 데이터 후처리 (필터링 등) 가능  로깅 정보 확인 가능  상대적으로 bs보다 간편함  안정적 크롤링 가능  시간 단축 &gt; 동시다발적 크롤링으로 인한 순서 변경  다양한 포맷으로 저장 가능Framework  함수와 코드 선작성  특성 함수의 위치, 사용, 작성을 지정  Beautiful Soup  parser의 역할이 강함  자동으로 유니코드로 변환해서 UTF-8 출력###Spider  이름 : 여러 가지 크롤러(spider)를 둘 수 있으므로, 각 이름을 지정  페이지 주소 : 크롤링 할 주소 지정scrapy genspider 'crawler_name' 'url'# Expected ResultCreated spider 'gmarket' using template 'basic' in module:  ecommerce.spiders.gmarket  items.py - 데이터를 들고올 때 클래스 형태로 만들 수 있음  pipelines.py - 데이터 수집 후 후처리 필터링 입력 진행  settings.py - 스크래피, 스파이더 설정 : 파이프라인 순서, 이름 등의 설정  spider/ - 스크랩 할 내용을 프로그래밍items.pyimport scrapyclass TutorialItem(scrapy.Item): # 상속 필수    title = scrapy.Field()    link = scrapy.Field()    desc = scrapy.Field()가져오려는 아이템 정의/spider/new_file.pyimport scrapyclass linkScrap(scrapy.Spider):    name = "dmoz" # 스파이더 이름 지정    domain = ["dmoztools.net"]    start_urls = [    'https://dmoztools.net/Computers/Programming/Languages/Python/Books/',    'https://dmoztools.net/Computers/Programming/Languages/Python/Resources/'    ] # 스크랩 할 url 지정    def parse(self, response):        for i in response.xpath('//div'):            title = i.xpath('div[3]/a/div/text()').extract()            link = i.xpath('div[3]/a/@href').extract()            desc = i.xpath('/div[3]/div/text()').extract()            print("*" * 10)            print(title, link, desc)i.xpath('/div[3]/div/text()').extract()  의 값은['\r\n\t\t\t\r\n                                    The primary goal of this book is to promote object-oriented design using Python and to illustrate the use of the emerging object-oriented design patterns.\r\nA secondary goal of the book is to present mathematical tools just in time. Analysis techniques and proofs are presented as needed and in the proper context.\r\n                                    ', '\r\n                                  ', '\r\n                                  ', '\r\n                                ', '\r\n                                  ', '\r\n                                  ', '\r\n                                ', 'Health']로 나오니 리스트 0번째 값 추출 후 strip()으로 내용만 추출… 하고싶었는데 빈칸이 출력됨in Terminal - shell&gt;&gt;&gt; scrapy shell 'url'In [4]: response.xpath('//title').extract()                                     Out[4]: ['&lt;title&gt;DMOZ - Computers: Programming: Languages: Python: Books&lt;/title&gt;']In [5]: response.xpath('//title')                                               Out[5]: [&lt;Selector xpath='//title' data='&lt;title&gt;DMOZ - Computers: Programming:...'&gt;]  In [6]: response.xpath('//title/text()').extract()                              Out[6]: ['DMOZ - Computers: Programming: Languages: Python: Books']In [11]: response.xpath('//title/text()').re('(\w+):')                          Out[11]: ['Computers', 'Programming', 'Languages', 'Python']문법 - 사용법response.css('head &gt; title').get() response.css('head &gt; title').getall() # listresponse.css('head &gt; title::text').get() # response.xpath('//div/ul/li/text()').get() # response.css('div.best-list li &gt; a::text').getall(정규표현식response.css('div.best-list li &gt; a::text')[1].re('(\w+)')response.xpath('//div[@class="best-list"]/ul/li/a/text()')[1].re('(\w+)')Pipelines - Filtering아이템이 생성될 때 파이프라인 함수를 한 번씩 거친다고 생가하면 됨!from scrapy.exceptions import DropItemclass NavernewsPipeline(object):def process_item(self, item, spider):print (item)if item['price'] &gt; 10000:return item else:raise DropItem("drop item having lower price than 10000")dd    def start_requests(self):        yield scrapy.Request(url='http://corners.gmarket.co.kr/Bestsellers', callback=self.parse)지정 url 크롤링 후 parse 함수를 call-back ( call-back 으로 부르는 함수는 반드시 response 보유 필수)문제      describtion이 전혀 나오지 않는다.    scrapy shell url 로 만질 때는 아주 잘 나오는데 막상 코드로 넣으면 빈 리스트만 반환한다.  미치겠다… 미치겠다 외 … 않되? 왜 안 되는지 정말 모르겠다… 짐작은 가는데… 내가 어떻게 만져야하는지 모르겠다… 빵 먹고싶다…    title:    //*[@id=”site-list-content”]/div[17]/div[3]/a/div    //*[@id=”site-list-content”]/div[18]/div[3]/a/div    desc:    //*[@id=”site-list-content”]/div[17]/div[3]/div/text()    //*[@id=”site-list-content”]/div[18]/div[3]/div/text()        쓰레기값 해결 문제    {"title": ["Data Structures and Algorithms with Object-Oriented Design Patterns in Python "], "link": ["http://www.brpreiss.com/books/opus7/html/book.html"], "desc": ["\r\n\t\t\t\r\n                                    The primary goal of this book is to promote object-oriented design using Python and to illustrate the use of the emerging object-oriented design patterns.\r\nA secondary goal of the book is to present mathematical tools just in time. Analysis techniques and proofs are presented as needed and in the proper context.\r\n                                    ", "\r\n                                  "]},{"title": [], "link": [], "desc": []},                 값이 정확히 나온 부분의 문제 : desc 리스트 [0]번째 값만 필요함 - 정규표현식을 써야 하는 건가? 근데 리스트 형태라서 strip만 되는 거 같은데…      빈 값 처리 - 뭐야!        를 해야한다…  문제 해결      i.xpath('/div[3]/div/text()').extract() &gt; i.xpath('div[3]/div/text()').extract()    하~ 진짜 슬래쉬 때문에 개고생 하다니…핳  고찰  나는 바보다  눈을 똑바로 뜨자  더 똑똑해지자  컴퓨터는 잘못 없다]]></content>
       <categories>
         
           <category> Web_Scraping </category>
         
-          <category> Scrapy </category>
-        
       </categories>
       <tags>
         
@@ -464,15 +441,13 @@
     </entry>
   
     <entry>
-      <title><![CDATA[[3] Selenium을 사용한 기본 구글 크롤링]]></title>
-      <url>/web_scraping/beautifulsoup/2020/01/15/3-google-scraping-using-selenium-and-beautifulsoup/</url>
+      <title><![CDATA[BeautifulSoup [3] 기본 구글 크롤링 w/ Selenium]]></title>
+      <url>/web_scraping/2020/01/15/3-google-scraping-using-selenium-and-beautifulsoup/</url>
       <content type="text"><![CDATA[Google Scraping using Selenium and BeautifulSoupfrom urllib.parse import quote_plusfrom bs4 import BeautifulSoupfrom selenium import webdriverbase_url = 'https://www.google.com/search?q='plus_url = input()url = base_url + quote_plus(plus_url)driver = webdriver.Chrome()driver.get(url)html = driver.page_sourcesoup = BeautifulSoup(html, 'html.parser')r = soup.select('.r')for i in r:    print(i.select_one('.LC20lb').text)    print(i.a.attrs['href'], end='\n\n') # a 태그 안에 있는 href 가져오기bs로만 구글 크롤링은 헤더가 있어야 함또한 가져온 결과에서는 클래스 이름이 없음 &gt; 결과는 있지만 클래스 이름이 달라지기 때문에 혼합 사용 권장]]></content>
       <categories>
         
           <category> Web_Scraping </category>
         
-          <category> BeautifulSoup </category>
-        
       </categories>
       <tags>
         
@@ -485,15 +460,13 @@
     </entry>
   
     <entry>
-      <title><![CDATA[[2] BeautifulSoup 네이버 블로그 검색결과 가져오기]]></title>
-      <url>/web_scraping/beautifulsoup/2020/01/15/2-pyautogui-image/</url>
+      <title><![CDATA[BeautifulSoup [2] 네이버 블로그 검색결과 가져오기]]></title>
+      <url>/web_scraping/2020/01/15/2-pyautogui-image/</url>
       <content type="text"><![CDATA[BeautifulSoup가장 기본 형식 - 검색어 고정 형태import urllib.requestfrom bs4 import BeautifulSoupurl = 'https://search.naver.com/search.naver?where=post&amp;sm=tab_jum&amp;query=python'html = urllib.request.urlopen(url).read() # Html 가져오기soup = BeautifulSoup(html, 'html.parser')title = soup.find_all(class_='sh_blog_title')for i in title:    print(i.attrs['title'])    print(i.attrs['href'], end='\n\n')검색어 변경 (part)base_url = 'https://search.naver.com/search.naver?where=post&amp;sm=tab_jum&amp;query='plus_url = input('검색어 입력')url = base_url + urllib.parse.quote_plus(plus_url)	urllib.parse.quote_plus()네이버 이미지 저장하기base_url = 'https://search.naver.com/search.naver?where=image&amp;sm=tab_jum&amp;query='plus_url = input('search')url = base_url + quote_plus(plus_url)html = urlopen(url).read()soup = BeautifulSoup(html, 'html.parser')img = soup.find_all(class_ = '_img')count = 1for i in img:    img_src = i['data-source']    with urlopen(img_src) as file:        with open('./photo/' + plus_url + str(count) + '.jpg', 'wb') as img_file: # 이미지기 때문에 binary            file_read_img =file.read()            img_file.write(file_read_img)    count += 1# 개발자 도구에서 보는 것과 실제 소스분석과 다를 수 있음.# 출력을 하면서 봐야 함.]]></content>
       <categories>
         
           <category> Web_Scraping </category>
         
-          <category> BeautifulSoup </category>
-        
       </categories>
       <tags>
         
@@ -506,14 +479,12 @@
     </entry>
   
     <entry>
-      <title><![CDATA[[1] pyautogui 기초사용법]]></title>
-      <url>/web_scraping/beautifulsoup/2020/01/15/1-pyauto/</url>
+      <title><![CDATA[pyautogui [1] 기초사용법]]></title>
+      <url>/web_scraping/2020/01/15/1-pyauto/</url>
       <content type="text"><![CDATA[py auto guias p설정 - 보안 및 개인 정보 보호 - 개인정보보호 - 손쉬운 사용 - 터미널 체크마우스와 키보드를 제어한다. &gt; 자동화 프로그램 ( 매크로 ) 생성 시 이용마우스 좌표를 먼저 알아야 함 : 해상도에 따른 위치p.position()# (x, y)p.moveTo(x, y(, time))# 절대적인 위치 변경p.moveRel(x, y(, time))# 상대적인 위치 변경Clickp.click() # 한 번p.click(clicks=2, interval=2) # 두 번 클릭, 클릭 사이에 2초 텀p.doubleClick()Keyboard Ctrl파일이 열리는 시간을 생각해서 typewrite 필수  ‘키’를 누를 때는 [대괄호] 내에 삽입time.sleep(1) # 1초 쉼p.typewrite('Hello') p.typewrite(['enter']) opencv-python위치가 변경되어도 선택할 수 있도록 함num7 = p.locateOnScreen('file.png')q = p.center(i)p.click(q) num7 = p.locateCenterOnScreen('file.png')스크린샷까지 자동화p.screenshot('name.png', region=(x, y, px, px))]]></content>
       <categories>
         
           <category> Web_Scraping </category>
-        
-          <category> BeautifulSoup </category>
         
       </categories>
       <tags>
@@ -528,13 +499,11 @@
   
     <entry>
       <title><![CDATA[[Error] No module named selenium in env]]></title>
-      <url>/web_scraping/beautifulsoup/2020/01/15/0-No-Module-named-error-in-envs/</url>
+      <url>/web_scraping/2020/01/15/0-No-Module-named-error-in-envs/</url>
       <content type="text"><![CDATA[ModuleNotFoundError: No module named ‘selenium’ - AtomModuleNotFoundError: No module named ‘bs4’ - Jupyter notebook저 상황일 때는 아무리 conda install pip  등 뭘 해줘도 소용이 없었다. 난! 설치를 했는데! 왜! 넌! 없다고 말 하니? ㅠ파이썬 버전이 2개나 깔려있으니까 (2.x / 3.x) 정확히 명시해주기로 했다.환경 : 맥북 카탈리나 10.15.2 - 콘다 가상환경 사용python3 -m pip install BeautifulSoup4문제 해결!]]></content>
       <categories>
         
           <category> Web_Scraping </category>
-        
-          <category> BeautifulSoup </category>
         
       </categories>
       <tags>
@@ -696,6 +665,141 @@
           <tag> ML </tag>
         
           <tag> Python </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Ch08.]]></title>
+      <url>/linear_algebra/2020/01/12/ch8/</url>
+      <content type="text"><![CDATA[dd]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Ch07.]]></title>
+      <url>/linear_algebra/2020/01/12/ch7/</url>
+      <content type="text"><![CDATA[dd]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Ch06.]]></title>
+      <url>/linear_algebra/2020/01/12/ch6/</url>
+      <content type="text"><![CDATA[dd]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Ch05.]]></title>
+      <url>/linear_algebra/2020/01/12/ch5/</url>
+      <content type="text"><![CDATA[dd]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Ch04. The Matrix Equation Ax=b]]></title>
+      <url>/linear_algebra/2020/01/12/ch4-The-Matrix-Equation-Ax=b/</url>
+      <content type="text"><![CDATA[\(A\mathbf{x}\) : Product of A and xThe linear combination of the columns of \(A\) using the corresponding entries in \(\mathbf{X} \mbox{ as weights}\) → x 벡터 엔트리가 가중치📖 Theorem 3.\(A\) is \(m \times n\) matrix, with columns \(a_1, \cdots, a_n   \mathbf{b} \mbox{ is in }\mathbb{R}^m\)  Matrix Equation : \(A\mathbf{x} = \mathbf{b}\)  Vector Equation : \(x_1\mathbf{a_1} + x_2\mathbf{a_2} + \cdots + x_p\mathbf{a_p} = \mathbb{b}\)  Augmented Matrix  : \(\left[ \mathbf{a_1}, \mathbf{a_2}, \cdots, \mathbf{a_n} \mathbf{b}\right]\)Have the same solution set!📖 Theorem 4.The followings are all true of all false:  For each b in R^m, Ax = b  has a solution  Each b in R^m is a linear combination of the columns of A  The columns of A spanR^m  A has a pivot position in every row📖 Theorem 5.If A is an m x n matrix, u and v are vectors in R^m,  And c is a scalar, then;  A(u + v) = Au + Av;A(cu) = c(Au)]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Ch03. Vector Equations]]></title>
+      <url>/linear_algebra/2020/01/12/ch3-Vector-Equations/</url>
+      <content type="text"><![CDATA[Vectors in \(\mathbb{R}^2\) → 실수 2차원 공간 \(\mathbf{u} = \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right], \mathbf{v} = \left[\begin{matrix}0.2 \\ 0.3 \\\end{matrix}\right], \mathbf{u} = \left[\begin{matrix}w_1 \\ w_2 \\\end{matrix}\right]\)\(\vec{u} = (3, -1), \vec{v} = (0.2, 0.3), \vec{w} = (w_1, w_2)\)\[(w_1, w_2) \ne \left[ w_1, w_2\right]\]Scalar Multiplication백터 네 모든 값에 스칼라 값을 곱해준다\(c = 5, \mathbf{u} =  \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right]\) 일 때,\(c\mathbf{u} = 5 \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right] =  \left[\begin{matrix}5\cdot3 \\ 5\cdot(-1) \\\end{matrix}\right] =  \left[\begin{matrix}15 \\ -5 \\\end{matrix}\right]\)Vectors in \(\mathbb{R}^n\)\(c\mathbf{u} = \left[\begin{matrix}u_1 \\ u_2 \\ \cdots \\ u_n\end{matrix}\right]   \\\mathbf{u} = (u_1, u_2, \cdots, u_n)\)Algebraic Properties of \(\mathbb{R}^n\)\(\mathbf{u, v, w} \mbox{ are } \mathbb{R}^n \mbox{ and } c d \mbox{ are scalar}\)  u + v = v + u  (u + v) + w = u + (v + w)  u + 0 = 0 + u = u  u + (-u) = -u + u = 0  c(u + v) = cu + cv  (c + d)u = cu + du  c(du) = (cd)u  1u = uLinear CombinationsLinear combination of \(\mathbf{v_1, v_2, \cdots, v_p} \mbox{ is } \mathbb{R}^n     \mbox{with weights } c_1, c_2, \cdots, c_p \mbox{ is scalar}\)y = \(c_1\mathbf{v_1} + c_2\mathbf{v_2} + \cdots + c_p\mathbf{v_p}\)A vector equation \(x_1\mathbf{a_1}+x_2\mathbf{a_2}+\cdots+x_n\mathbf{a_n} = \mathbf{b}\)has the same solution set as the linear system whose augmented matrix is  \(\left[\mathbf{a_1} \mathbf{a_2} \cdots \mathbf{a_n} \mathbf{b}\right]\)→ 각 벡터를 집어넣은 Augmented Matrix 와 동일한 해를 지닌다.Span{\(\mathbf{v}\)}is the collection of all vectors that can be written in the form \(c_1\mathbf{v_1} + c_2\mathbf{v_2} + \cdots + c_p\mathbf{v_p}\)]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Ch02. Row Reduction and Echelon Forms]]></title>
+      <url>/linear_algebra/2020/01/12/ch2-Row-Reduction-and-Echelon-Forms/</url>
+      <content type="text"><![CDATA[A leading Entry of row : the LEFTMOST nonzero entry.Echelon Form  All nonzero rows are above any rows of all zeros  Each leading entry of a row is in column to the right of the leading entry of the row above it  The leading entry in each nonzero row is 1  Each leading 1 is the only nonzero entry in its column\[1 → \left[\begin{matrix}\bullet &amp; * &amp; * &amp; * \\0 &amp; \bullet &amp; * &amp; * \\0 &amp; 0 &amp; 0 &amp; 0 \\0 &amp; 0 &amp; 0 &amp; 0 \\\end{matrix}\right]          2 → \left[\begin{matrix}\bullet &amp; * &amp; * &amp; * \\0 &amp; \bullet &amp; * &amp; * \\0 &amp; 0 &amp; \bullet &amp; * \\0 &amp; 0 &amp; 0 &amp; \bullet \\\end{matrix}\right]\]📖 Theorem 1. Uniqueness of the Reduced Echelon FormEach matrix is row equivalent to one and only one reduced echelon matrixRow Reduction Algorithm  Begin with the leftmost nonzero column  Select a nonzero entry in the pivot column as a pivot. If necessary, Interchange rows to move this entry into the pivot position.  Row replacement to create zeros in all positions below the pivot.  Apply steps 1-3 to the sub matrix that remain. The combination of steps 1-4 is called forward phase echelon form  Beginning with the rightmost polio and working upward and to the left, created zeros above each pivot. If a pivot is not 1, make it 1 by a scaling operation.          Called backward phase reduced echelon form      Solution of linear systems\(\left[\begin{matrix}1 &amp; 0 &amp; -5 &amp; 1 \\0 &amp; 1 &amp; 1 &amp; 4 \\0 &amp; 0 &amp; 0 &amp; 0 \\\end{matrix}\right]\) 일 때,\(x_1 - 5x_3 = 1 \\x_2 + x_3 = 4 \\0 = 0 \\\left[\begin{matrix}6 \\3 \\1 \\\end{matrix}\right]\left[\begin{matrix}-9 \\6 \\-2 \\\end{matrix}\right]  \cdots\) 해가 무한대가 되며,  General Solution 은 아래와 같다.\(\begin{cases}x_1 = 1 + 5x_3 &amp; \mbox{basic / leading  variables} \\x_2 = 4 - x_3 &amp; \mbox{basic / leading variables} \\x_3 \mbox{ is free} &amp; \mbox{free variable}\end{cases}\)📖 Theorem 2. Existence and Uniqueness TheoremA linear system is consistent if and only if the rightmost column of the augmented matrix is not a pivot column - that is, if and only if and echelon form of the augmented matrix has no row of the forms.  \(\left[ \begin{matrix} 0 &amp; \cdots &amp;  0 &amp; b \end{matrix} \right]\) with \(b\) is nonzero.  If a linear system is consistent, then the solution set contains either (i) a unique solution, when there are no free variables, or (ii) infinitely many solutions, when there is at least one free variables.]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Ch01. Linear Equations in Linear Algebra]]></title>
+      <url>/linear_algebra/2020/01/12/ch1-Linear-Equations-in-Linear-Algebra/</url>
+      <content type="text"><![CDATA[A system of linear equations : A collection of one or more linear equations Solution Set : The Set of all possible solutions of the linear system	→ Two linear systems are called equivalent if they have the same solution set.A system of linear equations has either  No Solution ( INCONSISTENT )  Exactly one Solution ( CONSISTENT )  Infinitely Many Solutions ( CONSISTENT )Matrix Notation  3 rows x 3 columns =&gt; Coefficient Matrix ( 3 \(\times\) 3 ) : 계수 행렬  3 rows x 4 columns =&gt; Augmented Matrix ( 4 x 3 ) : 확대 행렬          첨가 행렬은 계수 행렬과 상수항들의 행렬을 맞붙여 얻는 행렬      Augmented Matrix\(A = \left[\begin{matrix}1 &amp; 2 &amp; 3 \\4 &amp; 7 &amp; 4 \\1 &amp; 6 &amp; 8 \\\end{matrix}\right] , B = \left[\begin{matrix}1 \\4 \\1 \\\end{matrix}\right]\)가 있을 때, Augmented Matrix 는\(\left[\begin{matrix}1 &amp; 2 &amp; 3  &amp; 1\\4 &amp; 7 &amp; 4 &amp; 4 \\1 &amp; 6 &amp; 8 &amp; 1 \\\end{matrix}\right]\)이다.Elementary row operations  Replacement  Interchange  ScalingTwo matrices are Row Equivalent If there is a sequence of elementary row operations that transforms one matrix into the other.If the augmented matrices of the linear systems are row equivalent, then the two systems have the same solution set.]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[THEOREMs]]></title>
+      <url>/linear_algebra/2020/01/12/Theorems/</url>
+      <content type="text"><![CDATA[Uniqueness of the Reduced Echelon FormEach matrix is row equivalent to one and only one reduced echelon matrix]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
         
       </tags>
       <tags></tags>
