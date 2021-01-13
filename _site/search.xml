@@ -2,9 +2,9 @@
 <search>
   
     <entry>
-      <title><![CDATA[Ch08.]]></title>
-      <url>/linear_algebra/2021/01/12/ch8/</url>
-      <content type="text"><![CDATA[dd]]></content>
+      <title><![CDATA[THEOREMs]]></title>
+      <url>/linear_algebra/2021/01/12/ch19-Theorems/</url>
+      <content type="text"><![CDATA[📖 Theorem 1.Uniqueness of the Reduced Echelon FormEach matrix is row equivalent to one and only one reduced echelon matrix📖 Theorem 2.📖 Theorem 3.\(A\) is \(m \times n\) matrix, with columns \(a_1, \cdots, a_n   \mathbf{b} \mbox{ is in }\mathbb{R}^m\)  Matrix Equation : \(A\mathbf{x} = \mathbf{b}\)  Vector Equation : \(x_1\mathbf{a_1} + x_2\mathbf{a_2} + \cdots + x_p\mathbf{a_p} = \mathbb{b}\)  Augmented Matrix  : \(\left[ \mathbf{a_1}, \mathbf{a_2}, \cdots, \mathbf{a_n} \mathbf{b}\right]\)Have the same solution set!📖 Theorem 4.The followings are all true of all false:  For each b in R^m, Ax = b  has a solution  Each b in R^m is a linear combination of the columns of A  The columns of A spanR^m  A has a pivot position in every row📖 Theorem 5.If A is an m x n matrix, u and v are vectors in R^m,  And c is a scalar, then;  A(u + v) = Au + Av;A(cu) = c(Au)]]></content>
       <categories>
         
           <category> Linear_Algebra </category>
@@ -17,9 +17,9 @@
     </entry>
   
     <entry>
-      <title><![CDATA[Ch07.]]></title>
-      <url>/linear_algebra/2021/01/12/ch7/</url>
-      <content type="text"><![CDATA[dd]]></content>
+      <title><![CDATA[Ch18. The Matrix of a Linear Transformation]]></title>
+      <url>/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation/</url>
+      <content type="text"><![CDATA[📖 Theorem 10.Let \(T : \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation. Then there exists a unique matrix A such that\(T(\mathbf{x}) = A\mathbf{x} \mbox{ for all }\mathbf{x} \mbox{ in }\mathbb{R^n}\)In fact, \(A\) is the \(m \times n\) matrix whose j-th column is the vector \(T(e_j)\), where \(e_j\) is the j-th column of the identity matrix in \(\mathbb{R^n}\):\(A = \left[ T(e_1) \cdots T(e_n) \right]\)Standard matrix for the linear transformation TOntoA mapping \(T: \mathbb{R^n} \to \mathbb{R^m}\) is said to be onto \(\mathbb{R^m}\) if each \(\mathbf{b}\) in \(\mathbb{R^m}\) is the image of at least one \(\mathbf{x}\) in \(\mathbb{R^n}\)One-to-oneA mapping  \(T: \mathbb{R^n} \to \mathbb{R^m}\) is said to be one-to-one if each \(\mathbf{b}\) in \(\mathbb{R^m}\) is the image of at most one \(\mathbf{x}\) in \(\mathbb{R^n}\)  여러 개의 벡터에서 같은 이미지로 도달할 때 : one-to-one이 아님  1대1 대응 : one-to-one📖 Theorem 11.Let \(T: \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation.Then \(T\) is one-to-one if and only if the equation \(T(\mathbf{x}) = 0\)  has only trivial solution.\(T(0) = T(0\mathbf{0}) = 0T(\mathbf{0})\\T(\mathbf{u} = \mathbf{b}  T(\mathbf{v} = b)\\T(\mathbf{u} - \mathbf{v}) = T(\mathbf{u}) - T(\mathbf{v}) = 0\\\mathbf{u} - \mathbf{v} \ne 0\)\(T(\mathbf{x}) = 0\) has more than one solution📖 Theorem 12.Let \(T: \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation and let \(A\) be the standard matrix for \(T\).  Then \(T\) maps \(\mathbb{R^n} \mbox{onto} \mathbb{R^m}\) if and only if the columns of \(A\) span \(\mathbb{R^m}\)   \(T\) is one-to-one if and only if the columns of \(A\) are linearly independent. 	one-to-one → only trivial → independent]]></content>
       <categories>
         
           <category> Linear_Algebra </category>
@@ -32,9 +32,9 @@
     </entry>
   
     <entry>
-      <title><![CDATA[Ch06.]]></title>
-      <url>/linear_algebra/2021/01/12/ch6/</url>
-      <content type="text"><![CDATA[dd]]></content>
+      <title><![CDATA[Ch17. Introduction to Linear Transformation]]></title>
+      <url>/linear_algebra/2021/01/12/ch17-Introduction-to-Linear-Transformation/</url>
+      <content type="text"><![CDATA[TransformationA transformation (or function or mapping) \(T\) from \(\mathbb{R^n} \mbox{ to } \mathbb{R^m}\)Is a rule that assignms to each vector x in \(\mathbb{R^n}\) a vector \(T(\mathbf{x})\) in \(\mathbb{R^m}\)Domain to CoDomain → \(T : \mathbb{R^n} \to \mathbb{R^m}\)Matrix Transformation\(\mathbf{x} \mapsto A\mathbf{x}\\T : \mathbb{R^n} \to \mathbb{R^m}\)Linear TransformationA transformation (or mapping ) \(T\) is linear if \(T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})\\T(c\mathbf{u} = cT(\mathbf{u}))\) ( : Theorem 5.)    Every matrix transformation is a linear transformation : 모든 MT는 LT다. 매트릭스가 LT 정의를 그대로 따르기 때문에!]]></content>
       <categories>
         
           <category> Linear_Algebra </category>
@@ -47,9 +47,9 @@
     </entry>
   
     <entry>
-      <title><![CDATA[Ch05.]]></title>
-      <url>/linear_algebra/2021/01/12/ch5/</url>
-      <content type="text"><![CDATA[dd]]></content>
+      <title><![CDATA[Ch16. Linear Independence]]></title>
+      <url>/linear_algebra/2021/01/12/ch16-Linear-Independence/</url>
+      <content type="text"><![CDATA[Linearly IndependentA set of vectors \({\mathbf{v_1}, \cdots, \mathbf{v_p}}\) in \(\mathbb{R^n}\) is said to be linearly independent, if the vector equation\(x\mathbf{v_1} + \cdots + x_p\mathbf{v_p} = 0\)Has only the trivial solution. trivial solution 만 있을 때, vector 앞에 있는 coefficient 가 다 0인 솔루션  어떤 vector set 에 LD 를 따지는 것은, \(A\mathbf{x} = 0\)을 푸는 것과 동일함  free variable이 한 개라도 존재하면, Nontrivial solution → 해가 무수히 존재Linearly DependentThe set \({\mathbf{v_1}, \cdots, \mathbf{v_p}}\) in \(\mathbb{R^n}\) is said to be linearly dependent if there exist weights \(c_1, \cdots, c_p\), not all zero, such that  \(c_1\mathbf{v_1} + \cdots + c_p\mathbf{v_p} = 0\) \(c_1 \sim c_p\) 중 최소 하나라도 nonzeroLinear Independence of Matrix Columns\(A = \left[ a_1, \cdots, a_n \right] \\A\mathbf{x} = 0\\x_1\mathbf{a_1} + x_2\mathbf{a_2} + \cdots + x_n\mathbf{a_n} = 0\)The columns of a matrix \(A\) are linearly independent if and only if the equations \(A\mathbf{x} = 0\) has only the trivial solution.Example.Determine if the columns of the following matrix are linearly independent.모든 row에 pivot position이 있고, free variable이 없음 → only trivial solution : Linearly independentSets of One VectorIf a set contains only on vector, \(\mathbf{v}, then the set is linearly independent\)Only when \(\mathbf{v} \ne 0 \\\because \mbox{ if } \mathbf{v} = 0, x_1\mathbf{v} = x_10 = 0\)Sets of Two Vectors하나의 vector가 다른 v의 곱으로 표현된다면 linearly DependentA set \(\{\mathbf{v_1}, \mathbf{v_2}\}\) is linearly dependentif at least one of the vectors is a multiple of the other \(\mathbf{v_1} = c\mathbf{v_2} \\ -\mathbf{v_1} + c\mathbf{v_2} = 0\)The set is linearly independent, if and only if neither of the vectors is a multiple of the other.  \(x_1\mathbf{v_1} + x_2\mathbf{v_2} = 0\) → \(\mathbf{v_1} = -(x_2 / x_1) \mathbf{v_2}\) 는 맞지 않음 : 이 식 자체는 서로의 곱으로 표현되는데, 이는 즉 서로의 multiple 형태인 셈 → 불가능      A multiple of the other → linearly dependent\(\mathbf{v_1} = \left[ \begin{matrix}3\\1\\\end{matrix}\right]  \mathbf{v_2} = \left[ \begin{matrix}6\\2\\\end{matrix}\right] \\\mathbf{v_2} = 2\mathbf{v_1} \\2\mathbf{v_1} - \mathbf{v_2} = 0\)        Neither → linearly independent\(\mathbf{v_1} = \left[ \begin{matrix}3\\3\\\end{matrix}\right]  \mathbf{v_2} = \left[ \begin{matrix}6\\2\\\end{matrix}\right] \\x_1\mathbf{v_1} + x_2\mathbf{v_2}  = 0\\\mathbf{x} = (0,0)\)  📖 Theorem 7. Characterisation of Linearly Dependent SetsAn indexed set \(S = \{\mathbf{v_1}, \cdots, \mathbf{v_p} \}\) of two or more vectors Is linearly dependent 	 (Non Trivial solution → 최소 하나의 벡터가 나머지 벡터의 linear combination으로 표현되는 경우)If and only if at least one of the vectors in \(S\) is a linear combination of the others.In fact, if \(S\) is linearly dependent and \(\mathbf{v_1} \ne 0\), then some \(\mathbf{v_j}\) (with j &gt; 1) is a linear combination of the preceding vectors, \(\{v_1, \cdots, v_j-1\}\) \(j\) : the largest subscript for which \(c_j \ne 0\) \(c_1\mathbf{v_1} + \cdots + c_p\mathbf{v_p} = 0\)\({\mathbf{u}, \mathbf{v}, \mathbf{w}}\) in \(\mathbb{R^3}\)With \(\mathbf{u} \mbox{ and } \mathbf{v}\) linearly independent (서로가 스칼라곱의 형태로 표현되지 않을 때 )\(\mathbf{w}\) is in \(/mbox{span} \{\mathbf{u}, \mathbf{v}\}\)If and only if the set \({\mathbf{u}, \mathbf{v}, \mathbf{w}}\) is linearly dependent.\(\mathbf{w} = c\mathbf{u} + d\mathbf{v}, -\mathbf{w} + c\mathbf{u} + d\mathbf{v} = 0\\\mathbf{u} \ne 0  \mathbf{u} \ne c\mathbf{v}\)📖 Theorem 8.If a set contains more vectors than there are entries in each vector, then the set is linearly dependent.When n rows p columns, \(p &gt; n\) must be a free variable! \(A\mathbf{x} = 0\) has a nontrivial solution.📖 Theorem 8.If a set contains the zero vector, then the set is linearly dependent. \(1\mathbf{v_1} + 0\mathbf{v_2} + \cdots + 0\mathbf{v_p} = 0\)]]></content>
       <categories>
         
           <category> Linear_Algebra </category>
@@ -62,8 +62,23 @@
     </entry>
   
     <entry>
-      <title><![CDATA[Ch04. The Matrix Equation Ax=b]]></title>
-      <url>/linear_algebra/2021/01/12/ch4-The-Matrix-Equation-Ax=b/</url>
+      <title><![CDATA[Ch15. Solution Sets of Linear Systems]]></title>
+      <url>/linear_algebra/2021/01/12/ch15-Solution-Sets-of-Linear-Systems/</url>
+      <content type="text"><![CDATA[Homogeneous Linear SystemsTrivial solution \(A\mathbf{x} = 0\) (→ 제로 백터 ) always has at least one solution \(\mathbf{x} = 0\)NonTrivial solution If and only if the equation has at least one free variable → 유일하거나 무한히 많을 때📖 Theorem2. Existence and Uniqueness TheoremIf a linear system is consistent, then the solution set contains either (i) a unique solution, when there are no free variables, or (ii) infinitely many solutions, when there is at least one free variable\(A\mathbf{x} = 0\)    the solution set can always be expressed as \(Span\{\mathbf{v_1}, \mathbf{v_2}, \cdots, \mathbf{v_p}\}\)Trivial Solution :  \(Span\{0\}\) → v를 0벡터로 표현NonHomogeneous Linear Systems\(A\mathbf{x} = \mathbf{b}\) →b is nonzero vector📖 Theorem6.Suppose  \(A\mathbf{x} = \mathbf{b}\) is consistent (→ 해가 최소 1개 이상일 때)  And let \(\mathbf{p}\) be a solution ( → p 벡터가 솔루션이라 가정하며 )Then the solution set of \(A\mathbf{x} = \mathbf{b}\) is the set of all vectors of the form \(\mathbf{w} = \mathbf{p} + \mathbf{v_h}\) where \(/mathbf{v_h}\) is any solution of the homogeneous equation \(A\mathbf{x} = \mathbf{0}\)]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[Ch14. The Matrix Equation Ax=b]]></title>
+      <url>/linear_algebra/2021/01/12/ch14-The-Matrix-Equation-Ax=b/</url>
       <content type="text"><![CDATA[\(A\mathbf{x}\) : Product of A and xThe linear combination of the columns of \(A\) using the corresponding entries in \(\mathbf{X} \mbox{ as weights}\) → x 벡터 엔트리가 가중치📖 Theorem 3.\(A\) is \(m \times n\) matrix, with columns \(a_1, \cdots, a_n   \mathbf{b} \mbox{ is in }\mathbb{R}^m\)  Matrix Equation : \(A\mathbf{x} = \mathbf{b}\)  Vector Equation : \(x_1\mathbf{a_1} + x_2\mathbf{a_2} + \cdots + x_p\mathbf{a_p} = \mathbb{b}\)  Augmented Matrix  : \(\left[ \mathbf{a_1}, \mathbf{a_2}, \cdots, \mathbf{a_n} \mathbf{b}\right]\)Have the same solution set!📖 Theorem 4.The followings are all true of all false:  For each b in R^m, Ax = b  has a solution  Each b in R^m is a linear combination of the columns of A  The columns of A spanR^m  A has a pivot position in every row📖 Theorem 5.If A is an m x n matrix, u and v are vectors in R^m,  And c is a scalar, then;  A(u + v) = Au + Av;A(cu) = c(Au)]]></content>
       <categories>
         
@@ -77,8 +92,8 @@
     </entry>
   
     <entry>
-      <title><![CDATA[Ch03. Vector Equations]]></title>
-      <url>/linear_algebra/2021/01/12/ch3-Vector-Equations/</url>
+      <title><![CDATA[Ch13. Vector Equations]]></title>
+      <url>/linear_algebra/2021/01/12/ch13-Vector-Equations/</url>
       <content type="text"><![CDATA[Vectors in \(\mathbb{R}^2\) → 실수 2차원 공간 \(\mathbf{u} = \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right], \mathbf{v} = \left[\begin{matrix}0.2 \\ 0.3 \\\end{matrix}\right], \mathbf{u} = \left[\begin{matrix}w_1 \\ w_2 \\\end{matrix}\right]\)\(\vec{u} = (3, -1), \vec{v} = (0.2, 0.3), \vec{w} = (w_1, w_2)\)\[(w_1, w_2) \ne \left[ w_1, w_2\right]\]Scalar Multiplication백터 네 모든 값에 스칼라 값을 곱해준다\(c = 5, \mathbf{u} =  \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right]\) 일 때,\(c\mathbf{u} = 5 \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right] =  \left[\begin{matrix}5\cdot3 \\ 5\cdot(-1) \\\end{matrix}\right] =  \left[\begin{matrix}15 \\ -5 \\\end{matrix}\right]\)Vectors in \(\mathbb{R}^n\)\(c\mathbf{u} = \left[\begin{matrix}u_1 \\ u_2 \\ \cdots \\ u_n\end{matrix}\right]   \\\mathbf{u} = (u_1, u_2, \cdots, u_n)\)Algebraic Properties of \(\mathbb{R}^n\)\(\mathbf{u, v, w} \mbox{ are } \mathbb{R}^n \mbox{ and } c d \mbox{ are scalar}\)  u + v = v + u  (u + v) + w = u + (v + w)  u + 0 = 0 + u = u  u + (-u) = -u + u = 0  c(u + v) = cu + cv  (c + d)u = cu + du  c(du) = (cd)u  1u = uLinear CombinationsLinear combination of \(\mathbf{v_1, v_2, \cdots, v_p} \mbox{ is } \mathbb{R}^n     \mbox{with weights } c_1, c_2, \cdots, c_p \mbox{ is scalar}\)y = \(c_1\mathbf{v_1} + c_2\mathbf{v_2} + \cdots + c_p\mathbf{v_p}\)A vector equation \(x_1\mathbf{a_1}+x_2\mathbf{a_2}+\cdots+x_n\mathbf{a_n} = \mathbf{b}\)has the same solution set as the linear system whose augmented matrix is  \(\left[\mathbf{a_1} \mathbf{a_2} \cdots \mathbf{a_n} \mathbf{b}\right]\)→ 각 벡터를 집어넣은 Augmented Matrix 와 동일한 해를 지닌다.Span{\(\mathbf{v}\)}is the collection of all vectors that can be written in the form \(c_1\mathbf{v_1} + c_2\mathbf{v_2} + \cdots + c_p\mathbf{v_p}\)]]></content>
       <categories>
         
@@ -92,8 +107,8 @@
     </entry>
   
     <entry>
-      <title><![CDATA[Ch02. Row Reduction and Echelon Forms]]></title>
-      <url>/linear_algebra/2021/01/12/ch2-Row-Reduction-and-Echelon-Forms/</url>
+      <title><![CDATA[Ch12. Row Reduction and Echelon Forms]]></title>
+      <url>/linear_algebra/2021/01/12/ch12-Row-Reduction-and-Echelon-Forms/</url>
       <content type="text"><![CDATA[A leading Entry of row : the LEFTMOST nonzero entry.Echelon Form  All nonzero rows are above any rows of all zeros  Each leading entry of a row is in column to the right of the leading entry of the row above it  The leading entry in each nonzero row is 1  Each leading 1 is the only nonzero entry in its column\[1 → \left[\begin{matrix}\bullet &amp; * &amp; * &amp; * \\0 &amp; \bullet &amp; * &amp; * \\0 &amp; 0 &amp; 0 &amp; 0 \\0 &amp; 0 &amp; 0 &amp; 0 \\\end{matrix}\right]          2 → \left[\begin{matrix}\bullet &amp; * &amp; * &amp; * \\0 &amp; \bullet &amp; * &amp; * \\0 &amp; 0 &amp; \bullet &amp; * \\0 &amp; 0 &amp; 0 &amp; \bullet \\\end{matrix}\right]\]📖 Theorem 1. Uniqueness of the Reduced Echelon FormEach matrix is row equivalent to one and only one reduced echelon matrixRow Reduction Algorithm  Begin with the leftmost nonzero column  Select a nonzero entry in the pivot column as a pivot. If necessary, Interchange rows to move this entry into the pivot position.  Row replacement to create zeros in all positions below the pivot.  Apply steps 1-3 to the sub matrix that remain. The combination of steps 1-4 is called forward phase echelon form  Beginning with the rightmost polio and working upward and to the left, created zeros above each pivot. If a pivot is not 1, make it 1 by a scaling operation.          Called backward phase reduced echelon form      Solution of linear systems\(\left[\begin{matrix}1 &amp; 0 &amp; -5 &amp; 1 \\0 &amp; 1 &amp; 1 &amp; 4 \\0 &amp; 0 &amp; 0 &amp; 0 \\\end{matrix}\right]\) 일 때,\(x_1 - 5x_3 = 1 \\x_2 + x_3 = 4 \\0 = 0 \\\left[\begin{matrix}6 \\3 \\1 \\\end{matrix}\right]\left[\begin{matrix}-9 \\6 \\-2 \\\end{matrix}\right]  \cdots\) 해가 무한대가 되며,  General Solution 은 아래와 같다.\(\begin{cases}x_1 = 1 + 5x_3 &amp; \mbox{basic / leading  variables} \\x_2 = 4 - x_3 &amp; \mbox{basic / leading variables} \\x_3 \mbox{ is free} &amp; \mbox{free variable}\end{cases}\)📖 Theorem 2. Existence and Uniqueness TheoremA linear system is consistent if and only if the rightmost column of the augmented matrix is not a pivot column - that is, if and only if and echelon form of the augmented matrix has no row of the forms.  \(\left[ \begin{matrix} 0 &amp; \cdots &amp;  0 &amp; b \end{matrix} \right]\) with \(b\) is nonzero.  If a linear system is consistent, then the solution set contains either (i) a unique solution, when there are no free variables, or (ii) infinitely many solutions, when there is at least one free variables.]]></content>
       <categories>
         
@@ -107,24 +122,9 @@
     </entry>
   
     <entry>
-      <title><![CDATA[Ch01. Linear Equations in Linear Algebra]]></title>
-      <url>/linear_algebra/2021/01/12/ch1-Linear-Equations-in-Linear-Algebra/</url>
-      <content type="text"><![CDATA[A system of linear equations : A collection of one or more linear equations Solution Set : The Set of all possible solutions of the linear system	→ Two linear systems are called equivalent if they have the same solution set.A system of linear equations has either  No Solution ( INCONSISTENT )  Exactly one Solution ( CONSISTENT )  Infinitely Many Solutions ( CONSISTENT )Matrix Notation  3 rows x 3 columns =&gt; Coefficient Matrix ( 3 \(\times\) 3 ) : 계수 행렬  3 rows x 4 columns =&gt; Augmented Matrix ( 4 x 3 ) : 확대 행렬          첨가 행렬은 계수 행렬과 상수항들의 행렬을 맞붙여 얻는 행렬      Augmented Matrix\(A = \left[\begin{matrix}1 &amp; 2 &amp; 3 \\4 &amp; 7 &amp; 4 \\1 &amp; 6 &amp; 8 \\\end{matrix}\right] , B = \left[\begin{matrix}1 \\4 \\1 \\\end{matrix}\right]\)가 있을 때, Augmented Matrix 는\(\left[\begin{matrix}1 &amp; 2 &amp; 3  &amp; 1\\4 &amp; 7 &amp; 4 &amp; 4 \\1 &amp; 6 &amp; 8 &amp; 1 \\\end{matrix}\right]\)이다.Elementary row operations  Replacement  Interchange  ScalingTwo matrices are Row Equivalent If there is a sequence of elementary row operations that transforms one matrix into the other.If the augmented matrices of the linear systems are row equivalent, then the two systems have the same solution set.]]></content>
-      <categories>
-        
-          <category> Linear_Algebra </category>
-        
-      </categories>
-      <tags>
-        
-      </tags>
-      <tags></tags>
-    </entry>
-  
-    <entry>
-      <title><![CDATA[THEOREMs]]></title>
-      <url>/linear_algebra/2021/01/12/Theorems/</url>
-      <content type="text"><![CDATA[📖 Theorem 1.Uniqueness of the Reduced Echelon FormEach matrix is row equivalent to one and only one reduced echelon matrix📖 Theorem 2.📖 Theorem 3.\(A\) is \(m \times n\) matrix, with columns \(a_1, \cdots, a_n   \mathbf{b} \mbox{ is in }\mathbb{R}^m\)  Matrix Equation : \(A\mathbf{x} = \mathbf{b}\)  Vector Equation : \(x_1\mathbf{a_1} + x_2\mathbf{a_2} + \cdots + x_p\mathbf{a_p} = \mathbb{b}\)  Augmented Matrix  : \(\left[ \mathbf{a_1}, \mathbf{a_2}, \cdots, \mathbf{a_n} \mathbf{b}\right]\)Have the same solution set!📖 Theorem 4.The followings are all true of all false:  For each b in R^m, Ax = b  has a solution  Each b in R^m is a linear combination of the columns of A  The columns of A spanR^m  A has a pivot position in every row📖 Theorem 5.If A is an m x n matrix, u and v are vectors in R^m,  And c is a scalar, then;  A(u + v) = Au + Av;A(cu) = c(Au)]]></content>
+      <title><![CDATA[Ch11. Linear Equations in Linear Algebra]]></title>
+      <url>/linear_algebra/2021/01/12/ch11-Linear-Equations-in-Linear-Algebra/</url>
+      <content type="text"><![CDATA[A system of linear equations : A collection of one or more linear equations Solution Set : The Set of all possible solutions of the linear system	→ Two linear systems are called equivalent if they have the same solution set.A system of linear equations has either  No Solution ( INCONSISTENT )  Exactly one Solution ( CONSISTENT )  Infinitely Many Solutions ( CONSISTENT )Matrix Notation  3 rows x 3 columns =&gt; Coefficient Matrix ( 3 \(\times\) 3 ) : 계수 행렬  3 rows x 4 columns =&gt; Augmented Matrix ( 3 \(\times\) 4  ) : 확대 행렬          첨가 행렬은 계수 행렬과 상수항들의 행렬을 맞붙여 얻는 행렬      Augmented Matrix\(A = \left[\begin{matrix}1 &amp; 2 &amp; 3 \\4 &amp; 7 &amp; 4 \\1 &amp; 6 &amp; 8 \\\end{matrix}\right] , B = \left[\begin{matrix}1 \\4 \\1 \\\end{matrix}\right]\)가 있을 때, Augmented Matrix 는\(\left[\begin{matrix}1 &amp; 2 &amp; 3  &amp; 1\\4 &amp; 7 &amp; 4 &amp; 4 \\1 &amp; 6 &amp; 8 &amp; 1 \\\end{matrix}\right]\)이다.Elementary row operations  Replacement  Interchange  ScalingTwo matrices are Row Equivalent If there is a sequence of elementary row operations that transforms one matrix into the other.If the augmented matrices of the linear systems are row equivalent, then the two systems have the same solution set.]]></content>
       <categories>
         
           <category> Linear_Algebra </category>
