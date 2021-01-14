@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-14T11:19:43+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">빈둥빈둥 공부블로그</title><author><name>Eunbin Park</name></author><entry><title type="html">프로그래머스 - 멀쩡한 사각형</title><link href="http://localhost:4000/algorithm/2021/01/14/programmars-62048/" rel="alternate" type="text/html" title="프로그래머스 - 멀쩡한 사각형" /><published>2021-01-14T00:00:00+09:00</published><updated>2021-01-14T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/14/programmars-62048</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/14/programmars-62048/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-14T11:24:04+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">빈둥빈둥 공부블로그</title><author><name>Eunbin Park</name></author><entry><title type="html">프로그래머스 - 멀쩡한 사각형</title><link href="http://localhost:4000/algorithm/2021/01/14/programmars-62048/" rel="alternate" type="text/html" title="프로그래머스 - 멀쩡한 사각형" /><published>2021-01-14T00:00:00+09:00</published><updated>2021-01-14T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/14/programmars-62048</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/14/programmars-62048/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/62048#qna&quot;&gt;프로그래머스 멀쩡한 사각형&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;문제 간략 설명 : 12 by 8 배열의 사각형에서 대각선의 불능을 제외 후 개수를 세어 반환하는 문제&lt;/p&gt;
 
 &lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;../../images/programmars_62048.png&quot; alt=&quot;&quot; /&gt;&lt;!-- {&quot;width&quot;:379} --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/programmars_62048.png&quot; alt=&quot;&quot; /&gt;&lt;!-- {&quot;width&quot;:379} --&gt;&lt;/p&gt;
 
 &lt;p&gt;문제의 답을 직관적으로 알 수 있다. 가로 2씩 세로 3씩 증가하고, 3 by 2의 도형 안에서 불능 도형의 개수를 찾고, 이 패턴이 몇 번 반복되는지 알아내면 된다 !&lt;/p&gt;
 
