@@ -1,0 +1,59 @@
+<h4 id="웹페이지-가져오기">웹페이지 가져오기</h4>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">requests.get('url')</code></li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="웹페이지-파싱하기">웹페이지 파싱하기</h4>
+
+<ul>
+  <li>파싱 == 문자열 의미 분석</li>
+  <li>bs 라이브러리 사용
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">'BeautifulSoup('var', 'html.parser)'</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="데이터-추출">데이터 추출</h4>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">soup.find()</code> 함수로 원하는 부분 지정</li>
+  <li><code class="language-plaintext highlighter-rouge">.get_text()</code> 함수로 추출 부분 가져옴</li>
+</ul>
+
+<p><strong>필요 데이터 추출 방법</strong></p>
+
+<ol>
+  <li>태그와 속성으로 선택</li>
+</ol>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.find('tag')</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.find(id='tag')</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.find('p', class='css.tag')</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.find('p', attrs = {'align' : 'center'})</code></li>
+</ul>
+
+<ol>
+  <li>CSS Selector로 선택</li>
+</ol>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.select('html &gt; title')</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.select('div.article_view')</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.select('#harmonyContainer')</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.select('div#mArticle')</code></li>
+</ul>
+
+<h4 id="브라우저">브라우저</h4>
+
+<ul>
+  <li>javascript 코드 이해 동반</li>
+  <li>브라우저를 통한 요청 &gt; 난이도 하향 가능</li>
+</ul>
+

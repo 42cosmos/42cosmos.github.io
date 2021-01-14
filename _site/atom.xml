@@ -1,4 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-13T12:58:10+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">빈둥빈둥 공부블로그</title><author><name>Eunbin Park</name></author><entry><title type="html">Ch16. Linear Independence</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch16-Linear-Independence/" rel="alternate" type="text/html" title="Ch16. Linear Independence" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch16-Linear%20Independence</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch16-Linear-Independence/">&lt;h3 id=&quot;linearly-independent&quot;&gt;Linearly Independent&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-14T11:19:43+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">빈둥빈둥 공부블로그</title><author><name>Eunbin Park</name></author><entry><title type="html">프로그래머스 - 멀쩡한 사각형</title><link href="http://localhost:4000/algorithm/2021/01/14/programmars-62048/" rel="alternate" type="text/html" title="프로그래머스 - 멀쩡한 사각형" /><published>2021-01-14T00:00:00+09:00</published><updated>2021-01-14T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/14/programmars-62048</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/14/programmars-62048/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/62048#qna&quot;&gt;프로그래머스 멀쩡한 사각형&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;문제 간략 설명 : 12 by 8 배열의 사각형에서 대각선의 불능을 제외 후 개수를 세어 반환하는 문제&lt;/p&gt;
+
+&lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../images/programmars_62048.png&quot; alt=&quot;&quot; /&gt;&lt;!-- {&quot;width&quot;:379} --&gt;&lt;/p&gt;
+
+&lt;p&gt;문제의 답을 직관적으로 알 수 있다. 가로 2씩 세로 3씩 증가하고, 3 by 2의 도형 안에서 불능 도형의 개수를 찾고, 이 패턴이 몇 번 반복되는지 알아내면 된다 !&lt;/p&gt;
+
+&lt;p&gt;8 → 2, 12 → 3 니까 4 ! → 4번 패턴이 반복되는 건 두 수 사이의 최대공약수를 찾아주면 된다.&lt;/p&gt;
+
+&lt;p&gt;3 by 2 은 6개 중 4개가 불능, 12 by 8 은 96개 중 16개가 불능이다.&lt;/p&gt;
+
+&lt;p&gt;주어진 가로와 세로에 최대공약수를 나누어주고 -1을 한다. 그러고 반복되는 패턴이 4번 (12와 8의 최대공약수)이니 이만큼 곱해준다! …최대공약수 함수는 구글링해서 주웠다. ㅎㅎ 근데 math 모듈에 있더라고? 암튼&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;((w / gcd(w, h) + h / gcd(w, h)) - 1 ) * gcd(w, h)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;그러고 전체 도형에서 불능 도형의 개수를 빼주면 끝~&lt;/p&gt;
+
+&lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
+
+&lt;p&gt;개인적으로 직관적인 문제는 무식하게 풀 수 있다고 생각하기에… 빈 종이에 손으로 쓰면서 문제를 풀었다.&lt;/p&gt;
+
+&lt;p&gt;대각선이 지나갈 때의 불능 도형의 개수가 제일 머리 아팠다… 뭐랄까 애기 때 수학 공부를 잘했으면 금방 풀었을텐데 하는 생각이 들 정도로 간단해보이는데 잘 모르겠고… 이게 맞는데 왜 그런지는 모르겠는 그런 너낌&lt;/p&gt;
+
+&lt;p&gt;직관적인 문제 → 무식하게 풀기 가 아니라 그냥 무식한 나도 풀 수 있다는 걸 알게됐다…🥲&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><summary type="html">오늘의 문제 프로그래머스 멀쩡한 사각형</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/programmars_62048.png" /><media:content medium="image" url="http://localhost:4000/images/programmars_62048.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">THEOREMs</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch19-Theorems/" rel="alternate" type="text/html" title="THEOREMs" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch19-Theorems</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch19-Theorems/">&lt;h2 id=&quot;-theorem-1&quot;&gt;📖 Theorem 1.&lt;/h2&gt;
+&lt;p&gt;Uniqueness of the Reduced Echelon Form
+Each matrix is row equivalent to one and only one reduced echelon matrix&lt;/p&gt;
+
+&lt;h2 id=&quot;-theorem-2&quot;&gt;📖 Theorem 2.&lt;/h2&gt;
+
+&lt;h2 id=&quot;-theorem-3&quot;&gt;📖 Theorem 3.&lt;/h2&gt;
+&lt;p&gt;\(A\) is \(m \times n\) matrix, with columns \(a_1, \cdots, a_n   \mathbf{b} \mbox{ is in }\mathbb{R}^m\)&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Matrix Equation : \(A\mathbf{x} = \mathbf{b}\)&lt;/li&gt;
+  &lt;li&gt;Vector Equation : \(x_1\mathbf{a_1} + x_2\mathbf{a_2} + \cdots + x_p\mathbf{a_p} = \mathbb{b}\)&lt;/li&gt;
+  &lt;li&gt;Augmented Matrix  : \(\left[ \mathbf{a_1}, \mathbf{a_2}, \cdots, \mathbf{a_n} \mathbf{b}\right]\)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Have the same solution set!&lt;/p&gt;
+
+&lt;h2 id=&quot;-theorem-4&quot;&gt;📖 Theorem 4.&lt;/h2&gt;
+&lt;p&gt;The followings are all true of all false:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;For each b in R^m, Ax = b  has a solution&lt;/li&gt;
+  &lt;li&gt;Each b in R^m is a linear combination of the columns of A&lt;/li&gt;
+  &lt;li&gt;The columns of A spanR^m&lt;/li&gt;
+  &lt;li&gt;A has a pivot position in every row&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;-theorem-5&quot;&gt;📖 Theorem 5.&lt;/h2&gt;
+&lt;p&gt;If A is an m x n matrix, u and v are vectors in R^m,  And c is a scalar, then;  &lt;br /&gt;
+A(u + v) = Au + Av;&lt;br /&gt;
+A(cu) = c(Au)&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">📖 Theorem 1. Uniqueness of the Reduced Echelon Form Each matrix is row equivalent to one and only one reduced echelon matrix</summary></entry><entry><title type="html">Ch16. Linear Independence</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch16-Linear-Independence/" rel="alternate" type="text/html" title="Ch16. Linear Independence" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch16-Linear%20Independence</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch16-Linear-Independence/">&lt;h3 id=&quot;linearly-independent&quot;&gt;Linearly Independent&lt;/h3&gt;
 &lt;p&gt;A set of vectors \({\mathbf{v_1}, \cdots, \mathbf{v_p}}\) in \(\mathbb{R^n}\) is said to be linearly independent, if the vector equation&lt;br /&gt;
 \(x\mathbf{v_1} + \cdots + x_p\mathbf{v_p} = 0\)&lt;br /&gt;
 Has only the trivial solution. &lt;br /&gt;
@@ -289,7 +345,20 @@ If a linear system is consistent, then the solution set contains either (i) a un
 &lt;/ol&gt;
 
 &lt;p&gt;Two matrices are &lt;strong&gt;Row Equivalent&lt;/strong&gt; If there is a sequence of elementary row operations that transforms one matrix into the other.&lt;br /&gt;
-If the &lt;strong&gt;augmented&lt;/strong&gt; matrices of the linear systems are &lt;strong&gt;row equivalent&lt;/strong&gt;, then the two systems have the &lt;strong&gt;same solution set&lt;/strong&gt;.&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">A system of linear equations : A collection of one or more linear equations Solution Set : The Set of all possible solutions of the linear system → Two linear systems are called equivalent if they have the same solution set.</summary></entry><entry><title type="html">Ch18. The Matrix of a Linear Transformation</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation/" rel="alternate" type="text/html" title="Ch18. The Matrix of a Linear Transformation" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation/">&lt;h4 id=&quot;-theorem-10&quot;&gt;📖 Theorem 10.&lt;/h4&gt;
+If the &lt;strong&gt;augmented&lt;/strong&gt; matrices of the linear systems are &lt;strong&gt;row equivalent&lt;/strong&gt;, then the two systems have the &lt;strong&gt;same solution set&lt;/strong&gt;.&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">A system of linear equations : A collection of one or more linear equations Solution Set : The Set of all possible solutions of the linear system → Two linear systems are called equivalent if they have the same solution set.</summary></entry><entry><title type="html">Ch17. Introduction to Linear Transformation</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch17-Introduction-to-Linear-Transformation/" rel="alternate" type="text/html" title="Ch17. Introduction to Linear Transformation" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch17-Introduction-to-Linear-Transformation</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch17-Introduction-to-Linear-Transformation/">&lt;h3 id=&quot;transformation&quot;&gt;Transformation&lt;/h3&gt;
+&lt;p&gt;A transformation (or function or mapping) \(T\) from \(\mathbb{R^n} \mbox{ to } \mathbb{R^m}\)&lt;br /&gt;
+Is a rule that assignms to each vector x in \(\mathbb{R^n}\) a vector \(T(\mathbf{x})\) in \(\mathbb{R^m}\)&lt;br /&gt;
+Domain to CoDomain → \(T : \mathbb{R^n} \to \mathbb{R^m}\)&lt;/p&gt;
+
+&lt;h3 id=&quot;matrix-transformation&quot;&gt;Matrix Transformation&lt;/h3&gt;
+&lt;p&gt;\(\mathbf{x} \mapsto A\mathbf{x}\\
+T : \mathbb{R^n} \to \mathbb{R^m}\)&lt;/p&gt;
+
+&lt;h3 id=&quot;linear-transformation&quot;&gt;Linear Transformation&lt;/h3&gt;
+&lt;p&gt;A transformation (or mapping ) \(T\) is linear if &lt;br /&gt;
+\(T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})\\
+T(c\mathbf{u} = cT(\mathbf{u}))\) ( : Theorem 5.)    &lt;br /&gt;
+Every matrix transformation is a linear transformation : 모든 MT는 LT다. 매트릭스가 LT 정의를 그대로 따르기 때문에!&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">Transformation A transformation (or function or mapping) \(T\) from \(\mathbb{R^n} \mbox{ to } \mathbb{R^m}\) Is a rule that assignms to each vector x in \(\mathbb{R^n}\) a vector \(T(\mathbf{x})\) in \(\mathbb{R^m}\) Domain to CoDomain → \(T : \mathbb{R^n} \to \mathbb{R^m}\)</summary></entry><entry><title type="html">Ch18. The Matrix of a Linear Transformation</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation/" rel="alternate" type="text/html" title="Ch18. The Matrix of a Linear Transformation" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation/">&lt;h4 id=&quot;-theorem-10&quot;&gt;📖 Theorem 10.&lt;/h4&gt;
 &lt;p&gt;Let \(T : \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation. Then there exists a unique matrix A such that&lt;br /&gt;
 \(T(\mathbf{x}) = A\mathbf{x} \mbox{ for all }\mathbf{x} \mbox{ in }\mathbb{R^n}\)&lt;br /&gt;
 In fact, \(A\) is the \(m \times n\) matrix whose j-th column is the vector \(T(e_j)\), where \(e_j\) is the j-th column of the identity matrix in \(\mathbb{R^n}\):&lt;br /&gt;
@@ -319,84 +388,4 @@ T(\mathbf{u} - \mathbf{v}) = T(\mathbf{u}) - T(\mathbf{v}) = 0\\
 &lt;p&gt;Let \(T: \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation and let \(A\) be the standard matrix for \(T\).  &lt;br /&gt;
 Then \(T\) maps &lt;strong&gt;\(\mathbb{R^n} \mbox{onto} \mathbb{R^m}\)&lt;/strong&gt; if and only if the &lt;strong&gt;columns of \(A\) span \(\mathbb{R^m}\)&lt;/strong&gt;   &lt;br /&gt;
 \(T\) is &lt;strong&gt;one-to-one&lt;/strong&gt; if and only if the columns of \(A\) are &lt;strong&gt;linearly independent&lt;/strong&gt;. &lt;br /&gt;
-	one-to-one → only trivial → independent&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">📖 Theorem 10. Let \(T : \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation. Then there exists a unique matrix A such that \(T(\mathbf{x}) = A\mathbf{x} \mbox{ for all }\mathbf{x} \mbox{ in }\mathbb{R^n}\) In fact, \(A\) is the \(m \times n\) matrix whose j-th column is the vector \(T(e_j)\), where \(e_j\) is the j-th column of the identity matrix in \(\mathbb{R^n}\): \(A = \left[ T(e_1) \cdots T(e_n) \right]\) Standard matrix for the linear transformation T</summary></entry><entry><title type="html">Ch17. Introduction to Linear Transformation</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch17-Introduction-to-Linear-Transformation/" rel="alternate" type="text/html" title="Ch17. Introduction to Linear Transformation" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch17-Introduction-to-Linear-Transformation</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch17-Introduction-to-Linear-Transformation/">&lt;h3 id=&quot;transformation&quot;&gt;Transformation&lt;/h3&gt;
-&lt;p&gt;A transformation (or function or mapping) \(T\) from \(\mathbb{R^n} \mbox{ to } \mathbb{R^m}\)&lt;br /&gt;
-Is a rule that assignms to each vector x in \(\mathbb{R^n}\) a vector \(T(\mathbf{x})\) in \(\mathbb{R^m}\)&lt;br /&gt;
-Domain to CoDomain → \(T : \mathbb{R^n} \to \mathbb{R^m}\)&lt;/p&gt;
-
-&lt;h3 id=&quot;matrix-transformation&quot;&gt;Matrix Transformation&lt;/h3&gt;
-&lt;p&gt;\(\mathbf{x} \mapsto A\mathbf{x}\\
-T : \mathbb{R^n} \to \mathbb{R^m}\)&lt;/p&gt;
-
-&lt;h3 id=&quot;linear-transformation&quot;&gt;Linear Transformation&lt;/h3&gt;
-&lt;p&gt;A transformation (or mapping ) \(T\) is linear if &lt;br /&gt;
-\(T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})\\
-T(c\mathbf{u} = cT(\mathbf{u}))\) ( : Theorem 5.)    &lt;br /&gt;
-Every matrix transformation is a linear transformation : 모든 MT는 LT다. 매트릭스가 LT 정의를 그대로 따르기 때문에!&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">Transformation A transformation (or function or mapping) \(T\) from \(\mathbb{R^n} \mbox{ to } \mathbb{R^m}\) Is a rule that assignms to each vector x in \(\mathbb{R^n}\) a vector \(T(\mathbf{x})\) in \(\mathbb{R^m}\) Domain to CoDomain → \(T : \mathbb{R^n} \to \mathbb{R^m}\)</summary></entry><entry><title type="html">THEOREMs</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch19-Theorems/" rel="alternate" type="text/html" title="THEOREMs" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch19-Theorems</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch19-Theorems/">&lt;h2 id=&quot;-theorem-1&quot;&gt;📖 Theorem 1.&lt;/h2&gt;
-&lt;p&gt;Uniqueness of the Reduced Echelon Form
-Each matrix is row equivalent to one and only one reduced echelon matrix&lt;/p&gt;
-
-&lt;h2 id=&quot;-theorem-2&quot;&gt;📖 Theorem 2.&lt;/h2&gt;
-
-&lt;h2 id=&quot;-theorem-3&quot;&gt;📖 Theorem 3.&lt;/h2&gt;
-&lt;p&gt;\(A\) is \(m \times n\) matrix, with columns \(a_1, \cdots, a_n   \mathbf{b} \mbox{ is in }\mathbb{R}^m\)&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Matrix Equation : \(A\mathbf{x} = \mathbf{b}\)&lt;/li&gt;
-  &lt;li&gt;Vector Equation : \(x_1\mathbf{a_1} + x_2\mathbf{a_2} + \cdots + x_p\mathbf{a_p} = \mathbb{b}\)&lt;/li&gt;
-  &lt;li&gt;Augmented Matrix  : \(\left[ \mathbf{a_1}, \mathbf{a_2}, \cdots, \mathbf{a_n} \mathbf{b}\right]\)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Have the same solution set!&lt;/p&gt;
-
-&lt;h2 id=&quot;-theorem-4&quot;&gt;📖 Theorem 4.&lt;/h2&gt;
-&lt;p&gt;The followings are all true of all false:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;For each b in R^m, Ax = b  has a solution&lt;/li&gt;
-  &lt;li&gt;Each b in R^m is a linear combination of the columns of A&lt;/li&gt;
-  &lt;li&gt;The columns of A spanR^m&lt;/li&gt;
-  &lt;li&gt;A has a pivot position in every row&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;-theorem-5&quot;&gt;📖 Theorem 5.&lt;/h2&gt;
-&lt;p&gt;If A is an m x n matrix, u and v are vectors in R^m,  And c is a scalar, then;  &lt;br /&gt;
-A(u + v) = Au + Av;&lt;br /&gt;
-A(cu) = c(Au)&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">📖 Theorem 1. Uniqueness of the Reduced Echelon Form Each matrix is row equivalent to one and only one reduced echelon matrix</summary></entry><entry><title type="html">신경망 구조</title><link href="http://localhost:4000/ml/dl/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0/" rel="alternate" type="text/html" title="신경망 구조" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/ml/dl/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0</id><content type="html" xml:base="http://localhost:4000/ml/dl/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0/">&lt;p&gt;기본단위 : 뉴런 -&amp;gt; 조합해 복잡한 구조를 이룸&lt;/p&gt;
-
-&lt;p&gt;perceptron
-노드는 뉴런의 연산을 표현 &amp;gt; 들어온 입력에 대한 가중치를 곱해 더해준 다음 &amp;gt; 액티베이션 펑션을 적용시킴&lt;/p&gt;
-
-&lt;p&gt;두 계층 사이 모든 뉴런 연결 -&amp;gt; 전결합계층 : 뉴럴 네트워크의 가장 기본이며, Dense Layer 라고도 칭함&lt;/p&gt;
-
-&lt;p&gt;뉴런 각 개를 하나의 백터로 묶어줌 :: 백터 내적을 묶어주면 Weight * x 로 표현이 가능함&lt;/p&gt;
-
-&lt;h3 id=&quot;얕은-신경망&quot;&gt;얕은 신경망&lt;/h3&gt;
-
-&lt;p&gt;은닉 Activation function으로 시그모이드 / 탄젠트를 주로 사용&lt;/p&gt;
-
-&lt;p&gt;출력 &amp;gt; Linear / Soft / Sigmoid ( Binary )&lt;/p&gt;
-
-&lt;h3 id=&quot;심층-신경망&quot;&gt;심층 신경망&lt;/h3&gt;
-
-&lt;p&gt;5개 이상의 은닉 계층이 있는 경우 
-sigmoid 대신 탄젠트 / relu 가 자주 사용됨&lt;/p&gt;
-
-&lt;h1 id=&quot;최적화-이론&quot;&gt;최적화 이론&lt;/h1&gt;
-
-&lt;h3 id=&quot;분석적-방법&quot;&gt;분석적 방법&lt;/h3&gt;
-
-&lt;p&gt;수식을 알고 있을 때 &amp;gt; 미분해서 0이 된다는 것 : 기울기 0 -&amp;gt; 2차 미분 해서 0보다 크면 아래로 볼록한 모양&lt;/p&gt;
-
-&lt;p&gt;여기 다시 들어 보기&lt;/p&gt;
-
-&lt;h3 id=&quot;수치적-방법&quot;&gt;수치적 방법&lt;/h3&gt;
-
-&lt;p&gt;함수 형태와 수식을 모를 때&lt;/p&gt;
-
-&lt;p&gt;Gradient Method&lt;/p&gt;
-
-&lt;p&gt;전역 솔루션 : 전체에서 단 하나 -&amp;gt; 전체에서 가장 작은 값
-지역 솔루션 : 여러 개 일 수 있고, 좁은 지역에서 봤을 때 솔루션이 되는 부분&lt;/p&gt;
-
-&lt;p&gt;하나의 솔루션이 전역인지 지역인지 알 수 없음.&lt;/p&gt;
-
-&lt;p&gt;손실함수를 최소화 하는 방향으로 네트워크 파라미터 (웨이트-w, 편향-b) 를 조절하는 것&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="ML/DL" /><summary type="html">기본단위 : 뉴런 -&amp;gt; 조합해 복잡한 구조를 이룸</summary></entry></feed>
+	one-to-one → only trivial → independent&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">📖 Theorem 10. Let \(T : \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation. Then there exists a unique matrix A such that \(T(\mathbf{x}) = A\mathbf{x} \mbox{ for all }\mathbf{x} \mbox{ in }\mathbb{R^n}\) In fact, \(A\) is the \(m \times n\) matrix whose j-th column is the vector \(T(e_j)\), where \(e_j\) is the j-th column of the identity matrix in \(\mathbb{R^n}\): \(A = \left[ T(e_1) \cdots T(e_n) \right]\) Standard matrix for the linear transformation T</summary></entry></feed>

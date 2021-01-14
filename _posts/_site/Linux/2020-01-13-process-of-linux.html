@@ -1,0 +1,45 @@
+<h4 id="daemon">Daemon</h4>
+
+<p>특성</p>
+
+<ul>
+  <li>항상 실행되고 있음</li>
+  <li>server 같은 프로그램</li>
+  <li>언제 클라이언트가 접속할지 모름 &gt; web server &gt; daemon, service라 지칭</li>
+</ul>
+
+<h4 id="service와-자동실행">Service와 자동실행</h4>
+
+<p><code class="language-plaintext highlighter-rouge">sudo service program start/stop</code></p>
+
+<p>데몬으로 사용되는, 서비스를 통해 켜고 끄는 프로그램은 start과 stop 2 개의 명령어를 필수적으로 갖고 있음 - /etc/rc3.d</p>
+
+<p><code class="language-plaintext highlighter-rouge">S02apache2</code> 링크 ( 윈도우의 바로가기 )</p>
+
+<p>S : 부팅 시 자동 실행</p>
+
+<p>K : kill - 프로그램 실행 X</p>
+
+<p>숫자 : 우선순위</p>
+
+<p><br /></p>
+
+<h3 id="cron">Cron</h3>
+
+<p>정기적으로 명령을 실행시켜주는 소프트웨어</p>
+
+<p><code class="language-plaintext highlighter-rouge">crontab -e</code></p>
+
+<p># m h dom mon dow    command</p>
+
+<p># minutes, hours, day of month, month, day of week, 명령어</p>
+
+<p>e.g. */1 * * * * date » date.log 2(Standard Error) &gt; &amp;1(Standard Output)</p>
+
+<h4 id="shell-startup-script">Shell startup script</h4>
+
+<p>쉘 시작 시 특정 명령어를 자동으로 실행하는 방법</p>
+
+<p><code class="language-plaintext highlighter-rouge">vi .~/zshrc </code> 에 삽입</p>
+
+<p>단축어 만들기 : <code class="language-plaintext highlighter-rouge">alias cmd = 'nick'</code></p>

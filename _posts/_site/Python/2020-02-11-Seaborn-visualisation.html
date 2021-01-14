@@ -1,0 +1,191 @@
+<h3 id="bar-chart">Bar Chart</h3>
+
+<h4 id="dataframe-형태로-반환">DataFrame 형태로 반환</h4>
+
+<p><em>데이터가 리스트 형태로 있음을 가정</em></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">make_df</span><span class="p">(</span><span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="n">sort</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">df_name</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="p">.</span><span class="n">Series</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">args</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df_name</span><span class="p">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">'{}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">col1</span><span class="p">),</span> <span class="s">'{}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">col2</span><span class="p">)]</span>
+
+    <span class="k">if</span> <span class="n">sort</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">df_name</span>
+
+    <span class="k">return</span> <span class="n">df_name</span><span class="p">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">(</span><span class="s">'{}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">col1</span><span class="p">)),</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ol>
+  <li>리스트를 시리즈 형태로 만들어서 concat을 axis =1 로 맞추어 합쳤다.</li>
+  <li>데이터는 Numeric type 이기 때문에 배열 정렬을 할 수 있어서 기본이 True인 선택값으로 넣어줬다.</li>
+</ol>
+
+<h4 id="bar-chart-with-seaborn">Bar Chart with Seaborn</h4>
+
+<p><em>데이터가 데이터프레임 형태로 있음을 가정</em></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bar_plot</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="p">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">dataframe</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">dataframe</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span><span class="s">'Blues'</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="p">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">"font.size"</span><span class="p">]</span> <span class="o">=</span> <span class="n">font_size</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">dataframe</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">dataframe</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">grid</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">ax</span><span class="p">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s">'y'</span><span class="p">)</span>
+        <span class="n">plot_value</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plot_value</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ax</span>
+</code></pre></div></div>
+
+<ol>
+  <li>들어온 데이터프레임은 sns.barplot으로 만들어준다. 여기서 x와 y는 df.columns[n]으로, 데이터프레임에서 특정 열을 뽑아 (시리즈) 지정해준다.</li>
+  <li>팔레트는 아무 색이나 넣어봤다</li>
+  <li><a href="https://financedata.github.io/posts/faq_matplotlib_default_chart_size.html">rcParams</a> 으로 차트를 다양하게 만질 수 있다길래 폰트 사이즈를 바꿨다. <br />
+   저렇게 말고 다르게 바꿀 수 있는 방법은 없나 고민을 하다가… 이미 바꿨는데 왜 또 대안을 찾나 싶어서 관뒀다.</li>
+  <li>그리드 선택 기본값 False</li>
+</ol>
+
+<h4 id="multiplt-bar-chart">Multiplt Bar Chart</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">melt</span><span class="p">(</span><span class="n">tmp2</span><span class="p">,</span> <span class="n">id_vars</span><span class="o">=</span><span class="n">Zs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s">"Brands"</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s">"Counts (%)"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">multiple_bar_chart</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ylim</span><span class="p">,</span> <span class="n">ylabel_text</span><span class="o">=</span><span class="s">"Count"</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+    <span class="n">mb</span> <span class="o">=</span> <span class="n">sns</span><span class="p">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">'labels'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">'Counts (%)'</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s">'Brands'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">'PRGn_r'</span><span class="p">)</span>
+
+    <span class="n">sns</span><span class="p">.</span><span class="n">despine</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+           <span class="n">left</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">trim</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">'center left'</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">shadow</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s">"large"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">''</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">ylabel_text</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ylim</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="n">plot_value</span><span class="p">(</span><span class="n">mb</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ol>
+  <li>들어오는 data는 melt 함수를 적용한 df다. melt 함수에서 var_name과 value_name을 지정해주고 그걸 y와 hue로 지정해줬는데,… 다른 방법을 사용하면 함수 재활용을 할 수 있을 것 같다. y와 hue를 column으로 불러준다느니 뭐나느니 하면서…</li>
+  <li>sns.despine은 barplot이 뚜껑이 휭 하길래 넣어줬더니 뚜껑이 만들어졌다. 정확히 이해를 못하고 집어 쳐넣은 거라 아직도 이해를 못했다.</li>
+</ol>
+
+<h3 id="display-values-in-plot">Display Values in Plot</h3>
+
+<p>ha와 va만 제대로 알고 있었어도 이렇게 개고생은 안 하는 건데 나는 바보 멍청이다.</p>
+
+<p>시간을 오래 끌게 만든 내 무지함이 원망스러웠다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">plot_value</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">axis</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ax</span><span class="p">.</span><span class="n">patches</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">get_y</span><span class="p">()</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="n">get_height</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1.01</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">get_height</span><span class="p">())</span>
+            <span class="n">ax</span><span class="p">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s">"center"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span> 
+
+    <span class="k">elif</span> <span class="n">axis</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ax</span><span class="p">.</span><span class="n">patches</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1.01</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">get_y</span><span class="p">()</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="n">get_height</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">get_width</span><span class="p">()</span>
+            
+            <span class="n">ha</span> <span class="o">=</span> <span class="s">'left'</span>
+
+            <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">ha</span> <span class="o">=</span> <span class="s">'right'</span>
+                
+            <span class="n">plt</span><span class="p">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s">'center'</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="n">ha</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ol>
+  <li>axis=0일 때, 즉 세로형 그래프일 때는 음수값이 하나도 없었으니까 버무리고 넘어갈 수 있었다.
+    <ol>
+      <li><a href="https://dailyheumsi.tistory.com/98">ax.patches</a>로 막대기를 하나씩 끌어오고, 각 막대기가 갖고 있는 값을 p.get_sth()으로 가져온다. 가져올 수 있는 값은 4개로, left(x), bottom(y), width, height 이다.</li>
+      <li>x은 그래프 최상단의 값을 정중앙에 놓기 위해 막대기의 절반 값을 만들어주고, y는 그 값을 막대기와 값 사이의 여백을 주어 가독성을 높이기 위해 설정 해주었다. value 설정을 안 해주고 그냥 height 값을 집어넣으면 float 타입으로 반환 된다. 내 기준에 소수점은 안 예뻐서 int 값으로 때려박았다.</li>
+    </ol>
+  </li>
+  <li>axis=1 == 가로형 그래프
+    <ol>
+      <li>ha와 va의 용법이 문제였다!!!! 우ㅇ아아아</li>
+    </ol>
+  </li>
+</ol>
+
+<h3 id="pandas-from_records--melt-function">Pandas from_records &amp; melt Function</h3>
+
+<p>데이터 재구조화</p>
+
+<p><em>a, b값은 리스트</em></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">from_records</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">.</span><span class="n">from_records</span><span class="p">(</span>
+        <span class="p">[(</span><span class="s">'comments'</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="p">(</span><span class="s">'likes'</span><span class="p">,</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">])],</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="p">.</span><span class="n">melt</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">id_vars</span><span class="o">=</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s">"source"</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s">"value_numbers"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>이것도 저 a[0]~ 이 부분을 어떻게 바꿀 수 있지 않을까 생각이 드는데 … ㅠㅠ 흠</p>
+
+<p>https://rfriend.tistory.com/tag/Python%20pandas%20melt%28%29%20함수</p>
+
+<p>이 블로그가 설명을 아주 기깔나게 잘 해주셔서 많이 참고했다.</p>
+
+<h3 id="seaborn-catplot">Seaborn catplot</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">catplot</span><span class="p">(</span><span class="n">input_df</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">11</span><span class="p">):</span>
+    <span class="n">sns</span><span class="p">.</span><span class="n">set_style</span><span class="p">(</span><span class="s">"white"</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">sns</span><span class="p">.</span><span class="n">catplot</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="s">"value_numbers"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">"source"</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s">"labels"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">input_df</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">"bar"</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s">'h'</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="n">value</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">'center left'</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">shadow</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sns</span><span class="p">.</span><span class="n">despine</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">trim</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">.</span><span class="n">fig</span><span class="p">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">.</span><span class="n">set_xlabels</span><span class="p">(</span><span class="s">''</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">.</span><span class="n">set_ylabels</span><span class="p">(</span><span class="s">''</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="n">plot_value</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">ax</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Col 별로 x, y 데이터를 보여줄 수 있다.</p>
+
+<p>sns.catplot 내부에서 legend를 False 처리하고 바깥에서 matplotlib 으로 처리해줬다.</p>
+
+<p>참고 : https://stackoverflow.com/questions/38807895/seaborn-multiple-barplots</p>
+
+<h3 id="frequency-distribution">Frequency Distribution</h3>
+
+<p><em>데이터가 csv 파일 형태로 있음을 가정</em></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">frequency_distribution</span><span class="p">(</span><span class="n">df_col</span><span class="p">,</span> <span class="n">max_limit</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+    
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">df_col</span><span class="p">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">stddev</span> <span class="o">=</span> <span class="n">df_col</span><span class="p">.</span><span class="n">std</span><span class="p">()</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="n">df_col</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="n">f</span><span class="p">,</span><span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="n">sns</span><span class="p">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_col</span><span class="p">,</span><span class="n">kde</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">max_limit</span><span class="o">*</span><span class="mf">0.05</span><span class="p">),</span> <span class="n">max_limit</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">df_col</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Frequency'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="p">.</span><span class="n">twinx</span><span class="p">()</span>
+    
+    <span class="n">inbox</span> <span class="o">=</span> <span class="s">"Normal</span><span class="se">\n</span><span class="s">Mean = %0.2f</span><span class="se">\n</span><span class="s">Std. Dev. = %0.2f </span><span class="se">\n</span><span class="s">N = %s"</span> <span class="o">%</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">stddev</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
+    <span class="n">textbox</span> <span class="o">=</span> <span class="n">offsetbox</span><span class="p">.</span><span class="n">AnchoredText</span><span class="p">(</span><span class="n">inbox</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="p">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">textbox</span><span class="p">)</span>
+
+    <span class="n">sns</span><span class="p">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_col</span><span class="p">,</span> <span class="n">hist</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="p">.</span><span class="n">yaxis</span><span class="p">.</span><span class="n">set_ticks</span><span class="p">([])</span>
+</code></pre></div></div>
+
+<h3 id="고찰">고찰</h3>
+
+<p>뭔가 더 좋은 방법이 있지 않을까 항상 고민을 하지만… 능력이 없어 고민으로 시간을 질질 끌다 결국 막을 내리기만 해 답답하기만 하다.</p>
+
+<p>빈도수 차트는 왜 선이 꾸깃꾸깃하게 나올까 미치겠다…</p>
+
+<p>다 하고 교수님 메일이 아니라 깃허브로 보냈고 교수님이 머지해 주시긴 하셨는데… 생각해보니 메일로 보냈어야 하나 싶다… ㅠㅠ아니 선이 왜 꾸깃꾸깃 하냐고 진짜 미치겠네</p>

@@ -1,0 +1,18 @@
+<p>깃 푸쉬를 했는데 오류가 떴다. 이제 오류를 봐도 아무렇지 않다. 멀쩡한 화면보다 오류를 더 자주 만나기 때문에…</p>
+
+<p>뭐든 구글신께 여쭈어보면 된다. 사실 영어를 볼 때가 가장 가슴 졸인다. 제발 어떤 천사 한국인이 이에 대한 글을 썼기를 바라면서…</p>
+
+<p><code class="language-plaintext highlighter-rouge">git push origin master</code> 를 쓰고 오류가 났다. 오류의 내용은 이렇다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error: failed to push some refs to ~
+
+hint: Updates were rejected because the tip of your current branch is behind
+
+hint: its remote counterpart. Integrate the remote changes (e.g.
+
+hint: 'git pull ...') before pushing again.
+
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">git push -f origin master</code>로 강제 푸쉬를 준 이후로는 다시 원래대로 push 명령어를 주었더니 잘 알아들었다.</p>

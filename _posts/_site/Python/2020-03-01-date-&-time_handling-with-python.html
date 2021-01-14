@@ -1,0 +1,104 @@
+<p><a href="https://datascienceschool.net/view-notebook/465066ac92ef4da3b0aba32f76d9750a/">데이터 사이언스 스쿨</a></p>
+
+<h3 id="datetime-package">datetime package</h3>
+
+<p><code class="language-plaintext highlighter-rouge">import datetime</code></p>
+
+<ol>
+  <li>날짜 및 시간 == <code class="language-plaintext highlighter-rouge">datetime</code></li>
+  <li>날짜 == <code class="language-plaintext highlighter-rouge">data</code></li>
+  <li>시간 ==<code class="language-plaintext highlighter-rouge">time</code></li>
+  <li>시간 ‘구간’ 정보 == <code class="language-plaintext highlighter-rouge">timedelta</code></li>
+</ol>
+
+<h4 id="class">Class</h4>
+
+<h4 id="datetime">datetime</h4>
+
+<p><strong>Attributes</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">year</code></li>
+  <li><code class="language-plaintext highlighter-rouge">month</code></li>
+  <li><code class="language-plaintext highlighter-rouge">day</code></li>
+  <li><code class="language-plaintext highlighter-rouge">hour</code></li>
+  <li><code class="language-plaintext highlighter-rouge">minute</code></li>
+  <li><code class="language-plaintext highlighter-rouge">second</code></li>
+  <li><code class="language-plaintext highlighter-rouge">microsecond</code></li>
+</ul>
+
+<p><strong>Methods</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">weekday()</code> : 요일 반환 (0: 월 ~ 6:일)</li>
+  <li><code class="language-plaintext highlighter-rouge">strftime()</code> : 문자열 반환</li>
+  <li><code class="language-plaintext highlighter-rouge">strptime()</code> : 첫 번째 인수 - 날짜 및 시간, 두 번째 인수 - 문자열 해독 형식</li>
+  <li><code class="language-plaintext highlighter-rouge">date()</code></li>
+  <li><code class="language-plaintext highlighter-rouge">time()</code></li>
+</ul>
+
+<p><strong>날짜 및 시간 지정 문자열</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">%Y</code> : 앞 빈자리를 0으로 채움</li>
+  <li><code class="language-plaintext highlighter-rouge">%m  </code> : 상동</li>
+  <li><code class="language-plaintext highlighter-rouge">%d</code></li>
+  <li><code class="language-plaintext highlighter-rouge">%H</code></li>
+  <li><code class="language-plaintext highlighter-rouge">%M</code></li>
+  <li><code class="language-plaintext highlighter-rouge">%S</code></li>
+  <li><code class="language-plaintext highlighter-rouge">%A</code> : 영문 요일 문자열</li>
+  <li><code class="language-plaintext highlighter-rouge">%B</code> : 영문 월 문자열</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">()</span>
+<span class="c1"># datetime.datetime(2020, 03, 01, 1, 26, 55, 731039)
+</span><span class="n">dt</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%A %d. %B %Y"</span><span class="p">)</span>
+<span class="c1"># 'Sunday 01. March 2020'
+</span>
+<span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">.</span><span class="n">strptime</span><span class="p">(</span><span class="s">'2020-03-01 20:45'</span><span class="p">,</span> <span class="s">"%Y-%m-%d %H:%M"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="dateutil-package">dateutil package</h3>
+
+<p><code class="language-plaintext highlighter-rouge">strptime()</code> &gt; Use <code class="language-plaintext highlighter-rouge">parse</code>  in <code class="language-plaintext highlighter-rouge">dateutil</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">dateutil.parser</span> <span class="kn">import</span> <span class="n">parse</span>
+
+<span class="n">parse</span><span class="p">(</span><span class="s">'2020-03-01'</span><span class="p">)</span>
+<span class="c1"># datetime.datetime(2020, 3, 01, 0, 0)
+</span><span class="n">parse</span><span class="p">(</span><span class="s">'6/7/2016'</span><span class="p">)</span>
+<span class="c1"># datetime.datetime(2016, 6, 07, 0, 0)
+# 미국식 
+</span></code></pre></div></div>
+
+<h4 id="timedelta-class">timedelta Class</h4>
+
+<p>날짜 혹은 시간의 간격을 구할 때 &gt; <code class="language-plaintext highlighter-rouge">datetime.datetime</code> 클래스 객체의 차이를 구함 &gt;  return <code class="language-plaintext highlighter-rouge">datetime.timedelta</code></p>
+
+<p><strong>Attributes</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">days</code></li>
+  <li><code class="language-plaintext highlighter-rouge">seconds</code></li>
+  <li><code class="language-plaintext highlighter-rouge">microseconds</code></li>
+</ul>
+
+<p><strong>Methods</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">total_seconds()</code> : All Attr turns to seconds</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dt1</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">dt2</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">td</span> <span class="o">=</span> <span class="n">dt1</span> <span class="o">-</span> <span class="n">dt2</span>
+<span class="n">td</span> <span class="c1"># datetime.timedelta(48, 3600)
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">datetime.datetime</code> 클래스 객체 + <code class="language-plaintext highlighter-rouge">datetime.timedelta</code> 클래스 객체를 더해 새로운 시간을 구할 수 있다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t0</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">seconds</span><span class="o">=</span><span class="mi">3600</span><span class="p">)</span>
+<span class="n">t0</span> <span class="o">+</span> <span class="n">d</span> <span class="c1"># datetime.datetime(2018, 11, 30, 14, 0)
+</span></code></pre></div></div>
+

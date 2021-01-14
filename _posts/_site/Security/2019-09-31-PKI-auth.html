@@ -1,0 +1,260 @@
+<h1 id="pki">PKI</h1>
+
+<p><strong>Key distribution via key distribution center</strong></p>
+
+<p><img src="https://k.kakaocdn.net/dn/CNaas/btqAQ3aHRWo/JlnxuFSrdc7UZfgwEavxo0/img.png" alt="img" /></p>
+
+<p>호스트 입장에서는 키를 한 개만 갖고있으면 됨 &gt;</p>
+
+<p>네트워크 시큐리티 모델과 매우매우 흡사함 신뢰 가능한 써드파티 시스템과 키분배센터와 비슷</p>
+
+<p>요즘은 퍼블릭키로 함 / 중간 키분배센터가 사라져도 됨 » 가장 큰 문제 : 신뢰가능한 퍼블릭키 분배 문제</p>
+
+<p><strong>Key Management and Distribution</strong></p>
+
+<p><strong>Public directory</strong> : should be maintained in a trusted party</p>
+
+<p>종이 혹은 디렉토리 온라인 서비스를 만들어서 공개</p>
+
+<p><strong>Public key certificate</strong></p>
+
+<p><img src="https://k.kakaocdn.net/dn/UsR6u/btqAPexjrrq/1QjZCsltTKqrypo1WcAYO0/img.png" alt="img" /></p>
+
+<p>Public key certificate
+  Exchange public keys without trusted third parties : : 퍼블릭키를 써드파티를 거치지 않고 신뢰</p>
+
+<p>Certificate
+  A public key</p>
+
+<p>An ID
+  A signature by a trusted entities</p>
+
+<p>​     Government, financial organization •</p>
+
+<p>Ex) X.509</p>
+
+<p><strong>X.509 Certificates :</strong> 국가 간 인증서 표준</p>
+
+<p><img src="https://k.kakaocdn.net/dn/cROy9W/btqAThS94eH/D3JHwaQkxuwhsk4XPWFD41/img.png" alt="img" /></p>
+
+<p>issued by a Certification Authority (CA), containing:</p>
+
+<p>version V (1, 2, or 3) 
+  serial number SN (unique within CA) identifying certificate</p>
+
+<p>signature algorithm identifier AI</p>
+
+<p>issuer X.500 name CA)</p>
+
+<p>period of validity TA (from - to dates)</p>
+
+<p>Subject X.500 name A ( name of owner )</p>
+
+<p>Subject public-key info Ap ( algorithm, parameters, key )</p>
+
+<p>issuer unique identifier (v2+)</p>
+
+<p>subject unique identifier (v2+)</p>
+
+<p>extension fields (v3)</p>
+
+<p><strong>signature (of hash of all fields in certificate)</strong></p>
+
+<p>notation CA«A» denotes certificate for A signed by CA</p>
+
+<p><img src="https://k.kakaocdn.net/dn/bXnV8y/btqAQlQuE0d/UH45LW0KuvgwGs9x4DZyaK/img.png" alt="img" />믿을 수 있는 퍼블릭키를 알려주는 게 목적</p>
+
+<p><strong>Obtaining a Certificate</strong></p>
+
+<ul>
+  <li>
+    <p>any user with access to CA can get any certificate from it</p>
+  </li>
+  <li>
+    <p>only the CA can modify a certificate</p>
+  </li>
+  <li>
+    <p>because cannot be forged, certificates can be placed in a public directory</p>
+  </li>
+  <li>
+    <p>if both users share a common CA then they are assumed to know its public key</p>
+  </li>
+  <li>
+    <p>otherwise CA’s must form a hierarchy</p>
+  </li>
+  <li>
+    <p>use certificates linking members of hierarchy to validate other CA’s</p>
+  </li>
+  <li>
+    <ul>
+      <li>each CA has certificates for clients (forward) and parent (backward)</li>
+    </ul>
+  </li>
+  <li>enable verification of any certificate from one CA by users of all other CAs in hierarchy</li>
+</ul>
+
+<p><strong>Certificate Revocation</strong></p>
+
+<p>certificates have a period of validity may need to revoke before expiry, eg:</p>
+
+<p>user’s private key is compromised</p>
+
+<p>user is no longer certified by this CA</p>
+
+<p>CA’s certificate is compromised</p>
+
+<p>CA’s maintain list of revoked certificates : the Certificate Revocation List (CRL)</p>
+
+<p>users should check certificates with CA’s CRL</p>
+
+<hr />
+
+<p><strong>AUTH</strong></p>
+
+<p><strong><em>*Authentication and FIDO*</em></strong></p>
+
+<p><strong>Authentication</strong></p>
+
+<p>the act of confirming the truth of an attribute of a single piece of data (a datum) claimed true by an entity.</p>
+
+<p>Approaches</p>
+
+<p>Something you know : 지식</p>
+
+<p>Something you have : 소유</p>
+
+<p>Something you are : 특성</p>
+
+<p><strong>Authentication Factors</strong></p>
+
+<p>Approaches
+Something you know: Knowledge factors</p>
+
+<p>password, PIN (Personal Identification Number)</p>
+
+<p>Something you have: Ownership factors</p>
+
+<p>ID card, Security token, Smart phones •</p>
+
+<p>Something you are: Inherence factors</p>
+
+<p>fingerprint, DNA, signature, face, …</p>
+
+<p><strong>Something you know</strong> : 가장 많이 만나는 형태 . 로그인 절차 또한 인증</p>
+
+<p>Knowledge based authentication</p>
+
+<p>Password</p>
+
+<p>User has a secret password
+  System checks password to authentication user</p>
+
+<p><strong>Something you have</strong></p>
+
+<p>Uses a hardware device that a user holds</p>
+
+<p>OTP dongle : One Time Password 인터넷 보안 카드 &gt; 소유 기반</p>
+
+<p>열쇠도 소유 기반이라고 볼 수 있음</p>
+
+<p><strong>Something you are</strong></p>
+
+<p>Biometric authentication : Finger-print, IRIS, DNA, Face</p>
+
+<p><strong>생체</strong> <strong>인증과</strong> <strong>핀테크</strong></p>
+
+<p>인터넷 결제 및 모바일 결제의 미사용 이유
+정보유출 및 보안의 우려 —&gt; 생체인증의 필요성 대두</p>
+
+<p><strong>생체</strong> <strong>인증</strong></p>
+
+<p>개인의 고유한 생체적 (biological) 특성을 이용
+지문, 홍채, 망막, 정맥, 손금, 목소리, 얼굴, 걸음거리, …</p>
+
+<p>인증으로 방식으로써의 강점
+안전성: 복제, 도용, 위변조가 어렵다. | 편이성: 가장 사용하기 편리한 인증 방법</p>
+
+<p><strong>지문인식</strong></p>
+
+<p>사용자의 지문을 확인하여 인증
+지문을 채취할 수 있어야 하기 때문에 모바일 디바이스와 같 은 별도의 기기를 필요로 한다.
+현재 지문인식을 적용하고 있는 핀테크 결제 서비스 : Apple pay • 삼성페이</p>
+
+<p><strong>ECG (</strong><strong>심전도</strong><strong>)</strong></p>
+
+<p>심장 박동의 패턴을 이용 : 심전도 측정을 위한 특수 장비가 필요</p>
+
+<p>나이미 (Nymi) : 심장 박동을 기반으로한 웨어러블 디바이스</p>
+
+<p><strong>얼굴인식</strong></p>
+
+<p>얼굴인식을 이용한 서비스</p>
+
+<p>인증 서비스 : 얼굴 정보를 인식하여 사용자를 확인 인증</p>
+
+<p>얼굴 검출(탐지) 서비스 : (촬영된 영상에서) 얼굴을 찾아낸다.</p>
+
+<p><strong>생체인증의</strong> <strong>고려사항</strong></p>
+
+<p>미리 습득된 정보와 실제 데이터의 구분이 가능해야 한다.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>3d프린터를 이용한 지문 불법 복사</td>
+      <td>얼굴 촬영이미지를 이용한 불법 얼굴 인증</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>“Liveness check”가 필요</p>
+
+<p>실제 살아있는 사람의 정보인지를 확인 / 예) 지문 채취 기기에서 실제 사람의 손가락인지의 여부를 판별 한다.</p>
+
+<p><strong>Two-factor authentication</strong></p>
+
+<p>Two factors are required for authentication -&gt; Multifactor authentication
+e.g., password + smart phone, fingerprint + PIN</p>
+
+<p>각 인증 방법은 조금씩 문제가 있음.</p>
+
+<p>지식 : 패스워드 노출 가능성 존재&gt; 패스워드 노출이 된지 잘 모르는 경우,</p>
+
+<p>TATD time of attack - time of detection</p>
+
+<p>소유 : 노출이 되었을 때 빨리 알 수 있음, 나의 부주의로 인해 정보 노출 가능성 존재</p>
+
+<p>특성 : 인증 정보 한 번이라도 누출 시 변경이 아예 불가능</p>
+
+<p>일반적으로 2~3개 섞는 보안 방식을 사용 2FA factor auth~</p>
+
+<p><strong>FIDO</strong></p>
+
+<p><strong>Public-key Cryptography</strong></p>
+
+<ul>
+  <li>probably most significant advance in the 3000 year history of cryptography</li>
+  <li>uses <strong>two</strong> keys – a public &amp; a private key asymmetric since parties are not equal</li>
+  <li>uses clever application of number theoretic concepts to function</li>
+  <li>complements rather than replaces private key crypto</li>
+</ul>
+
+<p><strong>UAF, U2F</strong></p>
+
+<ol>
+  <li>UAF ( Universal Authentication ) : Biometric Auth / 서버 입장에서는 뭐로 인식하든 신경쓸 필요 없음 
+퍼블릭키와 프라이빗키로 구성되어 있음. 상대에게 퍼블릭 키를 쓸 거라고 등록해 놓고서 나는 서명만 해서 보내면 됨. 내가 프라이빗키로 서명을 어떻게 할가요… 를 정한 것
+- Generalize biometric Auth
+- Decouples user identification and client</li>
+  <li>U2F : Two-factor auth
+- Two-factor auth : 인증은 유저 클라이언트에서 끝남
+- PIN or Password 
+- + USB key
+- + Bluetooth</li>
+</ol>
+
+<p><strong>Trade offs</strong></p>
+
+<p><strong>Security vs. Usability vs. Cost</strong></p>
+
+<p>보안이 좋아지면 쓰기 불편해지고 안전하면서 쓰기 편하면 비용이 비싸고… 세 가지를 모두 만족시키긴 어렵다! 하날 얻기 위해 나머질 희생해야 하는게 보안의 큰 문제</p>

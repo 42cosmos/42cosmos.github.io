@@ -1,0 +1,53 @@
+<h3 id="others">others</h3>
+
+<ol>
+  <li>필드명 순서의 랜덤 : DB 안에 넣는 데이터라 크게 신경쓰지 않아도 됨. 그럼에도 불구하고 원하는 순서가 있다면 <code class="language-plaintext highlighter-rouge">settings.py</code> 안에 <code class="language-plaintext highlighter-rouge">FEED_EXPORT_FIELDS = ['a', 'b', 'c'] </code> 선언</li>
+  <li>동시 크롤링 횟수 조정 
+ <code class="language-plaintext highlighter-rouge">settings.py</code> 안에 <code class="language-plaintext highlighter-rouge">#CONCURRENT_REQUESTS = n</code>  주석 해제 후 숫자 변경 &gt; 단, 속도 저하</li>
+</ol>
+
+<h3 id="데이터-후처리">데이터 후처리</h3>
+
+<p>정규표현식</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">body_as_unicode</span><span class="p">())</span>
+  <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s">'items'</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">re</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="s">'&lt;/S+&gt;'</span><span class="p">,</span> <span class="s">''</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s">'title'</span><span class="p">]))</span>
+</code></pre></div></div>
+
+<h3 id="json-데이터-크롤링-처리">JSON 데이터 크롤링 처리</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">body_as_unicode</span><span class="p">())</span>
+  <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s">'items'</span><span class="p">]:</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">Naveropenapiitem</span><span class="p">()</span>
+    <span class="n">doc</span><span class="p">[</span><span class="s">'title'</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s">'title'</span><span class="p">]</span>
+    <span class="n">doc</span><span class="p">[</span><span class="s">'link'</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s">'link'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">loads()</code>함수로 가져오면서 <code class="language-plaintext highlighter-rouge">body_as_unicode()</code>처리</p>
+
+<p>for문으로 json 데이터를 한 개씩 쪼개서 입력 가능</p>
+
+<h3 id="naver-openapi---요청변수">Naver openapi - 요청변수</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+  <span class="k">yield</span> <span class="n">scrapy</span><span class="p">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span> <span class="o">+</span> <span class="n">words_var</span> <span class="o">+</span> <span class="s">'&amp;display=100&amp;start='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="o">*</span><span class="mi">100</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">header_var</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>‘&amp;display=100&amp;start=’ + str(index*100 + 1)  처럼 작성 가능 »</p>
+
+<ol>
+  <li>0 &gt; 1부터 100개</li>
+  <li>1 &gt; 101부터 100개</li>
+  <li>2 &gt; 201부터 100개</li>
+</ol>
+
+<h3 id="숙제">숙제</h3>
+
+<p>&lt;b&gt;,\n, \t … 등의 태그 없애기</p>

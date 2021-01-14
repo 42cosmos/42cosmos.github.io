@@ -1,0 +1,65 @@
+<h3 id="시계열-데이터-분석">시계열 데이터 분석</h3>
+
+<p>독립변수 / 종속변수  +  <strong>시계열 데이터</strong></p>
+
+<ol>
+  <li>정상 시계열
+    <ul>
+      <li>뚜렷한 추세 없음</li>
+      <li>시간 흐름에 따른 동일한 진폭</li>
+    </ul>
+  </li>
+  <li>비정상 시계열
+    <ul>
+      <li>시간에 따른 데이터의 변화</li>
+      <li>추세와 시간대 존재</li>
+      <li>평균 수준이 시간대에 따라 다르다</li>
+      <li>가변적 분산</li>
+    </ul>
+  </li>
+</ol>
+
+<p><strong>비정상 시계열일 경우 반드시 정상 시계열로의 변환 필요</strong></p>
+
+<h4 id="비정상-시계열의-정상화">비정상 시계열의 정상화</h4>
+
+<ol>
+  <li>
+    <dl>
+      <dt>분산이 일정하지 않은 경우</dt>
+      <dd>
+        <p>분산안정화변환 ( 로그, 제곱근, Box-cox 변환 시도)</p>
+      </dd>
+    </dl>
+  </li>
+  <li>추세를 가지는 경우
+    <ul>
+      <li>결정적 추세 &gt; 분해법 또는 추세항 모형에 포함</li>
+      <li>확률적 추세 ( Dickey-Fuller의 단위근 검정 ) &gt; 차분</li>
+    </ul>
+  </li>
+  <li>계절성을 가지는 경우
+    <ul>
+      <li>결정적 계절 추세 &gt; 계절 추세항 모형에 포함</li>
+      <li>확률적 계절 추세 ( 계절형 단위근 검정 ) &gt; 계절차분</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="arima">ARIMA</h4>
+
+<ul>
+  <li><strong>A</strong>uto <strong>R</strong>egression <strong>I</strong>ntergrated with <strong>M</strong>oving <strong>A</strong>verage</li>
+</ul>
+
+<blockquote>
+  <p>ARIMA(p, d, q) &gt; 모수 설정</p>
+</blockquote>
+
+<h4 id="in-pandas">in Pandas</h4>
+
+<ol>
+  <li>arima 모형은 반드시 series 형태를 전제함</li>
+  <li>데이터 타입을 float으로 변경</li>
+</ol>
+

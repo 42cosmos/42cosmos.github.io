@@ -1,0 +1,208 @@
+<h3 id="웹-크롤러-scrapy">웹 크롤러 Scrapy</h3>
+
+<ul>
+  <li>파이프라인 지원 : 데이터 후처리 (필터링 등) 가능</li>
+  <li>로깅 정보 확인 가능</li>
+  <li>상대적으로 bs보다 간편함</li>
+  <li>안정적 크롤링 가능</li>
+  <li>시간 단축 &gt; 동시다발적 크롤링으로 인한 순서 변경</li>
+  <li>다양한 포맷으로 저장 가능</li>
+</ul>
+
+<p>Framework</p>
+
+<ul>
+  <li>함수와 코드 선작성</li>
+  <li>특성 함수의 위치, 사용, 작성을 지정</li>
+  <li></li>
+</ul>
+
+<h4 id="beautiful-soup">Beautiful Soup</h4>
+
+<ul>
+  <li>parser의 역할이 강함</li>
+  <li>자동으로 유니코드로 변환해서 UTF-8 출력</li>
+</ul>
+
+<p>###</p>
+
+<h4 id="spider">Spider</h4>
+
+<ol>
+  <li>이름 : 여러 가지 크롤러(spider)를 둘 수 있으므로, 각 이름을 지정</li>
+  <li>페이지 주소 : 크롤링 할 주소 지정</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scrapy genspider 'crawler_name' 'url'
+
+# Expected Result
+Created spider 'gmarket' using template 'basic' in module:
+  ecommerce.spiders.gmarket
+</code></pre></div></div>
+
+<p><img src="/images/scrapy_tutorial_list.png" alt="scrapy_tutorial_list" /></p>
+
+<ol>
+  <li>items.py - 데이터를 들고올 때 클래스 형태로 만들 수 있음</li>
+  <li>pipelines.py - 데이터 수집 후 후처리 필터링 입력 진행</li>
+  <li>settings.py - 스크래피, 스파이더 설정 : 파이프라인 순서, 이름 등의 설정</li>
+  <li>spider/ - 스크랩 할 내용을 프로그래밍</li>
+</ol>
+
+<h4 id="itemspy">items.py</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">scrapy</span>
+
+<span class="k">class</span> <span class="nc">TutorialItem</span><span class="p">(</span><span class="n">scrapy</span><span class="p">.</span><span class="n">Item</span><span class="p">):</span> <span class="c1"># 상속 필수
+</span>    <span class="n">title</span> <span class="o">=</span> <span class="n">scrapy</span><span class="p">.</span><span class="n">Field</span><span class="p">()</span>
+    <span class="n">link</span> <span class="o">=</span> <span class="n">scrapy</span><span class="p">.</span><span class="n">Field</span><span class="p">()</span>
+    <span class="n">desc</span> <span class="o">=</span> <span class="n">scrapy</span><span class="p">.</span><span class="n">Field</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>가져오려는 아이템 정의</p>
+
+<h4 id="spidernew_filepy">/spider/new_file.py</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">scrapy</span>
+
+<span class="k">class</span> <span class="nc">linkScrap</span><span class="p">(</span><span class="n">scrapy</span><span class="p">.</span><span class="n">Spider</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"dmoz"</span> <span class="c1"># 스파이더 이름 지정
+</span>    <span class="n">domain</span> <span class="o">=</span> <span class="p">[</span><span class="s">"dmoztools.net"</span><span class="p">]</span>
+    <span class="n">start_urls</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">'https://dmoztools.net/Computers/Programming/Languages/Python/Books/'</span><span class="p">,</span>
+    <span class="s">'https://dmoztools.net/Computers/Programming/Languages/Python/Resources/'</span>
+    <span class="p">]</span> <span class="c1"># 스크랩 할 url 지정
+</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">response</span><span class="p">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">'//div'</span><span class="p">):</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="n">i</span><span class="p">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">'div[3]/a/div/text()'</span><span class="p">).</span><span class="n">extract</span><span class="p">()</span>
+            <span class="n">link</span> <span class="o">=</span> <span class="n">i</span><span class="p">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">'div[3]/a/@href'</span><span class="p">).</span><span class="n">extract</span><span class="p">()</span>
+            <span class="n">desc</span> <span class="o">=</span> <span class="n">i</span><span class="p">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">'/div[3]/div/text()'</span><span class="p">).</span><span class="n">extract</span><span class="p">()</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"*"</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">link</span><span class="p">,</span> <span class="n">desc</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">i.xpath('/div[3]/div/text()').extract() </code> 의 값은</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['\r\n\t\t\t\r\n                                    The primary goal of this book is to promote object-oriented design using Python and to illustrate the use of the emerging object-oriented design patterns.\r\nA secondary goal of the book is to present mathematical tools just in time. Analysis techniques and proofs are presented as needed and in the proper context.\r\n                                    ',
+ '\r\n                                  ',
+ '\r\n                                  ',
+ '\r\n                                ',
+ '\r\n                                  ',
+ '\r\n                                  ',
+ '\r\n                                ',
+ 'Health']
+</code></pre></div></div>
+
+<p>로 나오니 리스트 0번째 값 추출 후 strip()으로 내용만 추출… 하고싶었는데 빈칸이 출력됨</p>
+
+<h4 id="in-terminal---shell">in Terminal - shell</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">scrapy</span> <span class="n">shell</span> <span class="s">'url'</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">response</span><span class="p">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">'//title'</span><span class="p">).</span><span class="n">extract</span><span class="p">()</span>                                     
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="p">[</span><span class="s">'&lt;title&gt;DMOZ - Computers: Programming: Languages: Python: Books&lt;/title&gt;'</span><span class="p">]</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">response</span><span class="p">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">'//title'</span><span class="p">)</span>                                               
+<span class="n">Out</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">Selector</span> <span class="n">xpath</span><span class="o">=</span><span class="s">'//title'</span> <span class="n">data</span><span class="o">=</span><span class="s">'&lt;title&gt;DMOZ - Computers: Programming:...'</span><span class="o">&gt;</span><span class="p">]</span>
+  
+<span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">response</span><span class="p">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">'//title/text()'</span><span class="p">).</span><span class="n">extract</span><span class="p">()</span>                              
+<span class="n">Out</span><span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="p">[</span><span class="s">'DMOZ - Computers: Programming: Languages: Python: Books'</span><span class="p">]</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">response</span><span class="p">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">'//title/text()'</span><span class="p">).</span><span class="n">re</span><span class="p">(</span><span class="s">'(\w+):'</span><span class="p">)</span>                          
+<span class="n">Out</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="p">[</span><span class="s">'Computers'</span><span class="p">,</span> <span class="s">'Programming'</span><span class="p">,</span> <span class="s">'Languages'</span><span class="p">,</span> <span class="s">'Python'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h4 id="문법---사용법">문법 - 사용법</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>response.css('head &gt; title').get() 
+response.css('head &gt; title').getall() # list
+response.css('head &gt; title::text').get() # 
+response.xpath('//div/ul/li/text()').get() # 
+response.css('div.best-list li &gt; a::text').getall(
+</code></pre></div></div>
+
+<h4 id="정규표현식">정규표현식</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>response.css('div.best-list li &gt; a::text')[1].re('(\w+)')
+
+response.xpath('//div[@class="best-list"]/ul/li/a/text()')[1].re('(\w+)')
+</code></pre></div></div>
+
+<h3 id="pipelines---filtering">Pipelines - Filtering</h3>
+
+<p>아이템이 생성될 때 파이프라인 함수를 한 번씩 거친다고 생가하면 됨!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">scrapy.exceptions</span> <span class="kn">import</span> <span class="n">DropItem</span>
+<span class="k">class</span> <span class="nc">NavernewsPipeline</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">process_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="s">'price'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10000</span><span class="p">:</span>
+<span class="k">return</span> <span class="n">item</span> <span class="k">else</span><span class="p">:</span>
+<span class="k">raise</span> <span class="n">DropItem</span><span class="p">(</span><span class="s">"drop item having lower price than 10000"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="dd">dd</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">start_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">scrapy</span><span class="p">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">'http://corners.gmarket.co.kr/Bestsellers'</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">parse</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>지정 url 크롤링 후 parse 함수를 call-back ( call-back 으로 부르는 함수는 반드시 response 보유 필수)</p>
+
+<h3 id="문제">문제</h3>
+
+<ol>
+  <li>
+    <p>describtion이 전혀 나오지 않는다.</p>
+
+    <p><code class="language-plaintext highlighter-rouge">scrapy shell url</code> 로 만질 때는 아주 잘 나오는데 막상 코드로 넣으면 빈 리스트만 반환한다.  미치겠다… 미치겠다 외 … 않되? 왜 안 되는지 정말 모르겠다… 짐작은 가는데… 내가 어떻게 만져야하는지 모르겠다… 빵 먹고싶다…</p>
+
+    <p>title:</p>
+
+    <p>//*[@id=”site-list-content”]/div[17]/div[3]/a/div</p>
+
+    <p>//*[@id=”site-list-content”]/div[18]/div[3]/a/div</p>
+
+    <p>desc:</p>
+
+    <p>//*[@id=”site-list-content”]/div[17]/div[3]/div/text()</p>
+
+    <p>//*[@id=”site-list-content”]/div[18]/div[3]/div/text()</p>
+  </li>
+  <li>
+    <p>쓰레기값 해결 문제</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"title": ["Data Structures and Algorithms with Object-Oriented Design Patterns in Python "], "link": ["http://www.brpreiss.com/books/opus7/html/book.html"], "desc": ["\r\n\t\t\t\r\n                                    The primary goal of this book is to promote object-oriented design using Python and to illustrate the use of the emerging object-oriented design patterns.\r\nA secondary goal of the book is to present mathematical tools just in time. Analysis techniques and proofs are presented as needed and in the proper context.\r\n                                    ", "\r\n                                  "]},
+{"title": [], "link": [], "desc": []},
+   
+</code></pre></div>    </div>
+
+    <ol>
+      <li>값이 정확히 나온 부분의 문제 : desc 리스트 [0]번째 값만 필요함 - 정규표현식을 써야 하는 건가? 근데 리스트 형태라서 strip만 되는 거 같은데…</li>
+      <li>빈 값 처리 - 뭐야!</li>
+    </ol>
+
+    <p>를 해야한다…</p>
+  </li>
+</ol>
+
+<h3 id="문제-해결">문제 해결</h3>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">i.xpath('/div[3]/div/text()').extract()</code> &gt; <code class="language-plaintext highlighter-rouge">i.xpath('div[3]/div/text()').extract()</code></p>
+
+    <p>하~ 진짜 슬래쉬 때문에 개고생 하다니…핳</p>
+  </li>
+</ol>
+
+<h3 id="고찰">고찰</h3>
+
+<ol>
+  <li>나는 바보다</li>
+  <li>눈을 똑바로 뜨자</li>
+  <li>더 똑똑해지자</li>
+  <li>컴퓨터는 잘못 없다</li>
+</ol>

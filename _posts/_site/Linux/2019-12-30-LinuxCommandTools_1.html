@@ -1,0 +1,582 @@
+<h3 id="head">head</h3>
+
+<p>문서 내용 앞 부분 출력</p>
+
+<p>파라미터를 주지 않으면 앞 10줄 출력</p>
+
+<h5 id="자주-사용되는-옵션">자주 사용되는 옵션</h5>
+
+<ul>
+  <li>-c, –bytes  # num byte만 출력</li>
+  <li>-n, –lines  # num line 만 출력</li>
+</ul>
+
+<h5 id="eg">e.g.</h5>
+
+<ul>
+  <li>head ‘file.type’</li>
+  <li>head -n ‘num’ ‘file.type’</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>cat ‘file.type’</td>
+          <td>head -n ‘num’</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h3 id="tail">tail</h3>
+
+<p>문서 내용 뒷 부분 출력</p>
+
+<p>파라미터를 주지 않으면 끝 10줄 출력</p>
+
+<h5 id="자주-사용되는-옵션-1">자주 사용되는 옵션</h5>
+
+<ul>
+  <li>-c, –bytes = [+]NUM # print num byte</li>
+  <li>-n, –lines = [+]NUM # print num line</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>-f</strong>, –follow[={name</td>
+          <td>desc}] # 추가되는 내용 대기하다가, 추가 내용은 append 후 출력</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>-F # truncate &gt; Re-Open &gt; Follow ( using log rotate file )) # 파일이 지워졌다가 생겨도 따라감</li>
+</ul>
+
+<h5 id="eg-1">e.g.</h5>
+
+<ul>
+  <li>
+    <p>+5 = 5번째 줄 부터 끝까지 출력</p>
+  </li>
+  <li>tail -n ‘num’ ‘file.type’ # 뒤에서 ‘num’번째 줄 출력</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>cat ‘file.type’</td>
+          <td>tail -n ‘num’ # 상동</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h3 id="wc-word-count">WC (Word Count)</h3>
+
+<p>line/word/byte count 출력</p>
+
+<p>라인의 수가 특정 목적을 가진 정보 수가 되는 경우</p>
+
+<h5 id="자주-사용되는-옵션-2">자주 사용되는 옵션</h5>
+
+<ul>
+  <li>-l # 라인수만 출력</li>
+</ul>
+
+<h5 id="eg-2">e.g.</h5>
+
+<ul>
+  <li>wc ‘file.type’ == wc -clmw ‘file.type’  # line	word	byte count	‘file.type’</li>
+  <li>wc *.py # 폴더 내 py파일 모두 확인</li>
+  <li>wc -l ‘file.type’ # line 수</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>wc -l ‘file.type’</td>
+          <td>awk ‘{print $1}’</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h3 id="nl">nl</h3>
+
+<p>파일 내용을 라인 넘버와 함께 출력</p>
+
+<p>코드 첨부 후 설명할 때 유용함 ?</p>
+
+<h5 id="자주-사용되는-옵션-3">자주 사용되는 옵션</h5>
+
+<ul>
+  <li>-ba # 모든 라인 넘버링</li>
+  <li>-v N # 시작 라인 넘버를 N으로 지정</li>
+  <li>-s # 라인 넘버 출력 후 출력할 separator 지정</li>
+</ul>
+
+<h5 id="eg-3">e.g.</h5>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>nl ‘file.type’ == cat ‘file.type’</td>
+          <td>nl</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>nl -ba ‘file.type’</li>
+  <li>nl -ba -s “:\t” ‘file.type’</li>
+</ul>
+
+<h3 id="sort">sort</h3>
+
+<p><em>맥은 모르겠다</em></p>
+
+<p>파일 내용 정렬 후 출력</p>
+
+<h5 id="자주-사용되는-옵션-4">자주 사용되는 옵션</h5>
+
+<ol>
+  <li>위치 지정
+    <ul>
+      <li>-k, –key=KEYDEF # key에 의한 정렬, 어떤 컬럼을 기준으로 정렬할 건지 /
+        <ul>
+          <li>숫자 한 개만 작성하면 그 부분부터 끝까지</li>
+          <li>한 개의 열만 하려면 쉼표로 구분해 같은 숫자 넣어주기</li>
+          <li>n 번째 우선순위 지정 &gt; -k 5,5 -k 2,2</li>
+          <li>
+            <table>
+              <tbody>
+                <tr>
+                  <td>e.g. ls -al</td>
+                  <td>sort -k 5 -n</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ul>
+      </li>
+      <li>-t, –field-separator # 필드 구분자 (기본값 = 공백), 하나의 기준으로 컬럼을 나누어줌</li>
+    </ul>
+  </li>
+  <li>정렬 기준 (sort ‘file’ -x)
+    <ul>
+      <li>-f, –ignore-case</li>
+      <li>-g, –general-numeric-sort</li>
+      <li>-n, –numeric-sort # 123보다 91이 먼저 나오게 됨</li>
+      <li>-r, –reverse # 내림차순 정렬</li>
+      <li>-u, –unique # 중복 삭제</li>
+    </ul>
+  </li>
+  <li>옵션
+    <ul>
+      <li>–debug #어디 기준으로 정렬했는지 가시화</li>
+    </ul>
+  </li>
+</ol>
+
+<h5 id="eg-4">e.g.</h5>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>cat ‘file.type’</td>
+          <td>sort</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>cat ‘file..type’</td>
+          <td>sort -t’구분자’ -k ‘정렬키-행’ -n</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>cat ‘file..type’</td>
+          <td>sort -t’구분자’ -k ‘정렬키-행’ -n -debug</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h3 id="uniq">uniq</h3>
+
+<p>중복 내용 제거 후 출력</p>
+
+<p>연달아 중복인 부분만 삭제 » sort 명령어랑 같이 사용</p>
+
+<h4 id="자주-사용되는-옵션-5">자주 사용되는 옵션</h4>
+
+<ul>
+  <li>-d, –repeated # 중복된 내용만 출력</li>
+  <li>-u, –unique # 중복되지 않은 내용만 출력</li>
+  <li>-i, –ignore-case # 대소문자 무시</li>
+</ul>
+
+<h4 id="eg-5">e.g.</h4>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>cat ‘file.type’</td>
+          <td>uniq</td>
+          <td>nl -ba # 중복된 내용만 코드 번호를 붙여서 출력</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>sort ‘file.type’</td>
+          <td>uniq</td>
+          <td>nl -ba</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>grep “search” file</td>
+          <td>awk -F: ‘‘{print $1}’</td>
+          <td>uniq</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h3 id="cut">cut</h3>
+
+<p>컬럼 잘라내기</p>
+
+<h4 id="자주-사용되는-옵션-6">자주 사용되는 옵션</h4>
+
+<ul>
+  <li>-b, –bytes=LIST # byte 선택</li>
+  <li>-c, –characters=LIST # character 선택</li>
+  <li><strong>-f,</strong> –fields=LIST # 필드(컬럼) 선택</li>
+  <li><strong>-d</strong>, –delimiter=DELIM # tab 대신 사용할 구분자 지정
+탭이 아닌 다른 구분자로 지정되어있는 경우 반드시 입력</li>
+  <li>–complement # 선택 반전</li>
+  <li>–output-delimiter=STRING # 출력시 사용할 구분자 지정</li>
+</ul>
+
+<h4 id="eg-6">e.g.</h4>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>head ‘file.type’</td>
+          <td>cut -d: -f 1, 7 –output-delimiter=”&gt;” # 딜리미터 변경</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>ls -al</td>
+          <td>head</td>
+          <td>cut -b 1 #각 줄의 첫 글자만 나옴</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>ls -al</td>
+          <td>head</td>
+          <td>cut -b 2-4 # rwx.. 등 권한을 볼 수 있음</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>ls -al</td>
+          <td>head</td>
+          <td>cut -b -10 # 처음부터 10바이트까지</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>ls -al</td>
+          <td>head</td>
+          <td>cut -b 11- # 11부터 끝 바이트까지</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h3 id="tr-translate">tr (translate)</h3>
+
+<p>내용 변환</p>
+
+<p>문서 특수 캐릭터 삭제 시에 자주 사용</p>
+
+<p>tr [OPTION] … SET 1 [SET 2]</p>
+
+<h4 id="자주-사용되는-옵션-7">자주 사용되는 옵션</h4>
+
+<ul>
+  <li>-c, -C, –complement</li>
+  <li>-d, –delete</li>
+  <li>SET
+    <ul>
+      <li>CHAR1 - CHAR2 # char1부터 char2까지 (a to z)</li>
+      <li>[:alnum:] # 문자 + 숫자</li>
+      <li>[:alpha:] # 문자</li>
+      <li>[:blank:] # 공백</li>
+      <li>[:space:] # 공백 + newline</li>
+      <li>[:digit:] / [:xdigit:] # 10진수 숫자 / 16진수 숫자</li>
+      <li>[:lower:] / [:upper:]</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="eg-7">e.g.</h4>
+
+<ul>
+  <li>tr -d SET1 # set1에 맞는 부분 삭제 후 지워지지 않는 것들 출력</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>cat ‘file.type’</td>
+          <td>tr ‘:’ ‘%’</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>head ‘file.type’</td>
+          <td>tr [:lower:] [:upper:] # 출력될 모든 소문자를 대문자로 변경</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h3 id="sed">sed</h3>
+
+<p>stream editor</p>
+
+<p>파일 내용을 출력 전에 옵션대로 편집 후 출력</p>
+
+<h4 id="자주-사용되는-옵션-8">자주 사용되는 옵션</h4>
+
+<ul>
+  <li>{RANGE}p # range 내 라인 출력</li>
+  <li>{RANGE}d # range 내 라인 삭제</li>
+  <li>/SEARCHPATTERN/p # SEARCHPATTERN과 매치되는 라인 출력</li>
+  <li>/SEARCHPATTERN/d # SEARCHPATTERN과 매치되는 라인 삭제</li>
+  <li>s/REGEX/REPLACE # REGEX 매치 부분을 REPLACE로 교체 -substitute</li>
+  <li>-n # 기본 출력 부분 제외 - 보통 print 시 많이 사용</li>
+  <li>’/,+num p’  # 상대적으로 몇 번째 줄까지 출력 할 건지</li>
+</ul>
+
+<h4 id="eg-8">e.g.</h4>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>head ‘file.type’</td>
+          <td>sed ‘2,5p’ # head 부분 출력 + 라인 사이에 sed 옵션이 들어가게 됨</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>head ‘file.type’</td>
+          <td>sed -n ‘2,5p’ # 기본 출력 부분 제외</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>head ‘file.type’</td>
+          <td>sed ‘1,5d’</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>cat ‘file.type’</td>
+          <td>sed -n ‘/kwarg/p’</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>cat ‘file.type’</td>
+          <td>sed ‘s/:/$/g’ # g 옵션 : 한 라인에 매치되는 모든 부분을 변경</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>cat ‘file.type’</td>
+          <td>sed -n ‘/kwarg/,10p’ # 검색 문자에서 10번째까지 출력</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>cat ‘file.type’</td>
+          <td>sed -n ‘/kwarg/,+2p’ # 검색 문자부터 2번째 줄을 더 출력</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h3 id="awk">awk</h3>
+
+<p>유틸리티라기 보다는 텍스트 처리 script language</p>
+
+<p>syntax : awk options ‘selection _criteria {action }’ input-file</p>
+
+<p>파일 내용을 처리하는 거기에 input_file 이 필요하지만, 파이프를 통해 호출하는 경우는 input_file 없음</p>
+
+<h4 id="자주-사용되는-옵션-9">자주 사용되는 옵션</h4>
+
+<ul>
+  <li>-F # Field separator 지정</li>
+</ul>
+
+<h4 id="주요-내장-변수">주요 내장 변수</h4>
+
+<ul>
+  <li>$1, $2, $3 # Nth field. wc할 때 awk field separator를 공백으로 해서 $1, $2…</li>
+  <li>NR # number of records</li>
+  <li>NF # number of fields</li>
+  <li>FS # field separator (default ‘white space’)</li>
+  <li>RS # record separator (default ‘new line’)</li>
+  <li>OFS # Output Field Separator</li>
+  <li>ORS # Output Record Separator</li>
+</ul>
+
+<h4 id="eg-9">e.g.</h4>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>wc ‘file.type’</td>
+          <td>awk ‘{print $1}’ # 첫 번째 부분 출력</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>head ‘file.type’</td>
+          <td>awk -Fs ‘{print $1}’</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>head ‘file.type’</td>
+          <td>awk -Fs ‘/kwarg/ {print}’ # 검색 후 라인 전체 출력</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>head ‘file.type’</td>
+          <td>awk -Fs ‘/kwarg/ {print NR, $1 }’  # 검색 인자가 몇 번째 라인인지 출력</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>head ‘file.type’</td>
+          <td>awk -Fs ‘{print NR “==&gt;” $1 }’</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>head ‘file.type’</td>
+          <td>awk -Fs ‘{print NR “==&gt;” $1, NF }’ # 필드가 몇 개인지 알려줌, 언어라서 loop 도 돌 수 있음.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h4 id="사담">사담</h4>
+
+<p>우분투 영상에서 <code class="language-plaintext highlighter-rouge">ls -al | sort -k 5</code> 는 숫자로 인식하지 않아서 -n을 붙여줘야 했는데, 맥은 아닌가보다…</p>

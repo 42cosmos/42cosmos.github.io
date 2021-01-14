@@ -1,0 +1,54 @@
+<p><strong>A system of linear equations</strong> : A collection of one or more linear equations <br />
+<strong>Solution Set</strong> : The Set of all possible solutions of the linear system<br />
+	→ Two linear systems are called <strong>equivalent</strong> if they have the same solution set.</p>
+
+<p>A system of linear equations has either</p>
+<ol>
+  <li>No Solution ( <strong>INCONSISTENT</strong> )</li>
+  <li>Exactly one Solution ( <strong>CONSISTENT</strong> )</li>
+  <li>Infinitely Many Solutions ( <strong>CONSISTENT</strong> )</li>
+</ol>
+
+<h2 id="matrix-notation">Matrix Notation</h2>
+<ul>
+  <li>3 rows x 3 columns =&gt; Coefficient Matrix ( 3 \(\times\) 3 ) : 계수 행렬</li>
+  <li>3 rows x 4 columns =&gt; Augmented Matrix ( 3 \(\times\) 4  ) : 확대 행렬
+    <ul>
+      <li>첨가 행렬은 계수 행렬과 상수항들의 행렬을 맞붙여 얻는 행렬</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="augmented-matrix">Augmented Matrix</h3>
+<p>\(A = \left[
+\begin{matrix}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 7 &amp; 4 \\
+1 &amp; 6 &amp; 8 \\
+\end{matrix}
+\right] , B = \left[
+\begin{matrix}
+1 \\
+4 \\
+1 \\
+\end{matrix}
+\right]\)
+가 있을 때, Augmented Matrix 는
+\(\left[
+\begin{matrix}
+1 &amp; 2 &amp; 3  &amp; 1\\
+4 &amp; 7 &amp; 4 &amp; 4 \\
+1 &amp; 6 &amp; 8 &amp; 1 \\
+\end{matrix}
+\right]\)
+이다.</p>
+
+<h3 id="elementary-row-operations">Elementary row operations</h3>
+<ol>
+  <li><strong>Replacement</strong></li>
+  <li><strong>Interchange</strong></li>
+  <li><strong>Scaling</strong></li>
+</ol>
+
+<p>Two matrices are <strong>Row Equivalent</strong> If there is a sequence of elementary row operations that transforms one matrix into the other.<br />
+If the <strong>augmented</strong> matrices of the linear systems are <strong>row equivalent</strong>, then the two systems have the <strong>same solution set</strong>.</p>

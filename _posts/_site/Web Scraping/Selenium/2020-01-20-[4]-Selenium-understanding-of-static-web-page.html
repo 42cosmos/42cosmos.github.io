@@ -1,0 +1,62 @@
+<h3 id="ajax과-같은-동적-웹페이지-데이터-로딩">Ajax과 같은 동적 웹페이지 데이터 로딩</h3>
+
+<p>“웹페이지 새로고침 X &gt; 특정 부분만 변경”</p>
+
+<p>특정 부분을 동적으로 가져오고, 해당 부분만 변경 시 그 부분만 변화 == 댓글 등</p>
+
+<p>웹브라우저에 전부 로딩 시킨 후 가져올 수 있음</p>
+
+<h3 id="동적-데이터-특징-필요조건">동적 데이터 특징-필요조건</h3>
+
+<p>전체 html 파일 로딩과의 시간차 발생 &gt; 해당 데이터를 불러올 때까지 기다리는 함수(클래스, 객체) 필요 &amp;&amp; 줄여진 댓글창 ‘더보기’ &gt; 원하는 댓글 수보다 댓글이 없을 때 해야할 기능</p>
+
+<h4 id="특정-태그-일정-시간-기다리기">특정 태그 일정 시간 기다리기</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="kn">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
+
+<span class="n">element</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="mi">3</span><span class="p">).</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="p">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="p">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">"alex-area"</span><span class="p">))</span> 
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>(By.ID, “alex-area”) : ( 기다릴 객체, “객체 이름”)</p>
+
+<h4 id="특정-태그-존재-여부-확인-기능">특정 태그 존재 여부 확인 기능</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+</code></pre></div></div>
+
+<ul>
+  <li>By.CLASS_NAME: class name</li>
+  <li>By.CSS_SELECTOR: css selector</li>
+  <li>By.ID: id</li>
+  <li>By.NAME: name</li>
+  <li>By.TAG_NAME: tag name</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">selenium.common.exceptions</span> <span class="kn">import</span> <span class="n">TimeoutException</span>
+
+<span class="k">try</span><span class="p">:</span>
+	<span class="n">element</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="mi">3</span><span class="p">).</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="p">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="p">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">"a"</span><span class="p">))</span> <span class="p">)</span>
+  <span class="n">more_button</span> <span class="o">=</span> <span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_css_selector</span><span class="p">(</span><span class="s">"a"</span><span class="p">)</span> 
+  <span class="n">more_button</span><span class="p">.</span><span class="n">click</span><span class="p">()</span>
+  <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+  
+<span class="k">except</span> <span class="n">TimeoutException</span><span class="p">:</span>
+  <span class="n">loop</span> <span class="o">=</span> <span class="bp">False</span>
+</code></pre></div></div>
+
+<h4 id="키보드-마우스-동작-자동화-actionchains">키보드-마우스 동작 자동화 (ActionChains)</h4>
+
+<p><code class="language-plaintext highlighter-rouge">actions = webdriver.ActionChains(driver)</code> : 변수 선언 후 정적 데이터(버튼)를 갖고 있는 변수를 <code class="language-plaintext highlighter-rouge">actions.click(var_name)</code> 클릭 함수 내 인자값으로 삽입 &gt; <code class="language-plaintext highlighter-rouge">actions.perform()</code> 삽입이 반드시 필요함</p>
+
+<p>== <code class="language-plaintext highlighter-rouge">webdriver.ActionChains(driver).click(var_name).perform()</code></p>
+
+<h4 id="브라우저-내에서-pause">브라우저 내에서 pause</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+<span class="kn">from</span> <span class="nn">selenium.common.exceptions</span> <span class="kn">import</span> <span class="n">TimeoutException</span>
+</code></pre></div></div>
+
+<p>TimeoutException은 WebDriverWait를 함수로 기다릴 때 일정 시간이 지났는데도 태그가 나타나지 않을 때 (예외 상황)</p>
+

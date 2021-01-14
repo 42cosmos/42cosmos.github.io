@@ -1,0 +1,121 @@
+<h3 id="news-categorisitaion">News Categorisitaion</h3>
+
+<p>숫자를 벡터로 좌표평면상에 올릴 수 있도록 바꾸어주어야 함.</p>
+
+<p>파이썬으로 얘기하면 lmn 이 많은 벡터를 만들고 벡터끼리의 거리를 만들면 됨.</p>
+
+<p>문자 &gt; 숫자 &gt; Vector</p>
+
+<p>One hot Encoding (Bag of Words) 기본적 문서에 대한 벡터 표현</p>
+
+<p>하나의 단어를 벡터로 인식하기 위해서는 벡터 스페이스를 만듦</p>
+
+<p>벡터 스페이스 : 각 글자들이 어떤 인덱스에 포함되는지 정의한 공간
+단어별로 인덱스를 부여해 문장에 단어가 몇 개인지 표현</p>
+
+<p><br /></p>
+
+<h3 id="유사성-판별">유사성 판별</h3>
+
+<h5 id="euclidian-distance">Euclidian distance</h5>
+
+<p>피타고라스 정리, 두 점 사이의 직선 거리</p>
+
+<h5 id="cosine-distance">cosine distance</h5>
+
+<p>두 점 사이의 각도, 데이터셋이 클 수록 잘 나오는 경향 존재</p>
+
+<p>더 많이 사용됨</p>
+
+<p><br /></p>
+
+<p>파이썬 폴더끼리 연결 :</p>
+
+<p>os.path.join &gt; 윈도우즈는 역슬래쉬, 리눅스나 맥은 슬래쉬라서 … 오에스에 맞추어 조인을 해줌</p>
+
+<p>os.sep &gt; os에 따른 구분 기호 (\, /)</p>
+
+<p><br /></p>
+
+<p>corpus = 텍스트 워드로 인덱스를 만들어 줌 / 문서의 수 * 단어의 수 = 총 매트릭스의 크기</p>
+
+<p>하나의 문서에 대한 벡터값 단어 수와 같음.</p>
+
+<p>47라인 : 텍스트에서 단어를 뽑고, 단어를 전처리와 똑같은 방식으로 get_cleaned_text함수를 적용 : corpus 딕트 안에 키값을 사용해 이 값의 인덱스를 가져오는 것 == 전처리 방식이 동일해야 함. &gt; corpus[get_cleaned_text(word)] turned to number // 결과값 : 3509 - 첫 번째 문서의 첫 번째 단어가 corpus dict 에 있는 3509 인덱스 값의 문자라는 뜻</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">word_number_list</span> <span class="o">=</span> <span class="p">[[</span><span class="n">corpus</span><span class="p">[</span><span class="n">get_cleaned_text</span><span class="p">(</span><span class="n">word</span><span class="p">)]</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span> <span class="k">for</span> <span class="n">words</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>48라인 : 매트릭스 생성.</p>
+
+<p>[[0 for _ in range(len(corpus))] for x in range(len(text))]</p>
+
+<p>0을 text의 길이 (=80)에 corpus의 길이 (4032)만큼 2차원 배열로 생성</p>
+
+<p>for의 _(언더바) &gt; 사용하지 않겠다는 의미</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">X_vector</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">corpus</span><span class="p">))]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">))]</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><em>*50 ~ 53 line 이후 미리 만들었던 word number list (</em>3509,,, 등등)에서 각각의 인덱스에 해당하는 값들을 1씩 올려주면 됨 **</p>
+
+<pre><code class="language-Python">    for i, text in enumerate(word_number_list):
+        for word_number in text:
+            X_vector[i][word_number] += 1
+    return X_vector
+</code></pre>
+
+<p>전체 corpus 인덱스 번호 별로 어떤 단어가 몇 개 있는지 리스트 형태로 확인 가능</p>
+
+<p><br /></p>
+
+<h4 id="비교방법">비교방법</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
+<span class="k">def</span> <span class="nf">get_cosine_similarity</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">):</span>
+    <span class="s">"compute cosine similarity of v1 to v2: (v1 dot v2)/{||v1||*||v2||)"</span>
+    <span class="n">sumxx</span><span class="p">,</span> <span class="n">sumxy</span><span class="p">,</span> <span class="n">sumyy</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v1</span><span class="p">)):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">v1</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="n">y</span> <span class="o">=</span> <span class="n">v2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">sumxx</span> <span class="o">+=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+        <span class="n">sumyy</span> <span class="o">+=</span> <span class="n">y</span><span class="o">*</span><span class="n">y</span>
+        <span class="n">sumxy</span> <span class="o">+=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
+    <span class="k">return</span> <span class="n">sumxy</span><span class="o">/</span><span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sumxx</span><span class="o">*</span><span class="n">sumyy</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>첫 번째 문서와 두 번째 문서의 유사도를 보여줌</p>
+
+<p><br /></p>
+
+<h4 id="비교-결과">비교 결과</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_similarity_score</span><span class="p">(</span><span class="n">X_vector</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
+    <span class="n">source_vector</span> <span class="o">=</span> <span class="n">X_vector</span><span class="p">[</span><span class="n">source</span><span class="p">]</span>
+    <span class="n">similarity_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">target_vector</span> <span class="ow">in</span> <span class="n">X_vector</span><span class="p">:</span>
+        <span class="n">similarity_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">get_cosine_similarity</span><span class="p">(</span><span class="n">source_vector</span><span class="p">,</span> <span class="n">target_vector</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">similarity_list</span>
+
+
+<span class="k">def</span> <span class="nf">get_top_n_similarity_news</span><span class="p">(</span><span class="n">similarity_score</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">operator</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span><span class="n">v</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">similarity_score</span><span class="p">)}</span>
+    <span class="n">sorted_x</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">operator</span><span class="p">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">sorted_x</span><span class="p">))[</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>source : 찾고자 하는 문서</p>
+
+<p>similarity_score : 80개의 문서들이 비교 대상 문서와 얼마나 비슷한지 값이 저장됨. (0.6441510… )</p>
+
+<p>similarity_list : 1 개의 문서와 80개의 문서를 비교한 후에 저장되었음</p>
+
+<p>각 문서 번호들마다 얼마나 근접한지 값을 보여줄 것임.</p>
+
+<p><br /><strong>get_top_n_similarity_news</strong>  : 키값으로 정렬해서 밸류값 중 가장 큰 값의 인덱스 값을 같이 반환해주는 함 / 가장 유사한 값 10개</p>
