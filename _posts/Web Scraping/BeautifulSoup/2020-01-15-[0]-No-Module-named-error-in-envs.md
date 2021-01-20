@@ -3,14 +3,14 @@ layout: post
 title: '[Error] No module named selenium in env'
 tags: [error, selenium, web scraping]
 categories: 'Web_Scraping'
-image: '/images/nomodulename_selenium.png'
+image: '../../images/nomodulename_selenium.png'
 ---
 
-![nomodulename_selenium](/images/nomodulename_selenium.png)
+![nomodulename_selenium](../../images/nomodulename_selenium.png)
 
 ModuleNotFoundError: No module named 'selenium' - Atom
 
-![nomodulename_bs4](/images/nomodulename_bs4.png)
+![nomodulename_bs4](../../images/nomodulename_bs4.png)
 
 ModuleNotFoundError: No module named 'bs4' - Jupyter notebook
 

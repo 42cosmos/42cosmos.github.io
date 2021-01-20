@@ -44,7 +44,7 @@ Created spider 'gmarket' using template 'basic' in module:
 
 
 
-![scrapy_tutorial_list](/images/scrapy_tutorial_list.png)
+![scrapy_tutorial_list](../../images/scrapy_tutorial_list.png)
 
 1. items.py - 데이터를 들고올 때 클래스 형태로 만들 수 있음 
 2. pipelines.py - 데이터 수집 후 후처리 필터링 입력 진행
