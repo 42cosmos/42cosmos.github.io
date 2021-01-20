@@ -1,4 +1,168 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-14T11:42:33+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">빈둥빈둥 공부블로그</title><author><name>Eunbin Park</name></author><entry><title type="html">프로그래머스 - 멀쩡한 사각형</title><link href="http://localhost:4000/algorithm/2021/01/14/programmars-62048/" rel="alternate" type="text/html" title="프로그래머스 - 멀쩡한 사각형" /><published>2021-01-14T00:00:00+09:00</published><updated>2021-01-14T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/14/programmars-62048</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/14/programmars-62048/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-20T21:45:28+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">빈둥빈둥 공부블로그</title><author><name>Eunbin Park</name></author><entry><title type="html">Numpy 편의기능 및 기본조작 1 ~ 3</title><link href="http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5/" rel="alternate" type="text/html" title="Numpy 편의기능 및 기본조작 1 ~ 3" /><published>2021-01-20T00:00:00+09:00</published><updated>2021-01-20T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5/">&lt;p&gt;Numpy 편의기능 및 기본조작&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.eye(row, {col}, {band_id}, {dtype})&lt;/code&gt; : band에 1 채워넣기&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;0,0 을 기준으로 대각선 항 -&amp;gt; band&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;./images/numpy-basic.png&quot; alt=&quot;numpy-basic&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.identity(num, {dtype})&lt;/code&gt; : identity matrix&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Same as  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.eye(3)&lt;/code&gt; : 3x3 매트릭스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.tri(row, {col}, {k=band_id}, {dtype})&lt;/code&gt; : lower triangular matrix&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;nonzero entry = 1&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a = np.eye(row, {col},{band_id}, {dtype})&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;K &amp;lt;= band id 의 모든 밴드에 1을 채워넣고 나머지는 0 을 채움&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.tril(a, {k=band_id})&lt;/code&gt; : band_id를 포함한 lower 부분을 copy&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.triu(a, {k=band_id})&lt;/code&gt; : band_id를 포함한 upper 부분을 copy&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.full((row, col), value)&lt;/code&gt; : 지정된 값으로 채우기&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.randomn.rand(row, col)&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;데이터타입 지정 불가 -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.float64&lt;/code&gt; 고정&lt;/li&gt;
+  &lt;li&gt;0과 1 사이 무작위 값으로 채워짐&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.copy(a)&lt;/code&gt; : 서로 같은 메모리를 참조 : 하나가 변하면 다른 하나도 변함&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.reshape(a, vector or shape)&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.reshape(a, 6)&lt;/code&gt; : 1D array&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.reshape(a, (3, 2))&lt;/code&gt; : 2D array&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.diag(a, k=band_id)&lt;/code&gt; : band 추출 후 1D array로 만듦&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;b is READ ONLY&lt;/li&gt;
+  &lt;li&gt;동일 메모리 공간 참조&lt;/li&gt;
+  &lt;li&gt;입력이 1D array (벡터)이면 square 행렬 생성&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;./images/np-diag-1.png&quot; alt=&quot;np-diag-1&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;/Users/eunbinpark/workspace/42cosmos.github.io/images/np-diag-2.png&quot; alt=&quot;np-diag-1&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.diagflat(M, k=band_id)&lt;/code&gt; : M를 1D화 한뒤에 square matrix 생성&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;img src=&quot;./images/np.diagflat-1.png&quot; alt=&quot;np.diagflat-1&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.trace(a, offset=band_id)&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;diagonal entry ( band entry )를 더한 값&lt;/li&gt;
+  &lt;li&gt;\(\left[\begin{matrix}\\1 &amp;amp; 2 &amp;amp; 3 \\1 &amp;amp; 2 &amp;amp; 3 \\1 &amp;amp; 2 &amp;amp; 3 \\ \end{matrix}\right]\)  →  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.trace(a)&lt;/code&gt; returns 15, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.trace(a, offset=-1)&lt;/code&gt; returns 12&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.hstack((tuple))&lt;/code&gt; : 수평으로 쌓아감 - tuple 순서대로 행(row, shape[0]) 개수가 맞아야 함&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.vstack((tuple))&lt;/code&gt; : 수직으로 쌓아감 - tuple 순서대로 행(col, shape[0]) 개수가 맞아야 함&lt;/p&gt;
+
+&lt;h3 id=&quot;methods&quot;&gt;Methods&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;transpose()&lt;/code&gt; method&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;단, 1d arr는 무변&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flatten&lt;/code&gt; method&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;행렬 a를 1d  array 로 만들어 copy&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Same as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.ravel(a)&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;properties&quot;&gt;Properties&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;real&lt;/code&gt; : 실수 부분&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imag&lt;/code&gt; : 허수 부분&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;conjegate&lt;/code&gt;: copy&lt;/p&gt;
+
+&lt;h3 id=&quot;matrix-multiplication&quot;&gt;Matrix Multiplication&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;M1 @ M2&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.matmul(M1, M2)&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;matrix-vector-product&quot;&gt;Matrix-Vector Product&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;M @ arr&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.matmul(M, arr)&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;inner-product&quot;&gt;Inner Product&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.dot()&lt;/code&gt; is …&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Real vector same as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vdot()&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;complex vector : conjugate가 빠진 채로 계산&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">Numpy 편의기능 및 기본조작</summary></entry><entry><title type="html">프로그래머스 - 기능개발</title><link href="http://localhost:4000/algorithm/2021/01/18/programmars-42586/" rel="alternate" type="text/html" title="프로그래머스 - 기능개발" /><published>2021-01-18T00:00:00+09:00</published><updated>2021-01-18T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/18/programmars-42586</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/18/programmars-42586/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42586&quot;&gt;프로그래머스 기능개발&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;동일한 크기의 두 개의 리스트를 계산한다. 앞보다 뒤 값이 작으면 카운트 해준다.&lt;/p&gt;
+
+&lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;progresses&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;93&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;55&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;speeds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# return [2, 1]
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;temp_result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ceil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sp&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;zip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;progresses&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;speeds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# return [7, 3, 9]
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;0번째 인덱스 93퍼센트 진행률의 하루 1퍼센트의 속도를 보인다. 7일 후 프로세스가 완료된다.&lt;/p&gt;
+
+&lt;p&gt;이런 식이다. 완료시점(100퍼센트)까지 계산은 쉽다. 남은 진척도를 구하고 스피드를 나눠준 후 , 소숫점은 무조건 올려주면 된다.&lt;/p&gt;
+
+&lt;p&gt;여기까진 쏘이지~&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;retval&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;temp_result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp_result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp_result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;retval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;temp_result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp_result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        
+&lt;span class=&quot;n&quot;&gt;retval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;i-1 번째가 i번째보다 크면 결과 리스트에 삽입하고 1로 초기화 해준다.&lt;/p&gt;
+
+&lt;p&gt;i-1 번째가 i번째보다 작으면,  i-1번째는 그 넘어의 숫자와 비교되어야하기 때문에, i 번째에 넣어주고 answer( count )를 하나 올려주고 for문을 지속한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
+
+&lt;p&gt;진짜 아쉬웠다… 다 풀었는데… 내가 24시간을 꼬박 샜고… 두통이 엄청 와서 못 푼 거다… 그런거다 ^^&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><summary type="html">오늘의 문제 프로그래머스 기능개발</summary></entry><entry><title type="html">프로그래머스 - 멀쩡한 사각형</title><link href="http://localhost:4000/algorithm/2021/01/14/programmars-62048/" rel="alternate" type="text/html" title="프로그래머스 - 멀쩡한 사각형" /><published>2021-01-14T00:00:00+09:00</published><updated>2021-01-14T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/14/programmars-62048</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/14/programmars-62048/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/62048#qna&quot;&gt;프로그래머스 멀쩡한 사각형&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;문제 간략 설명 : 12 by 8 배열의 사각형에서 대각선의 불능을 제외 후 개수를 세어 반환하는 문제&lt;/p&gt;
@@ -26,144 +190,7 @@
 
 &lt;p&gt;대각선이 지나갈 때의 불능 도형의 개수가 제일 머리 아팠다… 뭐랄까 애기 때 수학 공부를 잘했으면 금방 풀었을텐데 하는 생각이 들 정도로 간단해보이는데 잘 모르겠고… 이게 맞는데 왜 그런지는 모르겠는 그런 너낌&lt;/p&gt;
 
-&lt;p&gt;직관적인 문제 → 무식하게 풀기 가 아니라 그냥 무식한 나도 풀 수 있다는 걸 알게됐다…🥲&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><summary type="html">오늘의 문제 프로그래머스 멀쩡한 사각형</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/programmars_62048.png" /><media:content medium="image" url="http://localhost:4000/images/programmars_62048.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Ch18. The Matrix of a Linear Transformation</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation/" rel="alternate" type="text/html" title="Ch18. The Matrix of a Linear Transformation" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation/">&lt;h4 id=&quot;-theorem-10&quot;&gt;📖 Theorem 10.&lt;/h4&gt;
-&lt;p&gt;Let \(T : \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation. Then there exists a unique matrix A such that&lt;br /&gt;
-\(T(\mathbf{x}) = A\mathbf{x} \mbox{ for all }\mathbf{x} \mbox{ in }\mathbb{R^n}\)&lt;br /&gt;
-In fact, \(A\) is the \(m \times n\) matrix whose j-th column is the vector \(T(e_j)\), where \(e_j\) is the j-th column of the identity matrix in \(\mathbb{R^n}\):&lt;br /&gt;
-\(A = \left[ T(e_1) \cdots T(e_n) \right]\)&lt;br /&gt;
-Standard matrix for the linear transformation T&lt;/p&gt;
-
-&lt;h3 id=&quot;onto&quot;&gt;Onto&lt;/h3&gt;
-&lt;p&gt;A mapping \(T: \mathbb{R^n} \to \mathbb{R^m}\) is said to be &lt;strong&gt;onto \(\mathbb{R^m}\)&lt;/strong&gt; if each \(\mathbf{b}\) in \(\mathbb{R^m}\) is the image of at least one \(\mathbf{x}\) in \(\mathbb{R^n}\)&lt;/p&gt;
-
-&lt;h3 id=&quot;one-to-one&quot;&gt;One-to-one&lt;/h3&gt;
-&lt;p&gt;A mapping  \(T: \mathbb{R^n} \to \mathbb{R^m}\) is said to be &lt;strong&gt;one-to-one&lt;/strong&gt; if each \(\mathbf{b}\) in \(\mathbb{R^m}\) is the image of at most one \(\mathbf{x}\) in \(\mathbb{R^n}\)&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;여러 개의 벡터에서 같은 이미지로 도달할 때 : one-to-one이 아님&lt;/li&gt;
-  &lt;li&gt;1대1 대응 : one-to-one&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;-theorem-11&quot;&gt;📖 Theorem 11.&lt;/h4&gt;
-&lt;p&gt;Let \(T: \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation.&lt;br /&gt;
-Then \(T\) is &lt;strong&gt;one-to-one&lt;/strong&gt; if and only if the equation \(T(\mathbf{x}) = 0\)  has only trivial solution.&lt;br /&gt;
-\(T(0) = T(0\mathbf{0}) = 0T(\mathbf{0})\\
-T(\mathbf{u} = \mathbf{b}  T(\mathbf{v} = b)\\
-T(\mathbf{u} - \mathbf{v}) = T(\mathbf{u}) - T(\mathbf{v}) = 0\\
-\mathbf{u} - \mathbf{v} \ne 0\)&lt;br /&gt;
-\(T(\mathbf{x}) = 0\) has more than one solution&lt;/p&gt;
-
-&lt;h4 id=&quot;-theorem-12&quot;&gt;📖 Theorem 12.&lt;/h4&gt;
-&lt;p&gt;Let \(T: \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation and let \(A\) be the standard matrix for \(T\).  &lt;br /&gt;
-Then \(T\) maps &lt;strong&gt;\(\mathbb{R^n} \mbox{onto} \mathbb{R^m}\)&lt;/strong&gt; if and only if the &lt;strong&gt;columns of \(A\) span \(\mathbb{R^m}\)&lt;/strong&gt;   &lt;br /&gt;
-\(T\) is &lt;strong&gt;one-to-one&lt;/strong&gt; if and only if the columns of \(A\) are &lt;strong&gt;linearly independent&lt;/strong&gt;. &lt;br /&gt;
-	one-to-one → only trivial → independent&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">📖 Theorem 10. Let \(T : \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation. Then there exists a unique matrix A such that \(T(\mathbf{x}) = A\mathbf{x} \mbox{ for all }\mathbf{x} \mbox{ in }\mathbb{R^n}\) In fact, \(A\) is the \(m \times n\) matrix whose j-th column is the vector \(T(e_j)\), where \(e_j\) is the j-th column of the identity matrix in \(\mathbb{R^n}\): \(A = \left[ T(e_1) \cdots T(e_n) \right]\) Standard matrix for the linear transformation T</summary></entry><entry><title type="html">Ch17. Introduction to Linear Transformation</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch17-Introduction-to-Linear-Transformation/" rel="alternate" type="text/html" title="Ch17. Introduction to Linear Transformation" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch17-Introduction-to-Linear-Transformation</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch17-Introduction-to-Linear-Transformation/">&lt;h3 id=&quot;transformation&quot;&gt;Transformation&lt;/h3&gt;
-&lt;p&gt;A transformation (or function or mapping) \(T\) from \(\mathbb{R^n} \mbox{ to } \mathbb{R^m}\)&lt;br /&gt;
-Is a rule that assignms to each vector x in \(\mathbb{R^n}\) a vector \(T(\mathbf{x})\) in \(\mathbb{R^m}\)&lt;br /&gt;
-Domain to CoDomain → \(T : \mathbb{R^n} \to \mathbb{R^m}\)&lt;/p&gt;
-
-&lt;h3 id=&quot;matrix-transformation&quot;&gt;Matrix Transformation&lt;/h3&gt;
-&lt;p&gt;\(\mathbf{x} \mapsto A\mathbf{x}\\
-T : \mathbb{R^n} \to \mathbb{R^m}\)&lt;/p&gt;
-
-&lt;h3 id=&quot;linear-transformation&quot;&gt;Linear Transformation&lt;/h3&gt;
-&lt;p&gt;A transformation (or mapping ) \(T\) is linear if &lt;br /&gt;
-\(T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})\\
-T(c\mathbf{u} = cT(\mathbf{u}))\) ( : Theorem 5.)    &lt;br /&gt;
-Every matrix transformation is a linear transformation : 모든 MT는 LT다. 매트릭스가 LT 정의를 그대로 따르기 때문에!&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">Transformation A transformation (or function or mapping) \(T\) from \(\mathbb{R^n} \mbox{ to } \mathbb{R^m}\) Is a rule that assignms to each vector x in \(\mathbb{R^n}\) a vector \(T(\mathbf{x})\) in \(\mathbb{R^m}\) Domain to CoDomain → \(T : \mathbb{R^n} \to \mathbb{R^m}\)</summary></entry><entry><title type="html">Ch16. Linear Independence</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch16-Linear-Independence/" rel="alternate" type="text/html" title="Ch16. Linear Independence" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch16-Linear%20Independence</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch16-Linear-Independence/">&lt;h3 id=&quot;linearly-independent&quot;&gt;Linearly Independent&lt;/h3&gt;
-&lt;p&gt;A set of vectors \({\mathbf{v_1}, \cdots, \mathbf{v_p}}\) in \(\mathbb{R^n}\) is said to be linearly independent, if the vector equation&lt;br /&gt;
-\(x\mathbf{v_1} + \cdots + x_p\mathbf{v_p} = 0\)&lt;br /&gt;
-Has only the trivial solution. &lt;br /&gt;
-trivial solution 만 있을 때, vector 앞에 있는 coefficient 가 다 0인 솔루션&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;어떤 vector set 에 LD 를 따지는 것은, \(A\mathbf{x} = 0\)을 푸는 것과 동일함&lt;/li&gt;
-  &lt;li&gt;free variable이 한 개라도 존재하면, Nontrivial solution → 해가 무수히 존재&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;linearly-dependent&quot;&gt;Linearly Dependent&lt;/h3&gt;
-&lt;p&gt;The set \({\mathbf{v_1}, \cdots, \mathbf{v_p}}\) in \(\mathbb{R^n}\) is said to be linearly dependent if there exist weights \(c_1, \cdots, c_p\), &lt;strong&gt;not all zero&lt;/strong&gt;, such that  &lt;br /&gt;
-\(c_1\mathbf{v_1} + \cdots + c_p\mathbf{v_p} = 0\) &lt;br /&gt;
-\(c_1 \sim c_p\) 중 최소 하나라도 nonzero&lt;/p&gt;
-
-&lt;h3 id=&quot;linear-independence-of-matrix-columns&quot;&gt;Linear Independence of Matrix Columns&lt;/h3&gt;
-&lt;p&gt;\(A = \left[ a_1, \cdots, a_n \right] \\
-A\mathbf{x} = 0\\
-x_1\mathbf{a_1} + x_2\mathbf{a_2} + \cdots + x_n\mathbf{a_n} = 0\)&lt;br /&gt;
-The columns of a matrix \(A\) are linearly independent if and only if the equations \(A\mathbf{x} = 0\) has only the trivial solution.&lt;/p&gt;
-
-&lt;h4 id=&quot;example&quot;&gt;Example.&lt;/h4&gt;
-&lt;p&gt;Determine if the columns of the following matrix are linearly independent.&lt;br /&gt;
-모든 row에 pivot position이 있고, free variable이 없음 → only trivial solution : Linearly independent&lt;/p&gt;
-
-&lt;h3 id=&quot;sets-of-one-vector&quot;&gt;Sets of One Vector&lt;/h3&gt;
-&lt;p&gt;If a set contains only on vector, \(\mathbf{v}, then the set is linearly independent\)&lt;br /&gt;
-Only when \(\mathbf{v} \ne 0 \\
-\because \mbox{ if } \mathbf{v} = 0, x_1\mathbf{v} = x_10 = 0\)&lt;/p&gt;
-
-&lt;h3 id=&quot;sets-of-two-vectors&quot;&gt;Sets of Two Vectors&lt;/h3&gt;
-&lt;p&gt;하나의 vector가 다른 v의 곱으로 표현된다면 linearly Dependent&lt;br /&gt;
-A set \(\{\mathbf{v_1}, \mathbf{v_2}\}\) is linearly dependent&lt;br /&gt;
-if at least one of the vectors is a multiple of the other \(\mathbf{v_1} = c\mathbf{v_2} \\ -\mathbf{v_1} + c\mathbf{v_2} = 0\)&lt;br /&gt;
-The set is linearly independent, if and only if neither of the vectors is a multiple of the other.  &lt;br /&gt;
-\(x_1\mathbf{v_1} + x_2\mathbf{v_2} = 0\) → \(\mathbf{v_1} = -(x_2 / x_1) \mathbf{v_2}\) 는 맞지 않음 : 이 식 자체는 서로의 곱으로 표현되는데, 이는 즉 서로의 multiple 형태인 셈 → 불가능&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;A multiple of the other → linearly dependent
-\(\mathbf{v_1} = \left[ \begin{matrix}3\\1\\\end{matrix}\right]  \mathbf{v_2} = \left[ \begin{matrix}6\\2\\\end{matrix}\right] \\
-\mathbf{v_2} = 2\mathbf{v_1} \\2\mathbf{v_1} - \mathbf{v_2} = 0\)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Neither → linearly independent
-\(\mathbf{v_1} = \left[ \begin{matrix}3\\3\\\end{matrix}\right]  \mathbf{v_2} = \left[ \begin{matrix}6\\2\\\end{matrix}\right] \\
-x_1\mathbf{v_1} + x_2\mathbf{v_2}  = 0\\
-\mathbf{x} = (0,0)\)&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;-theorem-7-characterisation-of-linearly-dependent-sets&quot;&gt;📖 Theorem 7. Characterisation of Linearly Dependent Sets&lt;/h4&gt;
-&lt;p&gt;An indexed set \(S = \{\mathbf{v_1}, \cdots, \mathbf{v_p} \}\) of two or more vectors Is linearly dependent &lt;br /&gt;
-	 (Non Trivial solution → 최소 하나의 벡터가 나머지 벡터의 linear combination으로 표현되는 경우)&lt;br /&gt;
-If and only if &lt;strong&gt;at least&lt;/strong&gt; one of the vectors in \(S\) is a linear combination of the others.&lt;br /&gt;
-In fact, if \(S\) is linearly dependent and \(\mathbf{v_1} \ne 0\), then some \(\mathbf{v_j}\) (with j &amp;gt; 1) is a linear combination of the preceding vectors, \(\{v_1, \cdots, v_j-1\}\) &lt;br /&gt;
-\(j\) : the largest subscript for which \(c_j \ne 0\) &lt;br /&gt;
-\(c_1\mathbf{v_1} + \cdots + c_p\mathbf{v_p} = 0\)&lt;/p&gt;
-
-&lt;h3 id=&quot;mathbfu-mathbfv-mathbfw-in-mathbbr3&quot;&gt;\({\mathbf{u}, \mathbf{v}, \mathbf{w}}\) in \(\mathbb{R^3}\)&lt;/h3&gt;
-&lt;p&gt;With \(\mathbf{u} \mbox{ and } \mathbf{v}\) linearly independent (서로가 스칼라곱의 형태로 표현되지 않을 때 )&lt;br /&gt;
-\(\mathbf{w}\) is in \(/mbox{span} \{\mathbf{u}, \mathbf{v}\}\)&lt;br /&gt;
-If and only if the set \({\mathbf{u}, \mathbf{v}, \mathbf{w}}\) is linearly dependent.&lt;br /&gt;
-\(\mathbf{w} = c\mathbf{u} + d\mathbf{v}, -\mathbf{w} + c\mathbf{u} + d\mathbf{v} = 0\\
-\mathbf{u} \ne 0  \mathbf{u} \ne c\mathbf{v}\)&lt;/p&gt;
-
-&lt;h4 id=&quot;-theorem-8&quot;&gt;📖 Theorem 8.&lt;/h4&gt;
-&lt;p&gt;If a set contains more vectors than there are entries in each vector, then the set is linearly dependent.&lt;br /&gt;
-When n rows p columns, \(p &amp;gt; n\) must be a free variable! &lt;br /&gt;
-\(A\mathbf{x} = 0\) has a nontrivial solution.&lt;/p&gt;
-
-&lt;h4 id=&quot;-theorem-8-1&quot;&gt;📖 Theorem 8.&lt;/h4&gt;
-&lt;p&gt;If a set contains the zero vector, then the set is linearly dependent. &lt;br /&gt;
-\(1\mathbf{v_1} + 0\mathbf{v_2} + \cdots + 0\mathbf{v_p} = 0\)&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">Linearly Independent A set of vectors \({\mathbf{v_1}, \cdots, \mathbf{v_p}}\) in \(\mathbb{R^n}\) is said to be linearly independent, if the vector equation \(x\mathbf{v_1} + \cdots + x_p\mathbf{v_p} = 0\) Has only the trivial solution. trivial solution 만 있을 때, vector 앞에 있는 coefficient 가 다 0인 솔루션 어떤 vector set 에 LD 를 따지는 것은, \(A\mathbf{x} = 0\)을 푸는 것과 동일함 free variable이 한 개라도 존재하면, Nontrivial solution → 해가 무수히 존재</summary></entry><entry><title type="html">Ch15. Solution Sets of Linear Systems</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch15-Solution-Sets-of-Linear-Systems/" rel="alternate" type="text/html" title="Ch15. Solution Sets of Linear Systems" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch15-Solution-Sets-of-Linear-Systems</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch15-Solution-Sets-of-Linear-Systems/">&lt;h3 id=&quot;homogeneous-linear-systems&quot;&gt;Homogeneous Linear Systems&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Trivial solution&lt;/strong&gt; &lt;br /&gt;
-\(A\mathbf{x} = 0\) (→ 제로 백터 ) always has at least one solution \(\mathbf{x} = 0\)&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;NonTrivial solution&lt;/strong&gt; &lt;br /&gt;
-If and only if the equation has at least one free variable → 유일하거나 무한히 많을 때&lt;/p&gt;
-
-&lt;h4 id=&quot;-theorem2-existence-and-uniqueness-theorem&quot;&gt;📖 Theorem2. Existence and Uniqueness Theorem&lt;/h4&gt;
-&lt;p&gt;If a linear system is consistent, then the solution set contains either (i) a &lt;strong&gt;unique solution&lt;/strong&gt;, when there are &lt;strong&gt;no free variables&lt;/strong&gt;, or (ii) &lt;strong&gt;infinitely many solutions&lt;/strong&gt;, when there is &lt;strong&gt;at least one free variable&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;\(A\mathbf{x} = 0\)    the solution set can always be expressed as 
-\(Span\{\mathbf{v_1}, \mathbf{v_2}, \cdots, \mathbf{v_p}\}\)&lt;br /&gt;
-Trivial Solution :  \(Span\{0\}\) → v를 0벡터로 표현&lt;/p&gt;
-
-&lt;h3 id=&quot;nonhomogeneous-linear-systems&quot;&gt;NonHomogeneous Linear Systems&lt;/h3&gt;
-&lt;p&gt;\(A\mathbf{x} = \mathbf{b}\) →b is nonzero vector&lt;/p&gt;
-
-&lt;h4 id=&quot;-theorem6&quot;&gt;📖 Theorem6.&lt;/h4&gt;
-&lt;p&gt;Suppose  &lt;br /&gt;
-\(A\mathbf{x} = \mathbf{b}\) is consistent (→ 해가 최소 1개 이상일 때)  And let \(\mathbf{p}\) be a solution ( → p 벡터가 솔루션이라 가정하며 )&lt;br /&gt;
-Then the solution set of \(A\mathbf{x} = \mathbf{b}\) is the set of all vectors of the form &lt;br /&gt;
-\(\mathbf{w} = \mathbf{p} + \mathbf{v_h}\) where \(/mathbf{v_h}\) is any solution of the homogeneous equation \(A\mathbf{x} = \mathbf{0}\)&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">Homogeneous Linear Systems Trivial solution \(A\mathbf{x} = 0\) (→ 제로 백터 ) always has at least one solution \(\mathbf{x} = 0\)</summary></entry><entry><title type="html">Ch14. The Matrix Equation Ax=b</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch14-The-Matrix-Equation-Ax=b/" rel="alternate" type="text/html" title="Ch14. The Matrix Equation Ax=b" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch14-The-Matrix-Equation-Ax=b</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch14-The-Matrix-Equation-Ax=b/">&lt;h3 id=&quot;amathbfx--product-of-a-and-x&quot;&gt;\(A\mathbf{x}\) : Product of A and x&lt;/h3&gt;
+&lt;p&gt;직관적인 문제 → 무식하게 풀기 가 아니라 그냥 무식한 나도 풀 수 있다는 걸 알게됐다…🥲&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><summary type="html">오늘의 문제 프로그래머스 멀쩡한 사각형</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/programmars_62048.png" /><media:content medium="image" url="http://localhost:4000/images/programmars_62048.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Ch14. The Matrix Equation Ax=b</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch14-The-Matrix-Equation-Ax=b/" rel="alternate" type="text/html" title="Ch14. The Matrix Equation Ax=b" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch14-The-Matrix-Equation-Ax=b</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch14-The-Matrix-Equation-Ax=b/">&lt;h3 id=&quot;amathbfx--product-of-a-and-x&quot;&gt;\(A\mathbf{x}\) : Product of A and x&lt;/h3&gt;
 &lt;p&gt;The linear combination of the columns of \(A\) using the corresponding entries in \(\mathbf{X} \mbox{ as weights}\) → x 벡터 엔트리가 가중치&lt;/p&gt;
 
 &lt;h3 id=&quot;-theorem-3&quot;&gt;📖 Theorem 3.&lt;/h3&gt;
@@ -369,4 +396,62 @@ If the &lt;strong&gt;augmented&lt;/strong&gt; matrices of the linear systems are
 
 &lt;p&gt;뷰티풀솝 익숙해지려고 이걸로 이것저것 하려다 시간만 왕창 잡아먹고 결국 셀레니움으로 …했다.&lt;/p&gt;
 
-&lt;p&gt;여기에 파일 첨부는 어떻게 하는 걸까…?&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="Algorithm" /><category term="Crawling" /><summary type="html">21년 1월부터 연구실에선 매일 오전 9시 30분부터 한 시간동안 파이썬 알고리즘 문제를 푼다.</summary></entry></feed>
+&lt;p&gt;여기에 파일 첨부는 어떻게 하는 걸까…?&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="Algorithm" /><category term="Crawling" /><summary type="html">21년 1월부터 연구실에선 매일 오전 9시 30분부터 한 시간동안 파이썬 알고리즘 문제를 푼다.</summary></entry><entry><title type="html">THEOREMs</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch19-Theorems/" rel="alternate" type="text/html" title="THEOREMs" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch19-Theorems</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch19-Theorems/">&lt;h2 id=&quot;-theorem-1&quot;&gt;📖 Theorem 1.&lt;/h2&gt;
+&lt;p&gt;Uniqueness of the Reduced Echelon Form
+Each matrix is row equivalent to one and only one reduced echelon matrix&lt;/p&gt;
+
+&lt;h2 id=&quot;-theorem-2&quot;&gt;📖 Theorem 2.&lt;/h2&gt;
+
+&lt;h2 id=&quot;-theorem-3&quot;&gt;📖 Theorem 3.&lt;/h2&gt;
+&lt;p&gt;\(A\) is \(m \times n\) matrix, with columns \(a_1, \cdots, a_n   \mathbf{b} \mbox{ is in }\mathbb{R}^m\)&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Matrix Equation : \(A\mathbf{x} = \mathbf{b}\)&lt;/li&gt;
+  &lt;li&gt;Vector Equation : \(x_1\mathbf{a_1} + x_2\mathbf{a_2} + \cdots + x_p\mathbf{a_p} = \mathbb{b}\)&lt;/li&gt;
+  &lt;li&gt;Augmented Matrix  : \(\left[ \mathbf{a_1}, \mathbf{a_2}, \cdots, \mathbf{a_n} \mathbf{b}\right]\)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Have the same solution set!&lt;/p&gt;
+
+&lt;h2 id=&quot;-theorem-4&quot;&gt;📖 Theorem 4.&lt;/h2&gt;
+&lt;p&gt;The followings are all true of all false:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;For each b in R^m, Ax = b  has a solution&lt;/li&gt;
+  &lt;li&gt;Each b in R^m is a linear combination of the columns of A&lt;/li&gt;
+  &lt;li&gt;The columns of A spanR^m&lt;/li&gt;
+  &lt;li&gt;A has a pivot position in every row&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;-theorem-5&quot;&gt;📖 Theorem 5.&lt;/h2&gt;
+&lt;p&gt;If A is an m x n matrix, u and v are vectors in R^m,  And c is a scalar, then;  &lt;br /&gt;
+A(u + v) = Au + Av;&lt;br /&gt;
+A(cu) = c(Au)&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">📖 Theorem 1. Uniqueness of the Reduced Echelon Form Each matrix is row equivalent to one and only one reduced echelon matrix</summary></entry><entry><title type="html">Ch18. The Matrix of a Linear Transformation</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation/" rel="alternate" type="text/html" title="Ch18. The Matrix of a Linear Transformation" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation/">&lt;h4 id=&quot;-theorem-10&quot;&gt;📖 Theorem 10.&lt;/h4&gt;
+&lt;p&gt;Let \(T : \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation. Then there exists a unique matrix A such that&lt;br /&gt;
+\(T(\mathbf{x}) = A\mathbf{x} \mbox{ for all }\mathbf{x} \mbox{ in }\mathbb{R^n}\)&lt;br /&gt;
+In fact, \(A\) is the \(m \times n\) matrix whose j-th column is the vector \(T(e_j)\), where \(e_j\) is the j-th column of the identity matrix in \(\mathbb{R^n}\):&lt;br /&gt;
+\(A = \left[ T(e_1) \cdots T(e_n) \right]\)&lt;br /&gt;
+Standard matrix for the linear transformation T&lt;/p&gt;
+
+&lt;h3 id=&quot;onto&quot;&gt;Onto&lt;/h3&gt;
+&lt;p&gt;A mapping \(T: \mathbb{R^n} \to \mathbb{R^m}\) is said to be &lt;strong&gt;onto \(\mathbb{R^m}\)&lt;/strong&gt; if each \(\mathbf{b}\) in \(\mathbb{R^m}\) is the image of at least one \(\mathbf{x}\) in \(\mathbb{R^n}\)&lt;/p&gt;
+
+&lt;h3 id=&quot;one-to-one&quot;&gt;One-to-one&lt;/h3&gt;
+&lt;p&gt;A mapping  \(T: \mathbb{R^n} \to \mathbb{R^m}\) is said to be &lt;strong&gt;one-to-one&lt;/strong&gt; if each \(\mathbf{b}\) in \(\mathbb{R^m}\) is the image of at most one \(\mathbf{x}\) in \(\mathbb{R^n}\)&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;여러 개의 벡터에서 같은 이미지로 도달할 때 : one-to-one이 아님&lt;/li&gt;
+  &lt;li&gt;1대1 대응 : one-to-one&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-theorem-11&quot;&gt;📖 Theorem 11.&lt;/h4&gt;
+&lt;p&gt;Let \(T: \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation.&lt;br /&gt;
+Then \(T\) is &lt;strong&gt;one-to-one&lt;/strong&gt; if and only if the equation \(T(\mathbf{x}) = 0\)  has only trivial solution.&lt;br /&gt;
+\(T(0) = T(0\mathbf{0}) = 0T(\mathbf{0})\\
+T(\mathbf{u} = \mathbf{b}  T(\mathbf{v} = b)\\
+T(\mathbf{u} - \mathbf{v}) = T(\mathbf{u}) - T(\mathbf{v}) = 0\\
+\mathbf{u} - \mathbf{v} \ne 0\)&lt;br /&gt;
+\(T(\mathbf{x}) = 0\) has more than one solution&lt;/p&gt;
+
+&lt;h4 id=&quot;-theorem-12&quot;&gt;📖 Theorem 12.&lt;/h4&gt;
+&lt;p&gt;Let \(T: \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation and let \(A\) be the standard matrix for \(T\).  &lt;br /&gt;
+Then \(T\) maps &lt;strong&gt;\(\mathbb{R^n} \mbox{onto} \mathbb{R^m}\)&lt;/strong&gt; if and only if the &lt;strong&gt;columns of \(A\) span \(\mathbb{R^m}\)&lt;/strong&gt;   &lt;br /&gt;
+\(T\) is &lt;strong&gt;one-to-one&lt;/strong&gt; if and only if the columns of \(A\) are &lt;strong&gt;linearly independent&lt;/strong&gt;. &lt;br /&gt;
+	one-to-one → only trivial → independent&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">📖 Theorem 10. Let \(T : \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation. Then there exists a unique matrix A such that \(T(\mathbf{x}) = A\mathbf{x} \mbox{ for all }\mathbf{x} \mbox{ in }\mathbb{R^n}\) In fact, \(A\) is the \(m \times n\) matrix whose j-th column is the vector \(T(e_j)\), where \(e_j\) is the j-th column of the identity matrix in \(\mathbb{R^n}\): \(A = \left[ T(e_1) \cdots T(e_n) \right]\) Standard matrix for the linear transformation T</summary></entry></feed>

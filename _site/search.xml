@@ -2,6 +2,36 @@
 <search>
   
     <entry>
+      <title><![CDATA[Numpy 편의기능 및 기본조작 1 ~ 3]]></title>
+      <url>/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5/</url>
+      <content type="text"><![CDATA[Numpy 편의기능 및 기본조작np.eye(row, {col}, {band_id}, {dtype}) : band에 1 채워넣기  0,0 을 기준으로 대각선 항 -&gt; bandnp.identity(num, {dtype}) : identity matrix  Same as  np.eye(3) : 3x3 매트릭스np.tri(row, {col}, {k=band_id}, {dtype}) : lower triangular matrix      nonzero entry = 1        a = np.eye(row, {col},{band_id}, {dtype})        K &lt;= band id 의 모든 밴드에 1을 채워넣고 나머지는 0 을 채움  np.tril(a, {k=band_id}) : band_id를 포함한 lower 부분을 copynp.triu(a, {k=band_id}) : band_id를 포함한 upper 부분을 copynp.full((row, col), value) : 지정된 값으로 채우기np.randomn.rand(row, col)  데이터타입 지정 불가 -&gt; np.float64 고정  0과 1 사이 무작위 값으로 채워짐np.copy(a) : 서로 같은 메모리를 참조 : 하나가 변하면 다른 하나도 변함np.reshape(a, vector or shape)  np.reshape(a, 6) : 1D array  np.reshape(a, (3, 2)) : 2D arraynp.diag(a, k=band_id) : band 추출 후 1D array로 만듦  b is READ ONLY  동일 메모리 공간 참조  입력이 1D array (벡터)이면 square 행렬 생성    np.diagflat(M, k=band_id) : M를 1D화 한뒤에 square matrix 생성  np.trace(a, offset=band_id)  diagonal entry ( band entry )를 더한 값  \(\left[\begin{matrix}\\1 &amp; 2 &amp; 3 \\1 &amp; 2 &amp; 3 \\1 &amp; 2 &amp; 3 \\ \end{matrix}\right]\)  →  np.trace(a) returns 15, np.trace(a, offset=-1) returns 12np.hstack((tuple)) : 수평으로 쌓아감 - tuple 순서대로 행(row, shape[0]) 개수가 맞아야 함np.vstack((tuple)) : 수직으로 쌓아감 - tuple 순서대로 행(col, shape[0]) 개수가 맞아야 함Methodstranspose() method  단, 1d arr는 무변flatten method      행렬 a를 1d  array 로 만들어 copy        Same as np.ravel(a)  Propertiesreal : 실수 부분imag : 허수 부분conjegate: copyMatrix MultiplicationM1 @ M2 or np.matmul(M1, M2)Matrix-Vector ProductM @ arr or np.matmul(M, arr)Inner Productnp.dot() is …  Real vector same as vdot()  complex vector : conjugate가 빠진 채로 계산]]></content>
+      <categories>
+        
+          <category> Linear_Algebra </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title><![CDATA[프로그래머스 - 기능개발]]></title>
+      <url>/algorithm/2021/01/18/programmars-42586/</url>
+      <content type="text"><![CDATA[오늘의 문제프로그래머스 기능개발동일한 크기의 두 개의 리스트를 계산한다. 앞보다 뒤 값이 작으면 카운트 해준다.풀이 방법progresses = [93, 30, 55]speeds = [1, 30, 5]# return [2, 1]temp_result = [math.ceil((100 - prog) / sp) for prog, sp in zip(progresses, speeds)]# return [7, 3, 9]0번째 인덱스 93퍼센트 진행률의 하루 1퍼센트의 속도를 보인다. 7일 후 프로세스가 완료된다.이런 식이다. 완료시점(100퍼센트)까지 계산은 쉽다. 남은 진척도를 구하고 스피드를 나눠준 후 , 소숫점은 무조건 올려주면 된다.여기까진 쏘이지~answer = 1retval = list()for idx in range(1, len(temp_result)):    if temp_result[idx-1] &lt; temp_result[idx]:        retval.append(answer)        answer = 1    else:        temp_result[idx] = temp_result[idx-1]        answer += 1        retval.append(answer)i-1 번째가 i번째보다 크면 결과 리스트에 삽입하고 1로 초기화 해준다.i-1 번째가 i번째보다 작으면,  i-1번째는 그 넘어의 숫자와 비교되어야하기 때문에, i 번째에 넣어주고 answer( count )를 하나 올려주고 for문을 지속한다.사담진짜 아쉬웠다… 다 풀었는데… 내가 24시간을 꼬박 샜고… 두통이 엄청 와서 못 푼 거다… 그런거다 ^^]]></content>
+      <categories>
+        
+          <category> Algorithm </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
       <title><![CDATA[프로그래머스 - 멀쩡한 사각형]]></title>
       <url>/algorithm/2021/01/14/programmars-62048/</url>
       <content type="text"><![CDATA[오늘의 문제프로그래머스 멀쩡한 사각형문제 간략 설명 : 12 by 8 배열의 사각형에서 대각선의 불능을 제외 후 개수를 세어 반환하는 문제풀이 방법문제의 답을 직관적으로 알 수 있다. 가로 2씩 세로 3씩 증가하고, 3 by 2의 도형 안에서 불능 도형의 개수를 찾고, 이 패턴이 몇 번 반복되는지 알아내면 된다 !8 → 2, 12 → 3 니까 4 ! → 4번 패턴이 반복되는 건 두 수 사이의 최대공약수를 찾아주면 된다.3 by 2 은 6개 중 4개가 불능, 12 by 8 은 96개 중 16개가 불능이다.주어진 가로와 세로에 최대공약수를 나누어주고 -1을 한다. 그러고 반복되는 패턴이 4번 (12와 8의 최대공약수)이니 이만큼 곱해준다! …최대공약수 함수는 구글링해서 주웠다. ㅎㅎ 근데 math 모듈에 있더라고? 암튼((w / gcd(w, h) + h / gcd(w, h)) - 1 ) * gcd(w, h)그러고 전체 도형에서 불능 도형의 개수를 빼주면 끝~사담개인적으로 직관적인 문제는 무식하게 풀 수 있다고 생각하기에… 빈 종이에 손으로 쓰면서 문제를 풀었다.대각선이 지나갈 때의 불능 도형의 개수가 제일 머리 아팠다… 뭐랄까 애기 때 수학 공부를 잘했으면 금방 풀었을텐데 하는 생각이 들 정도로 간단해보이는데 잘 모르겠고… 이게 맞는데 왜 그런지는 모르겠는 그런 너낌직관적인 문제 → 무식하게 풀기 가 아니라 그냥 무식한 나도 풀 수 있다는 걸 알게됐다…🥲]]></content>
