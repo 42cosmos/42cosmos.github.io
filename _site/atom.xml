@@ -1,4 +1,316 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-20T22:08:23+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">빈둥빈둥 공부블로그</title><author><name>Eunbin Park</name></author><entry><title type="html">Numpy 편의기능 및 기본조작 1 ~ 3</title><link href="http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5/" rel="alternate" type="text/html" title="Numpy 편의기능 및 기본조작 1 ~ 3" /><published>2021-01-20T00:00:00+09:00</published><updated>2021-01-20T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5/">&lt;p&gt;Numpy 편의기능 및 기본조작&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-22T22:59:18+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">빈둥빈둥 공부블로그</title><author><name>Eunbin Park</name></author><entry><title type="html">행렬방정식 - 특수행렬 with Scipy &amp;amp; 여러 식을 한꺼번에 풀기</title><link href="http://localhost:4000/linear_algebra/2021/01/22/5-%ED%8A%B9%EC%88%98-%ED%96%89%EB%A0%AC/" rel="alternate" type="text/html" title="행렬방정식 - 특수행렬 with Scipy &amp;amp; 여러 식을 한꺼번에 풀기" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/22/5-%ED%8A%B9%EC%88%98-%ED%96%89%EB%A0%AC</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/22/5-%ED%8A%B9%EC%88%98-%ED%96%89%EB%A0%AC/">&lt;h3 id=&quot;toeplitz-행렬-solver&quot;&gt;Toeplitz 행렬 Solver&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_toeplitz((c, r), b)&lt;/code&gt; : c/r - 1D array (vector)&lt;br /&gt;
+기본 알고리즘 : Levinson-Durbin Recursion 계산량 \(\sim n^2\) 행렬사이즈의 2승에 비례하는 량&lt;br /&gt;
+행렬 사이즈가 커질 수록 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;solve_toeplitz&lt;/code&gt; 함수가 유리함&lt;/p&gt;
+
+&lt;h4 id=&quot;toeplitz-matrix-구축&quot;&gt;Toeplitz Matrix 구축&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.toeplitz(c,r)&lt;/code&gt; 이게 꼭 필요할까? 작은사이즈 외에 경우에는 필요하지 않음&lt;/p&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;h3 id=&quot;circulant-행렬-solver&quot;&gt;Circulant 행렬 Solver&lt;/h3&gt;
+
+&lt;p&gt;0번째 컬럼만 알면 가능&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solver_circulant(c, b)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;기본 알고리즘 : Discrete Fourier Transform → 실질적으로 Fast Fourier transform 으로 문제를 해결&lt;/p&gt;
+
+&lt;p&gt;행렬사이즈 n의 log(n)에 비례하는 계산량 : \(\sim nlog(n)\)&lt;/p&gt;
+
+&lt;h4 id=&quot;circulant-matrix-구축&quot;&gt;Circulant Matrix 구축&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.circulant(c)&lt;/code&gt; : 추천하지 않음&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;여러-식을-한꺼번에-풀기-&quot;&gt;여러 식을 한꺼번에 풀기 !&lt;/h3&gt;
+
+&lt;p&gt;→ b벡터가 여러개일 때 한번에 푸는 방법&lt;br /&gt;
+→ A가 불변하고 B는 이미 주어진 상황이라면,&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;일반행렬&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve(A, B, {assume_a = 'gen'})&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_triangular(A, B, {lower = False})&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;밴드행렬&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_banded((lbw, ubw),  band_a, B)&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solveh_banded(band_a_h, B, lower=False)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;특수행렬&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_toeplitz((c, r), B)&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_circulant(c, B)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;→ 모두 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;B&lt;/code&gt; &lt;strong&gt;벡터를 행렬&lt;/strong&gt;로 넣어주면 결과를 반환함&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">Toeplitz 행렬 Solver</summary></entry><entry><title type="html">행렬방정식 - 일반행렬 with Scipy</title><link href="http://localhost:4000/linear_algebra/2021/01/22/3-%EC%9D%BC%EB%B0%98-%ED%96%89%EB%A0%AC/" rel="alternate" type="text/html" title="행렬방정식 - 일반행렬 with Scipy" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/22/3-%EC%9D%BC%EB%B0%98-%ED%96%89%EB%A0%AC</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/22/3-%EC%9D%BC%EB%B0%98-%ED%96%89%EB%A0%AC/">&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linalg&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;determinant-구하기&quot;&gt;Determinant 구하기&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.det(A)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;기본 알고리즘 : LU Decomposition&lt;/p&gt;
+
+&lt;p&gt;→ A = LU \(det(A) = det(L * U) = det(L) * det(U) = det(U)\) : U의 대각항들만 모두 곱해주는 형태로 구해짐&lt;/p&gt;
+
+&lt;h4 id=&quot;lapack-함수-subroutine&quot;&gt;Lapack 함수 (subroutine)&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zgetrf&lt;/code&gt; : complex128&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dgetrf&lt;/code&gt; : float64&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;h3 id=&quot;역행렬-구하기&quot;&gt;역행렬 구하기&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;목적이 행렬방정식 Ax=b를 구하는 거라면 사용하지 말자!&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.inv(A)&lt;/code&gt; &amp;gt; 역행렬이 없으면 singular matrix 에러 출현! : 수학적으로는 에러가 아니지만, 수치적으로 에러에 기인해 판단될 수도 있음 (구분이 불가함)&lt;/p&gt;
+
+&lt;h4 id=&quot;기본-알고리즘&quot;&gt;기본 알고리즘&lt;/h4&gt;
+
+&lt;p&gt;LU Decomposition : Solve \(LUA^{-1} = I\) : Backward phase (backsubstitution)&lt;/p&gt;
+
+&lt;h4 id=&quot;lapack&quot;&gt;Lapack&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getrf&lt;/code&gt; : LU decomposition&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getri&lt;/code&gt; : inverse from triangular matrix : 트라이앵귤러 매트릭스를 푸는 solver 역할을 겸함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;h3 id=&quot;ax--b-풀기&quot;&gt;Ax = b 풀기&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve(A, b, assume_a=&quot;gen&quot;)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assume_a&lt;/code&gt; : 입력으로 들어오는 행렬의 특성&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;설정을 잘못 넣어도 별다른 오류 출력이 없음&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;gen : 행렬의 특성을 모를 때 LU decomposition - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gesv&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;sym : (Real or Complex) Symmetric Metrix \(A = A^T\) Diagonal pivoting \(A = LDL^T\) : block diagonal - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sysv&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;her : Hermitian matrix \(A = A^*\) Diagonal Pivoting \(A = LDL^*\) - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hesv&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;pos : Positive Definite  \(x^TAx &amp;gt; 0\) Symmetric or Hermitian Cholesky decomposition : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;posv&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;h3 id=&quot;triangular-matrix-solver&quot;&gt;Triangular Matrix Solver&lt;/h3&gt;
+
+&lt;p&gt;Ax = b, A = Upper(lower) triangular matrix&lt;/p&gt;
+
+&lt;p&gt;Backward phase (backsubstitution) 과정만이 필요함&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_triangular(A, b, {lower = False})&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;lapack-1&quot;&gt;Lapack&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;trtrs&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;h3 id=&quot;해의-정확성&quot;&gt;해의 정확성&lt;/h3&gt;
+
+&lt;p&gt;Ax = b, x = 수치적 계산으로 근사된 값&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Q1. Ax와 b가 충분히 비슷한가 ?&lt;/li&gt;
+  &lt;li&gt;Q2. Ax - b 충분히 작은가? 0에 충분히 가까운가?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;엔트리의 오차를 직접 계산할 수 있음 (절대 / 상대 오차 모두)&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.allclose(A@x, b)&lt;/code&gt; 변수의 모든 엔트리를 비교해 충분히 비슷하다면 True → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.allclose(A@x - b, np.zeros((b.shape[0], )))&lt;/code&gt;&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">from scipy import linalg</summary></entry><entry><title type="html">왜 역행렬을 구하는 것보다 Ax=b를 푸는게 좋을까?</title><link href="http://localhost:4000/linear_algebra/2021/01/22/2-%EC%97%AD%ED%96%89%EB%A0%AC%EB%B3%B4%EB%8B%A4-Ax=b/" rel="alternate" type="text/html" title="왜 역행렬을 구하는 것보다 Ax=b를 푸는게 좋을까?" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/22/2-%EC%97%AD%ED%96%89%EB%A0%AC%EB%B3%B4%EB%8B%A4-Ax=b</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/22/2-%EC%97%AD%ED%96%89%EB%A0%AC%EB%B3%B4%EB%8B%A4-Ax=b/">&lt;p&gt;\(A^{-1}\) 을 한 번 구해두면 \(x = A^{-1}b\) 를 통해 해를 구하면 되지 않을까?&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;\(A^{-1}\)을 구해 해를 찾는 경우
+    &lt;ol&gt;
+      &lt;li&gt;\(A^{-1}\)을 구하는 노력 \(\backsim n^3\) 행렬사이즈의 3승&lt;/li&gt;
+      &lt;li&gt;\(A^{-1}b\)의 계산 노력 \(\backsim n^2\)&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;\(Ax = b\)를 풀어 해를 찾는 경우
+    &lt;ol&gt;
+      &lt;li&gt;&lt;strong&gt;Gauss Elimminaton&lt;/strong&gt; \(Ax = b\)를 푸는 노력 \(\backsim n^3\)&lt;/li&gt;
+      &lt;li&gt;**LU decomposition ** \(A = LU\) 를 찾는 노력 \(\backsim n^3\) → LUx = b를 푸는 노력 \(\backsim n^2\)&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;수치적-정확도--해의-정확도-&quot;&gt;수치적 정확도 ( 해의 정확도 )&lt;/h3&gt;
+
+&lt;p&gt;컴퓨터에서는 제한된 소수점으로 표현&lt;/p&gt;
+
+&lt;h3 id=&quot;희소행렬의-역행렬과-lu-decomposition-비교&quot;&gt;희소행렬의 역행렬과 LU Decomposition 비교&lt;/h3&gt;
+
+&lt;p&gt;행렬 대부분이 0일 경우 ( Sparse Matrix )&lt;/p&gt;
+
+&lt;p&gt;역행렬은 sparse 하지 않음&lt;/p&gt;
+
+&lt;p&gt;L과 U는 여전히 Sparse 한 경우가 많음&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;특별히 \(A^{-1}\)이 필요한 경우가 아니면, \(A\mathbf{x} = b\)를 풀 때 역행렬을 구하지 말자!&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">\(A^{-1}\) 을 한 번 구해두면 \(x = A^{-1}b\) 를 통해 해를 구하면 되지 않을까?</summary></entry><entry><title type="html">Matrix 분류와 적합한 Inverse 알고리즘</title><link href="http://localhost:4000/linear_algebra/2021/01/22/1-Matrix%EB%B6%84%EB%A5%98%EC%99%80-%EC%A0%81%ED%95%A9%ED%95%9C-Inverse-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" rel="alternate" type="text/html" title="Matrix 분류와 적합한 Inverse 알고리즘" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/22/1-Matrix%EB%B6%84%EB%A5%98%EC%99%80-%EC%A0%81%ED%95%A9%ED%95%9C-Inverse-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/22/1-Matrix%EB%B6%84%EB%A5%98%EC%99%80-%EC%A0%81%ED%95%A9%ED%95%9C-Inverse-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">&lt;h2 id=&quot;성질로써의-분류&quot;&gt;성질로써의 분류&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Real Matrix
+    &lt;ol&gt;
+      &lt;li&gt;Symmetric
+        &lt;ol&gt;
+          &lt;li&gt;Positive definite&lt;/li&gt;
+          &lt;li&gt;Negative definite&lt;/li&gt;
+          &lt;li&gt;Indefinite&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Non-Symmetric&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Complex Matrix&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;
+        &lt;p&gt;Hermitian A = A* 에르미트&lt;/p&gt;
+
+        &lt;ol&gt;
+          &lt;li&gt;
+            &lt;p&gt;Real symmetric 의 성질들이 에르미트에도 적용될 수 있음&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;p&gt;Positive definite : \(\mathbf{x}^*A\mathbf{x} &amp;gt; 0\)&lt;/p&gt;
+          &lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Non-Hermitian&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;positive-definite-일-경우&quot;&gt;Positive Definite 일 경우&lt;/h3&gt;
+
+&lt;h4 id=&quot;cholesky-decomposition&quot;&gt;Cholesky decomposition&lt;/h4&gt;
+
+&lt;p&gt;R(L) =&amp;gt; Upper(Lower) triangular matrix&lt;/p&gt;
+
+&lt;p&gt;Real Matrix Positive definite → \(A = R^T R = LL^T\)&lt;/p&gt;
+
+&lt;p&gt;Complex Matrix Positive definite → \(A = R^* R = LL^*\)&lt;/p&gt;
+
+&lt;h4 id=&quot;ldl-decomposition&quot;&gt;LDL decomposition&lt;/h4&gt;
+
+&lt;p&gt;Tridiagonal 형태에서 적용함 ( 간단한 형태 )&lt;/p&gt;
+
+&lt;p&gt;D =&amp;gt; Diagonal Matrix&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+\[A = UDU^T = LDL^T\]
+  &lt;/li&gt;
+  &lt;li&gt;
+\[A = UDU^* = LDL^*\]
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;indefinite&quot;&gt;Indefinite&lt;/h3&gt;
+
+&lt;h4 id=&quot;diagonal-pivoting-method&quot;&gt;Diagonal Pivoting method&lt;/h4&gt;
+
+&lt;p&gt;D =&amp;gt; Block Diagonal Matrix 블럭은 &lt;strong&gt;최대 2 by 2&lt;/strong&gt; 형태&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Block symmetric diangonal : \(A = UDU^T = LDL^T\)&lt;/li&gt;
+  &lt;li&gt;Block Hermitian diangonal : \(A = UDU^* = LDL^*\)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;complex-symmetric-matrix&quot;&gt;Complex symmetric matrix&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;반드시 에르메트 형태와 구분지어야 함!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;주로 나오는 분야 : Boundary integral equations&lt;/p&gt;
+
+&lt;p&gt;**Non-Hermitian Matrix ** Definiteness ? → posi, nega, indef 가 모호해짐 : 일반적으로 정의가 되어있지 않음.&lt;/p&gt;
+
+&lt;p&gt;보통 Diagonal Pivoting method 알고리즘을 사용!&lt;/p&gt;
+
+&lt;p&gt;\(A = UDU^T = LDL^T\) 형태의 Decomposition을 사용 : Real symmetric matrix 처럼 풀면 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;모양으로써의-분류&quot;&gt;모양으로써의 분류&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Full Matrix&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Band Matrix : Band의 일부만 존재하고 나머지는 0으로 채워진 경우 ( Diagonal 부분 제외)&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;컴퓨터 언어마다 row/col 접근 방식 속도 차이가 나기 때문에 저장 방식을 고려해야 함&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Digital Image Processing, Signal Processing, Cryptography 등의 분야에서 나오는 특수한 Matrix&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Toepliz matrix : 태각선 항의 값이 모두 동일함, 마이너스 인덱스로 표현&lt;/p&gt;
+
+    &lt;p&gt;→ Levinson-Durbin recursion \(~n^2\) &amp;gt; 필요 저장 공간은 컬럼 하나 : 정확도 문제 존재&lt;/p&gt;
+
+    &lt;p&gt;→ Bareiss algorithm \(~n^2\) &amp;gt; 풀매트릭스를 저장하는 단점이 있음&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Circulant Matrix : 열의 값이 순환함&lt;/p&gt;
+
+    &lt;p&gt;→ Circular convolution theorem&lt;/p&gt;
+
+    &lt;p&gt;→ Discrete Fourier transform&lt;/p&gt;
+
+    &lt;p&gt;→ Fast Fourier transform \(~nlog(n)\)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">성질로써의 분류</summary></entry><entry><title type="html">행렬방정식 - 밴드행렬 with Scipy</title><link href="http://localhost:4000/linear_algebra/2021/01/22/4-%EB%B0%B4%EB%93%9C-%ED%96%89%EB%A0%AC/" rel="alternate" type="text/html" title="행렬방정식 - 밴드행렬 with Scipy" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/22/4-%EB%B0%B4%EB%93%9C-%ED%96%89%EB%A0%AC</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/22/4-%EB%B0%B4%EB%93%9C-%ED%96%89%EB%A0%AC/">&lt;h3 id=&quot;scipy에서의-밴드행렬-입력&quot;&gt;Scipy에서의 밴드행렬 입력&lt;/h3&gt;
+
+&lt;p&gt;bandwidth » n (행렬사이즈) 일 때 유용함&lt;br /&gt;
+column index를 유지하면서 밴드만 가져와 가로 형태로 쌓아줌&lt;/p&gt;
+
+&lt;h3 id=&quot;밴드행렬-solver&quot;&gt;밴드행렬 Solver&lt;/h3&gt;
+
+&lt;p&gt;\(A\mathbf{x} = b\) 일 때, A는 밴드행렬이 유리&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_banded((lbw 폭, ubw 폭), band_a, b)&lt;/code&gt; &lt;br /&gt;
+기본 알고리즘&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;LU Decomposition : - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gbsv&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Tridiagonal Solver : lbw, ubw = 1 - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gtsv&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;밴드행렬-solver의-solution-확인&quot;&gt;밴드행렬 Solver의 Solution 확인&lt;/h4&gt;
+
+&lt;p&gt;Band_A @ x != b → A @ x = b &lt;br /&gt;
+밴드행렬을 다시 원행렬로 돌리고 Matrix-vector multiplication 은 본래의 목적에서 벗어남 (메모리)&lt;/p&gt;
+
+&lt;p&gt;TBC&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">Scipy에서의 밴드행렬 입력</summary></entry><entry><title type="html">Numpy 편의기능 및 기본조작 1 ~ 3</title><link href="http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5/" rel="alternate" type="text/html" title="Numpy 편의기능 및 기본조작 1 ~ 3" /><published>2021-01-20T00:00:00+09:00</published><updated>2021-01-20T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5/">&lt;p&gt;Numpy 편의기능 및 기본조작&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -8,7 +320,7 @@
   &lt;li&gt;0,0 을 기준으로 대각선 항 -&amp;gt; band&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/numpy-basic.png&quot; alt=&quot;numpy-basic&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../images/numpy-basic.png&quot; alt=&quot;numpy-basic&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.identity(num, {dtype})&lt;/code&gt; : identity matrix&lt;/p&gt;
 
@@ -58,14 +370,14 @@
   &lt;li&gt;b is READ ONLY&lt;/li&gt;
   &lt;li&gt;동일 메모리 공간 참조&lt;/li&gt;
   &lt;li&gt;입력이 1D array (벡터)이면 square 행렬 생성&lt;/li&gt;
-  &lt;li&gt;&lt;img src=&quot;./images/np-diag-1.png&quot; alt=&quot;np-diag-1&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;../../images/np-diag-1.png&quot; alt=&quot;np-diag-1&quot; /&gt;&lt;/li&gt;
   &lt;li&gt;&lt;img src=&quot;/Users/eunbinpark/workspace/42cosmos.github.io/images/np-diag-2.png&quot; alt=&quot;np-diag-1&quot; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.diagflat(M, k=band_id)&lt;/code&gt; : M를 1D화 한뒤에 square matrix 생성&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;img src=&quot;./images/np.diagflat-1.png&quot; alt=&quot;np.diagflat-1&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;../../images/np.diagflat-1.png&quot; alt=&quot;np.diagflat-1&quot; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.trace(a, offset=band_id)&lt;/code&gt;&lt;/p&gt;
@@ -192,204 +504,7 @@
 
 &lt;p&gt;대각선이 지나갈 때의 불능 도형의 개수가 제일 머리 아팠다… 뭐랄까 애기 때 수학 공부를 잘했으면 금방 풀었을텐데 하는 생각이 들 정도로 간단해보이는데 잘 모르겠고… 이게 맞는데 왜 그런지는 모르겠는 그런 너낌&lt;/p&gt;
 
-&lt;p&gt;직관적인 문제 → 무식하게 풀기 가 아니라 그냥 무식한 나도 풀 수 있다는 걸 알게됐다…🥲&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><summary type="html">오늘의 문제 프로그래머스 멀쩡한 사각형</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/programmars_62048.png" /><media:content medium="image" url="http://localhost:4000/images/programmars_62048.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Ch14. The Matrix Equation Ax=b</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch14-The-Matrix-Equation-Ax=b/" rel="alternate" type="text/html" title="Ch14. The Matrix Equation Ax=b" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch14-The-Matrix-Equation-Ax=b</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch14-The-Matrix-Equation-Ax=b/">&lt;h3 id=&quot;amathbfx--product-of-a-and-x&quot;&gt;\(A\mathbf{x}\) : Product of A and x&lt;/h3&gt;
-&lt;p&gt;The linear combination of the columns of \(A\) using the corresponding entries in \(\mathbf{X} \mbox{ as weights}\) → x 벡터 엔트리가 가중치&lt;/p&gt;
-
-&lt;h3 id=&quot;-theorem-3&quot;&gt;📖 Theorem 3.&lt;/h3&gt;
-&lt;p&gt;\(A\) is \(m \times n\) matrix, with columns \(a_1, \cdots, a_n   \mathbf{b} \mbox{ is in }\mathbb{R}^m\)&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Matrix Equation : \(A\mathbf{x} = \mathbf{b}\)&lt;/li&gt;
-  &lt;li&gt;Vector Equation : \(x_1\mathbf{a_1} + x_2\mathbf{a_2} + \cdots + x_p\mathbf{a_p} = \mathbb{b}\)&lt;/li&gt;
-  &lt;li&gt;Augmented Matrix  : \(\left[ \mathbf{a_1}, \mathbf{a_2}, \cdots, \mathbf{a_n} \mathbf{b}\right]\)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Have the same solution set!&lt;/p&gt;
-
-&lt;h3 id=&quot;-theorem-4&quot;&gt;📖 Theorem 4.&lt;/h3&gt;
-&lt;p&gt;The followings are all true of all false:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;For each b in R^m, Ax = b  has a solution&lt;/li&gt;
-  &lt;li&gt;Each b in R^m is a linear combination of the columns of A&lt;/li&gt;
-  &lt;li&gt;The columns of A spanR^m&lt;/li&gt;
-  &lt;li&gt;A has a pivot position in every row&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;-theorem-5&quot;&gt;📖 Theorem 5.&lt;/h3&gt;
-&lt;p&gt;If A is an m x n matrix, u and v are vectors in R^m,  And c is a scalar, then;  &lt;br /&gt;
-A(u + v) = Au + Av;&lt;br /&gt;
-A(cu) = c(Au)&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">\(A\mathbf{x}\) : Product of A and x The linear combination of the columns of \(A\) using the corresponding entries in \(\mathbf{X} \mbox{ as weights}\) → x 벡터 엔트리가 가중치</summary></entry><entry><title type="html">Ch13. Vector Equations</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch13-Vector-Equations/" rel="alternate" type="text/html" title="Ch13. Vector Equations" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch13-Vector-Equations</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch13-Vector-Equations/">&lt;p&gt;Vectors in \(\mathbb{R}^2\) → 실수 2차원 공간 &lt;br /&gt;
-\(\mathbf{u} = \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right], \mathbf{v} = \left[\begin{matrix}0.2 \\ 0.3 \\\end{matrix}\right], \mathbf{u} = \left[\begin{matrix}w_1 \\ w_2 \\\end{matrix}\right]\)&lt;br /&gt;
-\(\vec{u} = (3, -1), \vec{v} = (0.2, 0.3), \vec{w} = (w_1, w_2)\)&lt;/p&gt;
-
-\[(w_1, w_2) \ne \left[ w_1, w_2\right]\]
-
-&lt;h3 id=&quot;scalar-multiplication&quot;&gt;Scalar Multiplication&lt;/h3&gt;
-&lt;p&gt;백터 네 모든 값에 스칼라 값을 곱해준다&lt;br /&gt;
-\(c = 5, \mathbf{u} =  \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right]\) 일 때,&lt;br /&gt;
-\(c\mathbf{u} = 5 \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right] =  \left[\begin{matrix}5\cdot3 \\ 5\cdot(-1) \\\end{matrix}\right] =  \left[\begin{matrix}15 \\ -5 \\\end{matrix}\right]\)&lt;/p&gt;
-
-&lt;h3 id=&quot;vectors-in-mathbbrn&quot;&gt;Vectors in \(\mathbb{R}^n\)&lt;/h3&gt;
-&lt;p&gt;\(c\mathbf{u} = \left[\begin{matrix}u_1 \\ u_2 \\ \cdots \\ u_n\end{matrix}\right]   \\
-\mathbf{u} = (u_1, u_2, \cdots, u_n)\)&lt;/p&gt;
-
-&lt;h3 id=&quot;algebraic-properties-of-mathbbrn&quot;&gt;Algebraic Properties of \(\mathbb{R}^n\)&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;\(\mathbf{u, v, w} \mbox{ are } \mathbb{R}^n \mbox{ and } c d \mbox{ are scalar}\)&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;u + v = v + u&lt;/li&gt;
-  &lt;li&gt;(u + v) + w = u + (v + w)&lt;/li&gt;
-  &lt;li&gt;u + 0 = 0 + u = u&lt;/li&gt;
-  &lt;li&gt;u + (-u) = -u + u = 0&lt;/li&gt;
-  &lt;li&gt;c(u + v) = cu + cv&lt;/li&gt;
-  &lt;li&gt;(c + d)u = cu + du&lt;/li&gt;
-  &lt;li&gt;c(du) = (cd)u&lt;/li&gt;
-  &lt;li&gt;1u = u&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;linear-combinations&quot;&gt;Linear Combinations&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Linear combination of \(\mathbf{v_1, v_2, \cdots, v_p} \mbox{ is } \mathbb{R}^n     
-\mbox{with weights } c_1, c_2, \cdots, c_p \mbox{ is scalar}\)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;y = \(c_1\mathbf{v_1} + c_2\mathbf{v_2} + \cdots + c_p\mathbf{v_p}\)&lt;/p&gt;
-
-&lt;p&gt;A vector equation &lt;br /&gt;
-\(x_1\mathbf{a_1}+x_2\mathbf{a_2}+\cdots+x_n\mathbf{a_n} = \mathbf{b}\)&lt;br /&gt;
-has the &lt;strong&gt;same solution&lt;/strong&gt; set as the linear system whose &lt;strong&gt;augmented matrix&lt;/strong&gt; is  &lt;br /&gt;
-\(\left[\mathbf{a_1} \mathbf{a_2} \cdots \mathbf{a_n} \mathbf{b}\right]\)&lt;/p&gt;
-
-&lt;p&gt;→ 각 벡터를 집어넣은 Augmented Matrix 와 동일한 해를 지닌다.&lt;/p&gt;
-
-&lt;h3 id=&quot;spanmathbfv&quot;&gt;Span{\(\mathbf{v}\)}&lt;/h3&gt;
-&lt;p&gt;is the collection of all vectors that can be written in the form&lt;br /&gt;
- \(c_1\mathbf{v_1} + c_2\mathbf{v_2} + \cdots + c_p\mathbf{v_p}\)&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">Vectors in \(\mathbb{R}^2\) → 실수 2차원 공간 \(\mathbf{u} = \left[\begin{matrix}3 \\ -1 \\\end{matrix}\right], \mathbf{v} = \left[\begin{matrix}0.2 \\ 0.3 \\\end{matrix}\right], \mathbf{u} = \left[\begin{matrix}w_1 \\ w_2 \\\end{matrix}\right]\) \(\vec{u} = (3, -1), \vec{v} = (0.2, 0.3), \vec{w} = (w_1, w_2)\)</summary></entry><entry><title type="html">Ch12. Row Reduction and Echelon Forms</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch12-Row-Reduction-and-Echelon-Forms/" rel="alternate" type="text/html" title="Ch12. Row Reduction and Echelon Forms" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch12-Row-Reduction-and-Echelon-Forms</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch12-Row-Reduction-and-Echelon-Forms/">&lt;p&gt;&lt;strong&gt;A leading Entry of row&lt;/strong&gt; : the LEFTMOST nonzero entry.&lt;/p&gt;
-&lt;h3 id=&quot;echelon-form&quot;&gt;Echelon Form&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;All nonzero rows are above any rows of all zeros&lt;/li&gt;
-  &lt;li&gt;Each leading entry of a row is in column to the right of the leading entry of the row above it&lt;/li&gt;
-  &lt;li&gt;The leading entry in each nonzero row is 1&lt;/li&gt;
-  &lt;li&gt;Each leading 1 is the only nonzero entry in its column&lt;/li&gt;
-&lt;/ol&gt;
-
-\[1 → \left[
-\begin{matrix}
-\bullet &amp;amp; * &amp;amp; * &amp;amp; * \\
-0 &amp;amp; \bullet &amp;amp; * &amp;amp; * \\
-0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
-0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
-\end{matrix}
-\right]        
-  2 → \left[
-\begin{matrix}
-\bullet &amp;amp; * &amp;amp; * &amp;amp; * \\
-0 &amp;amp; \bullet &amp;amp; * &amp;amp; * \\
-0 &amp;amp; 0 &amp;amp; \bullet &amp;amp; * \\
-0 &amp;amp; 0 &amp;amp; 0 &amp;amp; \bullet \\
-\end{matrix}
-\right]\]
-
-&lt;h4 id=&quot;-theorem-1-uniqueness-of-the-reduced-echelon-form&quot;&gt;📖 Theorem 1. Uniqueness of the Reduced Echelon Form&lt;/h4&gt;
-&lt;p&gt;Each matrix is row equivalent to one and only one reduced echelon matrix&lt;/p&gt;
-
-&lt;h3 id=&quot;row-reduction-algorithm&quot;&gt;Row Reduction Algorithm&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;Begin with the leftmost nonzero column&lt;/li&gt;
-  &lt;li&gt;Select a nonzero entry in the pivot column as a pivot. If necessary, Interchange rows to move this entry into the pivot position.&lt;/li&gt;
-  &lt;li&gt;Row replacement to create zeros in all positions below the pivot.&lt;/li&gt;
-  &lt;li&gt;Apply steps 1-3 to the sub matrix that remain. The combination of steps 1-4 is called forward phase echelon form&lt;/li&gt;
-  &lt;li&gt;Beginning with the rightmost polio and working upward and to the left, created zeros above each pivot. If a pivot is not 1, make it 1 by a scaling operation.
-    &lt;ul&gt;
-      &lt;li&gt;Called backward phase reduced echelon form&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;solution-of-linear-systems&quot;&gt;Solution of linear systems&lt;/h3&gt;
-&lt;p&gt;\(\left[
-\begin{matrix}
-1 &amp;amp; 0 &amp;amp; -5 &amp;amp; 1 \\
-0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 4 \\
-0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
-\end{matrix}
-\right]\) &lt;br /&gt;
-일 때,&lt;br /&gt;
-\(x_1 - 5x_3 = 1 \\
-x_2 + x_3 = 4 \\
-0 = 0 \\
-\left[
-\begin{matrix}
-6 \\3 \\1 \\
-\end{matrix}
-\right]
-\left[
-\begin{matrix}
--9 \\
-6 \\
--2 \\
-\end{matrix}
-\right]  \cdots\) &lt;br /&gt;
-해가 무한대가 되며,  General Solution 은 아래와 같다.&lt;br /&gt;
-\(\begin{cases}
-x_1 = 1 + 5x_3 &amp;amp; \mbox{basic / leading  variables} \\
-x_2 = 4 - x_3 &amp;amp; \mbox{basic / leading variables} \\
-x_3 \mbox{ is free} &amp;amp; \mbox{free variable}
-\end{cases}\)&lt;/p&gt;
-
-&lt;h4 id=&quot;-theorem-2-existence-and-uniqueness-theorem&quot;&gt;📖 Theorem 2. Existence and Uniqueness Theorem&lt;/h4&gt;
-&lt;p&gt;A linear system is consistent if and only if the rightmost column of the augmented matrix is not a pivot column - that is, if and only if and echelon form of the augmented matrix has no row of the forms.  &lt;br /&gt;
-\(\left[ \begin{matrix} 0 &amp;amp; \cdots &amp;amp;  0 &amp;amp; b \end{matrix} \right]\) with \(b\) is nonzero.  &lt;br /&gt;
-If a linear system is consistent, then the solution set contains either (i) a unique solution, when there are no free variables, or (ii) infinitely many solutions, when there is at least one free variables.&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">A leading Entry of row : the LEFTMOST nonzero entry. Echelon Form All nonzero rows are above any rows of all zeros Each leading entry of a row is in column to the right of the leading entry of the row above it The leading entry in each nonzero row is 1 Each leading 1 is the only nonzero entry in its column</summary></entry><entry><title type="html">Ch11. Linear Equations in Linear Algebra</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch11-Linear-Equations-in-Linear-Algebra/" rel="alternate" type="text/html" title="Ch11. Linear Equations in Linear Algebra" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch11-Linear-Equations-in-Linear-Algebra</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch11-Linear-Equations-in-Linear-Algebra/">&lt;p&gt;&lt;strong&gt;A system of linear equations&lt;/strong&gt; : A collection of one or more linear equations &lt;br /&gt;
-&lt;strong&gt;Solution Set&lt;/strong&gt; : The Set of all possible solutions of the linear system&lt;br /&gt;
-	→ Two linear systems are called &lt;strong&gt;equivalent&lt;/strong&gt; if they have the same solution set.&lt;/p&gt;
-
-&lt;p&gt;A system of linear equations has either&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;No Solution ( &lt;strong&gt;INCONSISTENT&lt;/strong&gt; )&lt;/li&gt;
-  &lt;li&gt;Exactly one Solution ( &lt;strong&gt;CONSISTENT&lt;/strong&gt; )&lt;/li&gt;
-  &lt;li&gt;Infinitely Many Solutions ( &lt;strong&gt;CONSISTENT&lt;/strong&gt; )&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;matrix-notation&quot;&gt;Matrix Notation&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;3 rows x 3 columns =&amp;gt; Coefficient Matrix ( 3 \(\times\) 3 ) : 계수 행렬&lt;/li&gt;
-  &lt;li&gt;3 rows x 4 columns =&amp;gt; Augmented Matrix ( 3 \(\times\) 4  ) : 확대 행렬
-    &lt;ul&gt;
-      &lt;li&gt;첨가 행렬은 계수 행렬과 상수항들의 행렬을 맞붙여 얻는 행렬&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;augmented-matrix&quot;&gt;Augmented Matrix&lt;/h3&gt;
-&lt;p&gt;\(A = \left[
-\begin{matrix}
-1 &amp;amp; 2 &amp;amp; 3 \\
-4 &amp;amp; 7 &amp;amp; 4 \\
-1 &amp;amp; 6 &amp;amp; 8 \\
-\end{matrix}
-\right] , B = \left[
-\begin{matrix}
-1 \\
-4 \\
-1 \\
-\end{matrix}
-\right]\)
-가 있을 때, Augmented Matrix 는
-\(\left[
-\begin{matrix}
-1 &amp;amp; 2 &amp;amp; 3  &amp;amp; 1\\
-4 &amp;amp; 7 &amp;amp; 4 &amp;amp; 4 \\
-1 &amp;amp; 6 &amp;amp; 8 &amp;amp; 1 \\
-\end{matrix}
-\right]\)
-이다.&lt;/p&gt;
-
-&lt;h3 id=&quot;elementary-row-operations&quot;&gt;Elementary row operations&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Replacement&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Interchange&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Scaling&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Two matrices are &lt;strong&gt;Row Equivalent&lt;/strong&gt; If there is a sequence of elementary row operations that transforms one matrix into the other.&lt;br /&gt;
-If the &lt;strong&gt;augmented&lt;/strong&gt; matrices of the linear systems are &lt;strong&gt;row equivalent&lt;/strong&gt;, then the two systems have the &lt;strong&gt;same solution set&lt;/strong&gt;.&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">A system of linear equations : A collection of one or more linear equations Solution Set : The Set of all possible solutions of the linear system → Two linear systems are called equivalent if they have the same solution set.</summary></entry><entry><title type="html">프로그래머스 크롤링</title><link href="http://localhost:4000/algorithm/2021/01/12/programmars-crawling/" rel="alternate" type="text/html" title="프로그래머스 크롤링" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/12/programmars-crawling</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/12/programmars-crawling/">&lt;p&gt;21년 1월부터 연구실에선 매일 오전 9시 30분부터 한 시간동안 파이썬 알고리즘 문제를 푼다.&lt;/p&gt;
+&lt;p&gt;직관적인 문제 → 무식하게 풀기 가 아니라 그냥 무식한 나도 풀 수 있다는 걸 알게됐다…🥲&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><summary type="html">오늘의 문제 프로그래머스 멀쩡한 사각형</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/programmars_62048.png" /><media:content medium="image" url="http://localhost:4000/images/programmars_62048.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">프로그래머스 크롤링</title><link href="http://localhost:4000/algorithm/2021/01/12/programmars-crawling/" rel="alternate" type="text/html" title="프로그래머스 크롤링" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/12/programmars-crawling</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/12/programmars-crawling/">&lt;p&gt;21년 1월부터 연구실에선 매일 오전 9시 30분부터 한 시간동안 파이썬 알고리즘 문제를 푼다.&lt;/p&gt;
 
 &lt;p&gt;교수님께서 한 사람씩 돌아가면서 문제를 가져오라고 지정하셨고, 한 사이클이 지나고부터는 오늘은 누군지 겁나게~ 헷갈리기 시작했고, 누가 스프린트를 빠진다고 하면 그때부터 불안했다. 나만 기억 못하나 싶을 정도로 무덤덤한 사람들 … ㅎ 어떤 날은 서로 자기인 줄 알았다며 문제를 두 명이 들고온 적도 있었는데. 
 이게 내 성격이긴 한데…   정리되지 않은 상태…  나쁘게 말하면 아노미 상태ㅋㅋㅋㅋ가 싫다. 시간을 조금만 투자하면 잘 정돈된 상태를 만들 수 있는데… 그 상황에 내가 포함되어 있다면 발벗고 나서야지 뭐… 목마른 사람이 우물 파니까&lt;/p&gt;
@@ -426,34 +541,4 @@ Each matrix is row equivalent to one and only one reduced echelon matrix&lt;/p&g
 &lt;h2 id=&quot;-theorem-5&quot;&gt;📖 Theorem 5.&lt;/h2&gt;
 &lt;p&gt;If A is an m x n matrix, u and v are vectors in R^m,  And c is a scalar, then;  &lt;br /&gt;
 A(u + v) = Au + Av;&lt;br /&gt;
-A(cu) = c(Au)&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">📖 Theorem 1. Uniqueness of the Reduced Echelon Form Each matrix is row equivalent to one and only one reduced echelon matrix</summary></entry><entry><title type="html">Ch18. The Matrix of a Linear Transformation</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation/" rel="alternate" type="text/html" title="Ch18. The Matrix of a Linear Transformation" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation/">&lt;h4 id=&quot;-theorem-10&quot;&gt;📖 Theorem 10.&lt;/h4&gt;
-&lt;p&gt;Let \(T : \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation. Then there exists a unique matrix A such that&lt;br /&gt;
-\(T(\mathbf{x}) = A\mathbf{x} \mbox{ for all }\mathbf{x} \mbox{ in }\mathbb{R^n}\)&lt;br /&gt;
-In fact, \(A\) is the \(m \times n\) matrix whose j-th column is the vector \(T(e_j)\), where \(e_j\) is the j-th column of the identity matrix in \(\mathbb{R^n}\):&lt;br /&gt;
-\(A = \left[ T(e_1) \cdots T(e_n) \right]\)&lt;br /&gt;
-Standard matrix for the linear transformation T&lt;/p&gt;
-
-&lt;h3 id=&quot;onto&quot;&gt;Onto&lt;/h3&gt;
-&lt;p&gt;A mapping \(T: \mathbb{R^n} \to \mathbb{R^m}\) is said to be &lt;strong&gt;onto \(\mathbb{R^m}\)&lt;/strong&gt; if each \(\mathbf{b}\) in \(\mathbb{R^m}\) is the image of at least one \(\mathbf{x}\) in \(\mathbb{R^n}\)&lt;/p&gt;
-
-&lt;h3 id=&quot;one-to-one&quot;&gt;One-to-one&lt;/h3&gt;
-&lt;p&gt;A mapping  \(T: \mathbb{R^n} \to \mathbb{R^m}\) is said to be &lt;strong&gt;one-to-one&lt;/strong&gt; if each \(\mathbf{b}\) in \(\mathbb{R^m}\) is the image of at most one \(\mathbf{x}\) in \(\mathbb{R^n}\)&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;여러 개의 벡터에서 같은 이미지로 도달할 때 : one-to-one이 아님&lt;/li&gt;
-  &lt;li&gt;1대1 대응 : one-to-one&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;-theorem-11&quot;&gt;📖 Theorem 11.&lt;/h4&gt;
-&lt;p&gt;Let \(T: \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation.&lt;br /&gt;
-Then \(T\) is &lt;strong&gt;one-to-one&lt;/strong&gt; if and only if the equation \(T(\mathbf{x}) = 0\)  has only trivial solution.&lt;br /&gt;
-\(T(0) = T(0\mathbf{0}) = 0T(\mathbf{0})\\
-T(\mathbf{u} = \mathbf{b}  T(\mathbf{v} = b)\\
-T(\mathbf{u} - \mathbf{v}) = T(\mathbf{u}) - T(\mathbf{v}) = 0\\
-\mathbf{u} - \mathbf{v} \ne 0\)&lt;br /&gt;
-\(T(\mathbf{x}) = 0\) has more than one solution&lt;/p&gt;
-
-&lt;h4 id=&quot;-theorem-12&quot;&gt;📖 Theorem 12.&lt;/h4&gt;
-&lt;p&gt;Let \(T: \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation and let \(A\) be the standard matrix for \(T\).  &lt;br /&gt;
-Then \(T\) maps &lt;strong&gt;\(\mathbb{R^n} \mbox{onto} \mathbb{R^m}\)&lt;/strong&gt; if and only if the &lt;strong&gt;columns of \(A\) span \(\mathbb{R^m}\)&lt;/strong&gt;   &lt;br /&gt;
-\(T\) is &lt;strong&gt;one-to-one&lt;/strong&gt; if and only if the columns of \(A\) are &lt;strong&gt;linearly independent&lt;/strong&gt;. &lt;br /&gt;
-	one-to-one → only trivial → independent&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">📖 Theorem 10. Let \(T : \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation. Then there exists a unique matrix A such that \(T(\mathbf{x}) = A\mathbf{x} \mbox{ for all }\mathbf{x} \mbox{ in }\mathbb{R^n}\) In fact, \(A\) is the \(m \times n\) matrix whose j-th column is the vector \(T(e_j)\), where \(e_j\) is the j-th column of the identity matrix in \(\mathbb{R^n}\): \(A = \left[ T(e_1) \cdots T(e_n) \right]\) Standard matrix for the linear transformation T</summary></entry></feed>
+A(cu) = c(Au)&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">📖 Theorem 1. Uniqueness of the Reduced Echelon Form Each matrix is row equivalent to one and only one reduced echelon matrix</summary></entry></feed>
