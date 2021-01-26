@@ -1,58 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-22T22:59:18+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">빈둥빈둥 공부블로그</title><author><name>Eunbin Park</name></author><entry><title type="html">행렬방정식 - 특수행렬 with Scipy &amp;amp; 여러 식을 한꺼번에 풀기</title><link href="http://localhost:4000/linear_algebra/2021/01/22/5-%ED%8A%B9%EC%88%98-%ED%96%89%EB%A0%AC/" rel="alternate" type="text/html" title="행렬방정식 - 특수행렬 with Scipy &amp;amp; 여러 식을 한꺼번에 풀기" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/22/5-%ED%8A%B9%EC%88%98-%ED%96%89%EB%A0%AC</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/22/5-%ED%8A%B9%EC%88%98-%ED%96%89%EB%A0%AC/">&lt;h3 id=&quot;toeplitz-행렬-solver&quot;&gt;Toeplitz 행렬 Solver&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-24T15:47:06+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">빈둥빈둥 공부블로그</title><author><name>Eunbin Park</name></author><entry><title type="html">고유치 eigenvalue 계산 알고리즘 개론</title><link href="http://localhost:4000/linear_algebra/2021/01/23/6-%EA%B3%A0%EC%9C%A0%EC%B9%98(eigenvalue)-%EA%B3%84%EC%82%B0-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%9C%EB%A1%A0/" rel="alternate" type="text/html" title="고유치 eigenvalue 계산 알고리즘 개론" /><published>2021-01-23T00:00:00+09:00</published><updated>2021-01-23T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/23/6-%EA%B3%A0%EC%9C%A0%EC%B9%98(eigenvalue)-%EA%B3%84%EC%82%B0-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%9C%EB%A1%A0</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/23/6-%EA%B3%A0%EC%9C%A0%EC%B9%98(eigenvalue)-%EA%B3%84%EC%82%B0-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%9C%EB%A1%A0/">&lt;h3 id=&quot;qr-algorithm&quot;&gt;QR Algorithm&lt;/h3&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_toeplitz((c, r), b)&lt;/code&gt; : c/r - 1D array (vector)&lt;br /&gt;
-기본 알고리즘 : Levinson-Durbin Recursion 계산량 \(\sim n^2\) 행렬사이즈의 2승에 비례하는 량&lt;br /&gt;
-행렬 사이즈가 커질 수록 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;solve_toeplitz&lt;/code&gt; 함수가 유리함&lt;/p&gt;
+&lt;p&gt;보통 사용하는 알고리즘&lt;br /&gt;
+행렬 A가 주어졌을 때,  QR decomposition 을 함 Q는 Invertible&lt;br /&gt;
+QR decomposition을 토대로 RQ를 만듦 → 새로운 행렬 A1은 A와 similar 한 관계에 놓임&lt;br /&gt;
+특정 조건 하에서, Ak는 upper triangular matrix로 수렴하게 됨 또한  A와 Ak의 eigenvalue는 같다.&lt;/p&gt;
 
-&lt;h4 id=&quot;toeplitz-matrix-구축&quot;&gt;Toeplitz Matrix 구축&lt;/h4&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.toeplitz(c,r)&lt;/code&gt; 이게 꼭 필요할까? 작은사이즈 외에 경우에는 필요하지 않음&lt;/p&gt;
-
-&lt;p&gt;​&lt;/p&gt;
-
-&lt;h3 id=&quot;circulant-행렬-solver&quot;&gt;Circulant 행렬 Solver&lt;/h3&gt;
-
-&lt;p&gt;0번째 컬럼만 알면 가능&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solver_circulant(c, b)&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;기본 알고리즘 : Discrete Fourier Transform → 실질적으로 Fast Fourier transform 으로 문제를 해결&lt;/p&gt;
-
-&lt;p&gt;행렬사이즈 n의 log(n)에 비례하는 계산량 : \(\sim nlog(n)\)&lt;/p&gt;
-
-&lt;h4 id=&quot;circulant-matrix-구축&quot;&gt;Circulant Matrix 구축&lt;/h4&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.circulant(c)&lt;/code&gt; : 추천하지 않음&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;여러-식을-한꺼번에-풀기-&quot;&gt;여러 식을 한꺼번에 풀기 !&lt;/h3&gt;
-
-&lt;p&gt;→ b벡터가 여러개일 때 한번에 푸는 방법&lt;br /&gt;
-→ A가 불변하고 B는 이미 주어진 상황이라면,&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;일반행렬&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&quot;qr-알고리즘에-필요한-qr-decomposition&quot;&gt;QR 알고리즘에 필요한 QR decomposition&lt;/h4&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve(A, B, {assume_a = 'gen'})&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_triangular(A, B, {lower = False})&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Gram-Schmidt Process - 최악의 선택 Numerically unstable&lt;/li&gt;
+  &lt;li&gt;Givens reduction&lt;/li&gt;
+  &lt;li&gt;Householder method&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;밴드행렬&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;householder-method&quot;&gt;Householder method&lt;/h3&gt;
+
+&lt;h4 id=&quot;householder-reflector&quot;&gt;Householder Reflector&lt;/h4&gt;
+
+&lt;p&gt;\(P=I - 2\mathbf{u}\mathbf{u}^T\) &amp;gt; u is unit vector&lt;br /&gt;
+Identity 매트릭스에 \(2\mathbf{u}\mathbf{u}^T\) 를 빼준 형태&lt;/p&gt;
+
+&lt;p&gt;\(\mathbb{R}^n\)  스페이스에 있는 임의의 \(\mathbf{x}\) 를 가정하고, \(P_\mathbf{x} = \mathbf{x} - 2\mathbf{u}\mathbf{u}^T\mathbf{x}\) 닷프로덕트를 정리해 재정의하면 \(\mathbf{x} - 2(\mathbf{x} \cdot \mathbf{u})\mathbf{u}\)&lt;br /&gt;
+이때, \(P\mathbf{x}\) 의 의미는 X에 하우스홀더 리플렉터를 곱해주면 하이퍼플레인 H 를 통해 반사된 것과 같은 벡터를 만든 것!&lt;/p&gt;
+
+&lt;h4 id=&quot;hr-for-qr-decomposition&quot;&gt;HR for QR decomposition&lt;/h4&gt;
+
+&lt;p&gt;유닛벡터를 담는 방법이 핵심&lt;/p&gt;
+
+&lt;p&gt;\(\mathbb{R}^n\)  스페이스에 있는 임의의 \(\mathbf{x}\) 를 가정하고, \(\rho = \pm1\) (수치적 오차에 따라 선택되는 사항)  \(\alpha=\rho\parallel x\parallel\) 일 때&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">QR Algorithm</summary></entry><entry><title type="html">행렬방정식 - 밴드행렬 with Scipy</title><link href="http://localhost:4000/linear_algebra/2021/01/22/4-%EB%B0%B4%EB%93%9C-%ED%96%89%EB%A0%AC/" rel="alternate" type="text/html" title="행렬방정식 - 밴드행렬 with Scipy" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/22/4-%EB%B0%B4%EB%93%9C-%ED%96%89%EB%A0%AC</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/22/4-%EB%B0%B4%EB%93%9C-%ED%96%89%EB%A0%AC/">&lt;h3 id=&quot;scipy에서의-밴드행렬-입력&quot;&gt;Scipy에서의 밴드행렬 입력&lt;/h3&gt;
+
+&lt;p&gt;bandwidth » n (행렬사이즈) 일 때 유용함&lt;br /&gt;
+column index를 유지하면서 밴드만 가져와 가로 형태로 쌓아줌&lt;/p&gt;
+
+&lt;h3 id=&quot;밴드행렬-solver&quot;&gt;밴드행렬 Solver&lt;/h3&gt;
+
+&lt;p&gt;\(A\mathbf{x} = b\) 일 때, A는 밴드행렬이 유리&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_banded((lbw 폭, ubw 폭), band_a, b)&lt;/code&gt; &lt;br /&gt;
+기본 알고리즘&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_banded((lbw, ubw),  band_a, B)&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solveh_banded(band_a_h, B, lower=False)&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;LU Decomposition : - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gbsv&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Tridiagonal Solver : lbw, ubw = 1 - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gtsv&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;특수행렬&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&quot;밴드행렬-solver의-solution-확인&quot;&gt;밴드행렬 Solver의 Solution 확인&lt;/h4&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_toeplitz((c, r), B)&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_circulant(c, B)&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Band_A @ x != b → A @ x = b &lt;br /&gt;
+밴드행렬을 다시 원행렬로 돌리고 Matrix-vector multiplication 은 본래의 목적에서 벗어남 (메모리)&lt;/p&gt;
 
-&lt;p&gt;→ 모두 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;B&lt;/code&gt; &lt;strong&gt;벡터를 행렬&lt;/strong&gt;로 넣어주면 결과를 반환함&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">Toeplitz 행렬 Solver</summary></entry><entry><title type="html">행렬방정식 - 일반행렬 with Scipy</title><link href="http://localhost:4000/linear_algebra/2021/01/22/3-%EC%9D%BC%EB%B0%98-%ED%96%89%EB%A0%AC/" rel="alternate" type="text/html" title="행렬방정식 - 일반행렬 with Scipy" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/22/3-%EC%9D%BC%EB%B0%98-%ED%96%89%EB%A0%AC</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/22/3-%EC%9D%BC%EB%B0%98-%ED%96%89%EB%A0%AC/">&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linalg&lt;/span&gt;
+&lt;p&gt;TBC&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">Scipy에서의 밴드행렬 입력</summary></entry><entry><title type="html">행렬방정식 - 일반행렬 with Scipy</title><link href="http://localhost:4000/linear_algebra/2021/01/22/3-%EC%9D%BC%EB%B0%98-%ED%96%89%EB%A0%AC/" rel="alternate" type="text/html" title="행렬방정식 - 일반행렬 with Scipy" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/22/3-%EC%9D%BC%EB%B0%98-%ED%96%89%EB%A0%AC</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/22/3-%EC%9D%BC%EB%B0%98-%ED%96%89%EB%A0%AC/">&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linalg&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
@@ -289,28 +285,63 @@
 
     &lt;p&gt;→ Fast Fourier transform \(~nlog(n)\)&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">성질로써의 분류</summary></entry><entry><title type="html">행렬방정식 - 밴드행렬 with Scipy</title><link href="http://localhost:4000/linear_algebra/2021/01/22/4-%EB%B0%B4%EB%93%9C-%ED%96%89%EB%A0%AC/" rel="alternate" type="text/html" title="행렬방정식 - 밴드행렬 with Scipy" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/22/4-%EB%B0%B4%EB%93%9C-%ED%96%89%EB%A0%AC</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/22/4-%EB%B0%B4%EB%93%9C-%ED%96%89%EB%A0%AC/">&lt;h3 id=&quot;scipy에서의-밴드행렬-입력&quot;&gt;Scipy에서의 밴드행렬 입력&lt;/h3&gt;
+&lt;/ol&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">성질로써의 분류</summary></entry><entry><title type="html">행렬방정식 - 특수행렬 with Scipy &amp;amp; 여러 식을 한꺼번에 풀기</title><link href="http://localhost:4000/linear_algebra/2021/01/22/5-%ED%8A%B9%EC%88%98-%ED%96%89%EB%A0%AC/" rel="alternate" type="text/html" title="행렬방정식 - 특수행렬 with Scipy &amp;amp; 여러 식을 한꺼번에 풀기" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/22/5-%ED%8A%B9%EC%88%98-%ED%96%89%EB%A0%AC</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/22/5-%ED%8A%B9%EC%88%98-%ED%96%89%EB%A0%AC/">&lt;h3 id=&quot;toeplitz-행렬-solver&quot;&gt;Toeplitz 행렬 Solver&lt;/h3&gt;
 
-&lt;p&gt;bandwidth » n (행렬사이즈) 일 때 유용함&lt;br /&gt;
-column index를 유지하면서 밴드만 가져와 가로 형태로 쌓아줌&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_toeplitz((c, r), b)&lt;/code&gt; : c/r - 1D array (vector)&lt;br /&gt;
+기본 알고리즘 : Levinson-Durbin Recursion 계산량 \(\sim n^2\) 행렬사이즈의 2승에 비례하는 량&lt;br /&gt;
+행렬 사이즈가 커질 수록 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;solve_toeplitz&lt;/code&gt; 함수가 유리함&lt;/p&gt;
 
-&lt;h3 id=&quot;밴드행렬-solver&quot;&gt;밴드행렬 Solver&lt;/h3&gt;
+&lt;h4 id=&quot;toeplitz-matrix-구축&quot;&gt;Toeplitz Matrix 구축&lt;/h4&gt;
 
-&lt;p&gt;\(A\mathbf{x} = b\) 일 때, A는 밴드행렬이 유리&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_banded((lbw 폭, ubw 폭), band_a, b)&lt;/code&gt; &lt;br /&gt;
-기본 알고리즘&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.toeplitz(c,r)&lt;/code&gt; 이게 꼭 필요할까? 작은사이즈 외에 경우에는 필요하지 않음&lt;/p&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;h3 id=&quot;circulant-행렬-solver&quot;&gt;Circulant 행렬 Solver&lt;/h3&gt;
+
+&lt;p&gt;0번째 컬럼만 알면 가능&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solver_circulant(c, b)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;기본 알고리즘 : Discrete Fourier Transform → 실질적으로 Fast Fourier transform 으로 문제를 해결&lt;/p&gt;
+
+&lt;p&gt;행렬사이즈 n의 log(n)에 비례하는 계산량 : \(\sim nlog(n)\)&lt;/p&gt;
+
+&lt;h4 id=&quot;circulant-matrix-구축&quot;&gt;Circulant Matrix 구축&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.circulant(c)&lt;/code&gt; : 추천하지 않음&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;여러-식을-한꺼번에-풀기-&quot;&gt;여러 식을 한꺼번에 풀기 !&lt;/h3&gt;
+
+&lt;p&gt;행렬방정식을 푸는 함수는 \(A\mathbf{x} = b\) 뿐만 아니라 \(AX = B\) 형태도 적용가능하다~!&lt;/p&gt;
+
+&lt;p&gt;→ b벡터가 여러개일 때 한번에 푸는 방법&lt;br /&gt;
+→ A가 불변하고 B는 이미 주어진 상황이라면,&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;일반행렬&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;LU Decomposition : - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gbsv&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Tridiagonal Solver : lbw, ubw = 1 - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gtsv&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve(A, B, {assume_a = 'gen'})&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_triangular(A, B, {lower = False})&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;밴드행렬-solver의-solution-확인&quot;&gt;밴드행렬 Solver의 Solution 확인&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;밴드행렬&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Band_A @ x != b → A @ x = b &lt;br /&gt;
-밴드행렬을 다시 원행렬로 돌리고 Matrix-vector multiplication 은 본래의 목적에서 벗어남 (메모리)&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_banded((lbw, ubw),  band_a, B)&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solveh_banded(band_a_h, B, lower=False)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;TBC&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">Scipy에서의 밴드행렬 입력</summary></entry><entry><title type="html">Numpy 편의기능 및 기본조작 1 ~ 3</title><link href="http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5/" rel="alternate" type="text/html" title="Numpy 편의기능 및 기본조작 1 ~ 3" /><published>2021-01-20T00:00:00+09:00</published><updated>2021-01-20T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5/">&lt;p&gt;Numpy 편의기능 및 기본조작&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;특수행렬&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_toeplitz((c, r), B)&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_circulant(c, B)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;→ 모두 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;B&lt;/code&gt; &lt;strong&gt;벡터를 행렬&lt;/strong&gt;로 넣어주면 결과를 반환함&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">Toeplitz 행렬 Solver</summary></entry><entry><title type="html">Numpy 편의기능 및 기본조작 1 ~ 3</title><link href="http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5/" rel="alternate" type="text/html" title="Numpy 편의기능 및 기본조작 1 ~ 3" /><published>2021-01-20T00:00:00+09:00</published><updated>2021-01-20T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5/">&lt;p&gt;Numpy 편의기능 및 기본조작&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -504,41 +535,80 @@ column index를 유지하면서 밴드만 가져와 가로 형태로 쌓아줌&l
 
 &lt;p&gt;대각선이 지나갈 때의 불능 도형의 개수가 제일 머리 아팠다… 뭐랄까 애기 때 수학 공부를 잘했으면 금방 풀었을텐데 하는 생각이 들 정도로 간단해보이는데 잘 모르겠고… 이게 맞는데 왜 그런지는 모르겠는 그런 너낌&lt;/p&gt;
 
-&lt;p&gt;직관적인 문제 → 무식하게 풀기 가 아니라 그냥 무식한 나도 풀 수 있다는 걸 알게됐다…🥲&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><summary type="html">오늘의 문제 프로그래머스 멀쩡한 사각형</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/programmars_62048.png" /><media:content medium="image" url="http://localhost:4000/images/programmars_62048.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">프로그래머스 크롤링</title><link href="http://localhost:4000/algorithm/2021/01/12/programmars-crawling/" rel="alternate" type="text/html" title="프로그래머스 크롤링" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/12/programmars-crawling</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/12/programmars-crawling/">&lt;p&gt;21년 1월부터 연구실에선 매일 오전 9시 30분부터 한 시간동안 파이썬 알고리즘 문제를 푼다.&lt;/p&gt;
-
-&lt;p&gt;교수님께서 한 사람씩 돌아가면서 문제를 가져오라고 지정하셨고, 한 사이클이 지나고부터는 오늘은 누군지 겁나게~ 헷갈리기 시작했고, 누가 스프린트를 빠진다고 하면 그때부터 불안했다. 나만 기억 못하나 싶을 정도로 무덤덤한 사람들 … ㅎ 어떤 날은 서로 자기인 줄 알았다며 문제를 두 명이 들고온 적도 있었는데. 
-이게 내 성격이긴 한데…   정리되지 않은 상태…  나쁘게 말하면 아노미 상태ㅋㅋㅋㅋ가 싫다. 시간을 조금만 투자하면 잘 정돈된 상태를 만들 수 있는데… 그 상황에 내가 포함되어 있다면 발벗고 나서야지 뭐… 목마른 사람이 우물 파니까&lt;/p&gt;
-
-&lt;p&gt;그냥 크롤링 코드를 짰다. 프로그래머스 사이트가 SPA 인지 뭔지 아무튼 url로 반응하는게 아니었고, 모든 문제가 모든 언어로 풀 수 있는 건 아니었다. 특정 레벨의 특정 언어를 가져와야 했기 때문에 더럽게 귀찮아보였지만… 그래도 손가락을 뽑았으면 코드 한 줄이라도 썰어야 대장부니까 ^^&lt;/p&gt;
-
-&lt;p&gt;뷰티풀솝 익숙해지려고 이걸로 이것저것 하려다 시간만 왕창 잡아먹고 결국 셀레니움으로 …했다.&lt;/p&gt;
-
-&lt;p&gt;여기에 파일 첨부는 어떻게 하는 걸까…?&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="Algorithm" /><category term="Crawling" /><summary type="html">21년 1월부터 연구실에선 매일 오전 9시 30분부터 한 시간동안 파이썬 알고리즘 문제를 푼다.</summary></entry><entry><title type="html">THEOREMs</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch19-Theorems/" rel="alternate" type="text/html" title="THEOREMs" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch19-Theorems</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch19-Theorems/">&lt;h2 id=&quot;-theorem-1&quot;&gt;📖 Theorem 1.&lt;/h2&gt;
-&lt;p&gt;Uniqueness of the Reduced Echelon Form
-Each matrix is row equivalent to one and only one reduced echelon matrix&lt;/p&gt;
-
-&lt;h2 id=&quot;-theorem-2&quot;&gt;📖 Theorem 2.&lt;/h2&gt;
-
-&lt;h2 id=&quot;-theorem-3&quot;&gt;📖 Theorem 3.&lt;/h2&gt;
-&lt;p&gt;\(A\) is \(m \times n\) matrix, with columns \(a_1, \cdots, a_n   \mathbf{b} \mbox{ is in }\mathbb{R}^m\)&lt;/p&gt;
+&lt;p&gt;직관적인 문제 → 무식하게 풀기 가 아니라 그냥 무식한 나도 풀 수 있다는 걸 알게됐다…🥲&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><summary type="html">오늘의 문제 프로그래머스 멀쩡한 사각형</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/programmars_62048.png" /><media:content medium="image" url="http://localhost:4000/images/programmars_62048.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Ch12. Row Reduction and Echelon Forms</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch12-Row-Reduction-and-Echelon-Forms/" rel="alternate" type="text/html" title="Ch12. Row Reduction and Echelon Forms" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch12-Row-Reduction-and-Echelon-Forms</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch12-Row-Reduction-and-Echelon-Forms/">&lt;p&gt;&lt;strong&gt;A leading Entry of row&lt;/strong&gt; : the LEFTMOST nonzero entry.&lt;/p&gt;
+&lt;h3 id=&quot;echelon-form&quot;&gt;Echelon Form&lt;/h3&gt;
 &lt;ol&gt;
-  &lt;li&gt;Matrix Equation : \(A\mathbf{x} = \mathbf{b}\)&lt;/li&gt;
-  &lt;li&gt;Vector Equation : \(x_1\mathbf{a_1} + x_2\mathbf{a_2} + \cdots + x_p\mathbf{a_p} = \mathbb{b}\)&lt;/li&gt;
-  &lt;li&gt;Augmented Matrix  : \(\left[ \mathbf{a_1}, \mathbf{a_2}, \cdots, \mathbf{a_n} \mathbf{b}\right]\)&lt;/li&gt;
+  &lt;li&gt;All nonzero rows are above any rows of all zeros&lt;/li&gt;
+  &lt;li&gt;Each leading entry of a row is in column to the right of the leading entry of the row above it&lt;/li&gt;
+  &lt;li&gt;The leading entry in each nonzero row is 1&lt;/li&gt;
+  &lt;li&gt;Each leading 1 is the only nonzero entry in its column&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Have the same solution set!&lt;/p&gt;
+\[1 → \left[
+\begin{matrix}
+\bullet &amp;amp; * &amp;amp; * &amp;amp; * \\
+0 &amp;amp; \bullet &amp;amp; * &amp;amp; * \\
+0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+\end{matrix}
+\right]        
+  2 → \left[
+\begin{matrix}
+\bullet &amp;amp; * &amp;amp; * &amp;amp; * \\
+0 &amp;amp; \bullet &amp;amp; * &amp;amp; * \\
+0 &amp;amp; 0 &amp;amp; \bullet &amp;amp; * \\
+0 &amp;amp; 0 &amp;amp; 0 &amp;amp; \bullet \\
+\end{matrix}
+\right]\]
 
-&lt;h2 id=&quot;-theorem-4&quot;&gt;📖 Theorem 4.&lt;/h2&gt;
-&lt;p&gt;The followings are all true of all false:&lt;/p&gt;
+&lt;h4 id=&quot;-theorem-1-uniqueness-of-the-reduced-echelon-form&quot;&gt;📖 Theorem 1. Uniqueness of the Reduced Echelon Form&lt;/h4&gt;
+&lt;p&gt;Each matrix is row equivalent to one and only one reduced echelon matrix&lt;/p&gt;
+
+&lt;h3 id=&quot;row-reduction-algorithm&quot;&gt;Row Reduction Algorithm&lt;/h3&gt;
 &lt;ol&gt;
-  &lt;li&gt;For each b in R^m, Ax = b  has a solution&lt;/li&gt;
-  &lt;li&gt;Each b in R^m is a linear combination of the columns of A&lt;/li&gt;
-  &lt;li&gt;The columns of A spanR^m&lt;/li&gt;
-  &lt;li&gt;A has a pivot position in every row&lt;/li&gt;
+  &lt;li&gt;Begin with the leftmost nonzero column&lt;/li&gt;
+  &lt;li&gt;Select a nonzero entry in the pivot column as a pivot. If necessary, Interchange rows to move this entry into the pivot position.&lt;/li&gt;
+  &lt;li&gt;Row replacement to create zeros in all positions below the pivot.&lt;/li&gt;
+  &lt;li&gt;Apply steps 1-3 to the sub matrix that remain. The combination of steps 1-4 is called forward phase echelon form&lt;/li&gt;
+  &lt;li&gt;Beginning with the rightmost polio and working upward and to the left, created zeros above each pivot. If a pivot is not 1, make it 1 by a scaling operation.
+    &lt;ul&gt;
+      &lt;li&gt;Called backward phase reduced echelon form&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;-theorem-5&quot;&gt;📖 Theorem 5.&lt;/h2&gt;
-&lt;p&gt;If A is an m x n matrix, u and v are vectors in R^m,  And c is a scalar, then;  &lt;br /&gt;
-A(u + v) = Au + Av;&lt;br /&gt;
-A(cu) = c(Au)&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">📖 Theorem 1. Uniqueness of the Reduced Echelon Form Each matrix is row equivalent to one and only one reduced echelon matrix</summary></entry></feed>
+&lt;h3 id=&quot;solution-of-linear-systems&quot;&gt;Solution of linear systems&lt;/h3&gt;
+&lt;p&gt;\(\left[
+\begin{matrix}
+1 &amp;amp; 0 &amp;amp; -5 &amp;amp; 1 \\
+0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 4 \\
+0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+\end{matrix}
+\right]\) &lt;br /&gt;
+일 때,&lt;br /&gt;
+\(x_1 - 5x_3 = 1 \\
+x_2 + x_3 = 4 \\
+0 = 0 \\
+\left[
+\begin{matrix}
+6 \\3 \\1 \\
+\end{matrix}
+\right]
+\left[
+\begin{matrix}
+-9 \\
+6 \\
+-2 \\
+\end{matrix}
+\right]  \cdots\) &lt;br /&gt;
+해가 무한대가 되며,  General Solution 은 아래와 같다.&lt;br /&gt;
+\(\begin{cases}
+x_1 = 1 + 5x_3 &amp;amp; \mbox{basic / leading  variables} \\
+x_2 = 4 - x_3 &amp;amp; \mbox{basic / leading variables} \\
+x_3 \mbox{ is free} &amp;amp; \mbox{free variable}
+\end{cases}\)&lt;/p&gt;
+
+&lt;h4 id=&quot;-theorem-2-existence-and-uniqueness-theorem&quot;&gt;📖 Theorem 2. Existence and Uniqueness Theorem&lt;/h4&gt;
+&lt;p&gt;A linear system is consistent if and only if the rightmost column of the augmented matrix is not a pivot column - that is, if and only if and echelon form of the augmented matrix has no row of the forms.  &lt;br /&gt;
+\(\left[ \begin{matrix} 0 &amp;amp; \cdots &amp;amp;  0 &amp;amp; b \end{matrix} \right]\) with \(b\) is nonzero.  &lt;br /&gt;
+If a linear system is consistent, then the solution set contains either (i) a unique solution, when there are no free variables, or (ii) infinitely many solutions, when there is at least one free variables.&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">A leading Entry of row : the LEFTMOST nonzero entry. Echelon Form All nonzero rows are above any rows of all zeros Each leading entry of a row is in column to the right of the leading entry of the row above it The leading entry in each nonzero row is 1 Each leading 1 is the only nonzero entry in its column</summary></entry></feed>
