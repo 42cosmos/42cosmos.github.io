@@ -1,614 +1,212 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-24T15:47:06+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">빈둥빈둥 공부블로그</title><author><name>Eunbin Park</name></author><entry><title type="html">고유치 eigenvalue 계산 알고리즘 개론</title><link href="http://localhost:4000/linear_algebra/2021/01/23/6-%EA%B3%A0%EC%9C%A0%EC%B9%98(eigenvalue)-%EA%B3%84%EC%82%B0-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%9C%EB%A1%A0/" rel="alternate" type="text/html" title="고유치 eigenvalue 계산 알고리즘 개론" /><published>2021-01-23T00:00:00+09:00</published><updated>2021-01-23T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/23/6-%EA%B3%A0%EC%9C%A0%EC%B9%98(eigenvalue)-%EA%B3%84%EC%82%B0-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%9C%EB%A1%A0</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/23/6-%EA%B3%A0%EC%9C%A0%EC%B9%98(eigenvalue)-%EA%B3%84%EC%82%B0-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%9C%EB%A1%A0/">&lt;h3 id=&quot;qr-algorithm&quot;&gt;QR Algorithm&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-30T20:41:36+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">빈둥빈둥 공부블로그</title><author><name>Eunbin Park</name></author><entry><title type="html">프로그래머스 - 자연수 뒤집어 배열로 만들기</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12932/" rel="alternate" type="text/html" title="프로그래머스 - 자연수 뒤집어 배열로 만들기" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12932</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12932/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
 
-&lt;p&gt;보통 사용하는 알고리즘&lt;br /&gt;
-행렬 A가 주어졌을 때,  QR decomposition 을 함 Q는 Invertible&lt;br /&gt;
-QR decomposition을 토대로 RQ를 만듦 → 새로운 행렬 A1은 A와 similar 한 관계에 놓임&lt;br /&gt;
-특정 조건 하에서, Ak는 upper triangular matrix로 수렴하게 됨 또한  A와 Ak의 eigenvalue는 같다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12932&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; 자연수 뒤집어 배열로 만들기&lt;/a&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;qr-알고리즘에-필요한-qr-decomposition&quot;&gt;QR 알고리즘에 필요한 QR decomposition&lt;/h4&gt;
+&lt;p&gt;자연수 n을 뒤집어 각 자리 숫자를 원소로 가지는 배열 형태로 리턴&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Gram-Schmidt Process - 최악의 선택 Numerically unstable&lt;/li&gt;
-  &lt;li&gt;Givens reduction&lt;/li&gt;
-  &lt;li&gt;Householder method&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;householder-method&quot;&gt;Householder method&lt;/h3&gt;
-
-&lt;h4 id=&quot;householder-reflector&quot;&gt;Householder Reflector&lt;/h4&gt;
-
-&lt;p&gt;\(P=I - 2\mathbf{u}\mathbf{u}^T\) &amp;gt; u is unit vector&lt;br /&gt;
-Identity 매트릭스에 \(2\mathbf{u}\mathbf{u}^T\) 를 빼준 형태&lt;/p&gt;
-
-&lt;p&gt;\(\mathbb{R}^n\)  스페이스에 있는 임의의 \(\mathbf{x}\) 를 가정하고, \(P_\mathbf{x} = \mathbf{x} - 2\mathbf{u}\mathbf{u}^T\mathbf{x}\) 닷프로덕트를 정리해 재정의하면 \(\mathbf{x} - 2(\mathbf{x} \cdot \mathbf{u})\mathbf{u}\)&lt;br /&gt;
-이때, \(P\mathbf{x}\) 의 의미는 X에 하우스홀더 리플렉터를 곱해주면 하이퍼플레인 H 를 통해 반사된 것과 같은 벡터를 만든 것!&lt;/p&gt;
-
-&lt;h4 id=&quot;hr-for-qr-decomposition&quot;&gt;HR for QR decomposition&lt;/h4&gt;
-
-&lt;p&gt;유닛벡터를 담는 방법이 핵심&lt;/p&gt;
-
-&lt;p&gt;\(\mathbb{R}^n\)  스페이스에 있는 임의의 \(\mathbf{x}\) 를 가정하고, \(\rho = \pm1\) (수치적 오차에 따라 선택되는 사항)  \(\alpha=\rho\parallel x\parallel\) 일 때&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">QR Algorithm</summary></entry><entry><title type="html">행렬방정식 - 밴드행렬 with Scipy</title><link href="http://localhost:4000/linear_algebra/2021/01/22/4-%EB%B0%B4%EB%93%9C-%ED%96%89%EB%A0%AC/" rel="alternate" type="text/html" title="행렬방정식 - 밴드행렬 with Scipy" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/22/4-%EB%B0%B4%EB%93%9C-%ED%96%89%EB%A0%AC</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/22/4-%EB%B0%B4%EB%93%9C-%ED%96%89%EB%A0%AC/">&lt;h3 id=&quot;scipy에서의-밴드행렬-입력&quot;&gt;Scipy에서의 밴드행렬 입력&lt;/h3&gt;
-
-&lt;p&gt;bandwidth » n (행렬사이즈) 일 때 유용함&lt;br /&gt;
-column index를 유지하면서 밴드만 가져와 가로 형태로 쌓아줌&lt;/p&gt;
-
-&lt;h3 id=&quot;밴드행렬-solver&quot;&gt;밴드행렬 Solver&lt;/h3&gt;
-
-&lt;p&gt;\(A\mathbf{x} = b\) 일 때, A는 밴드행렬이 유리&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_banded((lbw 폭, ubw 폭), band_a, b)&lt;/code&gt; &lt;br /&gt;
-기본 알고리즘&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;LU Decomposition : - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gbsv&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Tridiagonal Solver : lbw, ubw = 1 - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gtsv&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;밴드행렬-solver의-solution-확인&quot;&gt;밴드행렬 Solver의 Solution 확인&lt;/h4&gt;
-
-&lt;p&gt;Band_A @ x != b → A @ x = b &lt;br /&gt;
-밴드행렬을 다시 원행렬로 돌리고 Matrix-vector multiplication 은 본래의 목적에서 벗어남 (메모리)&lt;/p&gt;
-
-&lt;p&gt;TBC&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">Scipy에서의 밴드행렬 입력</summary></entry><entry><title type="html">행렬방정식 - 일반행렬 with Scipy</title><link href="http://localhost:4000/linear_algebra/2021/01/22/3-%EC%9D%BC%EB%B0%98-%ED%96%89%EB%A0%AC/" rel="alternate" type="text/html" title="행렬방정식 - 일반행렬 with Scipy" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/22/3-%EC%9D%BC%EB%B0%98-%ED%96%89%EB%A0%AC</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/22/3-%EC%9D%BC%EB%B0%98-%ED%96%89%EB%A0%AC/">&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linalg&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;determinant-구하기&quot;&gt;Determinant 구하기&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.det(A)&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;기본 알고리즘 : LU Decomposition&lt;/p&gt;
-
-&lt;p&gt;→ A = LU \(det(A) = det(L * U) = det(L) * det(U) = det(U)\) : U의 대각항들만 모두 곱해주는 형태로 구해짐&lt;/p&gt;
-
-&lt;h4 id=&quot;lapack-함수-subroutine&quot;&gt;Lapack 함수 (subroutine)&lt;/h4&gt;
+&lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zgetrf&lt;/code&gt; : complex128&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dgetrf&lt;/code&gt; : float64&lt;/li&gt;
+  &lt;li&gt;n은 10,000,000,000이하인 자연수입니다.&lt;/li&gt;
 &lt;/ol&gt;
-
-&lt;p&gt;​&lt;/p&gt;
-
-&lt;h3 id=&quot;역행렬-구하기&quot;&gt;역행렬 구하기&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;목적이 행렬방정식 Ax=b를 구하는 거라면 사용하지 말자!&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.inv(A)&lt;/code&gt; &amp;gt; 역행렬이 없으면 singular matrix 에러 출현! : 수학적으로는 에러가 아니지만, 수치적으로 에러에 기인해 판단될 수도 있음 (구분이 불가함)&lt;/p&gt;
-
-&lt;h4 id=&quot;기본-알고리즘&quot;&gt;기본 알고리즘&lt;/h4&gt;
-
-&lt;p&gt;LU Decomposition : Solve \(LUA^{-1} = I\) : Backward phase (backsubstitution)&lt;/p&gt;
-
-&lt;h4 id=&quot;lapack&quot;&gt;Lapack&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getrf&lt;/code&gt; : LU decomposition&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getri&lt;/code&gt; : inverse from triangular matrix : 트라이앵귤러 매트릭스를 푸는 solver 역할을 겸함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​&lt;/p&gt;
-
-&lt;h3 id=&quot;ax--b-풀기&quot;&gt;Ax = b 풀기&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve(A, b, assume_a=&quot;gen&quot;)&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assume_a&lt;/code&gt; : 입력으로 들어오는 행렬의 특성&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;설정을 잘못 넣어도 별다른 오류 출력이 없음&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;gen : 행렬의 특성을 모를 때 LU decomposition - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gesv&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;sym : (Real or Complex) Symmetric Metrix \(A = A^T\) Diagonal pivoting \(A = LDL^T\) : block diagonal - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sysv&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;her : Hermitian matrix \(A = A^*\) Diagonal Pivoting \(A = LDL^*\) - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hesv&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;pos : Positive Definite  \(x^TAx &amp;gt; 0\) Symmetric or Hermitian Cholesky decomposition : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;posv&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​&lt;/p&gt;
-
-&lt;h3 id=&quot;triangular-matrix-solver&quot;&gt;Triangular Matrix Solver&lt;/h3&gt;
-
-&lt;p&gt;Ax = b, A = Upper(lower) triangular matrix&lt;/p&gt;
-
-&lt;p&gt;Backward phase (backsubstitution) 과정만이 필요함&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_triangular(A, b, {lower = False})&lt;/code&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;lapack-1&quot;&gt;Lapack&lt;/h4&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;trtrs&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;​&lt;/p&gt;
-
-&lt;h3 id=&quot;해의-정확성&quot;&gt;해의 정확성&lt;/h3&gt;
-
-&lt;p&gt;Ax = b, x = 수치적 계산으로 근사된 값&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Q1. Ax와 b가 충분히 비슷한가 ?&lt;/li&gt;
-  &lt;li&gt;Q2. Ax - b 충분히 작은가? 0에 충분히 가까운가?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;엔트리의 오차를 직접 계산할 수 있음 (절대 / 상대 오차 모두)&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.allclose(A@x, b)&lt;/code&gt; 변수의 모든 엔트리를 비교해 충분히 비슷하다면 True → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.allclose(A@x - b, np.zeros((b.shape[0], )))&lt;/code&gt;&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">from scipy import linalg</summary></entry><entry><title type="html">왜 역행렬을 구하는 것보다 Ax=b를 푸는게 좋을까?</title><link href="http://localhost:4000/linear_algebra/2021/01/22/2-%EC%97%AD%ED%96%89%EB%A0%AC%EB%B3%B4%EB%8B%A4-Ax=b/" rel="alternate" type="text/html" title="왜 역행렬을 구하는 것보다 Ax=b를 푸는게 좋을까?" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/22/2-%EC%97%AD%ED%96%89%EB%A0%AC%EB%B3%B4%EB%8B%A4-Ax=b</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/22/2-%EC%97%AD%ED%96%89%EB%A0%AC%EB%B3%B4%EB%8B%A4-Ax=b/">&lt;p&gt;\(A^{-1}\) 을 한 번 구해두면 \(x = A^{-1}b\) 를 통해 해를 구하면 되지 않을까?&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;\(A^{-1}\)을 구해 해를 찾는 경우
-    &lt;ol&gt;
-      &lt;li&gt;\(A^{-1}\)을 구하는 노력 \(\backsim n^3\) 행렬사이즈의 3승&lt;/li&gt;
-      &lt;li&gt;\(A^{-1}b\)의 계산 노력 \(\backsim n^2\)&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;\(Ax = b\)를 풀어 해를 찾는 경우
-    &lt;ol&gt;
-      &lt;li&gt;&lt;strong&gt;Gauss Elimminaton&lt;/strong&gt; \(Ax = b\)를 푸는 노력 \(\backsim n^3\)&lt;/li&gt;
-      &lt;li&gt;**LU decomposition ** \(A = LU\) 를 찾는 노력 \(\backsim n^3\) → LUx = b를 푸는 노력 \(\backsim n^2\)&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;수치적-정확도--해의-정확도-&quot;&gt;수치적 정확도 ( 해의 정확도 )&lt;/h3&gt;
-
-&lt;p&gt;컴퓨터에서는 제한된 소수점으로 표현&lt;/p&gt;
-
-&lt;h3 id=&quot;희소행렬의-역행렬과-lu-decomposition-비교&quot;&gt;희소행렬의 역행렬과 LU Decomposition 비교&lt;/h3&gt;
-
-&lt;p&gt;행렬 대부분이 0일 경우 ( Sparse Matrix )&lt;/p&gt;
-
-&lt;p&gt;역행렬은 sparse 하지 않음&lt;/p&gt;
-
-&lt;p&gt;L과 U는 여전히 Sparse 한 경우가 많음&lt;/p&gt;
-
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-&lt;p&gt;특별히 \(A^{-1}\)이 필요한 경우가 아니면, \(A\mathbf{x} = b\)를 풀 때 역행렬을 구하지 말자!&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">\(A^{-1}\) 을 한 번 구해두면 \(x = A^{-1}b\) 를 통해 해를 구하면 되지 않을까?</summary></entry><entry><title type="html">Matrix 분류와 적합한 Inverse 알고리즘</title><link href="http://localhost:4000/linear_algebra/2021/01/22/1-Matrix%EB%B6%84%EB%A5%98%EC%99%80-%EC%A0%81%ED%95%A9%ED%95%9C-Inverse-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" rel="alternate" type="text/html" title="Matrix 분류와 적합한 Inverse 알고리즘" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/22/1-Matrix%EB%B6%84%EB%A5%98%EC%99%80-%EC%A0%81%ED%95%A9%ED%95%9C-Inverse-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/22/1-Matrix%EB%B6%84%EB%A5%98%EC%99%80-%EC%A0%81%ED%95%A9%ED%95%9C-Inverse-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">&lt;h2 id=&quot;성질로써의-분류&quot;&gt;성질로써의 분류&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Real Matrix
-    &lt;ol&gt;
-      &lt;li&gt;Symmetric
-        &lt;ol&gt;
-          &lt;li&gt;Positive definite&lt;/li&gt;
-          &lt;li&gt;Negative definite&lt;/li&gt;
-          &lt;li&gt;Indefinite&lt;/li&gt;
-        &lt;/ol&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Non-Symmetric&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Complex Matrix&lt;/p&gt;
-
-    &lt;ol&gt;
-      &lt;li&gt;
-        &lt;p&gt;Hermitian A = A* 에르미트&lt;/p&gt;
-
-        &lt;ol&gt;
-          &lt;li&gt;
-            &lt;p&gt;Real symmetric 의 성질들이 에르미트에도 적용될 수 있음&lt;/p&gt;
-          &lt;/li&gt;
-          &lt;li&gt;
-            &lt;p&gt;Positive definite : \(\mathbf{x}^*A\mathbf{x} &amp;gt; 0\)&lt;/p&gt;
-          &lt;/li&gt;
-        &lt;/ol&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Non-Hermitian&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;positive-definite-일-경우&quot;&gt;Positive Definite 일 경우&lt;/h3&gt;
-
-&lt;h4 id=&quot;cholesky-decomposition&quot;&gt;Cholesky decomposition&lt;/h4&gt;
-
-&lt;p&gt;R(L) =&amp;gt; Upper(Lower) triangular matrix&lt;/p&gt;
-
-&lt;p&gt;Real Matrix Positive definite → \(A = R^T R = LL^T\)&lt;/p&gt;
-
-&lt;p&gt;Complex Matrix Positive definite → \(A = R^* R = LL^*\)&lt;/p&gt;
-
-&lt;h4 id=&quot;ldl-decomposition&quot;&gt;LDL decomposition&lt;/h4&gt;
-
-&lt;p&gt;Tridiagonal 형태에서 적용함 ( 간단한 형태 )&lt;/p&gt;
-
-&lt;p&gt;D =&amp;gt; Diagonal Matrix&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-\[A = UDU^T = LDL^T\]
-  &lt;/li&gt;
-  &lt;li&gt;
-\[A = UDU^* = LDL^*\]
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;indefinite&quot;&gt;Indefinite&lt;/h3&gt;
-
-&lt;h4 id=&quot;diagonal-pivoting-method&quot;&gt;Diagonal Pivoting method&lt;/h4&gt;
-
-&lt;p&gt;D =&amp;gt; Block Diagonal Matrix 블럭은 &lt;strong&gt;최대 2 by 2&lt;/strong&gt; 형태&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Block symmetric diangonal : \(A = UDU^T = LDL^T\)&lt;/li&gt;
-  &lt;li&gt;Block Hermitian diangonal : \(A = UDU^* = LDL^*\)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;complex-symmetric-matrix&quot;&gt;Complex symmetric matrix&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;반드시 에르메트 형태와 구분지어야 함!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;주로 나오는 분야 : Boundary integral equations&lt;/p&gt;
-
-&lt;p&gt;**Non-Hermitian Matrix ** Definiteness ? → posi, nega, indef 가 모호해짐 : 일반적으로 정의가 되어있지 않음.&lt;/p&gt;
-
-&lt;p&gt;보통 Diagonal Pivoting method 알고리즘을 사용!&lt;/p&gt;
-
-&lt;p&gt;\(A = UDU^T = LDL^T\) 형태의 Decomposition을 사용 : Real symmetric matrix 처럼 풀면 된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;모양으로써의-분류&quot;&gt;모양으로써의 분류&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Full Matrix&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Band Matrix : Band의 일부만 존재하고 나머지는 0으로 채워진 경우 ( Diagonal 부분 제외)&lt;/p&gt;
-
-    &lt;ol&gt;
-      &lt;li&gt;컴퓨터 언어마다 row/col 접근 방식 속도 차이가 나기 때문에 저장 방식을 고려해야 함&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Digital Image Processing, Signal Processing, Cryptography 등의 분야에서 나오는 특수한 Matrix&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Toepliz matrix : 태각선 항의 값이 모두 동일함, 마이너스 인덱스로 표현&lt;/p&gt;
-
-    &lt;p&gt;→ Levinson-Durbin recursion \(~n^2\) &amp;gt; 필요 저장 공간은 컬럼 하나 : 정확도 문제 존재&lt;/p&gt;
-
-    &lt;p&gt;→ Bareiss algorithm \(~n^2\) &amp;gt; 풀매트릭스를 저장하는 단점이 있음&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Circulant Matrix : 열의 값이 순환함&lt;/p&gt;
-
-    &lt;p&gt;→ Circular convolution theorem&lt;/p&gt;
-
-    &lt;p&gt;→ Discrete Fourier transform&lt;/p&gt;
-
-    &lt;p&gt;→ Fast Fourier transform \(~nlog(n)\)&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">성질로써의 분류</summary></entry><entry><title type="html">행렬방정식 - 특수행렬 with Scipy &amp;amp; 여러 식을 한꺼번에 풀기</title><link href="http://localhost:4000/linear_algebra/2021/01/22/5-%ED%8A%B9%EC%88%98-%ED%96%89%EB%A0%AC/" rel="alternate" type="text/html" title="행렬방정식 - 특수행렬 with Scipy &amp;amp; 여러 식을 한꺼번에 풀기" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/22/5-%ED%8A%B9%EC%88%98-%ED%96%89%EB%A0%AC</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/22/5-%ED%8A%B9%EC%88%98-%ED%96%89%EB%A0%AC/">&lt;h3 id=&quot;toeplitz-행렬-solver&quot;&gt;Toeplitz 행렬 Solver&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_toeplitz((c, r), b)&lt;/code&gt; : c/r - 1D array (vector)&lt;br /&gt;
-기본 알고리즘 : Levinson-Durbin Recursion 계산량 \(\sim n^2\) 행렬사이즈의 2승에 비례하는 량&lt;br /&gt;
-행렬 사이즈가 커질 수록 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;solve_toeplitz&lt;/code&gt; 함수가 유리함&lt;/p&gt;
-
-&lt;h4 id=&quot;toeplitz-matrix-구축&quot;&gt;Toeplitz Matrix 구축&lt;/h4&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.toeplitz(c,r)&lt;/code&gt; 이게 꼭 필요할까? 작은사이즈 외에 경우에는 필요하지 않음&lt;/p&gt;
-
-&lt;p&gt;​&lt;/p&gt;
-
-&lt;h3 id=&quot;circulant-행렬-solver&quot;&gt;Circulant 행렬 Solver&lt;/h3&gt;
-
-&lt;p&gt;0번째 컬럼만 알면 가능&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solver_circulant(c, b)&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;기본 알고리즘 : Discrete Fourier Transform → 실질적으로 Fast Fourier transform 으로 문제를 해결&lt;/p&gt;
-
-&lt;p&gt;행렬사이즈 n의 log(n)에 비례하는 계산량 : \(\sim nlog(n)\)&lt;/p&gt;
-
-&lt;h4 id=&quot;circulant-matrix-구축&quot;&gt;Circulant Matrix 구축&lt;/h4&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.circulant(c)&lt;/code&gt; : 추천하지 않음&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;여러-식을-한꺼번에-풀기-&quot;&gt;여러 식을 한꺼번에 풀기 !&lt;/h3&gt;
-
-&lt;p&gt;행렬방정식을 푸는 함수는 \(A\mathbf{x} = b\) 뿐만 아니라 \(AX = B\) 형태도 적용가능하다~!&lt;/p&gt;
-
-&lt;p&gt;→ b벡터가 여러개일 때 한번에 푸는 방법&lt;br /&gt;
-→ A가 불변하고 B는 이미 주어진 상황이라면,&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;일반행렬&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve(A, B, {assume_a = 'gen'})&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_triangular(A, B, {lower = False})&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;밴드행렬&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_banded((lbw, ubw),  band_a, B)&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solveh_banded(band_a_h, B, lower=False)&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;특수행렬&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_toeplitz((c, r), B)&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linalg.solve_circulant(c, B)&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;→ 모두 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;B&lt;/code&gt; &lt;strong&gt;벡터를 행렬&lt;/strong&gt;로 넣어주면 결과를 반환함&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">Toeplitz 행렬 Solver</summary></entry><entry><title type="html">Numpy 편의기능 및 기본조작 1 ~ 3</title><link href="http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5/" rel="alternate" type="text/html" title="Numpy 편의기능 및 기본조작 1 ~ 3" /><published>2021-01-20T00:00:00+09:00</published><updated>2021-01-20T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5/">&lt;p&gt;Numpy 편의기능 및 기본조작&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.eye(row, {col}, {band_id}, {dtype})&lt;/code&gt; : band에 1 채워넣기&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;0,0 을 기준으로 대각선 항 -&amp;gt; band&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;../../images/numpy-basic.png&quot; alt=&quot;numpy-basic&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.identity(num, {dtype})&lt;/code&gt; : identity matrix&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Same as  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.eye(3)&lt;/code&gt; : 3x3 매트릭스&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.tri(row, {col}, {k=band_id}, {dtype})&lt;/code&gt; : lower triangular matrix&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;nonzero entry = 1&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a = np.eye(row, {col},{band_id}, {dtype})&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;K &amp;lt;= band id 의 모든 밴드에 1을 채워넣고 나머지는 0 을 채움&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.tril(a, {k=band_id})&lt;/code&gt; : band_id를 포함한 lower 부분을 copy&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.triu(a, {k=band_id})&lt;/code&gt; : band_id를 포함한 upper 부분을 copy&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.full((row, col), value)&lt;/code&gt; : 지정된 값으로 채우기&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.randomn.rand(row, col)&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;데이터타입 지정 불가 -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.float64&lt;/code&gt; 고정&lt;/li&gt;
-  &lt;li&gt;0과 1 사이 무작위 값으로 채워짐&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.copy(a)&lt;/code&gt; : 서로 같은 메모리를 참조 : 하나가 변하면 다른 하나도 변함&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.reshape(a, vector or shape)&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.reshape(a, 6)&lt;/code&gt; : 1D array&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.reshape(a, (3, 2))&lt;/code&gt; : 2D array&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.diag(a, k=band_id)&lt;/code&gt; : band 추출 후 1D array로 만듦&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;b is READ ONLY&lt;/li&gt;
-  &lt;li&gt;동일 메모리 공간 참조&lt;/li&gt;
-  &lt;li&gt;입력이 1D array (벡터)이면 square 행렬 생성&lt;/li&gt;
-  &lt;li&gt;&lt;img src=&quot;../../images/np-diag-1.png&quot; alt=&quot;np-diag-1&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;img src=&quot;/Users/eunbinpark/workspace/42cosmos.github.io/images/np-diag-2.png&quot; alt=&quot;np-diag-1&quot; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.diagflat(M, k=band_id)&lt;/code&gt; : M를 1D화 한뒤에 square matrix 생성&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;img src=&quot;../../images/np.diagflat-1.png&quot; alt=&quot;np.diagflat-1&quot; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.trace(a, offset=band_id)&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;diagonal entry ( band entry )를 더한 값&lt;/li&gt;
-  &lt;li&gt;\(\left[\begin{matrix}\\1 &amp;amp; 2 &amp;amp; 3 \\1 &amp;amp; 2 &amp;amp; 3 \\1 &amp;amp; 2 &amp;amp; 3 \\ \end{matrix}\right]\)  →  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.trace(a)&lt;/code&gt; returns 15, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.trace(a, offset=-1)&lt;/code&gt; returns 12&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.hstack((tuple))&lt;/code&gt; : 수평으로 쌓아감 - tuple 순서대로 행(row, shape[0]) 개수가 맞아야 함&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.vstack((tuple))&lt;/code&gt; : 수직으로 쌓아감 - tuple 순서대로 행(col, shape[0]) 개수가 맞아야 함&lt;/p&gt;
-
-&lt;h3 id=&quot;methods&quot;&gt;Methods&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;transpose()&lt;/code&gt; method&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;단, 1d arr는 무변&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flatten&lt;/code&gt; method&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;행렬 a를 1d  array 로 만들어 copy&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Same as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.ravel(a)&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;properties&quot;&gt;Properties&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;real&lt;/code&gt; : 실수 부분&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imag&lt;/code&gt; : 허수 부분&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;conjegate&lt;/code&gt;: copy&lt;/p&gt;
-
-&lt;h3 id=&quot;matrix-multiplication&quot;&gt;Matrix Multiplication&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;M1 @ M2&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.matmul(M1, M2)&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;*** or / is not multiplication !! **&lt;/p&gt;
-
-&lt;h3 id=&quot;matrix-vector-product&quot;&gt;Matrix-Vector Product&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;M @ arr&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.matmul(M, arr)&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;inner-product&quot;&gt;Inner Product&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.dot()&lt;/code&gt; is …&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Real vector same as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vdot()&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;complex vector : conjugate가 빠진 채로 계산&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">Numpy 편의기능 및 기본조작</summary></entry><entry><title type="html">프로그래머스 - 기능개발</title><link href="http://localhost:4000/algorithm/2021/01/18/programmars-42586/" rel="alternate" type="text/html" title="프로그래머스 - 기능개발" /><published>2021-01-18T00:00:00+09:00</published><updated>2021-01-18T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/18/programmars-42586</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/18/programmars-42586/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42586&quot;&gt;프로그래머스 기능개발&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;동일한 크기의 두 개의 리스트를 계산한다. 앞보다 뒤 값이 작으면 카운트 해준다.&lt;/p&gt;
 
 &lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;progresses&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;93&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;55&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;speeds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# return [2, 1]
-&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;temp_result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ceil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sp&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;zip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;progresses&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;speeds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# return [7, 3, 9]
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[::&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;0번째 인덱스 93퍼센트 진행률의 하루 1퍼센트의 속도를 보인다. 7일 후 프로세스가 완료된다.&lt;/p&gt;
+&lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
 
-&lt;p&gt;이런 식이다. 완료시점(100퍼센트)까지 계산은 쉽다. 남은 진척도를 구하고 스피드를 나눠준 후 , 소숫점은 무조건 올려주면 된다.&lt;/p&gt;
+&lt;p&gt;문제를 제대로 안 읽어서 처음에 n이 string인줄 알았다… 문제를 꼼꼼히 읽자&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 제일 작은 수 제거하기</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12935/" rel="alternate" type="text/html" title="프로그래머스 - 제일 작은 수 제거하기" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12935</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12935/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
 
-&lt;p&gt;여기까진 쏘이지~&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12935&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; 제일 작은 수 제거하기&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;retval&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;p&gt;정수를 저장한 배열, arr 에서 가장 작은 수를 제거한 배열을 리턴&lt;/p&gt;
 
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;temp_result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp_result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp_result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;retval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;arr은 길이 1 이상인 배열입니다.&lt;/li&gt;
+  &lt;li&gt;인덱스 i, j에 대해 i ≠ j이면 arr[i] ≠ arr[j] 입니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; 
     &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;temp_result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp_result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-        
-&lt;span class=&quot;n&quot;&gt;retval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;del&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))]&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;i-1 번째가 i번째보다 크면 결과 리스트에 삽입하고 1로 초기화 해준다.&lt;/p&gt;
-
-&lt;p&gt;i-1 번째가 i번째보다 작으면,  i-1번째는 그 넘어의 숫자와 비교되어야하기 때문에, i 번째에 넣어주고 answer( count )를 하나 올려주고 for문을 지속한다.&lt;/p&gt;
 
 &lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
 
-&lt;p&gt;진짜 아쉬웠다… 다 풀었는데… 내가 24시간을 꼬박 샜고… 두통이 엄청 와서 못 푼 거다… 그런거다 ^^&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><summary type="html">오늘의 문제 프로그래머스 기능개발</summary></entry><entry><title type="html">프로그래머스 - 멀쩡한 사각형</title><link href="http://localhost:4000/algorithm/2021/01/14/programmars-62048/" rel="alternate" type="text/html" title="프로그래머스 - 멀쩡한 사각형" /><published>2021-01-14T00:00:00+09:00</published><updated>2021-01-14T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/14/programmars-62048</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/14/programmars-62048/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/62048#qna&quot;&gt;프로그래머스 멀쩡한 사각형&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;뭔가… 잘 하면 한줄로 쓸 수 있을 거 같기도 한데…&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 평균 구하기</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12944/" rel="alternate" type="text/html" title="프로그래머스 - 평균 구하기" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12944</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12944/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
 
-&lt;p&gt;문제 간략 설명 : 12 by 8 배열의 사각형에서 대각선의 불능을 제외 후 개수를 세어 반환하는 문제&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12944&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; 평균 구하기&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;정수를 담고 있는 배열 arr의 평균값을 return하는 함수, solution을 완성해보세요.&lt;/p&gt;
+
+&lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;arr은 길이 1 이상, 100 이하인 배열입니다.&lt;/li&gt;
+  &lt;li&gt;arr의 원소는 -10,000 이상 10,000 이하인 정수입니다.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/programmars_62048.png&quot; alt=&quot;&quot; /&gt;&lt;!-- {&quot;width&quot;:379} --&gt;&lt;/p&gt;
-
-&lt;p&gt;문제의 답을 직관적으로 알 수 있다. 가로 2씩 세로 3씩 증가하고, 3 by 2의 도형 안에서 불능 도형의 개수를 찾고, 이 패턴이 몇 번 반복되는지 알아내면 된다 !&lt;/p&gt;
-
-&lt;p&gt;8 → 2, 12 → 3 니까 4 ! → 4번 패턴이 반복되는 건 두 수 사이의 최대공약수를 찾아주면 된다.&lt;/p&gt;
-
-&lt;p&gt;3 by 2 은 6개 중 4개가 불능, 12 by 8 은 96개 중 16개가 불능이다.&lt;/p&gt;
-
-&lt;p&gt;주어진 가로와 세로에 최대공약수를 나누어주고 -1을 한다. 그러고 반복되는 패턴이 4번 (12와 8의 최대공약수)이니 이만큼 곱해준다! …최대공약수 함수는 구글링해서 주웠다. ㅎㅎ 근데 math 모듈에 있더라고? 암튼&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;((w / gcd(w, h) + h / gcd(w, h)) - 1 ) * gcd(w, h)
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;그러고 전체 도형에서 불능 도형의 개수를 빼주면 끝~&lt;/p&gt;
 
 &lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
 
-&lt;p&gt;개인적으로 직관적인 문제는 무식하게 풀 수 있다고 생각하기에… 빈 종이에 손으로 쓰면서 문제를 풀었다.&lt;/p&gt;
+&lt;p&gt;쉬운 문제 휙휙 맞추면서 자존감 키우기 중…&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 자릿수 더하기</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12931/" rel="alternate" type="text/html" title="프로그래머스 - 자릿수 더하기" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12931</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12931/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
 
-&lt;p&gt;대각선이 지나갈 때의 불능 도형의 개수가 제일 머리 아팠다… 뭐랄까 애기 때 수학 공부를 잘했으면 금방 풀었을텐데 하는 생각이 들 정도로 간단해보이는데 잘 모르겠고… 이게 맞는데 왜 그런지는 모르겠는 그런 너낌&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12931&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; 자릿수 더하기&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;직관적인 문제 → 무식하게 풀기 가 아니라 그냥 무식한 나도 풀 수 있다는 걸 알게됐다…🥲&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><summary type="html">오늘의 문제 프로그래머스 멀쩡한 사각형</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/programmars_62048.png" /><media:content medium="image" url="http://localhost:4000/images/programmars_62048.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Ch12. Row Reduction and Echelon Forms</title><link href="http://localhost:4000/linear_algebra/2021/01/12/ch12-Row-Reduction-and-Echelon-Forms/" rel="alternate" type="text/html" title="Ch12. Row Reduction and Echelon Forms" /><published>2021-01-12T00:00:00+09:00</published><updated>2021-01-12T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/01/12/ch12-Row-Reduction-and-Echelon-Forms</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/01/12/ch12-Row-Reduction-and-Echelon-Forms/">&lt;p&gt;&lt;strong&gt;A leading Entry of row&lt;/strong&gt; : the LEFTMOST nonzero entry.&lt;/p&gt;
-&lt;h3 id=&quot;echelon-form&quot;&gt;Echelon Form&lt;/h3&gt;
+&lt;p&gt;자연수 N이 주어지면, N의 각 자릿수의 합을 구해서 return 하는 solution 함수를 만들어 주세요.&lt;/p&gt;
+
+&lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
+
 &lt;ol&gt;
-  &lt;li&gt;All nonzero rows are above any rows of all zeros&lt;/li&gt;
-  &lt;li&gt;Each leading entry of a row is in column to the right of the leading entry of the row above it&lt;/li&gt;
-  &lt;li&gt;The leading entry in each nonzero row is 1&lt;/li&gt;
-  &lt;li&gt;Each leading 1 is the only nonzero entry in its column&lt;/li&gt;
+  &lt;li&gt;N의 범위 : 100,000,000 이하의 자연수&lt;/li&gt;
 &lt;/ol&gt;
 
-\[1 → \left[
-\begin{matrix}
-\bullet &amp;amp; * &amp;amp; * &amp;amp; * \\
-0 &amp;amp; \bullet &amp;amp; * &amp;amp; * \\
-0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
-0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
-\end{matrix}
-\right]        
-  2 → \left[
-\begin{matrix}
-\bullet &amp;amp; * &amp;amp; * &amp;amp; * \\
-0 &amp;amp; \bullet &amp;amp; * &amp;amp; * \\
-0 &amp;amp; 0 &amp;amp; \bullet &amp;amp; * \\
-0 &amp;amp; 0 &amp;amp; 0 &amp;amp; \bullet \\
-\end{matrix}
-\right]\]
+&lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
 
-&lt;h4 id=&quot;-theorem-1-uniqueness-of-the-reduced-echelon-form&quot;&gt;📖 Theorem 1. Uniqueness of the Reduced Echelon Form&lt;/h4&gt;
-&lt;p&gt;Each matrix is row equivalent to one and only one reduced echelon matrix&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 약수의 합</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12928/" rel="alternate" type="text/html" title="프로그래머스 - 약수의 합" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12928</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12928/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
 
-&lt;h3 id=&quot;row-reduction-algorithm&quot;&gt;Row Reduction Algorithm&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12928&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; 약수의 합&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;정수 n을 입력받아 n의 약수를 모두 더한 값을 리턴하는 함수, solution을 완성해주세요.&lt;/p&gt;
+
+&lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
+
 &lt;ol&gt;
-  &lt;li&gt;Begin with the leftmost nonzero column&lt;/li&gt;
-  &lt;li&gt;Select a nonzero entry in the pivot column as a pivot. If necessary, Interchange rows to move this entry into the pivot position.&lt;/li&gt;
-  &lt;li&gt;Row replacement to create zeros in all positions below the pivot.&lt;/li&gt;
-  &lt;li&gt;Apply steps 1-3 to the sub matrix that remain. The combination of steps 1-4 is called forward phase echelon form&lt;/li&gt;
-  &lt;li&gt;Beginning with the rightmost polio and working upward and to the left, created zeros above each pivot. If a pivot is not 1, make it 1 by a scaling operation.
-    &lt;ul&gt;
-      &lt;li&gt;Called backward phase reduced echelon form&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;은 0 이상 3000이하인 정수입니다.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;solution-of-linear-systems&quot;&gt;Solution of linear systems&lt;/h3&gt;
-&lt;p&gt;\(\left[
-\begin{matrix}
-1 &amp;amp; 0 &amp;amp; -5 &amp;amp; 1 \\
-0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 4 \\
-0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
-\end{matrix}
-\right]\) &lt;br /&gt;
-일 때,&lt;br /&gt;
-\(x_1 - 5x_3 = 1 \\
-x_2 + x_3 = 4 \\
-0 = 0 \\
-\left[
-\begin{matrix}
-6 \\3 \\1 \\
-\end{matrix}
-\right]
-\left[
-\begin{matrix}
--9 \\
-6 \\
--2 \\
-\end{matrix}
-\right]  \cdots\) &lt;br /&gt;
-해가 무한대가 되며,  General Solution 은 아래와 같다.&lt;br /&gt;
-\(\begin{cases}
-x_1 = 1 + 5x_3 &amp;amp; \mbox{basic / leading  variables} \\
-x_2 = 4 - x_3 &amp;amp; \mbox{basic / leading variables} \\
-x_3 \mbox{ is free} &amp;amp; \mbox{free variable}
-\end{cases}\)&lt;/p&gt;
+&lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
 
-&lt;h4 id=&quot;-theorem-2-existence-and-uniqueness-theorem&quot;&gt;📖 Theorem 2. Existence and Uniqueness Theorem&lt;/h4&gt;
-&lt;p&gt;A linear system is consistent if and only if the rightmost column of the augmented matrix is not a pivot column - that is, if and only if and echelon form of the augmented matrix has no row of the forms.  &lt;br /&gt;
-\(\left[ \begin{matrix} 0 &amp;amp; \cdots &amp;amp;  0 &amp;amp; b \end{matrix} \right]\) with \(b\) is nonzero.  &lt;br /&gt;
-If a linear system is consistent, then the solution set contains either (i) a unique solution, when there are no free variables, or (ii) infinitely many solutions, when there is at least one free variables.&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><summary type="html">A leading Entry of row : the LEFTMOST nonzero entry. Echelon Form All nonzero rows are above any rows of all zeros Each leading entry of a row is in column to the right of the leading entry of the row above it The leading entry in each nonzero row is 1 Each leading 1 is the only nonzero entry in its column</summary></entry></feed>
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
+
+&lt;p&gt;약수가 뭔지만 알면 금방 풀수 있다.&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - x만큼 간격이 있는 n개의 숫자</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12954/" rel="alternate" type="text/html" title="프로그래머스 - x만큼 간격이 있는 n개의 숫자" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12954</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12954/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12954&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; x만큼 간격이 있는 n개의 숫자&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;함수 solution은 정수 x와 자연수 n을 입력 받아, x부터 시작해 x씩 증가하는 숫자를 n개 지니는 리스트를 리턴&lt;/p&gt;
+
+&lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;x는 -10000000 이상, 10000000 이하인 정수입니다.&lt;/li&gt;
+  &lt;li&gt;n은 1000 이하인 자연수입니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 문자열 다루기 기본</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12918/" rel="alternate" type="text/html" title="프로그래머스 - 문자열 다루기 기본" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12918</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12918/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12918&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; 문자열 다루기 기본&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;문자열 s의 길이가 4 혹은 6이고, 숫자로만 구성돼있는지 확인해주는 함수, solution을 완성하세요&lt;/p&gt;
+
+&lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;s&lt;/code&gt;는 길이 1 이상, 길이 8 이하인 문자열입니다.&lt;/li&gt;
+  &lt;li&gt;문자열 s의 길이가 4 혹은 6&lt;/li&gt;
+  &lt;li&gt;숫자로만 구성돼있는지 확인&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isdigit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 문자열 내림차순으로 배치하기</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12917/" rel="alternate" type="text/html" title="프로그래머스 - 문자열 내림차순으로 배치하기" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12917</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12917/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12917&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; 문자열 내림차순으로 배치하기&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;문자열 s에 나타나는 문자를 큰것부터 작은 순으로 정렬해 새로운 문자열을 리턴하는 함수, solution을 완성해주세요.&lt;/p&gt;
+
+&lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;s는 영문 대소문자로만 구성되어 있으며, 대문자는 소문자보다 작은 것으로 간주합니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;    
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;  &lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sorted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
+
+&lt;p&gt;문자를 큰 것부터 작은 순이 뭔가 했는데 그냥 sort로 처리하니까 맞았다… ㅋㅋㅋ&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 두 정수 사이의 합</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12912/" rel="alternate" type="text/html" title="프로그래머스 - 두 정수 사이의 합" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12912</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12912/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12912&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; 두 정수 사이의 합&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;두 정수 a, b가 주어졌을 때 a와 b 사이에 속한 모든 정수의 합을 리턴하는 함수, solution을 완성하세요.&lt;/p&gt;
+
+&lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;a와 b가 같은 경우는 둘 중 아무 수나 리턴하세요.&lt;/li&gt;
+  &lt;li&gt;a와 b는 -10,000,000 이상 10,000,000 이하인 정수입니다.&lt;/li&gt;
+  &lt;li&gt;a와 b의 대소관계는 정해져있지 않습니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
+
+&lt;p&gt;다른 사람 풀이 중에 진짜 감탄나온 게 있었다…. 크… 똑똑함에 취한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;adder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# 아래는 테스트로 출력해 보기 위한 코드입니다.
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;adder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 정수 내림차순으로 배치하기</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12933/" rel="alternate" type="text/html" title="프로그래머스 - 정수 내림차순으로 배치하기" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12933</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12933/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12933&quot;&gt;프로그래머스 &amp;gt; 정렬 &amp;gt; 정수 내림차순으로 배치하기&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;n의 각 자릿수를 큰것부터 작은 순으로 정렬한 새로운 정수를 리턴해주세요.&lt;/p&gt;
+
+&lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;은 1이상 8000000000 이하인 자연수입니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sorted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
+
+&lt;p&gt;코드를 많이 짜다보면 이런 간단한 문제는 바로 답이 나온다.&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry></feed>
