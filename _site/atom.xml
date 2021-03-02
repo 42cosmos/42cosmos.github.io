@@ -1,212 +1,441 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-30T20:41:36+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">빈둥빈둥 공부블로그</title><author><name>Eunbin Park</name></author><entry><title type="html">프로그래머스 - 자연수 뒤집어 배열로 만들기</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12932/" rel="alternate" type="text/html" title="프로그래머스 - 자연수 뒤집어 배열로 만들기" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12932</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12932/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-02T23:17:33+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">빈둥빈둥 공부블로그</title><author><name>Eunbin Park</name></author><entry><title type="html">프로그래머스 - [1차] 캐시</title><link href="http://localhost:4000/algorithm/2021/02/18/programmars-17680/" rel="alternate" type="text/html" title="프로그래머스 - [1차] 캐시" /><published>2021-02-18T00:00:00+09:00</published><updated>2021-02-18T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/02/18/programmars-17680</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/02/18/programmars-17680/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12932&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; 자연수 뒤집어 배열로 만들기&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/17680&quot;&gt;2018 KAKAO BLIND RECRUITMENT &amp;gt; [1차] 캐시&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;자연수 n을 뒤집어 각 자리 숫자를 원소로 가지는 배열 형태로 리턴&lt;/p&gt;
+&lt;p&gt;DB 캐시를 적용할 때 캐시 크기에 따른 실행시간 측정 프로그램을 작성하시오.&lt;/p&gt;
+
+&lt;h3 id=&quot;입력형식&quot;&gt;입력형식&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;캐시 크기(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cacheSize&lt;/code&gt;)와 도시이름 배열(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cities&lt;/code&gt;)을 입력받는다.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cacheSize&lt;/code&gt;는 정수이며, 범위는 0 ≦ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cacheSize&lt;/code&gt; ≦ 30 이다.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cities&lt;/code&gt;는 도시 이름으로 이뤄진 문자열 배열로, 최대 도시 수는 100,000개이다.&lt;/li&gt;
+  &lt;li&gt;각 도시 이름은 공백, 숫자, 특수문자 등이 없는 영문자로 구성되며, 대소문자 구분을 하지 않는다. 도시 이름은 최대 20자로 이루어져 있다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;출력형식&quot;&gt;출력형식&lt;/h3&gt;
+
+&lt;p&gt;입력된 도시이름 배열을 순서대로 처리할 때, 총 실행시간을 출력한다&lt;/p&gt;
 
 &lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;n은 10,000,000,000이하인 자연수입니다.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;ul&gt;
+  &lt;li&gt;캐시 교체 알고리즘은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LRU&lt;/code&gt;(Least Recently Used)를 사용한다.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cache hit&lt;/code&gt;일 경우 실행시간은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;이다.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cache miss&lt;/code&gt;일 경우 실행시간은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;이다.&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
+&lt;h3 id=&quot;풀이-방법---오답&quot;&gt;풀이 방법 - 오답&lt;/h3&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[::&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;init_cities&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cities&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cacheSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cities&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cacheSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cities&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cacheSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])))&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cities&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;checkCity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cities&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cacheSize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;checkCity&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cities&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cacheSize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;init_cities&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;init_cities&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;IndexError&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;pass&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;init_cities&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
 
-&lt;p&gt;문제를 제대로 안 읽어서 처음에 n이 string인줄 알았다… 문제를 꼼꼼히 읽자&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 제일 작은 수 제거하기</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12935/" rel="alternate" type="text/html" title="프로그래머스 - 제일 작은 수 제거하기" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12935</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12935/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
+&lt;p&gt;알고리즘 조건을 정확하게 맞추지 못해서 에러가 나는듯 하다. 근데 테스트 케이스도 다 맞고 … ㅠ 이럴 때 제일 난감하다… 진짜 두뇌 회전을 요하는 그런 …ㅋㅋ 그냥 풀면 안 될까요?&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 튜플</title><link href="http://localhost:4000/algorithm/2021/02/17/programmars-64065/" rel="alternate" type="text/html" title="프로그래머스 - 튜플" /><published>2021-02-17T00:00:00+09:00</published><updated>2021-02-17T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/02/17/programmars-64065</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/02/17/programmars-64065/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12935&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; 제일 작은 수 제거하기&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/64065&quot;&gt;2019 카카오 개발자 겨울 인턴십 &amp;gt; 튜플&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;정수를 저장한 배열, arr 에서 가장 작은 수를 제거한 배열을 리턴&lt;/p&gt;
-
-&lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;arr은 길이 1 이상인 배열입니다.&lt;/li&gt;
-  &lt;li&gt;인덱스 i, j에 대해 i ≠ j이면 arr[i] ≠ arr[j] 입니다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; 
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;del&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))]&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
-
-&lt;p&gt;뭔가… 잘 하면 한줄로 쓸 수 있을 거 같기도 한데…&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 평균 구하기</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12944/" rel="alternate" type="text/html" title="프로그래머스 - 평균 구하기" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12944</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12944/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12944&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; 평균 구하기&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;정수를 담고 있는 배열 arr의 평균값을 return하는 함수, solution을 완성해보세요.&lt;/p&gt;
+&lt;p&gt;특정 튜플을 표현하는 집합이 담긴 문자열 s가 매개변수로 주어질 때, s가 표현하는 튜플을 배열에 담아 return 하도록 solution 함수를 완성해주세요.&lt;/p&gt;
 
 &lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;arr은 길이 1 이상, 100 이하인 배열입니다.&lt;/li&gt;
-  &lt;li&gt;arr의 원소는 -10,000 이상 10,000 이하인 정수입니다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
-
-&lt;p&gt;쉬운 문제 휙휙 맞추면서 자존감 키우기 중…&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 자릿수 더하기</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12931/" rel="alternate" type="text/html" title="프로그래머스 - 자릿수 더하기" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12931</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12931/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12931&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; 자릿수 더하기&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;자연수 N이 주어지면, N의 각 자릿수의 합을 구해서 return 하는 solution 함수를 만들어 주세요.&lt;/p&gt;
-
-&lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;N의 범위 : 100,000,000 이하의 자연수&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 약수의 합</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12928/" rel="alternate" type="text/html" title="프로그래머스 - 약수의 합" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12928</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12928/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12928&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; 약수의 합&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;정수 n을 입력받아 n의 약수를 모두 더한 값을 리턴하는 함수, solution을 완성해주세요.&lt;/p&gt;
-
-&lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;은 0 이상 3000이하인 정수입니다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
-
-&lt;p&gt;약수가 뭔지만 알면 금방 풀수 있다.&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - x만큼 간격이 있는 n개의 숫자</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12954/" rel="alternate" type="text/html" title="프로그래머스 - x만큼 간격이 있는 n개의 숫자" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12954</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12954/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12954&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; x만큼 간격이 있는 n개의 숫자&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;함수 solution은 정수 x와 자연수 n을 입력 받아, x부터 시작해 x씩 증가하는 숫자를 n개 지니는 리스트를 리턴&lt;/p&gt;
-
-&lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;x는 -10000000 이상, 10000000 이하인 정수입니다.&lt;/li&gt;
-  &lt;li&gt;n은 1000 이하인 자연수입니다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 문자열 다루기 기본</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12918/" rel="alternate" type="text/html" title="프로그래머스 - 문자열 다루기 기본" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12918</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12918/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12918&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; 문자열 다루기 기본&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;문자열 s의 길이가 4 혹은 6이고, 숫자로만 구성돼있는지 확인해주는 함수, solution을 완성하세요&lt;/p&gt;
-
-&lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;s&lt;/code&gt;는 길이 1 이상, 길이 8 이하인 문자열입니다.&lt;/li&gt;
-  &lt;li&gt;문자열 s의 길이가 4 혹은 6&lt;/li&gt;
-  &lt;li&gt;숫자로만 구성돼있는지 확인&lt;/li&gt;
+  &lt;li&gt;s의 길이는 5 이상 1,000,000 이하입니다.&lt;/li&gt;
+  &lt;li&gt;s는 숫자와 ‘{‘, ‘}’, ‘,’ 로만 이루어져 있습니다.&lt;/li&gt;
+  &lt;li&gt;숫자가 0으로 시작하는 경우는 없습니다.&lt;/li&gt;
+  &lt;li&gt;s는 항상 중복되는 원소가 없는 튜플을 올바르게 표현하고 있습니다.&lt;/li&gt;
+  &lt;li&gt;s가 표현하는 튜플의 원소는 1 이상 100,000 이하인 자연수입니다.&lt;/li&gt;
+  &lt;li&gt;return 하는 배열의 길이가 1 이상 500 이하인 경우만 입력으로 주어집니다.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isdigit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 문자열 내림차순으로 배치하기</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12917/" rel="alternate" type="text/html" title="프로그래머스 - 문자열 내림차순으로 배치하기" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12917</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12917/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
+    &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;{&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;[&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;}&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;]&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;eval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sorted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12917&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; 문자열 내림차순으로 배치하기&lt;/a&gt;&lt;/p&gt;
+    &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 
-&lt;p&gt;문자열 s에 나타나는 문자를 큰것부터 작은 순으로 정렬해 새로운 문자열을 리턴하는 함수, solution을 완성해주세요.&lt;/p&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;difference&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;difference&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
+&lt;p&gt;s가 중복이 없다는 것만 알면 쉽게풀 수 있다&lt;/p&gt;
+
+&lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;\d+&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sorted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]))&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;collections&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;다른 사람의 풀이인데 문제 제한사항인 중복이 없고, 이전에 나왔던 숫자들이 계속 출현하는 형태를 잘 활용한 예시길래 가져왔다. 평소 내가 푸는 풀이 스타일이랑 비슷하기도 한 것 같고 ?&lt;/p&gt;
+
+&lt;p&gt;오늘은 3시간 자고 일어나서 머리가 굳었다 암튼 그런것임&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - [1차] 뉴스 클러스터링</title><link href="http://localhost:4000/algorithm/2021/02/16/programmars-17677/" rel="alternate" type="text/html" title="프로그래머스 - [1차] 뉴스 클러스터링" /><published>2021-02-16T00:00:00+09:00</published><updated>2021-02-16T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/02/16/programmars-17677</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/02/16/programmars-17677/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/17677&quot;&gt;2018 KAKAO BLIND RECRUITMENT &amp;gt; [1차] 뉴스 클러스터링&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;입력으로 들어온 두 문자열의 자카드 유사도를 출력한다. 유사도 값은 0에서 1 사이의 실수이므로, 이를 다루기 쉽도록 65536을 곱한 후에 소수점 아래를 버리고 정수부만 출력한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;입력형식&quot;&gt;입력형식&lt;/h3&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;s는 영문 대소문자로만 구성되어 있으며, 대문자는 소문자보다 작은 것으로 간주합니다.&lt;/li&gt;
+  &lt;li&gt;입력으로는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;str1&lt;/code&gt;과 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;str2&lt;/code&gt;의 두 문자열이 들어온다. 각 문자열의 길이는 2 이상, 1,000 이하이다.&lt;/li&gt;
+  &lt;li&gt;입력으로 들어온 문자열은 두 글자씩 끊어서 다중집합의 원소로 만든다. 이때 영문자로 된 글자 쌍만 유효하고, 기타 공백이나 숫자, 특수 문자가 들어있는 경우는 그 글자 쌍을 버린다. 예를 들어 ab+가 입력으로 들어오면, ab만 다중집합의 원소로 삼고, b+는 버린다.&lt;/li&gt;
+  &lt;li&gt;다중집합 원소 사이를 비교할 때, 대문자와 소문자의 차이는 무시한다. AB와 Ab, ab는 같은 원소로 취급한다.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;    
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;  &lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sorted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;J&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;intersec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;intersection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;union&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;union&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;union&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;intersec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; \
+    &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;union&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;65536&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;str1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;upper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;upper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;str1_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isalpha&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;str2_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isalpha&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;J&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str1_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str2_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;원소의 개수만을 알면 자카드 유사도를 계산할 수 있기 때문에 이부분에 유념하면 된다.&lt;/p&gt;
 
 &lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
 
-&lt;p&gt;문자를 큰 것부터 작은 순이 뭔가 했는데 그냥 sort로 처리하니까 맞았다… ㅋㅋㅋ&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 두 정수 사이의 합</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12912/" rel="alternate" type="text/html" title="프로그래머스 - 두 정수 사이의 합" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12912</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12912/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
+&lt;p&gt;근데 지금 봐도 모르겠다 나중에 다시 한 번 풀어볼만한 문제인듯&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12912&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; 두 정수 사이의 합&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;함수를 두 개로 나눈 이유는… 사실 문제에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;J(A, B)&lt;/code&gt;라고 써있는게 멋있었기 때문 … ㅎ&lt;/p&gt;
 
-&lt;p&gt;두 정수 a, b가 주어졌을 때 a와 b 사이에 속한 모든 정수의 합을 리턴하는 함수, solution을 완성하세요.&lt;/p&gt;
+&lt;p&gt;젤 고생했던 부분이 min, max 부분이었는데 문제에 걍 나와있어서 막판에 보고 풀었당&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;자카드 유사도는 원소의 중복을 허용하는 다중집합에 대해서 확장할 수 있다. 다중집합 `A`는 원소 1을 3개 가지고 있고, 다중집합 `B`는 원소 1을 5개 가지고 있다고 하자. 이 다중집합의 교집합 `A ∩ B`는 원소 1을 min(3, 5)인 3개, 합집합 `A ∪ B`는 원소 1을 max(3, 5)인 5개 가지게 된다. 다중집합 `A` = {1, 1, 2, 2, 3}, 다중집합 `B` = {1, 2, 2, 4, 5}라고 하면, 교집합 `A ∩ B` = {1, 2, 2}, 합집합 `A ∪ B` = {1, 1, 2, 2, 3, 4, 5}가 되므로, 자카드 유사도 `J(A, B)` = 3/7, 약 0.42가 된다.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 영어 끝말잇기</title><link href="http://localhost:4000/algorithm/2021/02/15/programmars-12981/" rel="alternate" type="text/html" title="프로그래머스 - 영어 끝말잇기" /><published>2021-02-15T00:00:00+09:00</published><updated>2021-02-15T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/02/15/programmars-12981</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/02/15/programmars-12981/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12981&quot;&gt;프로그래머스 &amp;gt; Summer/Winter Coding (~2018) &amp;gt; 영어 끝말잇기&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;사람의 수 n과 사람들이 순서대로 말한 단어 words 가 매개변수로 주어질 때, 가장 먼저 탈락하는 사람의 번호와 그 사람이 자신의 몇 번째 차례에 탈락하는지를 구해서 return 하도록 solution 함수를 완성해주세요.&lt;/p&gt;
 
 &lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;a와 b가 같은 경우는 둘 중 아무 수나 리턴하세요.&lt;/li&gt;
-  &lt;li&gt;a와 b는 -10,000,000 이상 10,000,000 이하인 정수입니다.&lt;/li&gt;
-  &lt;li&gt;a와 b의 대소관계는 정해져있지 않습니다.&lt;/li&gt;
+  &lt;li&gt;끝말잇기에 참여하는 사람의 수 n은 2 이상 10 이하의 자연수입니다.&lt;/li&gt;
+  &lt;li&gt;words는 끝말잇기에 사용한 단어들이 순서대로 들어있는 배열이며, 길이는 n 이상 100 이하입니다.&lt;/li&gt;
+  &lt;li&gt;단어의 길이는 2 이상 50 이하입니다.&lt;/li&gt;
+  &lt;li&gt;모든 단어는 알파벳 소문자로만 이루어져 있습니다.&lt;/li&gt;
+  &lt;li&gt;끝말잇기에 사용되는 단어의 뜻(의미)은 신경 쓰지 않으셔도 됩니다.&lt;/li&gt;
+  &lt;li&gt;정답은 [ 번호, 차례 ] 형태로 return 해주세요.&lt;/li&gt;
+  &lt;li&gt;만약 주어진 단어들로 탈락자가 생기지 않는다면, [0, 0]을 return 해주세요.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;need2check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)])&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;need2check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;need2check&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]):&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;검사 단어가 바로 이전 단어의 끝의 알파벳으로 시작하는지&lt;/li&gt;
+  &lt;li&gt;검사 단어가 지금까지 한 번이라도 나온 적이 있는지&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;확인하면 된다.&lt;/p&gt;
 
 &lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
 
-&lt;p&gt;다른 사람 풀이 중에 진짜 감탄나온 게 있었다…. 크… 똑똑함에 취한다.&lt;/p&gt;
+&lt;p&gt;처음엔 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(i % n) + 1&lt;/code&gt; 대신 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n if (i + 1) % n == 0 else (i + 1) % n&lt;/code&gt; 로 넣었는데도 통과되긴 했었다&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;adder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;p&gt;약간 헷갈렸던게 번호랑 차례인데… 지금 보면 왜 헷갈렸나 싶긴 하다.&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 다음 큰 숫자</title><link href="http://localhost:4000/algorithm/2021/02/03/programmars-12911/" rel="alternate" type="text/html" title="프로그래머스 - 다음 큰 숫자" /><published>2021-02-03T00:00:00+09:00</published><updated>2021-02-03T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/02/03/programmars-12911</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/02/03/programmars-12911/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
 
-&lt;span class=&quot;c1&quot;&gt;# 아래는 테스트로 출력해 보기 위한 코드입니다.
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;adder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">프로그래머스 - 정수 내림차순으로 배치하기</title><link href="http://localhost:4000/algorithm/2021/01/30/programmars-12933/" rel="alternate" type="text/html" title="프로그래머스 - 정수 내림차순으로 배치하기" /><published>2021-01-30T00:00:00+09:00</published><updated>2021-01-30T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/01/30/programmars-12933</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/01/30/programmars-12933/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12911&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; 다음 큰 숫자&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12933&quot;&gt;프로그래머스 &amp;gt; 정렬 &amp;gt; 정수 내림차순으로 배치하기&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;예를 들어서 78(1001110)의 다음 큰 숫자는 83(1010011)입니다.&lt;/p&gt;
 
-&lt;p&gt;n의 각 자릿수를 큰것부터 작은 순으로 정렬한 새로운 정수를 리턴해주세요.&lt;/p&gt;
+&lt;p&gt;자연수 n이 매개변수로 주어질 때, n의 다음 큰 숫자를 return 하는 solution 함수를 완성해주세요.&lt;/p&gt;
 
 &lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;은 1이상 8000000000 이하인 자연수입니다.&lt;/li&gt;
+  &lt;li&gt;조건 1. n의 다음 큰 숫자는 n보다 큰 자연수 입니다.&lt;/li&gt;
+  &lt;li&gt;조건 2. n의 다음 큰 숫자와 n은 2진수로 변환했을 때 1의 갯수가 같습니다.&lt;/li&gt;
+  &lt;li&gt;조건 3. n의 다음 큰 숫자는 조건 1, 2를 만족하는 수 중 가장 작은 수 입니다.&lt;/li&gt;
+  &lt;li&gt;n은 1,000,000 이하의 자연수 입니다.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sorted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;collections&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;count_n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000001&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count_n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;1&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;1&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;조건 4가 백만 이하의 자연수이기 때문에 for문으로 돌려주며, return i 로 값이 같으면 뒤에는 더 돌려 볼 필요도 없이 반환되게 만들어주기 때문에 효율성 부분에서 통과한다.&lt;/p&gt;
 
 &lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
 
-&lt;p&gt;코드를 많이 짜다보면 이런 간단한 문제는 바로 답이 나온다.&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><category term="lv_1" /><summary type="html">오늘의 문제</summary></entry></feed>
+&lt;p&gt;일단 싹 다 출력하고 맨 앞에 걸 먼저 뽑아보려고 했다 ㅋㅋㅋ 바보였다.. ㅎ&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;collections&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;count_n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000001&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count_n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;1&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;1&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">확률론 맛보기</title><link href="http://localhost:4000/linear_algebra/2021/02/02/06-%ED%99%95%EB%A5%A0%EB%A1%A0-%EB%A7%9B%EB%B3%B4%EA%B8%B0/" rel="alternate" type="text/html" title="확률론 맛보기" /><published>2021-02-02T00:00:00+09:00</published><updated>2021-02-02T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/02/02/06-%ED%99%95%EB%A5%A0%EB%A1%A0-%EB%A7%9B%EB%B3%B4%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/02/02/06-%ED%99%95%EB%A5%A0%EB%A1%A0-%EB%A7%9B%EB%B3%B4%EA%B8%B0/"></content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><category term="vector" /><summary type="html"></summary></entry><entry><title type="html">행렬이 뭐예요</title><link href="http://localhost:4000/linear_algebra/2021/02/02/02-%ED%96%89%EB%A0%AC%EC%9D%B4-%EB%AD%90%EC%98%88%EC%9A%94/" rel="alternate" type="text/html" title="행렬이 뭐예요" /><published>2021-02-02T00:00:00+09:00</published><updated>2021-02-02T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/02/02/02-%ED%96%89%EB%A0%AC%EC%9D%B4-%EB%AD%90%EC%98%88%EC%9A%94</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/02/02/02-%ED%96%89%EB%A0%AC%EC%9D%B4-%EB%AD%90%EC%98%88%EC%9A%94/">&lt;h2 id=&quot;행렬&quot;&gt;행렬&lt;/h2&gt;
+
+&lt;h3 id=&quot;행렬을-이해하는-방법-1&quot;&gt;행렬을 이해하는 방법 (1)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;벡터가 공간에서의 한 점이라면 행렬은 여러 점을 나타낸다&lt;/li&gt;
+  &lt;li&gt;행렬의 행벡터 $x_i$ 는 i번째 데이터를 의미한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;덧셈-뺄셈-성분곱-스칼라곱&quot;&gt;덧셈, 뺄셈, 성분곱, 스칼라곱&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;행렬끼리 같은 모양을 가지면 덧셈, 뺄셈을 계산할 수 있다. (벡터의 덧뺄셈과 동일)&lt;/li&gt;
+  &lt;li&gt;성분곱도 벡터와 동일하다. ( 각 성분의 동일 위치끼리의 곱 )&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;행렬-곱셈-matrix-multiplication&quot;&gt;행렬 곱셈 Matrix Multiplication&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;i번째 행벡터와 j번째 열벡터&lt;/strong&gt; 사이 내적을 성분으로 가지는 행렬을 계산한다. 단 x의 열의 개수와 y의 행의 개수가 같아야 한다. ( 행렬 순서가 중요함 )&lt;/p&gt;
+
+&lt;h4 id=&quot;행렬의-내적&quot;&gt;행렬의 내적&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;넘파이 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.inner&lt;/code&gt; 는 두 행렬의 i, j번째 행벡터 사이의 내적을 성분으로 갖는 행렬을 계산한다. ( 두 행렬의 행 크기가 같아야 한다 )&lt;/li&gt;
+  &lt;li&gt;행렬x와 y의 전치행렬을 행렬곱을 하면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.inner&lt;/code&gt; 와 같은 결과를 보인다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;행렬을-이해하는-방법-2&quot;&gt;행렬을 이해하는 방법 (2)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;벡터공간에서 사용되는 연산자로 이해한다 - Operator&lt;/li&gt;
+  &lt;li&gt;행렬곱을 통해 벡터를 다른 차원 공간으로 보낼 수 있다&lt;/li&gt;
+  &lt;li&gt;행렬곱을 통해 패턴을 추출하거나 데이터를 압축할 수 있다.
+    &lt;ul&gt;
+      &lt;li&gt;Linear Transform&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;역행렬-inverse-matrix&quot;&gt;역행렬 Inverse Matrix&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;행렬 A의 연산을 거꾸로 되돌리는 행렬&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;행과 열의 수가 같고, 행렬식(determinant)이 0이 아닌 경우에만 계산할 수 있다&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;역행렬 계산이 가능한지 먼저 확인해야 한다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;행렬곱은 역행렬일 때 순서에 구애받지 않는다.&lt;/li&gt;
+  &lt;li&gt;항등행렬은 임의의 벡터나 행렬을 곱해주었을 때 자기자신이 나오게 된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Users/eunbinpark/Library/Application Support/typora-user-images/image-20210201234942690.png&quot; alt=&quot;image-20210201234942690&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;역행렬 계산이 불가하다면, 유사역행렬 pseudo-inverse 또는 무어-펜로즈 Moore-Penrose 역행렬을 이용한다
+    &lt;ul&gt;
+      &lt;li&gt;행과 열의 수가 달라도 계산이 가능&lt;/li&gt;
+      &lt;li&gt;$A^{+}$로 표현한다.&lt;/li&gt;
+      &lt;li&gt;행과 열 중 어떤 개수가 많은지에 따라 계산 식이 달라진다.
+        &lt;ul&gt;
+          &lt;li&gt;행이 열보다 많아지면, 유사역행렬은 원래 행렬보다 더 먼저 곱해주어야 항등행렬이 나온다&lt;/li&gt;
+          &lt;li&gt;&lt;img src=&quot;/Users/eunbinpark/Library/Application Support/typora-user-images/image-20210201235607577.png&quot; alt=&quot;image-20210201235607577&quot; /&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;응용-1--연립방정식-풀기&quot;&gt;응용 1 : 연립방정식 풀기&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.linalg.pinv&lt;/code&gt; 를 이용하면 연립방정식의 해를 구할 수 있다.  ($a_{ij}$와 $b_{i}가 주어진 상황에서, 방정식을 만족하는 $x_j$를 구한다)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Users/eunbinpark/Library/Application Support/typora-user-images/image-20210202000109354.png&quot; alt=&quot;image-20210202000109354&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;응용-2--선형회귀분석&quot;&gt;응용 2 : 선형회귀분석&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;n &amp;gt;= m, 변수 개수보다 데이터의 개수가 같거나 많을 때 선형 모델로 해석하는 선형회귀식을 찾는다&lt;/li&gt;
+  &lt;li&gt;선형회귀분석은 연립방정식과 달리 행이 더 크므로 방정식을 푸는 것은 (x를 찾는 것) 불가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;사용되는 선형모델식 $\hat{y}$을 표현하고, $\hat{y}$과 데이터에서 주어져있는 라벨 Y벡터 차이가 최소화되는 것 &amp;gt; 적절한 모델&lt;/p&gt;
+
+&lt;p&gt;$L_2$노름을 이용했을 때 가장 근접하는 $\hat{y}$을 찾을 수 있다.&lt;/p&gt;
+
+&lt;p&gt;x행렬의 무어펜로즈 역행렬을 y에 곱해주게 되면, 이때찾는 벡터가 최적의 선형회귀계수가 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sklearn&lt;/code&gt; 의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LinearRegression&lt;/code&gt;은 자동으로 y절편을 자동추정해주지만, 무어펜로즈 역행렬은 y절편항을 직접 추가해 넣어주어야 한다.&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><category term="vector" /><summary type="html">행렬</summary></entry><entry><title type="html">프로그래머스 - 큰 수 만들기</title><link href="http://localhost:4000/algorithm/2021/02/02/programmars-42883/" rel="alternate" type="text/html" title="프로그래머스 - 큰 수 만들기" /><published>2021-02-02T00:00:00+09:00</published><updated>2021-02-02T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/02/02/programmars-42883</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/02/02/programmars-42883/">&lt;h3 id=&quot;오늘의-문제&quot;&gt;오늘의 문제&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42883&quot;&gt;프로그래머스 &amp;gt; 연습문제 &amp;gt; 큰 수 만들기&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;number에서 k 개의 수를 제거했을 때 만들 수 있는 수 중 가장 큰 숫자를 문자열 형태로 return 하도록 solution 함수를 완성하세요.&lt;/p&gt;
+
+&lt;h3 id=&quot;조건&quot;&gt;조건&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;number는 1자리 이상, 1,000,000자리 이하인 숫자입니다.&lt;/li&gt;
+  &lt;li&gt;k는 1 이상 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;number의 자릿수&lt;/code&gt; 미만인 자연수입니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:]:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;들어오는 값이 stack 값보다 크면, 기존의 값을 제거하고 새로운 값으로 바꾼다. &lt;br /&gt;
+stack 과 k가 0보다 크고, stack의 마지막 요소가 num보다 작을 경우, k의 횟수를 줄이고 스택 마지막 요소 제거한다. &lt;br /&gt;
+만일 k가 0보다 클 경우 stack을 뒤에서부터 k만큼 제거한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;사담&quot;&gt;사담&lt;/h3&gt;
+
+&lt;p&gt;인터넷의 여러 답지를 보고 해석했다. 100퍼센트 이해는 못했지만… ㅠㅠ&lt;br /&gt;
+효율성 말고 하기한 내 코드도 정답으로 되는지 궁금하다. 이렇게 해도 맞을 거 같은데… 흠&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;itertools&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itertools&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Eunbin Park</name></author><category term="Algorithm" /><summary type="html">오늘의 문제</summary></entry><entry><title type="html">확률론 맛보기 2</title><link href="http://localhost:4000/linear_algebra/2021/02/02/07-%ED%99%95%EB%A5%A0%EB%A1%A0-%EB%A7%9B%EB%B3%B4%EA%B8%B02/" rel="alternate" type="text/html" title="확률론 맛보기 2" /><published>2021-02-02T00:00:00+09:00</published><updated>2021-02-02T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/02/02/07-%ED%99%95%EB%A5%A0%EB%A1%A0-%EB%A7%9B%EB%B3%B4%EA%B8%B02</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/02/02/07-%ED%99%95%EB%A5%A0%EB%A1%A0-%EB%A7%9B%EB%B3%B4%EA%B8%B02/"></content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><category term="vector" /><summary type="html"></summary></entry><entry><title type="html">벡터가 뭐예요</title><link href="http://localhost:4000/linear_algebra/2021/02/01/01-%EB%B2%A1%ED%84%B0%EA%B0%80-%EB%AD%90%EC%98%88%EC%9A%94/" rel="alternate" type="text/html" title="벡터가 뭐예요" /><published>2021-02-01T00:00:00+09:00</published><updated>2021-02-01T00:00:00+09:00</updated><id>http://localhost:4000/linear_algebra/2021/02/01/01-%EB%B2%A1%ED%84%B0%EA%B0%80-%EB%AD%90%EC%98%88%EC%9A%94</id><content type="html" xml:base="http://localhost:4000/linear_algebra/2021/02/01/01-%EB%B2%A1%ED%84%B0%EA%B0%80-%EB%AD%90%EC%98%88%EC%9A%94/">&lt;h2 id=&quot;벡터&quot;&gt;벡터&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;벡터는 공간에서 한 점을 나타낸다. 1차원은 숫자, 스칼라로 표현한다.&lt;/li&gt;
+  &lt;li&gt;백터는 &lt;strong&gt;원점으로부터 상대적인 위치&lt;/strong&gt;를 표현한다.&lt;/li&gt;
+  &lt;li&gt;벡터에서 숫자를 곱해주면 길이만 변한다.&lt;/li&gt;
+  &lt;li&gt;같은 모양을 가진다면 각 구성성분에의 덧셈과 뺄셈으로 계산할 수 있다. (모양이 다르면 불가능)&lt;/li&gt;
+  &lt;li&gt;같은 모야을 가진다면 성분곱(Hadamard Product)을 계산할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2차원 공간이라면 수직 상의 표현되는 값이 아니라 x, y축 위의 점으로 표현할 수 있음. (x, y)일 때, 좌표평면 상의 한 점을 나타낸다. 3차원 공간이라면, x, y, z로 표현된다.&lt;/p&gt;
+
+&lt;h3 id=&quot;덧셈--뺄셈&quot;&gt;덧셈 &amp;amp; 뺄셈&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;두 벡터의 덧셈은 다른 벡터로부터 상대적 위치이동을 표현한다&lt;/li&gt;
+  &lt;li&gt;뺄셈은 방향을 뒤집은 덧셈이다.
+    &lt;ol&gt;
+      &lt;li&gt;-(x) 를 더하는 것 !&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;노름-norm&quot;&gt;노름 (Norm)&lt;/h3&gt;
+
+&lt;p&gt;임의의 차원 d에 대해 성립한다. 벡터 구성성분 원소 개수에 상관 없이 계산할 수 있음.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;원점에서부터 한 점 사이의 거리&lt;/li&gt;
+  &lt;li&gt;주어진 벡터 x의 노름이 두 가지로 표현할 수 있음
+    &lt;ol&gt;
+      &lt;li&gt;각 성분의 변화량의 절댓값을 모두 더한다. ( 좌표 평면에서 각 좌표축을 따라 움직이는 거리 )&lt;/li&gt;
+      &lt;li&gt;피타고라스 정리를 이용해 유클리드 거리를 계산한다. ( 임의의 차원에서도 계산이 가능 )&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Users/eunbinpark/Library/Application Support/typora-user-images/image-20210201215617312.png&quot; alt=&quot;image-20210201215617312&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;노름의-종류&quot;&gt;노름의 종류&lt;/h3&gt;
+
+&lt;p&gt;노름의 종류에 따라 기하학적 성질이 달라진다.&lt;/p&gt;
+
+&lt;p&gt;$L_1$ 은 마름모꼴 형태이다. 서로 다른 노름은 거리 개념이 달라지기 때문에 원이라는 정의가 원점에서부터 거리로 정의되기 때문에 거리 개념을 다르게 정의하면 모양 또한 달라지게 된다.&lt;/p&gt;
+
+&lt;p&gt;기계학습 목적에 따라 종류를 선택한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Users/eunbinpark/Library/Application Support/typora-user-images/image-20210201222001903.png&quot; alt=&quot;image-20210201222001903&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;두-벡터-사이의-거리&quot;&gt;두 벡터 사이의 거리&lt;/h3&gt;
+
+&lt;p&gt;$L_1$, $L_2$ 노름을 이용해 두 벡터 사이의 거리를 뺄셈으로 계산한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Users/eunbinpark/Library/Application Support/typora-user-images/image-20210201230627050.png&quot; alt=&quot;image-20210201230627050&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;두-벡터-사이의-각도&quot;&gt;두 벡터 사이의 각도&lt;/h3&gt;
+
+&lt;p&gt;d차원에서 계산할 수 있도록 $L_2$ 노름으로만 가능하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Users/eunbinpark/Library/Application Support/typora-user-images/image-20210201230736002.png&quot; alt=&quot;image-20210201230736002&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Users/eunbinpark/Library/Application Support/typora-user-images/image-20210201230827775.png&quot; alt=&quot;image-20210201230827775&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;_norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; 
+
+
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;angle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;theta&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arccos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;theta&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;내적-해석&quot;&gt;내적 해석&lt;/h3&gt;
+
+&lt;p&gt;내적은 정사영(orthogonal projection)된 벡터의 길이와. 관련 있다. &lt;br /&gt;
+proj(x)는 벡터 y로 정사영된 벡터 x의 그림자를 의미한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;스칼라 : 벡터 길이를 조정해주는 개념 ( 늘이거나 줄이거나 반대방향으로 조정 )&lt;/li&gt;
+  &lt;li&gt;내적 : 정사영된 벡터의 길이를 벡터y의 길이만큼 스칼라 곱을 취해줌으로써 정사영된 벡터 길이를 y벡터의 크기에 맞추어 조정 - 두 벡터 사이의 유사도를 조정하는데 사용됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Users/eunbinpark/Library/Application Support/typora-user-images/image-20210201231334944.png&quot; alt=&quot;image-20210201231334944&quot; /&gt;&lt;/p&gt;</content><author><name>Eunbin Park</name></author><category term="Linear_Algebra" /><category term="vector" /><summary type="html">벡터</summary></entry></feed>

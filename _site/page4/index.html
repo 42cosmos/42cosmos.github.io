@@ -324,7 +324,7 @@
   
 
   <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/linear_algebra/2021/01/12/ch11-Linear-Equations-in-Linear-Algebra/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/linear_algebra/2021/01/22/2-%EC%97%AD%ED%96%89%EB%A0%AC%EB%B3%B4%EB%8B%A4-Ax=b/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Eunbin Park">
@@ -346,8 +346,910 @@
           
             
                 
-                <a class="post-title-link" href="/linear_algebra/2021/01/12/ch11-Linear-Equations-in-Linear-Algebra/" itemprop="url">
-                Ch11. Linear Equations in Linear Algebra
+                <a class="post-title-link" href="/linear_algebra/2021/01/22/2-%EC%97%AD%ED%96%89%EB%A0%AC%EB%B3%B4%EB%8B%A4-Ax=b/" itemprop="url">
+                왜 역행렬을 구하는 것보다 Ax=b를 푸는게 좋을까?
+              </a>
+            
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-01-22T00:00:00+09:00">
+                2021-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Linear_Algebra" itemprop="url" rel="index">
+                    <span itemprop="name">Linear_Algebra</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/linear_algebra/2021/01/22/2-%EC%97%AD%ED%96%89%EB%A0%AC%EB%B3%B4%EB%8B%A4-Ax=b/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="/linear_algebra/2021/01/22/2-%EC%97%AD%ED%96%89%EB%A0%AC%EB%B3%B4%EB%8B%A4-Ax=b/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <p>\(A^{-1}\) 을 한 번 구해두면 \(x = A^{-1}b\) 를 통해 해를 구하면 되지 않을까?</p>
+
+
+
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/linear_algebra/2021/01/22/2-%EC%97%AD%ED%96%89%EB%A0%AC%EB%B3%B4%EB%8B%A4-Ax=b/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+        
+        
+        
+        
+          <div class="post-eof"></div>
+        
+      
+    </footer>
+  </article>
+
+  
+    
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/linear_algebra/2021/01/22/1-Matrix%EB%B6%84%EB%A5%98%EC%99%80-%EC%A0%81%ED%95%A9%ED%95%9C-Inverse-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eunbin Park">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="빈둥빈둥 공부블로그">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+                
+                <a class="post-title-link" href="/linear_algebra/2021/01/22/1-Matrix%EB%B6%84%EB%A5%98%EC%99%80-%EC%A0%81%ED%95%A9%ED%95%9C-Inverse-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" itemprop="url">
+                Matrix 분류와 적합한 Inverse 알고리즘
+              </a>
+            
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-01-22T00:00:00+09:00">
+                2021-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Linear_Algebra" itemprop="url" rel="index">
+                    <span itemprop="name">Linear_Algebra</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/linear_algebra/2021/01/22/1-Matrix%EB%B6%84%EB%A5%98%EC%99%80-%EC%A0%81%ED%95%A9%ED%95%9C-Inverse-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="/linear_algebra/2021/01/22/1-Matrix%EB%B6%84%EB%A5%98%EC%99%80-%EC%A0%81%ED%95%A9%ED%95%9C-Inverse-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="성질로써의-분류">성질로써의 분류</h2>
+
+
+
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/linear_algebra/2021/01/22/1-Matrix%EB%B6%84%EB%A5%98%EC%99%80-%EC%A0%81%ED%95%A9%ED%95%9C-Inverse-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+        
+        
+        
+        
+          <div class="post-eof"></div>
+        
+      
+    </footer>
+  </article>
+
+  
+    
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eunbin Park">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="빈둥빈둥 공부블로그">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+                
+                <a class="post-title-link" href="/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5/" itemprop="url">
+                Numpy 편의기능 및 기본조작 1 ~ 3
+              </a>
+            
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-01-20T00:00:00+09:00">
+                2021-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Linear_Algebra" itemprop="url" rel="index">
+                    <span itemprop="name">Linear_Algebra</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <p>Numpy 편의기능 및 기본조작</p>
+
+
+
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/linear_algebra/2021/01/20/numpy-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+        
+        
+        
+        
+          <div class="post-eof"></div>
+        
+      
+    </footer>
+  </article>
+
+  
+    
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/algorithm/2021/01/18/programmars-42586/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eunbin Park">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="빈둥빈둥 공부블로그">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+                
+                <a class="post-title-link" href="/algorithm/2021/01/18/programmars-42586/" itemprop="url">
+                프로그래머스 - 기능개발
+              </a>
+            
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-01-18T00:00:00+09:00">
+                2021-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Algorithm" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/algorithm/2021/01/18/programmars-42586/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="/algorithm/2021/01/18/programmars-42586/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="오늘의-문제">오늘의 문제</h3>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42586">프로그래머스 기능개발</a></p>
+
+
+
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/algorithm/2021/01/18/programmars-42586/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+        
+        
+        
+        
+          <div class="post-eof"></div>
+        
+      
+    </footer>
+  </article>
+
+  
+    
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/algorithm/2021/01/14/programmars-62048/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eunbin Park">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="빈둥빈둥 공부블로그">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+                
+                <a class="post-title-link" href="/algorithm/2021/01/14/programmars-62048/" itemprop="url">
+                프로그래머스 - 멀쩡한 사각형
+              </a>
+            
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-01-14T00:00:00+09:00">
+                2021-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Algorithm" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/algorithm/2021/01/14/programmars-62048/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="/algorithm/2021/01/14/programmars-62048/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="오늘의-문제">오늘의 문제</h3>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/62048#qna">프로그래머스 멀쩡한 사각형</a></p>
+
+
+
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/algorithm/2021/01/14/programmars-62048/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+        
+        
+        
+        
+          <div class="post-eof"></div>
+        
+      
+    </footer>
+  </article>
+
+  
+    
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/linear_algebra/2021/01/12/ch19-Theorems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eunbin Park">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="빈둥빈둥 공부블로그">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+                
+                <a class="post-title-link" href="/linear_algebra/2021/01/12/ch19-Theorems/" itemprop="url">
+                THEOREMs
               </a>
             
           
@@ -405,9 +1307,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/linear_algebra/2021/01/12/ch11-Linear-Equations-in-Linear-Algebra/#comments" itemprop="discussionUrl">
+                <a href="/linear_algebra/2021/01/12/ch19-Theorems/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="/linear_algebra/2021/01/12/ch11-Linear-Equations-in-Linear-Algebra/" itemprop="commentCount"></span>
+                        data-disqus-identifier="/linear_algebra/2021/01/12/ch19-Theorems/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -448,15 +1350,15 @@
 
 
 
-  <p><strong>A system of linear equations</strong> : A collection of one or more linear equations <br />
-<strong>Solution Set</strong> : The Set of all possible solutions of the linear system<br />
-	→ Two linear systems are called <strong>equivalent</strong> if they have the same solution set.</p>
+  <h2 id="-theorem-1">📖 Theorem 1.</h2>
+<p>Uniqueness of the Reduced Echelon Form
+Each matrix is row equivalent to one and only one reduced echelon matrix</p>
 
 
 
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/linear_algebra/2021/01/12/ch11-Linear-Equations-in-Linear-Algebra/#more" rel="contents">
+            <a class="btn" href="/linear_algebra/2021/01/12/ch19-Theorems/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -506,7 +1408,7 @@
   
 
   <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/algorithm/2021/01/12/programmars-crawling/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Eunbin Park">
@@ -528,8 +1430,8 @@
           
             
                 
-                <a class="post-title-link" href="/algorithm/2021/01/12/programmars-crawling/" itemprop="url">
-                프로그래머스 크롤링
+                <a class="post-title-link" href="/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation/" itemprop="url">
+                Ch18. The Matrix of a Linear Transformation
               </a>
             
           
@@ -569,8 +1471,8 @@
               
                 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/category/#/Algorithm" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/category/#/Linear_Algebra" itemprop="url" rel="index">
+                    <span itemprop="name">Linear_Algebra</span>
                   </a>
                 </span>
 
@@ -587,9 +1489,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/algorithm/2021/01/12/programmars-crawling/#comments" itemprop="discussionUrl">
+                <a href="/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="/algorithm/2021/01/12/programmars-crawling/" itemprop="commentCount"></span>
+                        data-disqus-identifier="/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -630,13 +1532,18 @@
 
 
 
-  <p>21년 1월부터 연구실에선 매일 오전 9시 30분부터 한 시간동안 파이썬 알고리즘 문제를 푼다.</p>
+  <h4 id="-theorem-10">📖 Theorem 10.</h4>
+<p>Let \(T : \mathbb{R^n} \to \mathbb{R^m}\) be a linear transformation. Then there exists a unique matrix A such that<br />
+\(T(\mathbf{x}) = A\mathbf{x} \mbox{ for all }\mathbf{x} \mbox{ in }\mathbb{R^n}\)<br />
+In fact, \(A\) is the \(m \times n\) matrix whose j-th column is the vector \(T(e_j)\), where \(e_j\) is the j-th column of the identity matrix in \(\mathbb{R^n}\):<br />
+\(A = \left[ T(e_1) \cdots T(e_n) \right]\)<br />
+Standard matrix for the linear transformation T</p>
 
 
 
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/algorithm/2021/01/12/programmars-crawling/#more" rel="contents">
+            <a class="btn" href="/linear_algebra/2021/01/12/ch18-The-Matrix-of-a-Linear-Transformation/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -686,7 +1593,7 @@
   
 
   <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/ml/dl/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/linear_algebra/2021/01/12/ch17-Introduction-to-Linear-Transformation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Eunbin Park">
@@ -708,8 +1615,8 @@
           
             
                 
-                <a class="post-title-link" href="/ml/dl/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0/" itemprop="url">
-                신경망 구조
+                <a class="post-title-link" href="/linear_algebra/2021/01/12/ch17-Introduction-to-Linear-Transformation/" itemprop="url">
+                Ch17. Introduction to Linear Transformation
               </a>
             
           
@@ -725,8 +1632,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-26T00:00:00+09:00">
-                2020-03-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-01-12T00:00:00+09:00">
+                2021-01-12
               </time>
             
 
@@ -749,8 +1656,8 @@
               
                 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/category/#/ML%2FDL" itemprop="url" rel="index">
-                    <span itemprop="name">ML/DL</span>
+                  <a href="/category/#/Linear_Algebra" itemprop="url" rel="index">
+                    <span itemprop="name">Linear_Algebra</span>
                   </a>
                 </span>
 
@@ -767,9 +1674,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/ml/dl/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0/#comments" itemprop="discussionUrl">
+                <a href="/linear_algebra/2021/01/12/ch17-Introduction-to-Linear-Transformation/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="/ml/dl/2020/03/26/%E1%84%89%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%E1%84%86%E1%85%A1%E1%86%BC-%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9/" itemprop="commentCount"></span>
+                        data-disqus-identifier="/linear_algebra/2021/01/12/ch17-Introduction-to-Linear-Transformation/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -810,13 +1717,16 @@
 
 
 
-  <p>기본단위 : 뉴런 -&gt; 조합해 복잡한 구조를 이룸</p>
+  <h3 id="transformation">Transformation</h3>
+<p>A transformation (or function or mapping) \(T\) from \(\mathbb{R^n} \mbox{ to } \mathbb{R^m}\)<br />
+Is a rule that assignms to each vector x in \(\mathbb{R^n}\) a vector \(T(\mathbf{x})\) in \(\mathbb{R^m}\)<br />
+Domain to CoDomain → \(T : \mathbb{R^n} \to \mathbb{R^m}\)</p>
 
 
 
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/ml/dl/2020/03/26/%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%EC%A1%B0/#more" rel="contents">
+            <a class="btn" href="/linear_algebra/2021/01/12/ch17-Introduction-to-Linear-Transformation/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -866,7 +1776,7 @@
   
 
   <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/ml/dl/2020/03/19/loss-function/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/linear_algebra/2021/01/12/ch16-Linear-Independence/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Eunbin Park">
@@ -888,8 +1798,8 @@
           
             
                 
-                <a class="post-title-link" href="/ml/dl/2020/03/19/loss-function/" itemprop="url">
-                Loss Function
+                <a class="post-title-link" href="/linear_algebra/2021/01/12/ch16-Linear-Independence/" itemprop="url">
+                Ch16. Linear Independence
               </a>
             
           
@@ -905,8 +1815,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-19T00:00:00+09:00">
-                2020-03-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-01-12T00:00:00+09:00">
+                2021-01-12
               </time>
             
 
@@ -929,8 +1839,8 @@
               
                 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/category/#/ML%2FDL" itemprop="url" rel="index">
-                    <span itemprop="name">ML/DL</span>
+                  <a href="/category/#/Linear_Algebra" itemprop="url" rel="index">
+                    <span itemprop="name">Linear_Algebra</span>
                   </a>
                 </span>
 
@@ -947,9 +1857,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/ml/dl/2020/03/19/loss-function/#comments" itemprop="discussionUrl">
+                <a href="/linear_algebra/2021/01/12/ch16-Linear-Independence/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="/ml/dl/2020/03/19/loss-function/" itemprop="commentCount"></span>
+                        data-disqus-identifier="/linear_algebra/2021/01/12/ch16-Linear-Independence/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -990,14 +1900,21 @@
 
 
 
-  <p>지도 학습 알고리즘에 반드시 정의되어야 함
-목적, 비용, 에너지 함수 등이라고도 불림 - 에너지, 코스트 등 다양한 표현에 따라 영문 표기명이 달라짐</p>
+  <h3 id="linearly-independent">Linearly Independent</h3>
+<p>A set of vectors \({\mathbf{v_1}, \cdots, \mathbf{v_p}}\) in \(\mathbb{R^n}\) is said to be linearly independent, if the vector equation<br />
+\(x\mathbf{v_1} + \cdots + x_p\mathbf{v_p} = 0\)<br />
+Has only the trivial solution. <br />
+trivial solution 만 있을 때, vector 앞에 있는 coefficient 가 다 0인 솔루션</p>
+<ul>
+  <li>어떤 vector set 에 LD 를 따지는 것은, \(A\mathbf{x} = 0\)을 푸는 것과 동일함</li>
+  <li>free variable이 한 개라도 존재하면, Nontrivial solution → 해가 무수히 존재</li>
+</ul>
 
 
 
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/ml/dl/2020/03/19/loss-function/#more" rel="contents">
+            <a class="btn" href="/linear_algebra/2021/01/12/ch16-Linear-Independence/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1047,7 +1964,7 @@
   
 
   <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/ml/dl/2020/03/17/tensorflow/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/linear_algebra/2021/01/12/ch15-Solution-Sets-of-Linear-Systems/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Eunbin Park">
@@ -1069,8 +1986,8 @@
           
             
                 
-                <a class="post-title-link" href="/ml/dl/2020/03/17/tensorflow/" itemprop="url">
-                tensorflow
+                <a class="post-title-link" href="/linear_algebra/2021/01/12/ch15-Solution-Sets-of-Linear-Systems/" itemprop="url">
+                Ch15. Solution Sets of Linear Systems
               </a>
             
           
@@ -1086,8 +2003,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-17T00:00:00+09:00">
-                2020-03-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-01-12T00:00:00+09:00">
+                2021-01-12
               </time>
             
 
@@ -1110,8 +2027,8 @@
               
                 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/category/#/ML%2FDL" itemprop="url" rel="index">
-                    <span itemprop="name">ML/DL</span>
+                  <a href="/category/#/Linear_Algebra" itemprop="url" rel="index">
+                    <span itemprop="name">Linear_Algebra</span>
                   </a>
                 </span>
 
@@ -1128,9 +2045,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/ml/dl/2020/03/17/tensorflow/#comments" itemprop="discussionUrl">
+                <a href="/linear_algebra/2021/01/12/ch15-Solution-Sets-of-Linear-Systems/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="/ml/dl/2020/03/17/tensorflow/" itemprop="commentCount"></span>
+                        data-disqus-identifier="/linear_algebra/2021/01/12/ch15-Solution-Sets-of-Linear-Systems/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1171,913 +2088,15 @@
 
 
 
-  <p><code class="language-plaintext highlighter-rouge"> import tensorflow as tf</code></p>
+  <h3 id="homogeneous-linear-systems">Homogeneous Linear Systems</h3>
+<p><strong>Trivial solution</strong> <br />
+\(A\mathbf{x} = 0\) (→ 제로 백터 ) always has at least one solution \(\mathbf{x} = 0\)</p>
 
 
 
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/ml/dl/2020/03/17/tensorflow/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-        
-        
-        
-        
-          <div class="post-eof"></div>
-        
-      
-    </footer>
-  </article>
-
-  
-    
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/ml/dl/2020/03/11/decision-tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Eunbin Park">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="assets/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="빈둥빈둥 공부블로그">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-                
-                <a class="post-title-link" href="/ml/dl/2020/03/11/decision-tree/" itemprop="url">
-                Decision Tree
-              </a>
-            
-          
-        </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-11T00:00:00+09:00">
-                2020-03-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/category/#/ML%2FDL" itemprop="url" rel="index">
-                    <span itemprop="name">ML/DL</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/ml/dl/2020/03/11/decision-tree/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="/ml/dl/2020/03/11/decision-tree/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  <p>장점 : 해석력 &gt; 모델의 정확성 이외에도 활용성 ( 메세지 ) :: 결과에 대한 풀이 (연속형 - 범주형 등의 형태에 대한 범용성 높음)</p>
-
-
-
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ml/dl/2020/03/11/decision-tree/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-        
-        
-        
-        
-          <div class="post-eof"></div>
-        
-      
-    </footer>
-  </article>
-
-  
-    
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/ml/dl/2020/03/10/support-vector-machine/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Eunbin Park">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="assets/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="빈둥빈둥 공부블로그">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-                
-                <a class="post-title-link" href="/ml/dl/2020/03/10/support-vector-machine/" itemprop="url">
-                SVM
-              </a>
-            
-          
-        </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-10T00:00:00+09:00">
-                2020-03-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/category/#/ML%2FDL" itemprop="url" rel="index">
-                    <span itemprop="name">ML/DL</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/ml/dl/2020/03/10/support-vector-machine/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="/ml/dl/2020/03/10/support-vector-machine/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  <p>정확한 분포를 찾을 수 없을 때 &gt; lda 를 적용하기 힘들 때 - 선형관계가 아닌 경우</p>
-
-
-
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ml/dl/2020/03/10/support-vector-machine/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-        
-        
-        
-        
-          <div class="post-eof"></div>
-        
-      
-    </footer>
-  </article>
-
-  
-    
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/ml/dl/2020/03/09/ml-study/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Eunbin Park">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="assets/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="빈둥빈둥 공부블로그">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-                
-                <a class="post-title-link" href="/ml/dl/2020/03/09/ml-study/" itemprop="url">
-                Linear Discriminant Analysis
-              </a>
-            
-          
-        </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-09T00:00:00+09:00">
-                2020-03-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/category/#/ML%2FDL" itemprop="url" rel="index">
-                    <span itemprop="name">ML/DL</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/ml/dl/2020/03/09/ml-study/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="/ml/dl/2020/03/09/ml-study/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  <p>데이터 분류 방법 : LDA</p>
-
-
-
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ml/dl/2020/03/09/ml-study/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-        
-        
-        
-        
-          <div class="post-eof"></div>
-        
-      
-    </footer>
-  </article>
-
-  
-    
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/python/2020/03/01/date-&-time_handling-with-python/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Eunbin Park">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="assets/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="빈둥빈둥 공부블로그">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-                
-                <a class="post-title-link" href="/python/2020/03/01/date-&-time_handling-with-python/" itemprop="url">
-                date & time handling in python
-              </a>
-            
-          
-        </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-01T00:00:00+09:00">
-                2020-03-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/category/#/Python" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/python/2020/03/01/date-&-time_handling-with-python/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="/python/2020/03/01/date-&-time_handling-with-python/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  <p><a href="https://datascienceschool.net/view-notebook/465066ac92ef4da3b0aba32f76d9750a/">데이터 사이언스 스쿨</a></p>
-
-
-
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/python/2020/03/01/date-&-time_handling-with-python/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-        
-        
-        
-        
-          <div class="post-eof"></div>
-        
-      
-    </footer>
-  </article>
-
-  
-    
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/python/2020/03/01/Time-Series-Analysis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Eunbin Park">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="assets/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="빈둥빈둥 공부블로그">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-                
-                <a class="post-title-link" href="/python/2020/03/01/Time-Series-Analysis/" itemprop="url">
-                Time Series with python
-              </a>
-            
-          
-        </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-01T00:00:00+09:00">
-                2020-03-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/category/#/Python" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/python/2020/03/01/Time-Series-Analysis/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="/python/2020/03/01/Time-Series-Analysis/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  <h3 id="시계열-데이터-분석">시계열 데이터 분석</h3>
-
-
-
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/python/2020/03/01/Time-Series-Analysis/#more" rel="contents">
+            <a class="btn" href="/linear_algebra/2021/01/12/ch15-Solution-Sets-of-Linear-Systems/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -2125,7 +2144,7 @@
 
 
 
-    <a class="extend prev" rel="prev" href="/page3"><i class="fa fa-angle-left"></i></a> <a class="page-number" href="/">1</a> <span class="space">&hellip;</span> <a class="page-number" href="/page3">3</a> <span class="page-number current">4</span> <a class="page-number" href="/page5">5</a> <span class="space">&hellip;</span> <a class="page-number" href="/page10">10</a> <a class="extend prev" rel="next" href="/page5"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page3"><i class="fa fa-angle-left"></i></a> <a class="page-number" href="/">1</a> <span class="space">&hellip;</span> <a class="page-number" href="/page3">3</a> <span class="page-number current">4</span> <a class="page-number" href="/page5">5</a> <span class="space">&hellip;</span> <a class="page-number" href="/page11">11</a> <a class="extend prev" rel="next" href="/page5"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2171,7 +2190,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">92</span>
+                <span class="site-state-item-count">105</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -2193,7 +2212,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
